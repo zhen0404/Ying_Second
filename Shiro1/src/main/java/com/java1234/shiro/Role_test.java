@@ -9,6 +9,7 @@ public class Role_test {
 
 	@Test
 	public void test1(){
+		System.out.println();
 		Subject currentUser=ShrioUtil.login("classpath:shiro_role.ini", "jack", "123");
 		if(currentUser.hasRole("role2")){
 			System.out.println("ÓÐrole2È¨ÏÞ");

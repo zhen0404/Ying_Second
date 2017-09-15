@@ -19,11 +19,10 @@ public class MyRealm extends AuthorizingRealm{
 	private BackDeskLoginDaoImpl userdao;
 	
 	/**
-	 * èµ‹äºˆç”¨æˆ·æƒé™ï¼Œè§’è‰²
+	 * ¸³ÓèÓÃ»§È¨ÏŞ£¬½ÇÉ«
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		System.out.println("å¼€å§‹æˆæƒ");
 		String userName=(String)principals.getPrimaryPrincipal();
 		SimpleAuthorizationInfo authoriza=new SimpleAuthorizationInfo();
 		authoriza.setRoles(userdao.getRolesByName(userName));
@@ -32,11 +31,10 @@ public class MyRealm extends AuthorizingRealm{
 	}
 
 	/**
-	 *éªŒè¯ç”¨æˆ·èº«ä»½
+	 *ÑéÖ¤ÓÃ»§Éí·İ
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		System.out.println("å¼€å§‹éªŒè¯èº«ä»½");
 		String userName=(String)token.getPrincipal();
 		Users users=userdao.getUserBuUname(userName);
 		if(users!=null){

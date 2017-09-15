@@ -14,8 +14,6 @@
 
 	<meta content="" name="author" />
 
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->
-
 	<link href="/Ying_Second/back_desk/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
 	<link href="/Ying_Second/back_desk/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
@@ -32,21 +30,12 @@
 
 	<link href="/Ying_Second/back_desk/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 
-	<!-- END GLOBAL MANDATORY STYLES -->
-
-	<!-- BEGIN PAGE LEVEL STYLES -->
-
 	<link rel="stylesheet" href="/Ying_Second/back_desk/media/css/DT_bootstrap.css" />
-
-	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
 </head>
 <body class="page-header-fixed">
 
-<div class="page-container row-fluid">
-		<div class="page-content">
-			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="portlet box green">
@@ -60,7 +49,12 @@
 								</div>
 							</div>
 							<div class="portlet-body flip-scroll">
-								用户名：<input >
+								<form action="/Ying_Second/usersManager/listMember">
+									用户名：<input name="name" type="text">　　手机号：<input name="mobile_Phone" type="text" >　　
+									姓名：<input name="member_name" type="text">　　邀请码：<input name="invitationCode" type="text">　　
+									注册时间：<input name="create_date" type="date">　
+									<input type="submit" value="查询">
+								</form>
 								<table class="table-bordered table-striped table-condensed flip-content">
 									<thead class="flip-content">
 										<tr>
@@ -104,9 +98,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="footer">
 

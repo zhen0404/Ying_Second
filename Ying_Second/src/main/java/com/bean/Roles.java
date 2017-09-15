@@ -13,18 +13,19 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-/**
- * 角色�?
- * @author Administrator
- *
- */
-
 @Table(name="roles")
 @Entity
 public class Roles {
 
 	private int id;
-	private String rname;//角色名称
+	private String rname;
+	private String createTime;
+	public String getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
 	private Set<Permission> pers=new HashSet<Permission>();
 	
 	

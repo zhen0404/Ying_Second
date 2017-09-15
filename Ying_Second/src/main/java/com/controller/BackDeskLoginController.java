@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
@@ -21,18 +23,20 @@ import com.bean.Users;
 public class BackDeskLoginController {
 	
 	@RequestMapping("login")
-	public String login(Users users,Model model){
+	public String login(Users users,Model model,HttpServletRequest request){
 		String msg="";
 		System.out.println("userName:"+users.getUser_name()+"userPS:"+users.getPassword());
 		Subject sub=SecurityUtils.getSubject();
 		UsernamePasswordToken token=new UsernamePasswordToken(users.getUser_name(),users.getPassword());
 		try {
 			sub.login(token);
+			request.getSession().setAttribute("userName", users.getName());
+			request.getSession().setAttribute("userPs", users.getPassword());
 			return "backModel/back_desk";
-		} catch (IncorrectCredentialsException e) {  
+		} catch (IncorrectCredentialsException e) {
 	        msg = "登录密码错误. Password for account " + token.getPrincipal() + " was incorrect.";  
 	        model.addAttribute("message", msg);  
-	        System.out.println(msg);  
+	        System.out.println(msg);
 	    } catch (ExcessiveAttemptsException e) {  
 	        msg = "登录失败次数过多";  
 	        model.addAttribute("message", msg);  
@@ -57,7 +61,7 @@ public class BackDeskLoginController {
 	        msg = "您没有得到相应的授权！" + e.getMessage();  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
-	    } 
+	    }
 		return "backModel/back_login";
 	}
 	

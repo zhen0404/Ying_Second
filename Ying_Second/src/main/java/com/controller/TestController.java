@@ -27,6 +27,11 @@ public class TestController {
     	return "redirect:/usersManager/listMember";
     }
 	
+	@RequestMapping("/role")
+    public String role(){
+    	return "redirect:/role/listRole";
+    }
+	
 	@RequestMapping("/font")
     public String font(){
     	return "font_desk/frontHome";

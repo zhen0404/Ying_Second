@@ -1,10 +1,14 @@
 package com.bean;
-
+/*
+ * …æ¡ÀtypeId
+ */
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table
@@ -12,7 +16,6 @@ import javax.persistence.Table;
 public class News {
 
 	private int id;
-	private int typeId;
 	private String title;
 	private String subTitle;
 	private int sort;
@@ -35,6 +38,15 @@ public class News {
 	private int updId;
 	private Date updTime;
 	private Date addTime;
+	private int typeId;
+
+	public int getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
 
 	public String getSubTitle() {
 		return subTitle;
@@ -214,13 +226,6 @@ public class News {
 		this.id = id;
 	}
 
-	public int getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
-	}
 
 	public String getTitle() {
 		return title;

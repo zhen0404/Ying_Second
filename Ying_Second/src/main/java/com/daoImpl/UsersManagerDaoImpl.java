@@ -45,30 +45,32 @@ public class UsersManagerDaoImpl implements UsersManagerDao {
 		// TODO Auto-generated method stub
 		String hql="from Member where 0=0 ";
 		hql=getHql(hql,m);
+		System.out.println("hql:"+hql);
 		List<Member> mlist=getSession().createQuery(hql).setFirstResult((currentPage-1)*5).setMaxResults(5).list();
 		return mlist;
 	}
 	
 	public String getHql(String hql,Map m){
-		String member_name=(String) m.get("member_name");//
+		String member_name=(String) m.get("member_name");//真实姓名
 		String mobile_phone=(String) m.get("mobile_phone");
-		String name=(String) m.get("name");//
+		String name=(String) m.get("name");//用户名
 		String invitationCode =(String) m.get("invitationCode");
 		String create_date=(String) m.get("create_date");
 		if(member_name!=null&&!"".equals(member_name)){
-			hql+=hql+" and member_name='"+member_name+"'";
+			System.out.println("member_name:"+member_name);
+			hql+=" and member_name like '%"+member_name+"%'";
 		}
 		if(mobile_phone!=null&&!"".equals(mobile_phone)){
-			hql+=hql+" and mobile_phone='"+mobile_phone+"'";
+			hql+=" and mobile_phone like '%"+mobile_phone+"%'";
 		}
 		if(name!=null&&!"".equals(name)){
-			hql+=hql+" and name='"+name+"'";
+			hql+=" and name like '%"+name+"%'";
 		}
 		if(invitationCode!=null&&!"".equals(invitationCode)){
-			hql+=hql+" and invitationCode='"+invitationCode+"'";
+			hql+=" and invitationCode like '%"+invitationCode+"%'";
 		}
 		if(create_date!=null&&!"".equals(create_date)){
-			hql+=hql+" and create_date='"+create_date+"'";
+			hql+=" and create_date like '%"+create_date+"%'";
 		}
 		return hql;
 	}
@@ -76,16 +78,14 @@ public class UsersManagerDaoImpl implements UsersManagerDao {
 	public Object count(Map map){
 		String sql="select count(*) from member where 0=0 ";
 		sql=getHql(sql, map);
+		System.out.println("sql:"+sql);
 		Session session=getSession();
 		return session.createSQLQuery(sql).uniqueResult().toString();
 	}
-	
-	public String listDataHql(String hql,Map map){
-		String qname=(String)map.get("qname");
-		if(qname!=null&&!qname.equals("")){
-			hql+=" and name like '%"+qname+"%'";
-		}
-		return hql;
-	}
 
+	public String listDataHql(String hql, Map map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

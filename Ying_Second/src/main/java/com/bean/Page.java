@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Page {
 
-	private int currentPage;
-	private int allPage;
-	private int rows;
-	private int size=5;
+	private int currentPage;//当前页面
+	private int allPage;//总页数 
+	private int rows;//总行数  
+	private int size=5;//每页显示的行数  
 	public int getCurrentPage() {
 		return currentPage;
 	}

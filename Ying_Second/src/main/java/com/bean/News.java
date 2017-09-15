@@ -47,6 +47,19 @@ public class News {
 	public void setTypeId(int typeId) {
 		this.typeId = typeId;
 	}
+	
+	private News_type news_type;
+	
+
+	@ManyToOne
+	@JoinColumn(name="tid")
+	public News_type getNews_type() {
+		return news_type;
+	}
+
+	public void setNews_type(News_type news_type) {
+		this.news_type = news_type;
+	}
 
 	public String getSubTitle() {
 		return subTitle;

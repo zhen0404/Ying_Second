@@ -399,9 +399,7 @@ li.active a {
 
 		<div class="indexBanner">
 
-
 			<div id="homebanner" class="carousel slide" data-ride="carousel">
-
 
 				<ol class="carousel-indicators">
 					<li data-target="#homebanner" data-slide-to="0" class=" active"></li>
@@ -426,19 +424,17 @@ li.active a {
 						style="margin-bottom: 15px; line-height: 50px; font-size: 20px; text-align: center; color: #fff;">
 						现在开始<span style="color: #917739;">您的财富</span> 之旅吧
 					</p>
-					<a
-						style="float: none; margin: 0 auto; margin-left: 15px; display: inline-block; margin-bottom: 10px;"
-						href="/Ying_Second/show/frontIframeLogin"><img
-						src="/Ying_Second/img/ying_index_login_btn.png"></a>
-						 <a
-						style="float: none; margin: 0 auto; margin-left: 15px; margin-top: 10px;"
-						href="http://pro.ying158.com/web/regis"><img
-						src="/Ying_Second/img/ying_index_reg_btn.png"></a>
-
+					<a style="float: none; margin: 0 auto; margin-left: 15px; display: inline-block; margin-bottom: 10px;"
+						href="/Ying_Second/frontIframeLogin">
+						<img src="/Ying_Second/img/ying_index_login_btn.png">
+					</a>
+						 <a style="float: none; margin: 0 auto; margin-left: 15px; margin-top: 10px;"
+						href="/Ying_Second/frontIframeLogin">
+						<img src="/Ying_Second/img/ying_index_reg_btn.png"></a>
 				</div>
 			</div>
 		</div>
-
+		
 		<div class="container index">
 			<div class="row">
 				<div class="report">
@@ -946,8 +942,7 @@ li.active a {
 					<div>
 						<button class="btn btn-primary" onclick="loginFromModal()"
 							style="padding-left: 20px; padding-right: 20px;">登录</button>
-						<a class="btn btn-info"
-							href="http://www.ying158.com/Account/Regist" target="blank"
+						<a class="btn btn-info" href="http://www.ying158.com/Account/Regist" target="blank"
 							style="padding-left: 20px; padding-right: 20px; margin-left: 20px;">注册</a>
 					</div>
 				</div>

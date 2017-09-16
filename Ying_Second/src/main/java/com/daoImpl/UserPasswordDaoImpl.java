@@ -18,8 +18,8 @@ public class UserPasswordDaoImpl implements UserPasswordDao {
 	}
 	
 	public void updateUserPassword(String user_name,String ps) {
-		// TODO Auto-generated method stub
-		getSession().createSQLQuery("update users set PASSWORD ="+ps+"  WHERE user_name="+user_name+"");
+		String sql="update users set password ='"+ps+"' where user_name='"+user_name+"'";
+		getSession().createSQLQuery(sql).executeUpdate();
 	}
 
 }

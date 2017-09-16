@@ -377,34 +377,32 @@ li.active a {
 					<div class="item item1">
 						<div class="lLabel">手机号</div>
 						<div class="lInput">
-							<img src="/Ying_Second/img/userIcon.png"><input
-								placeholder="手机号" id="phone" name="phone"
-								class="form-control phone" type="text"> <span
-								class="errorInfo">用户名不能为空</span>
+							<img src="/Ying_Second/img/userIcon.png">
+							<input placeholder="手机号" id="phone" name="phone" class="form-control phone" type="text"> 
+							<span class="errorInfo">用户名不能为空</span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="lLabel">登录密码</div>
 						<div class="lInput">
-							<img src="/Ying_Second/img/passwordIcon.png"><input
-								placeholder="密码" id="password" name="password"
-								class="form-control password" type="password"><span
-								class="errorInfo"></span>
+							<img src="/Ying_Second/img/passwordIcon.png">
+							<input placeholder="密码" id="password" name="password" class="form-control password" type="password">
+							<span class="errorInfo"></span>
 						</div>
 					</div>
 					<div class="rest">
 						<p class="error"></p>
-						<span id="loginError"></span><a class="forgetLink"
-							href="http://pro.ying158.com/web/forget">忘记密码？</a>
+						<span id="loginError"></span>
+						<a class="forgetLink" href="http://pro.ying158.com/web/forget">忘记密码？</a>
 					</div>
 					<div class="rest">
 						<button class="btn loginBtn submit">立即登录</button>
 					</div>
 					<div class="rest">
-						<span class="registUrl" style="color: black;">没有账号？<a
-							href="http://pro.ying158.com/web/regis">免费注册</a></span>
+						<span class="registUrl" style="color: black;">没有账号？
+							<a href="http://pro.ying158.com/web/regis">免费注册</a>
+						</span>
 					</div>
-
 				</div>
 			</div>
 		</div>

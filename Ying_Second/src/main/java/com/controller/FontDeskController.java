@@ -27,7 +27,7 @@ public class FontDeskController {
 	//网上体验中心
 	@RequestMapping("exploration")
 	public String fontExploration(){
-		return "font_desk/frontExploration";
+		return "font_desk/fontOnlineExperience";
 	}
 	
 	//登录页面
@@ -77,5 +77,17 @@ public class FontDeskController {
 	public String toSign(){
 		return "font_desk/fontSign";
 	}
+	
+	//加法库
+	@RequestMapping("")
+	public String myselfAdd(){
+		return "";
+	}
+	
+//	//网上体验中心
+//	@RequestMapping("onlineExp")
+//	public String onlineExp(){
+//		return "font_desk/fontOnlineExperience";
+//	}
 	
 }

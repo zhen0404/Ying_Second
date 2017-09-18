@@ -499,9 +499,9 @@ li.active a {
 								<p class="abox">
 									<span class="abtn" onclick="toBuy()">立即购买</span>
 								</p>
-						</a></li>
-						<li><a class="all" target="_blank"
-							href="http://pro.ying158.com/finance/financeView/27">
+						</li>
+						<li>
+<!-- 						<a class="all" target="_blank" href="http://pro.ying158.com/finance/financeView/27"> -->
 								<h2 class="tit">
 									<span>募</span>凯丰对冲9号
 								</h2> <span class="fenl">股权</span>
@@ -517,9 +517,10 @@ li.active a {
 								<p class="abox">
 									<span class="abtn" onclick="toBuy()" >立即购买</span>
 								</p>
-						</a></li>
-						<li><a class="all" target="_blank"
-							href="http://pro.ying158.com/finance/financeView/24">
+<!-- 						</a> -->
+						</li>
+						<li>
+<!-- 						<a class="all" target="_blank" href="http://pro.ying158.com/finance/financeView/24"> -->
 								<h2 class="tit">
 									<span>募</span>和聚友道专享1号
 								</h2> <span class="fenl">私募</span>
@@ -535,7 +536,8 @@ li.active a {
 								<p class="abox">
 									<span class="abtn" onclick="toBuy()" >立即购买</span>
 								</p>
-						</a></li>
+<!-- 						</a> -->
+						</li>
 					</ul>
 				</div>
 					

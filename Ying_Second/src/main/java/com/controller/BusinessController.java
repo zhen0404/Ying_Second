@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.News;
+import com.bean.News_type;
 import com.bean.Page;
 import com.service.BaseService;
+import com.service.CollegeService;
+import com.controller.*;
 
 
 @Controller
@@ -24,20 +27,20 @@ public class BusinessController {
 	
 	@Autowired
 	@Qualifier("businessService")
-	private BaseService<News> baseService;
+	private CollegeService<News> collegeService;
 	
 	@Autowired
 	private Page pb;
 	
 	@RequestMapping("/saveBusiness")
 	public String save(News news){
-		baseService.save(news);
+		collegeService.save(news);
 		return "redirect:/business/ListNews";
 	}
-	
+
+
 	@RequestMapping("/ListNews")
 	public String ListNews(Model model,@ModelAttribute("qname")String qname,@RequestParam(required=true,defaultValue="1")int page,String flag){
-	
 		Map map=new HashMap();
 		pb.setSize(10);
 		pb.setCurrentPage(page);
@@ -45,33 +48,44 @@ public class BusinessController {
 		map.put("flag",flag);
 		map.put("pb",pb);
 		System.out.println("come in");
-		List<News> list=baseService.listAll(map);
+		List<News> list=collegeService.listAll(map);
+		List<News_type> Tlist=collegeService.typeList();
+		model.addAttribute("typeList",Tlist);
+		System.out.println("tlistsize:"+Tlist.size());
 		model.addAttribute("ListNews",list);
 		model.addAttribute("pb",pb);
 		return "backModel/back_Business";
 	}
-	//
+
 	@RequestMapping("/deleteBusiness")
-	public String delete(News news){
-		baseService.delete(news);
+	public String delete(int id){
+		News news=collegeService.getById(id);
+		collegeService.delete(news);
 		return "redirect:/business/ListNews";
 	}
 	
 	@RequestMapping("/initData/{id}")
 	public String initData(@PathVariable("id")int id,Model model){
-		News news=baseService.getById(id);
+		News news=collegeService.getById(id);
+		List<News_type> Tlist=collegeService.typeList();
+		model.addAttribute("typeList",Tlist);
 		model.addAttribute("news",news);
 		return "backModel/BusinessEdit";
 	}
 	
 	@RequestMapping("/updateBusiness")
 	public String update(News news){
-		this.baseService.update(news);
+		
+		this.collegeService.update(news);
 		return "redirect:/business/ListNews";
 	}
 	
 	@RequestMapping("/toBusinessAdd")
 	public String toBusinessAdd(Model model){
+		List<News> list=collegeService.listAll();
+		List<News_type> Tlist=collegeService.typeList();
+		model.addAttribute("typeList",Tlist);
+		model.addAttribute("ListNews",list);
 		return "backModel/BusinessAdd";
 		
 	}

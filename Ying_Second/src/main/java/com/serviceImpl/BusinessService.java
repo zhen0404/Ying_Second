@@ -13,16 +13,23 @@ import com.bean.Member;
 import com.bean.News;
 import com.bean.News_type;
 import com.dao.BaseDao;
+import com.dao.CollegeDao;
 import com.daoImpl.BusinessDao;
 import com.service.BaseService;
+import com.service.CollegeService;
 
 @Service
 @Transactional
-public class BusinessService implements BaseService<News> {
+public class BusinessService implements CollegeService<News> {
 
 	@Autowired(required=true)
 	@Qualifier(value="businessDao")
-	private BaseDao<News> baseDao;
+	private CollegeDao<News> collegeDao ;
+
+	public List<News_type> typeList() {
+		return this.collegeDao.typeList();
+	}
+	
 	
 	public List<News> listAll() {
 		// TODO Auto-generated method stub
@@ -30,26 +37,26 @@ public class BusinessService implements BaseService<News> {
 	}
 
 	public void save(News news) {
-		this.baseDao.save(news);
+		this.collegeDao.save(news);
 		
 	}
 
 	public void delete(News news) {
-		this.baseDao.delete(news);
+		this.collegeDao.delete(news);
 		
 	}
 
 	public News getById(int id) {
-		return  this.baseDao.getById(id);
+		return  this.collegeDao.getById(id);
 		
 	}
 
 	public void update(News news) {
-		this.baseDao.update(news);
+		this.collegeDao.update(news);
 		
 	}
 
 	public List<News> listAll(Map map) {
-		return this.baseDao.listAll(map);
+		return this.collegeDao.listAll(map);
 	}
 }

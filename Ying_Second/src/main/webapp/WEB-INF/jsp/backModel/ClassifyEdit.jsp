@@ -78,22 +78,22 @@
 							<div class="portlet-body flip-scroll">
 
 								
-								<form action=""method="post">
+								<form action="/Ying_Second/classify/updateNews_type" method="post">
 									上级类别<font color="red">*</font>：<select name="typeId" id="typeId">
 												<option value="-1">全选</option>
-												<c:forEach items="${ListNews_type }" var="t">
-												<option value="${t.id }">${t.name }</option>
+												<c:forEach items="${ListNews_type }" var="y">
+												<option value="${y.id }">${y.name }</option>3
+												 
 												</c:forEach>
 											</select><br><br>
-									类别名称<font color="red">*</font>：<input type="text" id="name" value="${n.name }"><br><br>
-									排序<font color="red">*</font>：<input type="text" id="sort" value="${n.sort }"><br><br>
-									简介：<input type="text" id="info" value="${n.info }"><br><br>
+									类别名称<font color="red">*</font>：<input type="text" id="name" value="${news_type.name }"><br><br>
+									排序<font color="red">*</font>：<input type="text" id="sort" value="${news_type.sort }"><br><br>
+									简介：<input type="text" id="info" value="${news_type.info }"><br><br>
 								
 									
 									
 									<input type="submit" value="保存">
 								
-								</form>
 								
 								</form>
 							</div>

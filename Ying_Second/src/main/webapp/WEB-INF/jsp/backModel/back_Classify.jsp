@@ -135,10 +135,11 @@
 									</tbody>
 
 								</table>
-								<a href="/Ying_Second/classify/ListNews_type?flag=first&page=${pb.page }">首页</a>
-								<a href="/Ying_Second/classify/ListNews_type?flag=up&page=${pb.page }">上一页</a>
-								<a href="/Ying_Second/classify/ListNews_type?flag=next&page=${pb.page }">下一页</a>
-								<a href="/Ying_Second/classify/ListNews_type?flag=last&page=${pb.page }">末页</a>
+								第${pb.currentPage }页 /共${pb.allPage }页
+								<a href="/Ying_Second/classify/ListNews_type?flag=first&page=${pb.currentPage }">首页</a>
+								<a href="/Ying_Second/classify/ListNews_type?flag=up&page=${pb.currentPage }">上一页</a>
+								<a href="/Ying_Second/classify/ListNews_type?flag=next&page=${pb.currentPage }">下一页</a>
+								<a href="/Ying_Second/classify/ListNews_type?flag=last&page=${pb.currentPage }">末页</a>
 							</form>
 
 							</div>

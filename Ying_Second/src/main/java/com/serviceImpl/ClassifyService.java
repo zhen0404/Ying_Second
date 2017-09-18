@@ -12,45 +12,53 @@ import org.springframework.stereotype.Service;
 import com.bean.News;
 import com.bean.News_type;
 import com.dao.BaseDao;
+import com.dao.CollegeDao;
 import com.service.BaseService;
+import com.service.CollegeService;
 
 @Service
 @Transactional
-public class ClassifyService implements BaseService<News_type> {
+public class ClassifyService implements CollegeService<News_type> {
 
 	
 	@Autowired(required=true)
 	@Qualifier(value="classifyDao")
-	private BaseDao<News_type> baseDao;
+	private CollegeDao<News_type> collegeDao;
 
 	public List<News_type> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List list=this.collegeDao.listAll();
+		return list;
 	}
 
 	public void save(News_type news_type) {
-		this.baseDao.save(news_type);
+		this.collegeDao.save(news_type);
 		
 	}
 
 	public void delete(News_type news_type) {
-		this.baseDao.delete(news_type);
+		this.collegeDao.delete(news_type);
 		
 	}
 
 	public News_type getById(int id) {
 	
-		return this.baseDao.getById(id);
+		return this.collegeDao.getById(id);
 	}
 
 	public void update(News_type news_type) {
-		this.baseDao.update(news_type);
+		this.collegeDao.update(news_type);
 		
 	}
 
 	public List<News_type> listAll(Map map) {
-		return this.baseDao.listAll(map);
+		return this.collegeDao.listAll(map);
 	}
+
+	public List<News_type> typeList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 	

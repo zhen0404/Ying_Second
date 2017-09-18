@@ -77,9 +77,9 @@
 							<div class="portlet-body flip-scroll">
 
 								<form action="/Ying_Second/business/saveBusiness" method="post">
-									所属类别<font color="red">*</font>：<select name="typeId" id="typeId">
+									所属类别<font color="red">*</font>：<select name="tid" id="tid">
 												<option value="-1">全选</option>
-												<c:forEach items="${ListNews_type }" var="t">
+												<c:forEach items="${typeList }" var="t">
 												<option value="${t.id }">${t.name }</option>
 												</c:forEach>
 											</select><br><br>

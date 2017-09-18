@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bean.News_type;
 import com.bean.Page;
 import com.service.BaseService;
+import com.service.CollegeService;
 
 
 @Controller
@@ -25,14 +26,14 @@ public class ClassifyController {
 	
 	@Autowired
 	@Qualifier("classifyService")
-	private BaseService<News_type> baseService;
+	private CollegeService<News_type> collegeService;
 	
 	@Autowired
 	private Page pb;
 	
 	@RequestMapping("/saveNews_type")
 	public String save(News_type news_type){
-		baseService.save(news_type);
+		collegeService.save(news_type);
 		return "redirect:/classify/ListNews_type";
 	}
 
@@ -44,7 +45,7 @@ public class ClassifyController {
 		map.put("tname",tname);
 		map.put("flag",flag);
 		map.put("pb",pb);
-		List<News_type> list=baseService.listAll(map);
+		List<News_type> list=collegeService.listAll(map);
 		model.addAttribute("ListNews_type",list);
 		System.out.println("list.size"+list.size());
 		model.addAttribute("pb",pb);
@@ -53,25 +54,29 @@ public class ClassifyController {
 	//
 	@RequestMapping("/deleteNews_type")
 	public String delete(News_type news_type){
-		baseService.delete(news_type);
+		collegeService.delete(news_type);
 		return "redirect:/classify/ListNews_type";
 	}
 	
 	@RequestMapping("/initData/{id}")
 	public String initData(@PathVariable("id")int id,Model model){
-		News_type news_type=baseService.getById(id);
+		News_type news_type=collegeService.getById(id);
 		model.addAttribute("news_type",news_type);
+		List<News_type> list=collegeService.listAll();
+		model.addAttribute("ListNews_type",list);
 		return "backModel/ClassifyEdit";
 	}
 	
 	@RequestMapping("/updateNews_type")
 	public String update(News_type news_type){
-		this.baseService.update(news_type);
+		this.collegeService.update(news_type);
 		return "redirect:/classify/ListNews_type";
 	}
 	
 	@RequestMapping("/toClassifyAdd")
-	public String toClassifyAdd(){
+	public String toClassifyAdd(Model model){
+		List<News_type> list=collegeService.listAll();
+		model.addAttribute("ListNews_type",list);
 		return "backModel/ClassifyAdd";
 	}
 }

@@ -60,15 +60,22 @@ public class FontDeskController {
 		return "font_desk/frontStudy";
 	}
 	
+	//我的加法库
 	@RequestMapping("frontLast")
 	public String frontLast(){
-		return "font_desk/frontStudy";
+		return "font_desk/fontAddition";
 	}
 	
 	//登录
 	@RequestMapping("frontIframeLogin")
 	public String frontLogin(){
 		return "font_desk/frontIframeLogin";
+	}
+	
+	//注册
+	@RequestMapping("toSign")
+	public String toSign(){
+		return "font_desk/fontSign";
 	}
 	
 }

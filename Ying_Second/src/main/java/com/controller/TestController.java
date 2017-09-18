@@ -57,13 +57,13 @@ public class TestController {
         	return "backModel/testTable/table3";
         }
         
-        @RequestMapping("/table4")
+        @RequestMapping("/yanzheng")
         public String table4(){
         	return "backModel/testTable/table4";
         }
         
-        @RequestMapping("/table5")
+        @RequestMapping("/testjsp")
         public String table5(){
-        	return "backModel/testTable/table5";
+        	return "table/testTable";
         }
 }

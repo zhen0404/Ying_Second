@@ -31,13 +31,12 @@
         <div class="telInfo">
             <img src="/Ying_Second/img/400Icon.png" >
             <div class="detail">
-                        <a style="font-size:18px;float:right;margin-top:5px;color:#917739;" target="_parent" href="/Ying_Second/toFrontUserLogin/login">登录</a>
-                        <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#917739;" target="_parent" href="http://pro.ying158.com/web/regis">注册</a>
+                        <a style="font-size:18px;float:right;margin-top:5px;color:#917739;" target="_parent" href="/Ying_Second/frontIframeLogin">登录</a>
+                        <a style="font-size:18px;float:right;margin-right:15px;margin-top:5px;color:#917739;" target="_parent" href="/Ying_Second/toSign">注册</a>
                 <br>4000-999-158
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

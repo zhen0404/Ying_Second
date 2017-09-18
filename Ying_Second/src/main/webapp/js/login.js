@@ -45,22 +45,25 @@ $(function () {
                 return;
             }
 
-            $.ajax({
-                type: "POST", // 用POST方式传输
-                dataType: "json", // 数据格式:JSON
-                async: true,
-                url: base + '/web/login', // 目标地址
-                data: {
-                    mobilePhone: phone.val(),
-                    password: password.val()
-                },
-                success: function (msg) {
-                    if (msg.code == 0) {
-                        window.location.href = base + "/account/trades/profit/records";
-                    } else {
-                        $(".error").html(msg.msg).show();
-                    }
-                }
+//            $.ajax({
+//                type: "POST", // 用POST方式传输
+//                dataType: "json", // 数据格式:JSON
+//                async: true,
+//                url:'/Ying_Second/font/login', // 目标地址
+//                data: {
+//                    mobilePhone: phone.val(),
+//                    password: password.val()
+//                },
+//                success: function (msg) {
+//                    if (msg.code == 0) {
+//                        window.location.href = base + "/account/trades/profit/records";
+//                    } else {
+//                        $(".error").html(msg.msg).show();
+//                    }
+//                }
+//            });
+            $.post("/Ying_Second/font/login",{mobilePhone:phone.val(),password:password.val()},function(msg){
+            	
             });
 
         });

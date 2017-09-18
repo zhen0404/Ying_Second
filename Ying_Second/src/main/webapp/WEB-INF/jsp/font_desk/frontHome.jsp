@@ -20,6 +20,19 @@
 <link href="/Ying_Second/css/common.css" rel="stylesheet">
 
 <link href="/Ying_Second/css/jw.css" rel="stylesheet">
+<link href="/Ying_Second/css/iframeindex_data/iconfont.css" rel="stylesheet"
+	type="text/css">
+<link href="/Ying_Second/css/iframeindex_data/common.css" rel="stylesheet">
+<link href="/Ying_Second/css/iframeindex_data/jw.css" rel="stylesheet">
+
+<script src="/Ying_Second/css/iframeindex_data/jquery.js"></script>
+
+<script type="text/javascript" src="/Ying_Second/css/iframeindex_data/layer.js"></script>
+
+<link rel="stylesheet" href="/Ying_Second/css/iframeindex_data/layer.css" id="layui_layer_skinlayercss" >
+	
+<script src="/Ying_Second/css/iframeindex_data/echarts.js"></script>
+
 
 <script src="/Ying_Second/js/jquery.js"></script>
 
@@ -319,37 +332,37 @@ li.active a {
 </head>
 <body>
 	<div id="floatTools" class="rides-cs" style="height: 408px;">
-		<div class="floatL">
-			<a id="aFloatTools_Show" class="btnOpen" title="查看在线客服"
-				style="top: 90px; display: block" href="javascript:void(0);">展开</a>
-			<a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服"
-				style="top: 90px; display: none" href="javascript:void(0);">收缩</a>
-		</div>
+<!-- 		<div class="floatL"> -->
+<!-- 			<a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" -->
+<!-- 				style="top: 90px; display: block" href="javascript:void(0);">展开</a> -->
+<!-- 			<a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" -->
+<!-- 				style="top: 90px; display: none" href="javascript:void(0);">收缩</a> -->
+<!-- 		</div> -->
 		<div id="divFloatToolsView" class="floatR"
 			style="display: none; height: 408px; width: 140px;">
 			<div class="cn">
 				<img src="/Ying_Second/img/kefun.png"
 					style="width: 100px; display: block; margin: 0 auto; padding-top: 10px;">
 				<h3 class="titZx">盈+金融在线客服</h3>
-				<ul>
-					<li><span>客服1</span> <a target="_blank"
-						href="http://wpa.qq.com/msgrd?v=3&amp;uin=508886246&amp;site=qq&amp;menu=yes"><img
-							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息"
-							border="0"></a></li>
-					<li><span>客服2</span> <a target="_blank"
-						href="http://wpa.qq.com/msgrd?v=3&amp;uin=3276064217&amp;site=qq&amp;menu=yes"><img
-							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息"
-							border="0"></a></li>
-					<li><span>客服3</span> <a target="_blank"
-						href="http://wpa.qq.com/msgrd?v=3&amp;uin=2717994963&amp;site=qq&amp;menu=yes"><img
-							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息"
-							border="0"></a></li>
-					<li><span>技术A</span> <a target="_blank"
-						href="http://wpa.qq.com/msgrd?v=3&amp;uin=2088636909&amp;site=qq&amp;menu=yes"><img
-							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息"
-							border="0"></a></li>
-					<li style="border: none;"><span>电话：4000-999-158</span></li>
-				</ul>
+<!-- 				<ul> -->
+<!-- 					<li><span>客服1</span> <a target="_blank" -->
+<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=508886246&amp;site=qq&amp;menu=yes"><img -->
+<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
+<!-- 							border="0"></a></li> -->
+<!-- 					<li><span>客服2</span> <a target="_blank" -->
+<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=3276064217&amp;site=qq&amp;menu=yes"><img -->
+<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
+<!-- 							border="0"></a></li> -->
+<!-- 					<li><span>客服3</span> <a target="_blank" -->
+<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=2717994963&amp;site=qq&amp;menu=yes"><img -->
+<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
+<!-- 							border="0"></a></li> -->
+<!-- 					<li><span>技术A</span> <a target="_blank" -->
+<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=2088636909&amp;site=qq&amp;menu=yes"><img -->
+<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
+<!-- 							border="0"></a></li> -->
+<!-- 					<li style="border: none;"><span>电话：4000-999-158</span></li> -->
+<!-- 				</ul> -->
 			</div>
 		</div>
 	</div>
@@ -362,6 +375,7 @@ li.active a {
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
+				
 					<li class="active"><a class="item first"
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
@@ -387,10 +401,6 @@ li.active a {
 
 	<div class="main">
 
-
-		<!-- Chang URLs to wherever Video.js files will be hosted -->
-		
-		<!-- video.js must be in the <head> for older IEs to work. -->
 		<script src="/Ying_Second/js/video.js"></script>
 		<!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
 		<script>
@@ -429,7 +439,7 @@ li.active a {
 						<img src="/Ying_Second/img/ying_index_login_btn.png">
 					</a>
 						 <a style="float: none; margin: 0 auto; margin-left: 15px; margin-top: 10px;"
-						href="/Ying_Second/frontIframeLogin">
+						href="/Ying_Second/toSign">
 						<img src="/Ying_Second/img/ying_index_reg_btn.png"></a>
 				</div>
 			</div>
@@ -466,10 +476,68 @@ li.active a {
 						查看更多&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; </a>
 				</div>
 				
-<!-- 				底部的iframe -->
-				<iframe scrolling="no" src="/Ying_Second/middle" width="972"
-					height="500" frameborder="0"></iframe>
+<!-- 				中部的iframe -->
+<!-- 				<iframe scrolling="no" src="/Ying_Second/middle" width="972"  height="500" frameborder="0"></iframe> -->
 					
+				<div class="gjList clearfix">
+					<ul>
+						<li>
+			<!-- 			<a class="all" target="_blank" -->
+			<!-- 				href="http://pro.ying158.com/finance/financeView/28"> -->
+								<h2 class="tit">
+									<span>募</span>凯丰对冲10号
+								</h2> <span class="fenl">股权</span>
+								<div class="count">
+									<span class="s1"><b>45.0</b>%</span> <span class="s2"><b>31</b>人</span>
+									<span class="s3">年化收益</span> <span class="s4">已购人数</span> <span
+										class="s5">/</span>
+								</div>
+								<p class="safe">
+									起购金额：￥1,000,000.00元<br>
+								</p>
+								<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
+								<p class="abox">
+									<span class="abtn" onclick="toBuy()">立即购买</span>
+								</p>
+						</a></li>
+						<li><a class="all" target="_blank"
+							href="http://pro.ying158.com/finance/financeView/27">
+								<h2 class="tit">
+									<span>募</span>凯丰对冲9号
+								</h2> <span class="fenl">股权</span>
+								<div class="count">
+									<span class="s1"><b>45.0</b>%</span> <span class="s2"><b>36</b>人</span>
+									<span class="s3">年化收益</span> <span class="s4">已购人数</span> <span
+										class="s5">/</span>
+								</div>
+								<p class="safe">
+									起购金额：￥1,000,000.00元<br>
+								</p>
+								<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
+								<p class="abox">
+									<span class="abtn" onclick="toBuy()" >立即购买</span>
+								</p>
+						</a></li>
+						<li><a class="all" target="_blank"
+							href="http://pro.ying158.com/finance/financeView/24">
+								<h2 class="tit">
+									<span>募</span>和聚友道专享1号
+								</h2> <span class="fenl">私募</span>
+								<div class="count">
+									<span class="s1"><b>35.0</b>%</span> <span class="s2"><b>360</b>天</span>
+									<span class="s3">年化收益</span> <span class="s4">投资期限</span> <span
+										class="s5">/</span>
+								</div>
+								<p class="safe">
+									起购金额：￥1,000,000.00元<br>
+								</p>
+								<p class="txt" style="height: 72px;">精品私募</p>
+								<p class="abox">
+									<span class="abtn" onclick="toBuy()" >立即购买</span>
+								</p>
+						</a></li>
+					</ul>
+				</div>
 					
 				<div class=" download apply">
 					<div class="title">
@@ -940,8 +1008,9 @@ li.active a {
 							placeholder="密码" id="modalPw" type="password">
 					</div>
 					<div>
-						<button class="btn btn-primary" onclick="loginFromModal()"
-							style="padding-left: 20px; padding-right: 20px;">登录</button>
+						<button class="btn btn-primary" onclick="loginFromModal()" style="padding-left: 20px; padding-right: 20px;">
+							登录
+						</button>
 						<a class="btn btn-info" href="http://www.ying158.com/Account/Regist" target="blank"
 							style="padding-left: 20px; padding-right: 20px; margin-left: 20px;">注册</a>
 					</div>
@@ -1233,6 +1302,10 @@ li.active a {
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(hm, s);
 		})();
+		
+		function toBuy(){
+			window.location.href="/Ying_Second/frontLast";
+		}
 	</script>
 
 

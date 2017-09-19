@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table
@@ -13,9 +15,9 @@ public class Finance_product_subscribe {
 
 	private int id;
 	private String name;
-	private int member_id;
+//	private int member_id;
 	private String phone;
-	private int product_id;
+//	private int product_id;
 	private String addr;
 	private int status;
 	private String comment;
@@ -27,6 +29,8 @@ public class Finance_product_subscribe {
 	private Date start_date;
 	private Date end_date;
 	private String signed_photos;
+	private Finance_product_funds fina;
+	private Member member;
 	
 	@Id
 	@GeneratedValue
@@ -42,24 +46,24 @@ public class Finance_product_subscribe {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getMember_id() {
+	/*public int getMember_id() {
 		return member_id;
 	}
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
-	}
+	}*/
 	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public int getProduct_id() {
+	/*public int getProduct_id() {
 		return product_id;
 	}
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
-	}
+	}*/
 	public String getAddr() {
 		return addr;
 	}
@@ -127,5 +131,21 @@ public class Finance_product_subscribe {
 		this.signed_photos = signed_photos;
 	}
 	
+	@ManyToOne
+	@JoinColumn(name="product_id")
+	public Finance_product_funds getFina() {
+		return fina;
+	}
+	public void setFina(Finance_product_funds fina) {
+		this.fina = fina;
+	}
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	
 }

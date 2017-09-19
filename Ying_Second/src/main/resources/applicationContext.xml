@@ -33,6 +33,7 @@
 				<value>com.bean</value>
 			</list>
 		</property>
+		
 		<!-- 配置hibernate属性 -->
 		<property name="hibernateProperties">
 			<props>
@@ -41,6 +42,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 			</props>
 		</property>
+		
 	</bean>
 	
 	<!-- 自定义Realm -->
@@ -88,8 +90,11 @@
 	</bean>
 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="list*" propagation="SUPPORTS" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>

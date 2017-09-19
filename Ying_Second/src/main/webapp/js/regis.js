@@ -116,7 +116,6 @@ $(function() {
 				return;
 			}
 			$.post("/Ying_Second/font/sureFontSign",{mobile_Phone:phone.val(),member_name:youname.val(),name:youname.val(),salt:'javamd',password:password.val(),invitationCode:invitationCode.val(),qqAccount:qqAccount.val(),status:0,del_flag:0},function(msg){
-				alert(msg);
 				window.location.href="/Ying_Second/frontIframeLogin";
 			});
 //			$.ajax({

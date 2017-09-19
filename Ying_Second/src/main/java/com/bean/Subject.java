@@ -50,6 +50,7 @@ private Set<Subject_bbin_purchase_record> SubjectBbinPurchassRecord = new HashSe
 	//private Set<SubjectFieldRecord> subjectFieldRecords = new HashSet<>();
 	//private Set<SubjectOrderRecord> subjectOrderRecords = new HashSet<>();
 	private Set<Subject_purchase_record> subjectPurchaseRecord = new HashSet<Subject_purchase_record>();
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

@@ -30,22 +30,6 @@
     </script>
 </head>
 <body>
-
-<!-- <div class="logo container"> -->
-<!--     <div class="row"> -->
-<!--         <div class="logoImg"> -->
-<!--             <a href="http://www.ying158.com/home"><img src="/Ying_Second/logo2.png" onmouseover="this.src = &#39;/resources/web/images/logo1.png&#39;" onmouseout="this.src = &#39;/resources/web/images/logo2.png&#39;"></a> -->
-<!--         </div> -->
-<!--         <div class="telInfo"> -->
-<!--             <img src="/Ying_Second/400Icon.png" onmousemove="this.src = &#39;/resources/web/images/400IconActive.png&#39;" onmouseout="	this.src = &#39;/resources/web/images/400Icon.png&#39;"> -->
-<!--             <div class="detail"> -->
-
-<!--                     	<div style="font-size:16px;float:right;margin-top:5px;color:#917739;">  欢迎张继珍,<a href="http://pro.ying158.com/account/touZiList">[会员中心]</a>,<a href="http://pro.ying158.com/web/logout">[退出]</a></div> -->
-<!--                 <br>4000-999-158 -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </div> -->
-<!-- </div> -->
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 			<iframe src="/Ying_Second/top" scrolling="nox`" width="1002"
 			height="94" frameborder="0"></iframe>

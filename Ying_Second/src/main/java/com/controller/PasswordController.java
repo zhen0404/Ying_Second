@@ -27,9 +27,7 @@ public class PasswordController {
 	private UserPasswordService ups;
 	
 	@RequestMapping("update")
-	public String updatePassword(String newps,String userName,HttpServletRequest request){
-		System.out.println("newps:"+newps);
-		System.out.println(userName);
+	public String updatePassword(String newps,String userName){
 		this.ups.updateUserPassword(userName, newps);
 		return "redirect:/backLogin";
 	}

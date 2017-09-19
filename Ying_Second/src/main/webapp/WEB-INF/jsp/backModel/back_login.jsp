@@ -76,7 +76,7 @@
 	<script src="/Ying_Second/back_desk/media/js/app.js" type="text/javascript"></script>
 	<script src="/Ying_Second/back_desk/media/js/login.js" type="text/javascript"></script>      
 	<script>
-		jQuery(document).ready(function() {     
+		jQuery(document).ready(function() {
 		  App.init();
 		  Login.init();
 		});

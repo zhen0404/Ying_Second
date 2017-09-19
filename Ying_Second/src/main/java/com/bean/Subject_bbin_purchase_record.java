@@ -7,27 +7,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
-public class Subject_purchase_record {
-                  
+@Table // 体验金购买标的
+public class Subject_bbin_purchase_record {
+
 	private int id;// 主键
 	private String serial_number;// 流水号
 	private int amount;// 购买金额
-	private String deal_id;// 交易IP
-//	private int subject_id;// 标的id
-	private int member_id;// 会员id
-	private int delflag;// 是否删除
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
-	private int interset;// 结算利息
+	private String deal_ip;// 交易ip
+    private int delflag;
+	private Date create_date;
+	private Date update_date;
+	private int interest;// 结算利息
 	private int ispayment;// 是否还款
-	private int pay_interest_times;// 购买次数
+	private int pay_interest_times;
+
+	
 	private int last_profit_day;// 最后计息日
-	private String bonus_info;// 红包金额信息（app端实际投资额度+红包额度)
 	private Subject subject;
+	private Member member;
+	
+	@ManyToOne
+	@JoinColumn(name="member_id")
+     public Member getMember() {
+	   return member;
+         }
+
+       public void setMember(Member member) {
+	      this.member = member;
+           }
+
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -53,29 +65,28 @@ public class Subject_purchase_record {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-
-	public String getDeal_id() {
-		return deal_id;
+	public int getPay_interest_times() {
+		return pay_interest_times;
 	}
 
-	public void setDeal_id(String deal_id) {
-		this.deal_id = deal_id;
+	public void setPay_interest_times(int pay_interest_times) {
+		this.pay_interest_times = pay_interest_times;
 	}
 
-//	public int getSubject_id() {
-//		return subject_id;
-//	}
-//
-//	public void setSubject_id(int subject_id) {
-//		this.subject_id = subject_id;
-//	}
-
-	public int getMember_id() {
-		return member_id;
+	public int getLast_profit_day() {
+		return last_profit_day;
 	}
 
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
+	public void setLast_profit_day(int last_profit_day) {
+		this.last_profit_day = last_profit_day;
+	}
+
+	public String getDeal_ip() {
+		return deal_ip;
+	}
+
+	public void setDeal_ip(String deal_ip) {
+		this.deal_ip = deal_ip;
 	}
 
 	public int getDelflag() {
@@ -102,12 +113,12 @@ public class Subject_purchase_record {
 		this.update_date = update_date;
 	}
 
-	public int getInterset() {
-		return interset;
+	public int getInterest() {
+		return interest;
 	}
 
-	public void setInterset(int interset) {
-		this.interset = interset;
+	public void setInterest(int interest) {
+		this.interest = interest;
 	}
 
 	public int getIspayment() {
@@ -117,33 +128,9 @@ public class Subject_purchase_record {
 	public void setIspayment(int ispayment) {
 		this.ispayment = ispayment;
 	}
-
-	public int getPay_interest_times() {
-		return pay_interest_times;
-	}
-
-	public void setPay_interest_times(int pay_interest_times) {
-		this.pay_interest_times = pay_interest_times;
-	}
-
-	public int getLast_profit_day() {
-		return last_profit_day;
-	}
-
-	public void setLast_profit_day(int last_profit_day) {
-		this.last_profit_day = last_profit_day;
-	}
-
-	public String getBonus_info() {
-		return bonus_info;
-	}
-
-	public void setBonus_info(String bonus_info) {
-		this.bonus_info = bonus_info;
-	}
-	//bi-directional many-to-one association to SubjectPurchaseRecord
-	@ManyToOne
-	@JoinColumn(name="subject_id")
+	
+		@ManyToOne
+		@JoinColumn(name="subject_id")
 	public Subject getSubject() {
 		return subject;
 	}
@@ -151,5 +138,6 @@ public class Subject_purchase_record {
 	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
-	
+
+
 }

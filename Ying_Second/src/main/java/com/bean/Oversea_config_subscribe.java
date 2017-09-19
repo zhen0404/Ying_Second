@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table
@@ -12,14 +14,22 @@ public class Oversea_config_subscribe {
 
 	private int id;
 	private int member_id;
-	private int oversea_id;
 	private String name;
 	private String phone;
 	private String addr;
 	private int status;
 	private Date create_date;
 	private Date update_date;
+	private Oversea_config oc;
 	
+	@ManyToOne
+	@JoinColumn(name="oversea_id")
+	public Oversea_config getOc() {
+		return oc;
+	}
+	public void setOc(Oversea_config oc) {
+		this.oc = oc;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -33,12 +43,6 @@ public class Oversea_config_subscribe {
 	}
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
-	}
-	public int getOversea_id() {
-		return oversea_id;
-	}
-	public void setOversea_id(int oversea_id) {
-		this.oversea_id = oversea_id;
 	}
 	public String getName() {
 		return name;

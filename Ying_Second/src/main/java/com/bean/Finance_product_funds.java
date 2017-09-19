@@ -1,10 +1,14 @@
 package com.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table
@@ -12,18 +16,18 @@ import javax.persistence.Table;
 public class Finance_product_funds {
 
 	private int id;
-	private String type;
-	private String name;
-	private int status;
-	private int period;
-	private int floor_amount;
-	private int year_rate;
+	private String type;//
+	private String name;//
+	private int status;//
+	private int period;//
+	private int floor_amount;//
+	private int year_rate;//
 	private int subscribe_count;
 	private String product_topic;
 	private String product_factor;
 	private String product_strategy;
 	private String product_manager;
-	private Date create_date;
+	private Date create_date;//
 	private Date update_date;
 	private String product_manager_name;
 	private String product_manager_pic;
@@ -35,9 +39,10 @@ public class Finance_product_funds {
 	private int buyer_count;
 	private Date start_date;
 	private Date end_date;
-	private String ratio;
+	private String ratio;//
 	private String contract;
 	private String bank_account;
+	private Set<Finance_product_subscribe> FinanceProductSubscribe=new HashSet<Finance_product_subscribe>();
 	
 	@Id
 	@GeneratedValue
@@ -202,6 +207,14 @@ public class Finance_product_funds {
 	}
 	public void setBank_account(String bank_account) {
 		this.bank_account = bank_account;
+	}
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="fina")
+	public Set<Finance_product_subscribe> getFinanceProductSubscribe() {
+		return FinanceProductSubscribe;
+	}
+	public void setFinanceProductSubscribe(Set<Finance_product_subscribe> financeProductSubscribe) {
+		FinanceProductSubscribe = financeProductSubscribe;
 	}
 	
 }

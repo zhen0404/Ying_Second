@@ -377,44 +377,102 @@ li.active a {
 					<div class="item item1">
 						<div class="lLabel">手机号</div>
 						<div class="lInput">
-							<img src="/Ying_Second/img/userIcon.png"><input
-								placeholder="手机号" id="phone" name="phone"
-								class="form-control phone" type="text"> <span
-								class="errorInfo">用户名不能为空</span>
+							<img src="/Ying_Second/img/userIcon.png">
+							<input placeholder="手机号" id="phone" name="phone" class="form-control phone" type="text"> 
+							<span class="errorInfo">用户名不能为空</span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="lLabel">登录密码</div>
 						<div class="lInput">
-							<img src="/Ying_Second/img/passwordIcon.png"><input
-								placeholder="密码" id="password" name="password"
-								class="form-control password" type="password"><span
-								class="errorInfo"></span>
+							<img src="/Ying_Second/img/passwordIcon.png">
+							<input placeholder="密码" id="password" name="password" class="form-control password" type="password">
+							<span class="errorInfo"></span>
 						</div>
 					</div>
 					<div class="rest">
 						<p class="error"></p>
-						<span id="loginError"></span><a class="forgetLink"
-							href="http://pro.ying158.com/web/forget">忘记密码？</a>
+						<span id="loginError"></span>
+						<a class="forgetLink" href="http://pro.ying158.com/web/forget">忘记密码？</a>
 					</div>
 					<div class="rest">
-						<button class="btn loginBtn submit">立即登录</button>
+<!-- 						<button class="btn loginBtn submit">立即登录</button> -->
+							<button class="btn loginBtn" onclick="fontLogin()">立即登录</button>
 					</div>
 					<div class="rest">
-						<span class="registUrl" style="color: black;">没有账号？<a
-							href="http://pro.ying158.com/web/regis">免费注册</a></span>
+						<span class="registUrl" style="color: black;">没有账号？
+							<a href="http://pro.ying158.com/web/regis">免费注册</a>
+						</span>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="/Ying_Second/js/login.js"></script>
 	<script type="text/javascript">
-		$(function() {
+// 		$(function() {
+// 			var b = "";
+// 			login(b);
+// 		});
+		
+		var base, phone, password, css;
+		$(function () {
+			
 			var b = "";
 			login(b);
+			
+		    css = {
+		        "-moz-box-shadow": "0px 0px 10px #9e020c",
+		        "-webkit-box-shadow": "0px 0px 10px #9e020c",
+		        "box-shadow": "0px 0px 10px #9e020c"
+		    };
+
+		    login = function (b) {
+		        base = b;
+		        phone = $(".phone");
+		        password = $(".password");
+
+		        phone.keyup(function () {
+		            if ((/^1[3-9][0-9]\d{8}$/.test(phone.val()))) {
+		                phone.removeAttr("style");
+		                $(".error").html("").hide();
+		                return;
+		            }
+		        });
+
+		        password.keyup(function () {
+		            if ((/^[a-zA-Z]\w{5,17}$/.test(password.val()))) {
+		                password.removeAttr("style");
+		                $(".error").html("").hide();
+		                return;
+		            }
+		        });
+
+
+		        $(document).keyup(function (event) {
+		            if (event.keyCode == 13) {
+		                $(".submit").trigger("click");
+		            }
+		        });
+		    };
 		});
+		
+		//登录
+		function fontLogin(){
+            $(".error").html("").hide();
+            if (!(/^1[3-9][0-9]\d{8}$/.test(phone.val()))) {
+                phone.focus().css(css);
+                $(".error").html("手机号码格式不正确").show();
+                return;
+            }
+
+            if (!(/^[a-zA-Z]\w{5,17}$/.test(password.val()))) {
+                password.focus().css(css);
+                $(".error").html("密码格式不正确").show();
+                return;
+            }
+			window.location.href="/Ying_Second/font/login?mobilePhone="+phone.val()+"&password="+password.val()+"";
+		}
 	</script>
 
 	<!-- -----------------------------------------分割线---------------------------------- -->

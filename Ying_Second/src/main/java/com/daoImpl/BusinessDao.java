@@ -17,9 +17,10 @@ import com.bean.News;
 import com.bean.News_type;
 import com.bean.Page;
 import com.dao.BaseDao;
+import com.dao.CollegeDao;
 
 @Component
-public class BusinessDao  implements BaseDao<News> {
+public class BusinessDao  implements CollegeDao<News> {
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -27,12 +28,22 @@ public class BusinessDao  implements BaseDao<News> {
 		return sessionFactory.getCurrentSession();
 	}
 
+
+	public List<News_type> typeList() {
+		Session session=getSession();
+		String hql="from News_type";
+		List<News_type> list=session.createQuery(hql).list();
+		return list;
+	}
+
+
 	public List<News> listAll() {
 		return null;
 	}
 
 	public List<News> listAll(Map map) {
-		String hql="from News  order by addTime desc ";
+		String hql="from News  where 0=0 ";
+		String last=" order by addTime desc";
 		Page pb=(Page)map.get("pb");
 		int currentPage=pb.getCurrentPage();
 		int size=pb.getSize();
@@ -64,12 +75,10 @@ public class BusinessDao  implements BaseDao<News> {
 		pb.setCurrentPage(currentPage);
 		Session session=getSession();
 		hql=listDataHql(map, hql);
+		hql=hql+last;
 		List<News> list=session.createQuery(hql).setFirstResult((currentPage-1)*size).setMaxResults(size).list();
 		return list;
 	}
-
-
-	
 	
 	
 	public void save(News news) {
@@ -111,7 +120,7 @@ public class BusinessDao  implements BaseDao<News> {
 		int count=Integer.valueOf(session.createSQLQuery(sql).uniqueResult().toString());
 		return count;
 	}
-	
+
 	
 
 

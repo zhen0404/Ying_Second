@@ -3,10 +3,9 @@ package com.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.bean.Member;
 import com.bean.News_type;
 
-public interface BaseDao<T> {
+public interface CollegeDao<T> {
 
 	List<T> listAll();
 	
@@ -20,6 +19,7 @@ public interface BaseDao<T> {
 
 	List<T> listAll(Map map);
 
-
+	List<News_type> typeList();
+	
 	
 }

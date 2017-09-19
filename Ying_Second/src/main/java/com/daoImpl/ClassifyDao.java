@@ -11,8 +11,9 @@ import org.springframework.stereotype.Component;
 import com.bean.News_type;
 import com.bean.Page;
 import com.dao.BaseDao;
+import com.dao.CollegeDao;
 @Component
-public class ClassifyDao  implements BaseDao<News_type> {
+public class ClassifyDao  implements CollegeDao<News_type> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -20,10 +21,11 @@ public class ClassifyDao  implements BaseDao<News_type> {
 	public Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
-	
 	public List<News_type> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session=getSession();
+		String hql="from News_type";
+		List<News_type> list=session.createQuery(hql).list();
+		return list;	
 	}
 
 	public void save(News_type news_type) {
@@ -103,4 +105,11 @@ public class ClassifyDao  implements BaseDao<News_type> {
 		int count=Integer.valueOf(session.createSQLQuery(sql).uniqueResult().toString());
 		return count;
 	}
+
+	public List<News_type> typeList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 }

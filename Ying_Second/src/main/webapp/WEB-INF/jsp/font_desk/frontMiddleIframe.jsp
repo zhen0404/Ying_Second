@@ -48,7 +48,7 @@
 					</p>
 					<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
 					<p class="abox">
-						<span class="abtn">立即购买</span>
+						<span class="abtn" onclick="toBuy()">立即购买</span>
 					</p>
 			</a></li>
 			<li><a class="all" target="_blank"
@@ -89,5 +89,15 @@
 			</a></li>
 		</ul>
 	</div>
+	
+	<script type="text/javascript" src="/Ying_Second/js/jquery.js"></script>
+	
+	<script type="text/javascript">
+		function toBuy(){
+			alert("come in");
+			window.location.href="/Ying_Second/frontLast";
+		}
+	</script>
+	
 </body>
 </html>

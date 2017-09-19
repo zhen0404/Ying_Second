@@ -80,7 +80,7 @@
 									<input type="hidden" name="id" value="${news.id }">
 									所属类别<font color="red">*</font>：<select name="typeId" id="typeId">
 												<option value="-1">全选</option>
-												<c:forEach items="${ListNews_type }" var="t">
+												<c:forEach items="${typeList }" var="t">
 													<option value="${t.id }">${t.name }</option>
 												</c:forEach>
 											</select><br><br>

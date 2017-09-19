@@ -58,7 +58,7 @@
 		<!-- Shiro的核心安全接口,这个属性是必须的 -->
 		<property name="securityManager" ref="securityManager" />
 		<!-- 身份认证失败，则跳转到登录页面的配置 -->
-		<property name="loginUrl" value="/index.jsp" />
+		<property name="loginUrl" value="/back_login.jsp" />
 		<!-- 权限认证失败，则跳转到指定页面 -->
 		<property name="unauthorizedUrl" value="/unauthorizedUrl.jsp" />
 		<!-- Shiro连接约束配置,即过滤链的定义 -->
@@ -68,6 +68,8 @@
 				/admin*=authc
 				/student=roles[teacher]
 				/teacher=perms["user:create"]
+				/frontAdd*=authc
+				/backHome=authc
 			</value>
 		</property>
 	</bean>

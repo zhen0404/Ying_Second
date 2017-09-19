@@ -30,7 +30,7 @@ public class BackDeskLoginController {
 		UsernamePasswordToken token=new UsernamePasswordToken(users.getUser_name(),users.getPassword());
 		try {
 			sub.login(token);
-			request.getSession().setAttribute("userName", users.getName());
+			request.getSession().setAttribute("userName", users.getUser_name());
 			request.getSession().setAttribute("userPs", users.getPassword());
 			return "backModel/back_desk";
 		} catch (IncorrectCredentialsException e) {

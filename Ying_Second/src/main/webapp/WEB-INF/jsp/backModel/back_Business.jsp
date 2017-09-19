@@ -79,10 +79,10 @@
 							<form action="" method="post" id="BusinessForm">
 							<input type="hidden" name="id" id="id">
 									标题： <input type="text" name="qname" value="${qname }"> 
-									所属类别：<select name="typeId" id="typeId">
+									所属类别：<select name="tid" id="tid">
 												<option value="-1">全选</option>
-												<c:forEach items="${ListNews_type }" var="t">
-												<option value="${t.id }">${t.name }</option>
+												<c:forEach items="${typeList }" var="t">
+													<option value="${t.id }">${t.name }</option>
 												</c:forEach>
 											</select>
 <input type="submit" value="查找" id="find">
@@ -128,7 +128,7 @@
 
 											<td>
 											<a href="/Ying_Second/business/initData/${n.id}"><input type="button" value="编辑"></a>
-											<a href="/Ying_Second/business/deleteBusiness/${n.id}"><input type="button" value="删除"></a>
+											<a href="/Ying_Second/business/deleteBusiness?id=${n.id}"><input type="button" value="删除"></a>
 											</td>
 
 
@@ -137,10 +137,11 @@
 									</tbody>
 
 								</table>
-								<a href="/Ying_Second/business/ListNews?flag=first&page=${pb.page }">首页</a>
-								<a href="/Ying_Second/business/ListNews?flag=up&page=${pb.page }">上一页</a>
-								<a href="/Ying_Second/business/ListNews?flag=next&page=${pb.page }">下一页</a>
-								<a href="/Ying_Second/business/ListNews?flag=last&page=${pb.page }">末页</a>
+								第${pb.currentPage }页 /共${pb.allPage }页
+								<a href="/Ying_Second/business/ListNews?flag=first&page=${pb.currentPage }">首页</a>
+								<a href="/Ying_Second/business/ListNews?flag=up&page=${pb.currentPage }">上一页</a>
+								<a href="/Ying_Second/business/ListNews?flag=next&page=${pb.currentPage }">下一页</a>
+								<a href="/Ying_Second/business/ListNews?flag=last&page=${pb.currentPage }">末页</a>
 							</form>
 
 							</div>

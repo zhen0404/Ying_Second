@@ -78,7 +78,7 @@
 							<div class="portlet-body flip-scroll">
 
 								
-								<form action=""method="post">
+								<form action="/Ying_Second/classify/saveNews_type" method="post">
 									上级类别<font color="red">*</font>：<select name="typeId" id="typeId">
 												<option value="-1">全选</option>
 												<c:forEach items="${ListNews_type }" var="t">

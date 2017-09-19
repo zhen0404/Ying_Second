@@ -96,8 +96,14 @@ public class AccountManagementDao implements BaseDao<Member>{
 
 
 	public void update(Member member) {
-		Session session=getSession();
-		session.update(member);
+		
+	}
+
+
+	@Override
+	public List<Member> listAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

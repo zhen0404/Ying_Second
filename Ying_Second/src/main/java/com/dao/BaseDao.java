@@ -19,6 +19,8 @@ public interface BaseDao<T> {
 	void update(T t);
 
 	List<T> listAll(Map map);
+	
+	List<T> listAll(int id);
 
 
 	

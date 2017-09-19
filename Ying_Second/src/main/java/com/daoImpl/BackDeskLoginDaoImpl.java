@@ -105,6 +105,12 @@ public class BackDeskLoginDaoImpl implements BaseDao<User> {
 		return null;
 	}
 
+	@Override
+	public List<User> listAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

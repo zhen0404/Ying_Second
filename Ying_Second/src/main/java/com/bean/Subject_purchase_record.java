@@ -13,21 +13,32 @@ import javax.persistence.Table;
 @Table
 public class Subject_purchase_record {
                   
-	private int id;// Ö÷¼ü
-	private String serial_number;// Á÷Ë®ºÅ
-	private int amount;// ¹ºÂò½ð¶î
-	private String deal_id;// ½»Ò×IP
-//	private int subject_id;// ±êµÄid
-	private int member_id;// »áÔ±id
-	private int delflag;// ÊÇ·ñÉ¾³ý
-	private Date create_date;// ´´½¨Ê±¼ä
-	private Date update_date;// ÐÞ¸ÄÊ±¼ä
-	private int interset;// ½áËãÀûÏ¢
-	private int ispayment;// ÊÇ·ñ»¹¿î
-	private int pay_interest_times;// ¹ºÂò´ÎÊý
-	private int last_profit_day;// ×îºó¼ÆÏ¢ÈÕ
-	private String bonus_info;// ºì°ü½ð¶îÐÅÏ¢£¨app¶ËÊµ¼ÊÍ¶×Ê¶î¶È+ºì°ü¶î¶È)
+	private int id;// ï¿½ï¿½ï¿½ï¿½
+	private String serial_number;// ï¿½ï¿½Ë®ï¿½ï¿½
+	private int amount;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String deal_id;// ï¿½ï¿½ï¿½ï¿½IP
+//	private int subject_id;// ï¿½ï¿½ï¿½id
+	private int member_id;// ï¿½ï¿½Ô±id
+	private int delflag;// ï¿½Ç·ï¿½É¾ï¿½ï¿½
+	private Date create_date;// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private Date update_date;// ï¿½Þ¸ï¿½Ê±ï¿½ï¿½
+	private int interset;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	private int ispayment;// ï¿½Ç·ñ»¹¿ï¿½
+	private int pay_interest_times;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int last_profit_day;// ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
+	private String bonus_info;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½appï¿½ï¿½Êµï¿½ï¿½Í¶ï¿½Ê¶ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	private Subject subject;
+	private Member Member;
+	
+	 @ManyToOne
+	    @JoinColumn(name="member_id",insertable=false,updatable=false)
+	    public Member getMember() {
+			return Member;
+		}
+		public void setMember(Member member) {
+			Member = member;
+		}
+		
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -61,14 +72,6 @@ public class Subject_purchase_record {
 	public void setDeal_id(String deal_id) {
 		this.deal_id = deal_id;
 	}
-
-//	public int getSubject_id() {
-//		return subject_id;
-//	}
-//
-//	public void setSubject_id(int subject_id) {
-//		this.subject_id = subject_id;
-//	}
 
 	public int getMember_id() {
 		return member_id;
@@ -141,7 +144,6 @@ public class Subject_purchase_record {
 	public void setBonus_info(String bonus_info) {
 		this.bonus_info = bonus_info;
 	}
-	//bi-directional many-to-one association to SubjectPurchaseRecord
 	@ManyToOne
 	@JoinColumn(name="subject_id")
 	public Subject getSubject() {

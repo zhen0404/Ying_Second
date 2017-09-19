@@ -15,7 +15,11 @@ public interface BaseService<T> {
 	T getById(int id);
 	
 	void update(T t);
+	
+	void update(int id);
 
 	List<T> listAll(Map map);
+	
+	List<T> listAll(int id);
 	
 }

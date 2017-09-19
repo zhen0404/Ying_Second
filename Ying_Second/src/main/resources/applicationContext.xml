@@ -68,6 +68,7 @@
 				/teacher=perms["user:create"]
 				/frontAdd*=authc
 				/backHome=authc
+				/Ying_Second/frontLast=authc
 			</value>
 		</property>
 	</bean>

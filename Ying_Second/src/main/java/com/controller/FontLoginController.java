@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bean.Member;
 import com.service.FontLoginService;
+import com.util.CryptographyUtil;
 
 @Controller
 @RequestMapping("font")
@@ -28,7 +29,7 @@ public class FontLoginController {
 	//Ç°Ì¨Ê×Ò³µÇÂ¼
 	@RequestMapping("login")
 	public String login(String mobilePhone,String password,Model model){
-		Member member=this.fontloginS.getMember(mobilePhone,password);
+		Member member=this.fontloginS.getMember(mobilePhone,CryptographyUtil.md5(password, "javamd"));
 		model.addAttribute("member", member);
 		if(member!=null){
 			return "font_desk/frontHome";
@@ -68,12 +69,15 @@ public class FontLoginController {
 			PrintWriter pw=response.getWriter();
 			member.setCreate_date(df.parse(date));
 			member.setUpdate_date(df.parse(date));
+			member.setSalt("javamd");
+			member.setPassword(CryptographyUtil.md5(member.getPassword(), "javamd"));
+			this.fontloginS.saveMember(member);
 			pw.print("yes");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		this.fontloginS.saveMember(member);
+		
 	}
 	
 }

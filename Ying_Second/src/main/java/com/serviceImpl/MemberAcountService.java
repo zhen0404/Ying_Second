@@ -8,50 +8,50 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bean.Financial_planner;
+import com.bean.Member_account;
 import com.dao.BaseDao;
 import com.service.BaseService;
 
 @Service
 @Transactional
-public class FinancialPlannerAuditService implements BaseService<Financial_planner>{
+public class MemberAcountService implements BaseService<Member_account>{
 
 	@Autowired
-	@Qualifier("financialPlannerAuditDao")
-	private BaseDao<Financial_planner> baseDao;
-	
-	public List<Financial_planner> listAll() {
+	@Qualifier("memberAcount")
+	private BaseDao<Member_account> basedao;
+	@Override
+	public List<Member_account> listAll() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public void save(Financial_planner t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(Financial_planner t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public Financial_planner getById(int id) {
-		return baseDao.getById(id);
-	}
-
-	public void update(Financial_planner t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public List<Financial_planner> listAll(Map map) {
-		return baseDao.listAll(map);
 	}
 
 	@Override
-	public List<Financial_planner> listAll(int id) {
+	public void save(Member_account t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Member_account t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Member_account getById(int id) {
+		return basedao.getById(id);
+	}
+
+	@Override
+	public List<Member_account> listAll(Map map) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void update(Member_account t) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -59,7 +59,10 @@ public class FinancialPlannerAuditService implements BaseService<Financial_plann
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+	@Override
+	public List<Member_account> listAll(int id) {
+		return basedao.listAll(id);
+	}
 
 }

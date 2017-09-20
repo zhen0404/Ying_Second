@@ -76,4 +76,11 @@ public class BackDeskLoginDaoImpl implements BackDaskLoginDao {
 		return null;
 	}
 
+	public List<User> listAll(Map map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 }

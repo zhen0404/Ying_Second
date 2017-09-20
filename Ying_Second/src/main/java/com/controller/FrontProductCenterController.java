@@ -26,7 +26,7 @@ import com.bean.Subject_purchase_record;
 import com.service.FrontProductService;
 
 /**
- * Ç°Ì¨²úÆ·ÖĞĞÄ ¿ØÖÆÆ÷
+ * Ç°Ì¨ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author Administrator
  *
  */
@@ -38,7 +38,7 @@ public class FrontProductCenterController {
 	@Qualifier("frontProductServiceImpl")
 	private FrontProductService frontProductServiceImpl;
 	
-//	//µã»÷²úÆ·ÖĞĞÄ°´Å¥  Ğ¯´øÊı¾İ¹ıÈ¥
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Ä°ï¿½Å¥  Ğ¯ï¿½ï¿½ï¿½ï¿½İ¹ï¿½È¥
 //	@RequestMapping("/login")
 //	public String login(Model model){
 //		List<Subject> subjectList=frontProductServiceImpl.listAll(1);
@@ -46,10 +46,10 @@ public class FrontProductCenterController {
 //		return "frontProductCenter";
 //	}
 	
-	//µã»÷È¥¹ºÂòÌøÈëµ½¹ºÂòÒ³ÃæÈ¥
+	//ç‚¹å‡»å»è´­ä¹°è·³å…¥åˆ°è´­ä¹°é¡µé¢å»
 	@RequestMapping("/toBuy")
 	public String goToBuy(String id,Model model,HttpSession session){
-		//ÕâÒ»¶ÎÏÔÊ¾±êµÄĞÅÏ¢
+		//è¿™ä¸€æ®µæ˜¾ç¤ºæ ‡çš„ä¿¡æ¯
 		Subject subject=(Subject) this.frontProductServiceImpl.getById(Integer.parseInt(id));
 		int datePeriod=subject.getPeriod();
 		Date date=new Date();
@@ -59,26 +59,26 @@ public class FrontProductCenterController {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//´æÈë¿ªÊ¼¼ÆÏ¢Ê±¼ä
+		}//å­˜å…¥å¼€å§‹è®¡æ¯æ—¶é—´
 		Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, +datePeriod);//½ñÌìµÄÊ±¼ä¼Ó±êµÄÖÜÆÚ
+        calendar.add(Calendar.DAY_OF_MONTH, +datePeriod);//ä»Šå¤©çš„æ—¶é—´åŠ æ ‡çš„å‘¨æœŸ
         date = calendar.getTime();
 		try {
 			subject.setEnd_date(sdf.parse(sdf.format(date)));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//´æÈëÔ¤¼Æµ½ÕËÊ±¼ä
+		}//å­˜å…¥é¢„è®¡åˆ°è´¦æ—¶é—´
 		this.frontProductServiceImpl.saveOrUpdateProduct(subject);
 		subject=(Subject) this.frontProductServiceImpl.getById(Integer.parseInt(id));
 		model.addAttribute("subject", subject);
 		calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, +1);//Ô¤¼Æµ½ÕËÈÕÆÚ¼ÓÒ»Ìì
+        calendar.add(Calendar.DAY_OF_MONTH, +1);//é¢„è®¡åˆ°è´¦æ—¥æœŸåŠ ä¸€å¤©
         date = calendar.getTime();
 		model.addAttribute("lastDatePlusOne", sdf.format(date));
 		
-		//ÕâÒ»¶ÎÏÔÊ¾ÓÃ»§½ğ¶îĞÅÏ¢
+		//è¿™ä¸€æ®µæ˜¾ç¤ºç”¨æˆ·é‡‘é¢ä¿¡æ¯
 		Object object=session.getAttribute("member");
 		if (object!=null) {
 			Member member=(Member) object;
@@ -86,7 +86,7 @@ public class FrontProductCenterController {
 			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
 			model.addAttribute("memberAccount", memberAccount);
 			
-			//ÕâÒ»¶ÎÅĞ¶ÏÓĞÃ»ÓĞ°ó¶¨ÒøĞĞ¿¨
+			//è¿™ä¸€æ®µåˆ¤æ–­æœ‰æ²¡æœ‰ç»‘å®šé“¶è¡Œå¡
 			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
 			model.addAttribute("memberBankcards", memberBankcards);
 		}
@@ -94,15 +94,14 @@ public class FrontProductCenterController {
 	}
 	
 	/**
-	 * ¸Ã·½·¨ÓÃÀ´²Ù×÷µã»÷¹ºÂòÖ®ºóÌø×ªµÄÒ³Ãæ
-	 * @throws ParseException 
+	 * è¯¥æ–¹æ³•ç”¨æ¥æ“ä½œç‚¹å‡»è´­ä¹°ä¹‹åè·³è½¬çš„é¡µé¢
 	 */
 	@RequestMapping("/afterBuy")
 	public String afterBuy(String subjectId,String amountYuE,String mytext,Model model,HttpSession session,
 							Member_profit_record memberProfitRecord,Member_trade_record memberTradeRecord,
 							Member_tally member_tally,Subject_purchase_record subjectPurchaseRecord) throws ParseException{
 		System.out.println(subjectId+"--"+amountYuE+"--"+mytext);
-		//´Ósession»ñÈ¡memberĞÅÏ¢
+		//ä»sessionè·å–memberä¿¡æ¯
 		Object object=session.getAttribute("member");
 		if (object!=null) {
 			Member member=(Member) object;
@@ -110,7 +109,7 @@ public class FrontProductCenterController {
 			String sysDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 			String sysDateAndRandom=new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+(int)(Math.random()*9)+(int)(Math.random()*9);
 			Calendar now=Calendar.getInstance();
-			//0 ²Ù×÷subject±í
+			//0 æ“ä½œsubjectè¡¨
 			Subject subject=this.frontProductServiceImpl.getSubjectById(Integer.parseInt(subjectId));
 			subject.setBought(subject.getBought()+1);
 			subject.setAmount(subject.getAmount()+Integer.parseInt(mytext));
@@ -118,7 +117,7 @@ public class FrontProductCenterController {
 			subject=this.frontProductServiceImpl.getSubjectById(Integer.parseInt(subjectId));
 			float interest=((((Integer.parseInt(mytext)*(subject.getYear_rate()+1))/100)/365)*(subject.getPeriod()));
 			
-			//1¡¢²Ù×÷³ÉÔ±ÕË»§±íÊı¾İ
+			//1ã€æ“ä½œæˆå‘˜è´¦æˆ·è¡¨æ•°æ®
 			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
 			memberAccount.setUseable_balance(Integer.parseInt(amountYuE)-Integer.parseInt(mytext));
 			try {
@@ -131,7 +130,7 @@ public class FrontProductCenterController {
 			memberAccount.setMember(member);
 			this.frontProductServiceImpl.updateMemberAccount(memberAccount);
 			
-			//2¡¢²Ù×÷³ÉÔ±ÀûÈó±í
+			//2ã€æ“ä½œæˆå‘˜åˆ©æ¶¦è¡¨
 			memberProfitRecord.setMember(member);
 			memberProfitRecord.setSubject(subject);
 			memberProfitRecord.setSerial_number(sysDateAndRandom);
@@ -150,24 +149,24 @@ public class FrontProductCenterController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			memberProfitRecord.setComment("¹ºÂòÁË"+subject.getName());
+			memberProfitRecord.setComment(subject.getName());
 			memberProfitRecord.setProfit_year(now.get(Calendar.YEAR));
 			memberProfitRecord.setProfit_month(now.get(Calendar.MONTH+1));
 			memberProfitRecord.setProfit_day(now.get(Calendar.DAY_OF_MONTH));
 			this.frontProductServiceImpl.saveMemberProfitRecord(memberProfitRecord);
 			
-			//3²Ù×÷½»Ò×¼ÇÂ¼±í
+			//3æ“ä½œäº¤æ˜“è®°å½•è¡¨
 			memberTradeRecord.setMember(member);
 			memberTradeRecord.setTrade_no(sysDateAndRandom);
-			memberTradeRecord.setTrade_name("¹ºÂòÁË"+subject.getName());
-			memberTradeRecord.setCounterpart("Ó¯+Àí²Æ¹«Ë¾");
+			memberTradeRecord.setTrade_name("è´­ä¹°"+subject.getName());
+			memberTradeRecord.setCounterpart("");
 			memberTradeRecord.setAmount(Integer.parseInt(mytext));
 			memberTradeRecord.setTrade_type(subject.getName());
 			memberTradeRecord.setFund_flow(0);
 			memberTradeRecord.setTrade_status(0);
-			memberTradeRecord.setExt_field_1("À©Õ¹1");
-			memberTradeRecord.setExt_field_2("À©Õ¹2");
-			memberTradeRecord.setExt_field_3("À©Õ¹3");
+			memberTradeRecord.setExt_field_1("æ‰©å±•1");
+			memberTradeRecord.setExt_field_2("æ‰©å±•2");
+			memberTradeRecord.setExt_field_3("æ‰©å±•3");
 			try {
 				memberTradeRecord.setCreate_date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sysDate));
 			} catch (ParseException e) {
@@ -182,10 +181,10 @@ public class FrontProductCenterController {
 			}
 			this.frontProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
 			
-			//4 ²Ù×÷¼ÇÕË±í
+			//4 æ“ä½œè®°è´¦è¡¨
 			member_tally.setMember(member);
 			member_tally.setType_id(1);
-			member_tally.setType_name("A±ê");
+			member_tally.setType_name("Aæ ‡");
 			member_tally.setAmount(Integer.parseInt(mytext));
 			try {
 				member_tally.setPay_date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sysDate));
@@ -201,7 +200,7 @@ public class FrontProductCenterController {
 			}
 			this.frontProductServiceImpl.saveMember_tally(member_tally);
 			
-			//5²Ù×÷±êµÄ¹ºÂò±í
+			//5æ“ä½œæ ‡çš„è´­ä¹°è¡¨
 			subjectPurchaseRecord.setSubject(subject);
 			subjectPurchaseRecord.setMember(member);
 			subjectPurchaseRecord.setSerial_number(sysDate);
@@ -214,7 +213,7 @@ public class FrontProductCenterController {
 			subjectPurchaseRecord.setIspayment(1);
 			subjectPurchaseRecord.setPay_interest_times(1);
 			subjectPurchaseRecord.setLast_profit_day(Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(new Date())));
-			subjectPurchaseRecord.setBonus_info("ÎŞ");
+			subjectPurchaseRecord.setBonus_info("æ— ");
 			this.frontProductServiceImpl.saveSubjectPurchaseRecord(subjectPurchaseRecord);
 			int cnt=this.frontProductServiceImpl.getCntBySubjectIdAndMemberId(Integer.parseInt(subjectId), memberId);
 			List<Subject_purchase_record> sList=this.frontProductServiceImpl.listSubjectPurchaseRecordAll(Integer.parseInt(subjectId), memberId);
@@ -228,10 +227,10 @@ public class FrontProductCenterController {
 			}
 			
 			model.addAttribute("memberAccount", memberAccount);
-			//ÕâÒ»¶ÎÅĞ¶ÏÓĞÃ»ÓĞ°ó¶¨ÒøĞĞ¿¨
+			//è¿™ä¸€æ®µåˆ¤æ–­æœ‰æ²¡æœ‰ç»‘å®šé“¶è¡Œå¡
 			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
 			model.addAttribute("memberBankcards", memberBankcards);
-			return "frontMemberCenter";//×îºó¹ºÂò³É¹¦ºóÌø×ªµ½¸öÈËÖĞĞÄ ÏÔÊ¾¹ºÂòµÄĞÅÏ¢
+			return "frontMemberCenter";//æœ€åè´­ä¹°æˆåŠŸåè·³è½¬åˆ°ä¸ªäººä¸­å¿ƒ æ˜¾ç¤ºè´­ä¹°çš„ä¿¡æ¯
 		}
 		return "frontUserLogin";
 	}

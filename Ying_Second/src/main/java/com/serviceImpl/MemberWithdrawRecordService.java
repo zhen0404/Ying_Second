@@ -8,50 +8,50 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bean.Financial_planner;
+import com.bean.Member_withdraw_record;
 import com.dao.BaseDao;
 import com.service.BaseService;
 
 @Service
 @Transactional
-public class FinancialPlannerAuditService implements BaseService<Financial_planner>{
+public class MemberWithdrawRecordService implements BaseService<Member_withdraw_record>{
 
 	@Autowired
-	@Qualifier("financialPlannerAuditDao")
-	private BaseDao<Financial_planner> baseDao;
+	@Qualifier("memberWithdrawRecordDao")
+	private BaseDao<Member_withdraw_record> baseDao;
 	
-	public List<Financial_planner> listAll() {
+	@Override
+	public List<Member_withdraw_record> listAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void save(Financial_planner t) {
+	@Override
+	public void save(Member_withdraw_record t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void delete(Financial_planner t) {
+	@Override
+	public void delete(Member_withdraw_record t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public Financial_planner getById(int id) {
+	@Override
+	public Member_withdraw_record getById(int id) {
 		return baseDao.getById(id);
 	}
 
-	public void update(Financial_planner t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public List<Financial_planner> listAll(Map map) {
+	@Override
+	public List<Member_withdraw_record> listAll(Map map) {
 		return baseDao.listAll(map);
 	}
 
 	@Override
-	public List<Financial_planner> listAll(int id) {
+	public void update(Member_withdraw_record t) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
@@ -59,7 +59,10 @@ public class FinancialPlannerAuditService implements BaseService<Financial_plann
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+	@Override
+	public List<Member_withdraw_record> listAll(int id) {
+		return baseDao.listAll(id);
+	}
 
 }

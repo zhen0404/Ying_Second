@@ -1,6 +1,13 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/zhen0404/Ying_Second.git
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/java/com/bean/Subject_purchase_record.java=UTF-8
 encoding//src/main/java/com/controller/SubjectController.java=UTF-8
 encoding//src/main/java/com/daoImpl/FinancialPlannerAuditDao.java=UTF-8
 encoding//src/main/java/com/daoImpl/UsersManagerDaoImpl.java=UTF-8
 encoding//src/main/webapp/files/common=UTF-8
 encoding//src/main/webapp/files/jquery=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8

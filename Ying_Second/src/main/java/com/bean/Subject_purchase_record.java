@@ -7,27 +7,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Subject_purchase_record {
                   
-	private int id;// ����
-	private String serial_number;// ��ˮ��
-	private int amount;// ������
-	private String deal_id;// ����IP
-//	private int subject_id;// ���id
-	private int member_id;// ��Աid
-	private int delflag;// �Ƿ�ɾ��
-	private Date create_date;// ����ʱ��
-	private Date update_date;// �޸�ʱ��
-	private int interset;// ������Ϣ
-	private int ispayment;// �Ƿ񻹿�
-	private int pay_interest_times;// �������
-	private int last_profit_day;// ����Ϣ��
-	private String bonus_info;// ��������Ϣ��app��ʵ��Ͷ�ʶ��+������)
+	private int id;
+	private String serial_number;
+	private int amount;
+	private String deal_id;
+//	private int subject_id;
+	private int member_id;
+	private int delflag;
+	private Date create_date;
+	private Date update_date;
+	private float interset;
+	private int ispayment;
+	private int pay_interest_times;
+	private int last_profit_day;
+	private String bonus_info;
 	private Subject subject;
+	
 	private Member Member;
 	
 	 @ManyToOne
@@ -105,11 +107,11 @@ public class Subject_purchase_record {
 		this.update_date = update_date;
 	}
 
-	public int getInterset() {
+	public float getInterset() {
 		return interset;
 	}
 
-	public void setInterset(int interset) {
+	public void setInterset(float interset) {
 		this.interset = interset;
 	}
 

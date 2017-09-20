@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table
@@ -25,6 +27,17 @@ public class Member_trade_record {
 	private String ext_field_3;
 	private Date create_date;
 	private Date update_date;
+	
+	private Member member;
+	
+	@OneToOne
+	@JoinColumn(name="mid")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	
 	@Id
 	@GeneratedValue

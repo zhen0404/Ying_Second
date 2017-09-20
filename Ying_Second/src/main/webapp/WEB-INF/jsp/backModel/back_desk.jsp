@@ -1083,21 +1083,22 @@
 
 					<ul class="sub-menu">
 						<li>
-							<a href="/Ying_Second/usersManager/listMember" target="showTable">
+							<a href="/Ying_Second/usersManager/listMember"  >
 							<i class="icon-cogs"></i>
 							用户管理
 							</a>
 						</li>
-						<li>
-							<a href="javascript:;">
-							<i class="icon-globe"></i> 
-							角色设置
-							</a>
-						</li>
+						
 						<li>
 							<a href="#">
 							<i class="icon-folder-open"></i>
 							权限设置
+							</a>
+						</li>
+						<li>
+							<a href="/Ying_Second/password/show" target="showTable">
+							<i class="icon-globe"></i> 
+							密码设置
 							</a>
 						</li>
 					</ul>

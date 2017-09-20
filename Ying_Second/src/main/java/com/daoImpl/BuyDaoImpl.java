@@ -20,6 +20,7 @@ public class BuyDaoImpl implements BuyDao {
 		return sf.getCurrentSession();
 	}
 	
+	//根据memberId获取用户余额
 	public Member_account getByMemberId(int mid) {
 		// TODO Auto-generated method stub
 		String hql="from Member_account where member_id = "+mid+"";
@@ -29,5 +30,7 @@ public class BuyDaoImpl implements BuyDao {
 		}
 		return null;
 	}
+	
+	//
 
 }

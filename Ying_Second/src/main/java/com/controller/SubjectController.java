@@ -108,7 +108,6 @@ public class SubjectController {
 		        	System.out.println("11111");
 		        	Date now =new Date();
 		    		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		    		System.out.println(now+"+++++++++++++-----");
 		    		String hehe = dateFormat.format(now);
 		    		Date date=null;
 		    		try {

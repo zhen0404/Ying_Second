@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table
@@ -14,7 +16,7 @@ public class Member_profit_record {
 	private int id;
 	private String serial_number;
 	private int type;
-	private int amount;
+	private float amount;
 	private  int member_id;
 	private int delflag;
 	private Date create_date;
@@ -25,6 +27,25 @@ public class Member_profit_record {
 	private int profit_month;
 	private int profit_day;
 	
+	private Member member;
+	private Subject subject;
+	
+	@ManyToOne
+	@JoinColumn(name="sid")
+	public Subject getSubject() {
+		return subject;
+	}
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	@ManyToOne
+	@JoinColumn(name="mid")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -45,11 +66,11 @@ public class Member_profit_record {
 	public void setType(int type) {
 		this.type = type;
 	}
-	public int getAmount() {
+	public float getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setAmount(float interest) {
+		this.amount = interest;
 	}
 	public int getMember_id() {
 		return member_id;

@@ -348,7 +348,7 @@ li.active a {
 						href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/Ying_Second/frontLast">
+						href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -371,14 +371,15 @@ li.active a {
 
     });
 
-</script>    <div class="sdbanner probanner"></div>
+</script>    
+<div class="sdbanner probanner"></div>
     <div class="proMain">
     	<div class="hwpzNav">
     		<ul>
-    			<li class="first"><a class="active" href="http://pro.ying158.com/subject">固收类理财</a></li>
-    			<li class="second"><a href="http://pro.ying158.com/finance">私募基金</a></li>
-    			<li class="three"><a href="http://pro.ying158.com/oversea">海外配置</a></li>
-    			<li class="four"><a href="http://pro.ying158.com/finance">股权基金</a></li>
+    			<li class="first"><a class="active" href="/Ying_Second/product/solidClass">固收类理财</a></li>
+    			<li class="second"><a href="/Ying_Second/product/privatePalcement">私募基金</a></li>
+    			<li class="three"><a href="/Ying_Second/product/seaout">海外配置</a></li>
+    			<li class="four"><a href="/Ying_Second/product/stockfund">股权基金</a></li>
     		</ul>
     	</div>
         <div class="sdShaix">
@@ -452,7 +453,7 @@ li.active a {
 								
 						</li>
 						<li class="five">
-							<a class="abtn" href="/Ying_Second/frontLast">购买</a>
+							<a class="abtn" href="/Ying_Second/buy/productBuy?subjectId=1">购买</a>
 						</li>
 					</ul>
 					<ul class="tbList">
@@ -486,7 +487,7 @@ li.active a {
 								
 						</li>
 						<li class="five">
-							<a class="abtn" href="/Ying_Second/frontLast">购买</a>
+							<a class="abtn" href="/Ying_Second/buy/productBuy">购买</a>
 						</li>
 					</ul>
 					<ul class="tbList">
@@ -520,7 +521,7 @@ li.active a {
 								
 						</li>
 						<li class="five">
-							<a class="abtn" href="/Ying_Second/frontLast">购买</a>
+							<a class="abtn" href="/Ying_Second/buy/productBuy">购买</a>
 						</li>
 					</ul>
 					<ul class="tbList">
@@ -554,7 +555,7 @@ li.active a {
 								
 						</li>
 						<li class="five">
-							<a class="abtn" href="/Ying_Second/frontLast">购买</a>
+							<a class="abtn" href="/Ying_Second/buy/productBuy">购买</a>
 						</li>
 					</ul>
 	<!-- 异步内容结束 -->

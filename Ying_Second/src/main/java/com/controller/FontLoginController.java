@@ -28,10 +28,13 @@ public class FontLoginController {
 	
 	//Ç°Ì¨Ê×Ò³µÇÂ¼
 	@RequestMapping("login")
-	public String login(String mobilePhone,String password,Model model){
+	public String login(String mobilePhone,String password,Model model,String url){
 		Member member=this.fontloginS.getMember(mobilePhone,CryptographyUtil.md5(password, "javamd"));
 		model.addAttribute("member", member);
 		if(member!=null){
+			if("buy".equals(url)){
+				return "/Ying_Second/frontLast";
+			}
 			return "font_desk/frontHome";
 		}
 		return "font_desk/frontIframeLogin";

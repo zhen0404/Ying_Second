@@ -10,10 +10,12 @@
 	<meta name="description">
 	<title>网上体验中心 - 盈+</title>
 	<link href="http://www.ying158.com/Content/images/jw/icon.ico" type="image/x-icon" rel="shortcut icon">
-	<script src="/Ying_Second/js/hm.js"></script><script>
-
-		
-	</script>
+	<script src="/Ying_Second/js/hm.js"></script>
+	
+	<link href="/Ying_Second/css/iconfont.css" rel="stylesheet" type="text/css">
+	<link href="/Ying_Second/css/common.css" rel="stylesheet">
+	<link href="/Ying_Second/css/jw2.css" rel="stylesheet">
+	
 	<link href="/Ying_Second/files/common" rel="stylesheet">
 
 	<link href="/Ying_Second/files/jw.less" rel="stylesheet">
@@ -209,14 +211,14 @@
 						href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/Ying_Second/frontLast">
+						href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
-	<div class="main">
+	
+	
 <div class="container">
     <div class="kcenter">
         <ul>
@@ -243,7 +245,7 @@
 </div>
 
 
-
+	<div class="main">
 		<div class="container index">
 			<div class="row">
 				<div class="security">
@@ -277,8 +279,6 @@
         .hzhb_box {float:left;  width:610px; margin-top:32px;}
         .hzhb_item {float:left;margin:5px;  border: solid 1px #aaa;border-radius:3px;}
         .hzhb_item img { width:120px; height:40px;}
-
-        
         .ft_item{ float: left; width: 239px; }
         .ft_item_tit{ height: 28px; line-height: 28px; font-size: 20px; color: #ccc;padding-left:40px;}
         .ft_links_list{ margin-top: 10px;}
@@ -288,7 +288,7 @@
         .ft_sns_list li{ float: left; width: 74px; margin: 5px;}
         .ft_sns_list a{ display: block; width: 74px;}
         .ft_sns_list .txt{ display: block; line-height: 32px; text-align: center; color:#ccc;}
-        .ft_sns_list .ico_sns{ display: block; width: 62px; height: 62px; margin: 0 auto; background: url(/images/ft_sns.png) no-repeat;}
+        .ft_sns_list .ico_sns{ display: block; width: 62px; height: 62px; margin: 0 auto; background: url(/Ying_Second/img/ft_sns.png) no-repeat;}
         .ft_sns_list .ico_weixin{ background-position: 0 0;}
         .ft_sns_list .ico_sinawb{ background-position: -63px 0;}
         .ft_sns_list .ico_txwb{ background-position: -126px 0;}

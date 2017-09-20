@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -129,8 +128,8 @@ public class Subject_bbin_purchase_record {
 		this.ispayment = ispayment;
 	}
 	
-		@ManyToOne
-		@JoinColumn(name="subject_id")
+	@ManyToOne
+	@JoinColumn(name="subject_id")
 	public Subject getSubject() {
 		return subject;
 	}

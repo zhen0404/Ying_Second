@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,10 +32,10 @@ public class FontDeskController {
 		return "font_desk/fontOnlineExperience";
 	}
 	
-	//登录页面
+	//产品
 	@RequestMapping("product")
 	public String fontProduct(){
-		return "font_desk/frontProduct";
+		return "font_desk/product/frontProduct";
 	}
 	
 	//新闻中心
@@ -60,7 +62,7 @@ public class FontDeskController {
 		return "font_desk/frontStudy";
 	}
 	
-	//我的加法库
+	//去购买
 	@RequestMapping("frontLast")
 	public String frontLast(){
 		return "font_desk/fontAddition";
@@ -79,9 +81,9 @@ public class FontDeskController {
 	}
 	
 	//加法库
-	@RequestMapping("")
+	@RequestMapping("myadd")
 	public String myselfAdd(){
-		return "";
+		return "font_desk/memberMain/memberDepositsHistory";
 	}
 	
 //	//网上体验中心

@@ -29,9 +29,9 @@ public class FrontSubjectController {
 	public String showsubject(Model model,HttpServletRequest request,HttpServletResponse response){
 		Map map=new HashMap();
 		map=initMap(request, map);
-		List<Subject>list=frontSubjectServiceImpl.list(map);//²éÑ¯ËùÓÐ
+		List<Subject>list=frontSubjectServiceImpl.list(map);//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("list",list);
-		return "font_desk/frontProduct";
+		return "font_desk/product/frontProduct";
 	}
 	
 	public Map initMap(HttpServletRequest request,Map map){
@@ -74,7 +74,7 @@ public class FrontSubjectController {
 	    	 List<Subject> list=frontSubjectServiceImpl.query(hql);
 			 model.addAttribute("list",list);
 			 System.out.println(list.size());
-	    	return "font_desk/frontProduct";
+	    	return "font_desk/product/frontProduct";
 	    }
 	    
 	    @RequestMapping("/queryYear_rate")
@@ -84,7 +84,7 @@ public class FrontSubjectController {
 	    	String hql="from Subject where 0=0 and year_rate like'%"+year_rate+"%'";
 	    	List<Subject> list=frontSubjectServiceImpl.query(hql);
 			 model.addAttribute("list",list);
-	    	return "font_desk/frontProduct";
+	    	return "font_desk/product/frontProduct";
 	    }
 	    
 	    @RequestMapping("/queryStatus")
@@ -92,7 +92,7 @@ public class FrontSubjectController {
 	    	String hql="from Subject where 0=0 and status like'%"+status+"%'";
 	    	List<Subject> list=frontSubjectServiceImpl.query(hql);
 			 model.addAttribute("list",list);
-	    	return "font_desk/frontProduct";
+	    	return "font_desk/product/frontProduct";
 	    }
 	    @RequestMapping("/queryDays")
 	    public String queryDays(int days,Model model){
@@ -111,7 +111,9 @@ public class FrontSubjectController {
 		    	}
 	    	List<Subject> list=frontSubjectServiceImpl.query(hql);
 			 model.addAttribute("list",list);
-	    	return "font_desk/frontProduct";
+	    	return "font_desk/product/frontProduct";
 	    }
+	    
+	    
            
 }

@@ -9,14 +9,16 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.bean.Users;
-import com.daoImpl.BackDeskLoginDaoImpl;
+import com.dao.BackDaskLoginDao;
 
 public class MyRealm extends AuthorizingRealm{
 
 	@Autowired
-	private BackDeskLoginDaoImpl userdao;
+	@Qualifier("backDeskLoginDaoImpl")
+	private BackDaskLoginDao userdao;
 	
 	/**
 	 * 赋予用户权限，角色

@@ -43,7 +43,12 @@ public class FinancialPlannerAuditDao implements BaseDao<Financial_planner>{
 	}
 
 	public Financial_planner getById(int id) {
-		// TODO Auto-generated method stub
+		String hql="from Financial_planner where member_id="+id;
+		Session session=getSession();
+		List<Financial_planner> list=session.createQuery(hql).list();
+		if(list.size()>0){
+			return list.get(0);
+		}
 		return null;
 	}
 
@@ -53,7 +58,7 @@ public class FinancialPlannerAuditDao implements BaseDao<Financial_planner>{
 	}
 
 	public List<Financial_planner> listAll(Map map) {
-		String hql="from Financial_planner ";
+		String hql="from Financial_planner f where 0=0 ";
 		hql=sqlData(hql, map);
 		Session session=getSession();
 		List<Financial_planner> list=session.createQuery(hql).list();
@@ -78,6 +83,12 @@ public class FinancialPlannerAuditDao implements BaseDao<Financial_planner>{
 			sql+=" and create_date like '%"+create_date+"%'";
 		}
 		return sql;
+	}
+
+	@Override
+	public List<Financial_planner> listAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

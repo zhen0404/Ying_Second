@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table
@@ -23,6 +25,16 @@ public class Member_withdraw_record {
 	private String channel_name;
 	private Date create_date;
 	private Date update_date;
+	private Member member;
+	
+	@ManyToOne
+	@JoinColumn(name="member_id",insertable=false,updatable=false)
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	
 	@Id
 	@GeneratedValue

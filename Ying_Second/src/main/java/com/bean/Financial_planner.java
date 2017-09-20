@@ -25,7 +25,7 @@ public class Financial_planner {
 	private Member member;
 	
 	@OneToOne
-	@JoinColumn(name="mid")
+	@JoinColumn(name="member_id",insertable=false,updatable=false)
 	public Member getMember() {
 		return member;
 	}

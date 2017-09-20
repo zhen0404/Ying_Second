@@ -12,10 +12,11 @@ import org.springframework.stereotype.Component;
 
 import com.bean.User;
 import com.bean.Users;
+import com.dao.BackDaskLoginDao;
 import com.dao.BaseDao;
 
 @Component
-public class BackDeskLoginDaoImpl implements BaseDao<User> {
+public class BackDeskLoginDaoImpl implements BackDaskLoginDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -24,30 +25,6 @@ public class BackDeskLoginDaoImpl implements BaseDao<User> {
 		return sessionFactory.openSession();
 	}
 	
-	public List<User> listAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void save(User t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(User t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public User getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void update(User t) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public Set<String> getRolesByName(String username) {
 		Set<String> roles=new HashSet();
@@ -88,7 +65,6 @@ public class BackDeskLoginDaoImpl implements BaseDao<User> {
 //			return list.get(0);
 //		}
 //		return null;
-
 		Session session=getsession();
 		System.out.println("uname:"+uname);
 		String hql="from Users u where u.user_name='"+uname+"'";

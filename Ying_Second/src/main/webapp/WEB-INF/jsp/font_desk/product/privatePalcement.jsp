@@ -337,7 +337,7 @@ li.active a {
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -349,7 +349,7 @@ li.active a {
 						href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/Ying_Second/frontLast">
+						href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -372,90 +372,60 @@ li.active a {
 
     });
 
-</script>    <div class="sdbanner probanner"></div>
+</script>    
+<div class="sdbanner probanner"></div>
     <div class="proMain">
     	<div class="hwpzNav">
     		<ul>
-    			<li class="first"><a class="active" href="http://pro.ying158.com/subject">固收类理财</a></li>
-    			<li class="second"><a href="http://pro.ying158.com/finance">私募基金</a></li>
-    			<li class="three"><a href="http://pro.ying158.com/oversea">海外配置</a></li>
-    			<li class="four"><a href="http://pro.ying158.com/finance">股权基金</a></li>
+    			<li class="first"><a class="active" href="/Ying_Second/product/solidClass">固收类理财</a></li>
+    			<li class="second"><a href="/Ying_Second/product/privatePalcement">私募基金</a></li>
+    			<li class="three"><a href="/Ying_Second/product/seaout">海外配置</a></li>
+    			<li class="four"><a href="/Ying_Second/product/stockfund">股权基金</a></li>
     		</ul>
     	</div>
-        <div class="sdShaix">
-        	<ul>
-            	<li class="first">标的类型：</li>
-               		<li><a href="/Ying_Second/frontSubject/showsubject" id="11" class="select">全部</a></li>
-               		<c:if test="">
-               		<li><a href="/Ying_Second/frontSubject/queryType?type=0&num=1" id="12">固收类理财</a></li>
-               		</c:if>
-               		<li><a href="/Ying_Second/frontSubject/queryType?type=1&num=2" id="13">车盈宝</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">年化收益：</li>
-               		<li><a href="/Ying_Second/frontSubject/showsubject" id="21" class="select">全部</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryYear_rate?year_rate=6" id="22">6.0%</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryYear_rate?year_rate=7" id="23">7.0%</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryYear_rate?year_rate=8" id="24">8.0%</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryYear_rate?year_rate=9" id="25">9.0%</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryYear_rate?year_rate=10" id="25">10%以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">项目期限：</li>
-               		<li><a href="Ying_Second/frontSubject/showsubject" id="31" class="select">全部</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryDays?days=1" id="32">15天以下</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryDays?days=2" id="33">15-30天</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryDays?days=3" id="34">30-180天</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryDays?days=4" id="35">180-365天</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryDays?days=5" id="36">一年以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">标的状态：</li>
-               		<li><a href="/Ying_Second/frontSubject/showsubject" class="select">全部</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryStatus?status=0" id="42">投标中</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryStatus?status=1" id="43">还款中</a></li>
-               		<li><a href="/Ying_Second/frontSubject/queryStatus?status=2" id="44">已完成</a></li>
-            </ul>
-        </div>
 
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
+	<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
+	<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
+	<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
 
 <div class="ajaxContainer">
 	<!-- 异步内容开始 -->
-					<c:forEach items="${list}" var="s">
+	             <c:forEach items="${list}" var="list">
 					<ul class="tbList">
 						<li class="first">
-							<span class="ico zq"></span>
-							<h2><em>投</em>${s.name }</h2>
+									<span class="ico zq"></span>
+							<h2><em>投</em>${list.name}</h2>
 							<i></i>
 						</li>
 						<li class="second">					
+							
 							<div class="txt1">
-								<h2>${s.year_rate }<span style="font-size:18px;">+1.0%</span></h2>
+								<h2>${list.year_rate}<span style="font-size:18px;">+1.0%</span></h2>
 								<p>年化收益</p>
 							</div>
+							
 							<div class="txt2">
-								<h2>￥${s.floor_amount }</h2>
+								<h2>￥${list.floor_amount}</h2>
 								<p>起购金额(元)</p>
 							</div>
+							
 							<div class="txt2">
-								<h2>${s.period }天</h2>
+								<h2>${list.period}</h2>
 								<p>投资期限</p>
 							</div>
 						</li>
 						<li class="three">
-							<a href="#1">企业担保</a><span>中国人保财险承保</span>
-							<p>计息日期：当天投资，立即计息<br>已购人数：${s.bought }人</p>
+								<a href="http://pro.ying158.com/subject#1">企业担保</a><span>中国人保财险承保</span>
+								<p>计息日期：当天投资，立即计息<br>已购人数:${list.buyer_count}人</p>
 						</li>
 						<li class="four">
+								
 						</li>
 						<li class="five">
-							<a class="abtn" href="/yingJiaProfit/product/toBuy?id=${s.id }">购买</a>
+							<a class="abtn" href="/Ying_Second/buy/productBuy">购买</a>
 						</li>
 					</ul>
-				</c:forEach>
+					</c:forEach>
 	<!-- 异步内容结束 -->
 	
 	

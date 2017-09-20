@@ -346,7 +346,7 @@ li.active a {
 						href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/Ying_Second/frontLast">
+						href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>

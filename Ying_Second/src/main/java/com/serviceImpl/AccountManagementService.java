@@ -65,7 +65,22 @@ public class AccountManagementService implements BaseService<Member>{
 
 
 	public void update(Member member) {
-		baseDao.update(member);
+		
+	}
+
+
+
+	@Override
+	public List<Member> listAll(int id) {
+		// TODO Auto-generated method stub
+		return baseDao.listAll(id);
+	}
+
+
+
+	@Override
+	public void update(int id) {
+		// TODO Auto-generated method stub
 		
 	}
 

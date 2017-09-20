@@ -36,8 +36,7 @@ public class FinancialPlannerAuditService implements BaseService<Financial_plann
 	}
 
 	public Financial_planner getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return baseDao.getById(id);
 	}
 
 	public void update(Financial_planner t) {
@@ -47,6 +46,18 @@ public class FinancialPlannerAuditService implements BaseService<Financial_plann
 
 	public List<Financial_planner> listAll(Map map) {
 		return baseDao.listAll(map);
+	}
+
+	@Override
+	public List<Financial_planner> listAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

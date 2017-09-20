@@ -37,4 +37,12 @@
 		 <property name="prefix" value="/WEB-INF/jsp/"></property>
 		 <property name="suffix" value=".jsp"></property>
 	 </bean>
+	 
+	 <!-- 文件上传下载 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 文件上传下载的字符集 -->
+		<property name="defaultEncoding" value="utf-8"></property>
+		<!-- 允许文件上传的最大值 单位是字节 -->
+		<property name="maxUploadSize" value="105062000"></property>
+	</bean>
 </beans>

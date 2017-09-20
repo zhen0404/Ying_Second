@@ -25,11 +25,6 @@ import com.bean.Subject;
 import com.bean.Subject_purchase_record;
 import com.service.FrontProductService;
 
-/**
- * ǰ̨��Ʒ���� ������
- * @author Administrator
- *
- */
 @Controller
 @RequestMapping("/product")
 public class FrontProductCenterController {
@@ -38,7 +33,7 @@ public class FrontProductCenterController {
 	@Qualifier("frontProductServiceImpl")
 	private FrontProductService frontProductServiceImpl;
 	
-//	//�����Ʒ���İ�ť  Я����ݹ�ȥ
+//	//去购买前的操作
 //	@RequestMapping("/login")
 //	public String login(Model model){
 //		List<Subject> subjectList=frontProductServiceImpl.listAll(1);
@@ -53,23 +48,23 @@ public class FrontProductCenterController {
 		Subject subject=(Subject) this.frontProductServiceImpl.getById(Integer.parseInt(id));
 		int datePeriod=subject.getPeriod();
 		Date date=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//存入开始计息时间
 		try {
 			subject.setStart_date(sdf.parse(sdf.format(date)));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//存入开始计息时间
+		}
 		Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.DAY_OF_MONTH, +datePeriod);//今天的时间加标的周期
         date = calendar.getTime();
 		try {
-			subject.setEnd_date(sdf.parse(sdf.format(date)));
+			subject.setEnd_date(sdf.parse(sdf.format(date)));//存入预计到账时间
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//存入预计到账时间
+		}
 		this.frontProductServiceImpl.saveOrUpdateProduct(subject);
 		subject=(Subject) this.frontProductServiceImpl.getById(Integer.parseInt(id));
 		model.addAttribute("subject", subject);

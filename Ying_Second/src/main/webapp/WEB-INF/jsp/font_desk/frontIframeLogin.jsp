@@ -375,6 +375,7 @@ li.active a {
 				<div class="loginBlock">
 					<img class="cornerImg" src="/Ying_Second/img/loginCorner.png">
 					<div class="item item1">
+						<input type="hidden" value="${url }">
 						<div class="lLabel">手机号</div>
 						<div class="lInput">
 							<img src="/Ying_Second/img/userIcon.png">

@@ -27,9 +27,9 @@ public class FontLoginController {
 	@Qualifier("fontLoginServiceImpl")
 	private FontLoginService fontloginS;
 	
-	//前台登录
+	//前台确认登录
 	@RequestMapping("login")
-	public String login(String mobilePhone,String password,HttpSession session,String url){
+	public String login(String mobilePhone,String password,String url,HttpSession session){
 		Member member=this.fontloginS.getMember(mobilePhone,CryptographyUtil.md5(password, "javamd"));
 		session.setAttribute("member", member);
 		if(member!=null){

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bean.Member;
@@ -60,7 +61,6 @@ public class FontDeskController {
 		return "font_desk/frontLoad";
 	}
 	
-	//��ѧԺ
 	@RequestMapping("frontCollege")
 	public String frontCollege(){
 		return "font_desk/frontCollege";
@@ -80,7 +80,8 @@ public class FontDeskController {
 	
 	//登录
 	@RequestMapping("frontIframeLogin")
-	public String frontLogin(){
+	public String frontLogin(String url,Model model){
+		model.addAttribute("url", url);
 		return "font_desk/frontIframeLogin";
 	}
 	
@@ -102,9 +103,7 @@ public class FontDeskController {
 			session.setAttribute("mpr", mpr);
 			return "font_desk/memberMain/memberDepositsHistory";
 		}
-		return "font_desk/frontIframeLogin";
+		return "redirect:/frontIframeLogin";
 	}
-	
-	
 	
 }

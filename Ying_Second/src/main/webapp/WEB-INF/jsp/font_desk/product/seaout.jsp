@@ -78,10 +78,9 @@
     <div class="proMain">
     	<div class="hwpzNav">
     		<ul>
-    			<li class="first"><a class="active" href="/Ying_Second/product/solidClass">固收类理财</a></li>
-    			<li class="second"><a href="/Ying_Second/product/privatePalcement">私募基金</a></li>
-    			<li class="three"><a href="/Ying_Second/product/seaout">海外配置</a></li>
-    			<li class="four"><a href="/Ying_Second/product/stockfund">股权基金</a></li>
+    			<li class="first"><a class="active" href="/Ying_Second/frontSubject/showsubject">固收类理财</a></li>
+    			<li class="second"><a href="/Ying_Second/frontsimu/list">私募基金</a></li>
+    			<li class="three"><a href="/Ying_Second/frontSea/list">海外配置</a></li>
     		</ul>
     	</div>
     	<ul class="safeList">
@@ -93,15 +92,14 @@
 <div class="ajaxContainer">
 	<!-- 异步内容开始 -->
 	<c:forEach items="${list}" var="list">
-		<li>
-				<a href="http://pro.ying158.com/oversea/overseaView/3">
-				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/Ying_Second/img/20160122211432397907.png" width="40" height="40"></span>
-
-				<h2>${list.title}<p>${list.child_title}</p></h2>
-				<h3>${list.content}<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type}</p></h3>
+	<li>
+		<a href="http://pro.ying158.com/oversea/overseaView/3">
+		<span style="width: 40px;height: 40px;" class="iconfont"><img src="/Ying_Second/img/20160122211432397907.png" width="40" height="40"></span>
+			<h2>${list.title }<p>${list.child_title }</p></h2>
+			<h3>${description }<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type }</p></h3>
 			</a>
 		</li>
-		</c:forEach>
+	</c:forEach>
 		
 	<!-- 异步内容结束 -->
 	

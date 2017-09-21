@@ -23,6 +23,7 @@ public class FrontOverSeaController {
 		      public String overList(Model model){
 		     	List<Oversea_config> list=overseaServiceImpl.listAll();
 		     	model.addAttribute("list", list);
+		     	System.out.println(list.size());
 		     	return "font_desk/product/seaout";
 		     }
 

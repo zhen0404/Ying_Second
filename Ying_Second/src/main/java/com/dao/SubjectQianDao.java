@@ -1,8 +1,6 @@
-package com.service;
+package com.dao;
 
 import java.util.List;
-
-import org.springframework.stereotype.Service;
 
 import com.bean.Member_account;
 import com.bean.Member_bankcards;
@@ -12,7 +10,7 @@ import com.bean.Member_trade_record;
 import com.bean.Subject;
 import com.bean.Subject_purchase_record;
 
-public interface FrontProductService {
+public interface SubjectQianDao {
 
 	Subject getById(int sid);
 
@@ -22,26 +20,24 @@ public interface FrontProductService {
 
 	Member_bankcards ListCardByMemberId(int memberId);
 
-	Subject getSubjectById(int parseInt);//无
+	Subject getSubjectById(int parseInt);
 
 	void updateSubject(Subject subject);
 
-	void updateMemberAccount(Member_account memberAccount);
+	void updateMemberAccount(Object object);
 
-	void saveMemberProfitRecord(Member_profit_record memberProfitRecord);
+	void saveMemberProfitRecord(Object object);
 
-	void saveMemberTradeRecord(Member_trade_record memberTradeRecord);
+	void saveMemberTradeRecord(Object object);
 
-	void saveMember_tally(Member_tally member_tally);
+	void saveMember_tally(Object object);
 
-	void saveSubjectPurchaseRecord(Subject_purchase_record subjectPurchaseRecord);
+	void saveSubjectPurchaseRecord(Object object);
 
 	int getCntBySubjectIdAndMemberId(int parseInt, int memberId);
 
 	List<Subject_purchase_record> listSubjectPurchaseRecordAll(int parseInt, int memberId);
 
-	void updateSubjectPurchaseRecordAfterSave(Subject_purchase_record subjectPurchaseRecord2);
-	
-	
+	void updateSubjectPurchaseRecordAfterSave(Object object);
 	
 }

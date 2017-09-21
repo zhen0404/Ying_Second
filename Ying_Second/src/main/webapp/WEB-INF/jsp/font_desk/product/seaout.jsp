@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -77,10 +78,9 @@
     <div class="proMain">
     	<div class="hwpzNav">
     		<ul>
-    			<li class="first"><a class="active" href="/Ying_Second/product/solidClass">固收类理财</a></li>
-    			<li class="second"><a href="/Ying_Second/product/privatePalcement">私募基金</a></li>
-    			<li class="three"><a href="/Ying_Second/product/seaout">海外配置</a></li>
-    			<li class="four"><a href="/Ying_Second/product/stockfund">股权基金</a></li>
+    			<li class="first"><a class="active" href="/Ying_Second/frontSubject/showsubject">固收类理财</a></li>
+    			<li class="second"><a href="/Ying_Second/frontsimu/list">私募基金</a></li>
+    			<li class="three"><a href="/Ying_Second/frontSea/list">海外配置</a></li>
     		</ul>
     	</div>
     	<ul class="safeList">
@@ -91,30 +91,16 @@
 
 <div class="ajaxContainer">
 	<!-- 异步内容开始 -->
-		<li>
-				<a href="http://pro.ying158.com/oversea/overseaView/3">
-				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/Ying_Second/img/20160122211432397907.png" width="40" height="40"></span>
-
-				<h2>子女保险<p>父母之爱则为之计深远</p></h2>
-				<h3>为孩子建立一份成长关爱基金，让爱能够伴随孩子一生<p><i style="color: #aaa; font-style: normal;">用户群体：</i>国内高净值人群</p></h3>
+	<c:forEach items="${list}" var="list">
+	<li>
+		<a href="http://pro.ying158.com/oversea/overseaView/3">
+		<span style="width: 40px;height: 40px;" class="iconfont"><img src="/Ying_Second/img/20160122211432397907.png" width="40" height="40"></span>
+			<h2>${list.title }<p>${list.child_title }</p></h2>
+			<h3>${description }<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type }</p></h3>
 			</a>
 		</li>
-		<li>
-				<a href="http://pro.ying158.com/oversea/overseaView/2">
-				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/Ying_Second/img/20160122211504391648.png" width="40" height="40"></span>
-
-				<h2>养老保险<p>未雨绸缪让未来尽在掌握</p></h2>
-				<h3>为自己建立一份退休养老基金，享受高品质晚年生活<p><i style="color: #aaa; font-style: normal;">用户群体：</i>国内高净值人群</p></h3>
-			</a>
-		</li>
-		<li>
-				<a href="http://pro.ying158.com/oversea/overseaView/1">
-				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/Ying_Second/img/20160122211524399696.png" width="40" height="40"></span>
-
-				<h2>医疗保险<p>您的健康是家庭最大的财富</p></h2>
-				<h3>为自己建立一份医疗基金，防止美好生活被改变<p><i style="color: #aaa; font-style: normal;">用户群体：</i>国内高净值人群</p></h3>
-			</a>
-		</li>
+	</c:forEach>
+		
 	<!-- 异步内容结束 -->
 	
 	

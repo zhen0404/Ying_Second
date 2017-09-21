@@ -23,8 +23,8 @@ public class SubjectQianDaoImpl implements SubjectQianDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	@Override
 	//点击购买的时候 通过ID查询该产品
+	@Override
 	public Subject getById(int id) {
 		String sql="from Subject where id="+id;
 		List<Subject> subjectList=getSession().createQuery(sql).list();
@@ -40,7 +40,7 @@ public class SubjectQianDaoImpl implements SubjectQianDao {
 
 	//查询该memberId下的账户信息
 	public Member_account ListAllByMemberId(int memberId) {
-		String hql="from MemberAccount where member_id="+memberId;
+		String hql="from Member_account where member_id="+memberId;
 		List<Member_account> memberAccount=getSession().createQuery(hql).list();
 		if(memberAccount!=null&&memberAccount.size()>0){
 			System.out.println(memberAccount.size());
@@ -51,7 +51,7 @@ public class SubjectQianDaoImpl implements SubjectQianDao {
 
 	//查询该memberId下的银行卡
 	public Member_bankcards ListCardByMemberId(int memberId) {
-		String hql="from MemberBankcards where member_id="+memberId;
+		String hql="from Member_bankcards where member_id="+memberId;
 		List<Member_bankcards> memberBankcards=getSession().createQuery(hql).list();
 		if(memberBankcards!=null&&memberBankcards.size()>0){
 			System.out.println(memberBankcards.size()+"-");
@@ -92,7 +92,7 @@ public class SubjectQianDaoImpl implements SubjectQianDao {
 	}
 	
 	public List<Subject_purchase_record> listSubjectPurchaseRecordAll(int subject_id,int member_id){
-		String hql="from SubjectPurchaseRecord s where s.subject.id="+subject_id+" and s.member.id="+member_id;
+		String hql="from Subject_purchase_record s where s.subject.id="+subject_id+" and s.member.id="+member_id;
 		List<Subject_purchase_record> subjectPurchaseRecordList=getSession().createQuery(hql).list();
 		if(subjectPurchaseRecordList.size()!=0){
 			System.out.println(subjectPurchaseRecordList.size()+"--------------");
@@ -109,6 +109,11 @@ public class SubjectQianDaoImpl implements SubjectQianDao {
 	@Override
 	public Subject getSubjectById(int parseInt) {
 		// TODO Auto-generated method stub
+		String sql="from Subject where id="+parseInt;
+		List<Subject> subjectList=getSession().createQuery(sql).list();
+		if (subjectList!=null&&subjectList.size()>0) {
+			return subjectList.get(0);
+		}
 		return null;
 	}
 
@@ -116,7 +121,7 @@ public class SubjectQianDaoImpl implements SubjectQianDao {
 	@Override
 	public void updateSubject(Subject subject) {
 		// TODO Auto-generated method stub
-		
+		getSession().update(subject);
 	}
 
 }

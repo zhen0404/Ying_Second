@@ -452,7 +452,7 @@ li.active a {
 						<li class="four">
 						</li>
 						<li class="five">
-							<a class="abtn" href="/yingJiaProfit/product/toBuy?id=${s.id }">购买</a>
+							<a class="abtn" href="/Ying_Second/product/toBuy?url='product/toBuy'&id=${s.id }">购买</a>
 						</li>
 					</ul>
 				</c:forEach>

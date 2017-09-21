@@ -13,38 +13,38 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table // Ö÷Ìâ±í
+@Table 
 public class Subject {
-	private int id;//Ö÷¼ü
-    private String serial_number;//Á÷Ë®ºÅ
-    private String serial_no;//ºÏÍ¬ºÅ
-    private String name;//±êµÄÃû³Æ
-    private int type;//±êµÄÀàÐÍ
-    private int status;//±êµÄ×´Ì¬
-    private int floor_amount;//ÆðÍ¶½ð¶î
-    private int amount;//±êµÄ½ð¶î
-    private int first_id;//Ê¼±êid
-    private int parent_id;//¸¸±êid
-    private int period;//±êµÄÖÜÆÚ
-    private String purpose;//½è¿îÄ¿µÄ
-    private Date raise_start;//Ä¼¼¯¿ªÊ¼
-    private Date raise_end;//Ä¼¼¯½áÊø
-    private int refund_way;//»¹¿î·½Ê½
-    private int safeGuard_way;//±£ÕÏ·½Ê½
-    private Date start_date;//±êµÄ¿ªÊ¼ÈÕÆÚ
-    private Date end_date;//±êµÄ½áÊøÈÕÆÚ
-    private int year_rate;//Äê»¯ÂÊ
-    private String comment;//²úÆ·ËÙÀÀ
-    private int folder_id;//ÎÄ¼þ¼Ðid
-    private int delflag;//ÊÇ·ñÉ¾³ý
-    private Date update_date;//¸üÐÂÈÕÆÚ
-    private Date create_date;//´´½¨ÈÕÆÚ
-    private String borrowername;//½è¿îÈËÐÕÃû
-    private int borrowerid;//½è¿îÈËid
-    private int bought;//ÒÑ¹ºÈËÊý
-    private String projectDetails;//ÏîÄ¿ÏêÇé
-    private String safetyControl;//°²È«±£ÕÏ
-    private int exper_status;//ÌåÑé½ðÊÇ·ñ¿ÉÒÔ¹ºÂò£¨0£º·ñ£¬1£ºÊÇ£©
+	private int id;//ï¿½ï¿½ï¿½ï¿½
+    private String serial_number;//ï¿½ï¿½Ë®ï¿½ï¿½
+    private String serial_no;//ï¿½ï¿½Í¬ï¿½ï¿½
+    private String name;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int type;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int status;//ï¿½ï¿½ï¿½×´Ì¬
+    private int floor_amount;//ï¿½ï¿½Í¶ï¿½ï¿½ï¿½
+    private int amount;//ï¿½ï¿½Ä½ï¿½ï¿½
+    private int first_id;//Ê¼ï¿½ï¿½id
+    private int parent_id;//ï¿½ï¿½ï¿½ï¿½id
+    private int period;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private String purpose;//ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+    private Date raise_start;//Ä¼ï¿½ï¿½ï¿½ï¿½Ê¼
+    private Date raise_end;//Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int refund_way;//ï¿½ï¿½ï¿½î·½Ê½
+    private int safeGuard_way;//ï¿½ï¿½ï¿½Ï·ï¿½Ê½
+    private Date start_date;//ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+    private Date end_date;//ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int year_rate;//ï¿½ê»¯ï¿½ï¿½
+    private String comment;//ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+    private int folder_id;//ï¿½Ä¼ï¿½ï¿½ï¿½id
+    private int delflag;//ï¿½Ç·ï¿½É¾ï¿½ï¿½
+    private Date update_date;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private Date create_date;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private String borrowername;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int borrowerid;//ï¿½ï¿½ï¿½ï¿½ï¿½id
+    private int bought;//ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½
+    private String projectDetails;//ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
+    private String safetyControl;//ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½
+    private int exper_status;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½Ç£ï¿½
   //private SubjectFolder subjectFolder;
 private Set<Subject_bbin_purchase_record> SubjectBbinPurchassRecord = new HashSet<Subject_bbin_purchase_record>();
 	//private Set<SubjectFieldRecord> subjectFieldRecords = new HashSet<>();

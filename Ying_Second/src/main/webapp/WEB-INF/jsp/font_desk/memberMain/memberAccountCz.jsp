@@ -109,11 +109,11 @@
         <li><a id="member_center_menu_profit_record" href="http://pro.ying158.com/account/trades/profit/records" class="select"><em class="iconfont red"></em>收益记录</a></li>
         <li><a id="member_center_menu_deposit_record" href="http://pro.ying158.com/account/deposit/records"><em class="iconfont red"></em>充值记录</a></li>
         <li><a id="member_center_menu_withdraw_record" href="http://pro.ying158.com/account/withdraw/records"><em class="iconfont red"></em>提款记录</a></li>
-        <li><a id="member_center_menu_bbinInfo_record" href="/Ying_Second/fontmember/bbinrecord"><em class="iconfont red"></em>体验金记录</a></li>
+        <li><a id="member_center_menu_bbinInfo_record" href="http://pro.ying158.com/account/bbinInfo/records"><em class="iconfont red"></em>体验金记录</a></li>
     </ul>
     <h2>我的账户</h2>
     <ul>
-        <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
+         <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
         <li><a id="member_center_menu_security" href="/Ying_Second/fontmember/safe"><em class="iconfont"></em>安全信息</a></li>
         <li><a id="member_center_menu_withdraw" href="/Ying_Second/fontmember/woyaotikuan"><em class="iconfont"></em>我要提款</a></li>
     </ul>
@@ -123,38 +123,69 @@
  $("#"+menu_item).addClass("select");
 </script>
 
-        <div class="admin-right">
+          <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
-                    <a class="select" href="javascript:;">收益记录</a>
+                    <a class="select" href="javascript:;">网银充值</a>
+                    <a href="javascript:;" id="hisTabLink">充值记录</a>
                 </div>
                 <div id="conBox">
                     <div class="box" style="display:block">
+                    	<div class="picTab">
+                    		<a class="select" href="javascript:">
+                            	<img height="42px" src="/Ying_Second/img/fuiou.png">
+                                <p>通过富友支付平台进行网银充值</p>
+                            </a>
+                        </div>   
+                        <div class="formBox">
+                        	<div class="czbox">
+                        		<form id="depositForm" action="http://pro.ying158.com/account/deposit/gopay" method="POST" target="_blank">
+									<div>充值银行卡：<strong>农业银行-6228480759744638173</strong></div><br>
+	                        		<div>充值金额：<input class="tytxt" id="fee" name="fee" type="text"></div>
+	                        		<button class="tybutton" id="btn_go_pay" type="button">前往充值</button>
+	                        	</form>
+                        	</div>
+                        </div>
+                        <div class="txtCon">
+                            <p style="display: block;">上海富友金融网络技术有限公司自2008年创立至今，已发展成为一家大型综合性金融支付服务集团公司——注册资本2.0007亿元，实收资本3.8亿元，下设6家全资子公司，同时拥有6张支付及金融服务牌照，并在全国设立了35家分公司。富友以“打造便利金融生活”为愿景，以“专业——分享——价值”为理念，以“专业创新，差异化经营”为手段，立志成为网络金融和网络生活服务的领先者——用便利金融，让生活更美好。 2011年获得中国人民银行颁发的银行卡收单和互联网支付牌照，同时获得人民银行颁发的预付卡发行与受理牌照。2013年富友金融获得中国银联“收单外包机构注册认证”，在全国范围建立银行卡收单服务网络。2014年成为“上海市网络信贷服务业企业联盟”成员单位，在目前国家已颁布牌照的269家第三方支付公司中，获此殊荣的仅有4家公司</p>
+                        </div> 
+                    </div>
+                    <div class="box">
 
 <meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
 <link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
 
 <div class="ajaxContainer">
-		<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
-			<tbody>
+	<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
+		<tbody><tr>
+			<th width="30%">订单号</th>
+			<th width="20%">金额</th>
+			<th width="20%">状态</th>
+			<th width="30%">时间</th>
+		</tr>
 			<tr>
-				<th width="20%">时间</th>
-				<th width="30%">订单号</th>
-				<th width="20%">金额</th>
-				<th width="20%">备注</th>
+				<td>201709211113471626</td>
+				<td><font color="#ff503f">￥100.00</font></td>
+				<td>充值失败</td>
+				<td>2017-09-21 11:13</td>
 			</tr>
-			</tbody>
-			<c:forEach items="${mpr }" var="m">
-				<tr>
-				<th width="20%">${m.create_date }</th>
-				<th width="30%">${m.serial_number }</th>
-				<th width="20%">${m.amount }</th>
-				<th width="20%">${m.comment }</th>
-			</tr>
-			</c:forEach>
-		</table>
-</div>                       
+	</tbody></table>
+	
+	
+	<div class="llpage">
+		<div class="in">
+			
+				<a class="prev_page">上页</a>
+			
+			
+					<a class="now">1</a>
+			
+			
+				<a class="next_page" rel="next">下页</a>
+		</div>
+	</div>
+</div>
 <script type="text/javascript">
 	function getJsonInfo(url) {
 		$.get(url, 'json', function(data) {
@@ -162,12 +193,11 @@
 			$(".ajaxContainer").append(data);
 		});
 	}
-</script>      
-                    </div>
+</script>                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
     <div class="container index">
 		<div class="row">

@@ -123,51 +123,24 @@
  $("#"+menu_item).addClass("select");
 </script>
 
-        <div class="admin-right">
-        	<div class="tbConBox">
-                <div class="tab">
-                    <a class="select" href="javascript:;">收益记录</a>
-                </div>
-                <div id="conBox">
-                    <div class="box" style="display:block">
+         <div class="admin-right">
+        <div class="tbConBox">
+            <div class="tab">
+                <a class="select" href="javascript:;">体验金记录</a>
+            </div>
+            <div id="conBox">
+                <div class="box" style="display:block">
+                    <div class="remind"><h4><strong><span style="color:#827E76">体验金余额(元)：</span><span style="color:#9d8440">8888</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="http://pro.ying158.com/subject">立即使用</a>
+                        </strong></h4></div>
 
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
-
-<div class="ajaxContainer">
-		<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
-			<tbody>
-			<tr>
-				<th width="20%">时间</th>
-				<th width="30%">订单号</th>
-				<th width="20%">金额</th>
-				<th width="20%">备注</th>
-			</tr>
-			</tbody>
-			<c:forEach items="${mpr }" var="m">
-				<tr>
-				<th width="20%">${m.create_date }</th>
-				<th width="30%">${m.serial_number }</th>
-				<th width="20%">${m.amount }</th>
-				<th width="20%">${m.comment }</th>
-			</tr>
-			</c:forEach>
-		</table>
-</div>                       
-<script type="text/javascript">
-	function getJsonInfo(url) {
-		$.get(url, 'json', function(data) {
-			$(".ajaxContainer").empty();
-			$(".ajaxContainer").append(data);
-		});
-	}
-</script>      
+                    <div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <div class="container index">
 		<div class="row">

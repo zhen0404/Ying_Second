@@ -113,7 +113,7 @@
     </ul>
     <h2>我的账户</h2>
     <ul>
-        <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
+                <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
         <li><a id="member_center_menu_security" href="/Ying_Second/fontmember/safe"><em class="iconfont"></em>安全信息</a></li>
         <li><a id="member_center_menu_withdraw" href="/Ying_Second/fontmember/woyaotikuan"><em class="iconfont"></em>我要提款</a></li>
     </ul>
@@ -123,46 +123,63 @@
  $("#"+menu_item).addClass("select");
 </script>
 
-        <div class="admin-right">
+         <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
-                    <a class="select" href="javascript:;">收益记录</a>
+                    <a class="select" href="javascript:;">安全中心</a>
                 </div>
                 <div id="conBox">
                     <div class="box" style="display:block">
-
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
-
-<div class="ajaxContainer">
-		<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
-			<tbody>
-			<tr>
-				<th width="20%">时间</th>
-				<th width="30%">订单号</th>
-				<th width="20%">金额</th>
-				<th width="20%">备注</th>
-			</tr>
-			</tbody>
-			<c:forEach items="${mpr }" var="m">
-				<tr>
-				<th width="20%">${m.create_date }</th>
-				<th width="30%">${m.serial_number }</th>
-				<th width="20%">${m.amount }</th>
-				<th width="20%">${m.comment }</th>
-			</tr>
-			</c:forEach>
-		</table>
-</div>                       
-<script type="text/javascript">
-	function getJsonInfo(url) {
-		$.get(url, 'json', function(data) {
-			$(".ajaxContainer").empty();
-			$(".ajaxContainer").append(data);
-		});
-	}
-</script>      
+                    	
+                            &nbsp;
+	                            					&nbsp;
+&nbsp;  							                         
+                          
+								&nbsp;
+														&nbsp;
+&nbsp;
+							
+                             &nbsp;
+	                            <table class="safeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tbody><tr><td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
+	                            <td><p style="color:#ff503f">实名认证</p></td>
+	                            <td>420***222</td>
+	                            <td><p style="color:#888">保障账户安全，只有完成实名认证才能充值提款</p></td>
+	                            <td>认证完成</td></tr>
+							<tr><td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
+									<td><p style="color:#ff503f">绑卡认证</p></td>
+									<td>已绑定</td>
+									<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
+									<td><a href="/Ying_Second/fontmember/bangkaRen" class="renzheng">查看</a></td></tr>
+                          <tr>
+                            <td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
+                            <td><p style="color:#ff503f">绑定手机</p></td>
+                            <td>1517260****</td>
+                            <td><p style="color:#888">手机号码是您在盈+金融的重要身份凭证</p></td>
+                            <td>绑定完成</td>
+                            <!--<td><a onclick="$('#changeTelModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>-->
+                          </tr>
+<!--                           <tr>
+                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61f;</a><em>&#xe61b;</em></span></td>
+                            <td><p style="color:#ff503f">绑定邮箱</p></td>
+                            <td>未设置</td>
+                            <td><p style="color:#888">绑定邮箱后，可作登录时使用</p></td>
+                            <td><a onclick="$('#setEmailModal').modal(); return false;" href="javascript:;" class="renzheng">设置</a></td>
+                          </tr> -->
+                          <tr>
+                            <td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
+                            <td><p style="color:#ff503f">登录密码</p></td>
+                            <td>已设置</td>
+                            <td><p style="color:#888">登录盈+金融网站时需要输入的密码</p></td>
+                            <td><a href="/Ying_Second/fontmember/updatepas" class="renzheng">修改</a></td>
+                          </tr>
+                          <tr><td class="first"><span class="iconfont"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
+	                            <td><p style="color:#ff503f">提款密码</p></td>
+	                            <td>未设置</td>
+	                            <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
+	                            <td><a href="/Ying_Second/fontmember/tikuan" class="renzheng">设置</a></td>								
+                          </tr>
+                        </tbody></table>
                     </div>
                 </div>
             </div>

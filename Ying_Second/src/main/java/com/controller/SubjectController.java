@@ -173,5 +173,10 @@ public class SubjectController {
 		    		return "redirect:/subject/list";
 		    	}
 		         
+		    	
+		    	@RequestMapping("/bbin")
+		    	public String bbin(Subject subject) {
+		    		return "/Ying_Second/font_desk/memberMain/memberBbinRecord";
+		    	}
 		 
 }

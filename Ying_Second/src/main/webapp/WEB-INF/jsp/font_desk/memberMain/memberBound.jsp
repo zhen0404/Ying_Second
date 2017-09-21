@@ -109,13 +109,14 @@
         <li><a id="member_center_menu_profit_record" href="http://pro.ying158.com/account/trades/profit/records" class="select"><em class="iconfont red"></em>收益记录</a></li>
         <li><a id="member_center_menu_deposit_record" href="http://pro.ying158.com/account/deposit/records"><em class="iconfont red"></em>充值记录</a></li>
         <li><a id="member_center_menu_withdraw_record" href="http://pro.ying158.com/account/withdraw/records"><em class="iconfont red"></em>提款记录</a></li>
-        <li><a id="member_center_menu_bbinInfo_record" href="/Ying_Second/fontmember/bbinrecord"><em class="iconfont red"></em>体验金记录</a></li>
+        <li><a id="member_center_menu_bbinInfo_record" href="http://pro.ying158.com/account/bbinInfo/records"><em class="iconfont red"></em>体验金记录</a></li>
     </ul>
     <h2>我的账户</h2>
     <ul>
-        <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
-        <li><a id="member_center_menu_security" href="/Ying_Second/fontmember/safe"><em class="iconfont"></em>安全信息</a></li>
-        <li><a id="member_center_menu_withdraw" href="/Ying_Second/fontmember/woyaotikuan"><em class="iconfont"></em>我要提款</a></li>
+        <li><a id="member_center_menu_deposit" href="http://pro.ying158.com/account/deposit"><em class="iconfont"></em>账户充值</a></li>
+        <li><a id="member_center_menu_security" href="http://pro.ying158.com/account/security"><em class="iconfont"></em>安全信息</a></li>
+        <li><a id="member_center_menu_withdraw" href="http://pro.ying158.com/account/withdraw"><em class="iconfont"></em>我要提款</a></li>
+        <li><a id="member_center_menu_financial" href="http://pro.ying158.com/account/financial"><em class="iconfont"></em>我是理财师</a></li>
     </ul>
 </div>
 <script>
@@ -123,46 +124,82 @@
  $("#"+menu_item).addClass("select");
 </script>
 
-        <div class="admin-right">
+         <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
-                    <a class="select" href="javascript:;">收益记录</a>
+                    <a class="select" href="javascript:;">银行卡管理</a>
                 </div>
                 <div id="conBox">
                     <div class="box" style="display:block">
+                        <div class="myBankCards clearfix">
+                                <div class="title">绑定银行卡</div>
+                                <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody><tr>
+                                        <td align="right">姓名：</td>
+                                        <td><input type="text" class="tytxt" id="username" name="username" placeholder="姓名"></td>
+                                        <td style="color:#ff6a00">实名信息提交后不可修改，请务必认真填写真实资料</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="140" align="right">身份证：</td>
+                                        <td><input type="text" class="tytxt" id="identity" name="identity" placeholder="身份证"></td>
+                                        <td style="color:#ff6a00">一个身份证只能绑定一个帐号</td>
+                                    </tr>
 
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
+                                    <tr>
+                                        <td align="right">开户银行：</td>
+                                        <td colspan="2"><select class="form-control" id="type">
+                                            <option value="GSYH">工商银行</option>
+                                            <option value="GDYH">光大银行</option>
+                                            <option value="GFYH">广发银行</option>
+                                            <option value="HXYH">华夏银行</option>
+                                            <option value="JSYH">建设银行</option>
+                                            <option value="JTYH">交通银行</option>
+                                            <option value="MSYH">民生银行</option>
+                                            <option value="NYYH">农业银行</option>
+                                            <option value="PFYH">浦发银行</option>
+                                            <option value="XYYH">兴业银行</option>
+                                            <option value="YZCX">邮政储蓄</option>
+                                            <option value="ZSYH">招商银行</option>
+                                            <option value="ZGYH">中国银行</option>
+                                            <option value="ZXYH">中信银行</option>
+                                        </select></td>
+                                    </tr>
 
-<div class="ajaxContainer">
-		<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
-			<tbody>
-			<tr>
-				<th width="20%">时间</th>
-				<th width="30%">订单号</th>
-				<th width="20%">金额</th>
-				<th width="20%">备注</th>
-			</tr>
-			</tbody>
-			<c:forEach items="${mpr }" var="m">
-				<tr>
-				<th width="20%">${m.create_date }</th>
-				<th width="30%">${m.serial_number }</th>
-				<th width="20%">${m.amount }</th>
-				<th width="20%">${m.comment }</th>
-			</tr>
-			</c:forEach>
-		</table>
-</div>                       
-<script type="text/javascript">
-	function getJsonInfo(url) {
-		$.get(url, 'json', function(data) {
-			$(".ajaxContainer").empty();
-			$(".ajaxContainer").append(data);
-		});
-	}
-</script>      
+                                    <tr>
+                                        <td align="right">开户地：</td>
+                                        <td colspan="2"><div style="float:left;">
+                                            <select id="loc_province" style="width:80px;" selectedindex="0"><option value="">省份</option><option value="1">北京市</option><option value="22">天津市</option><option value="44">上海市</option><option value="66">重庆市</option><option value="108">河北省</option><option value="406">山西省</option><option value="622">内蒙古</option><option value="804">辽宁省</option><option value="945">吉林省</option><option value="1036">黑龙江省</option><option value="1226">江苏省</option><option value="1371">浙江省</option><option value="1500">安徽省</option><option value="1679">福建省</option><option value="1812">江西省</option><option value="1992">山东省</option><option value="2197">河南省</option><option value="2456">湖北省</option><option value="2613">湖南省</option><option value="2822">广东省</option><option value="3015">广西</option><option value="3201">海南省</option><option value="3235">四川省</option><option value="3561">贵州省</option><option value="3728">云南省</option><option value="3983">西藏</option><option value="4136">陕西省</option><option value="4334">甘肃省</option><option value="4499">青海省</option><option value="4588">宁夏</option><option value="4624">新疆</option><option value="4802">香港</option><option value="4822">澳门</option><option value="4825">台湾省</option></select>
+                                            <select id="loc_city" style="width:100px;"><option value="">地级市</option></select>
+                                            <select id="loc_town" style="width:120px;"><option value="">市、县、区</option></select>
+                                            <input type="hidden" name="location_id" id="cardaddress">
+                                        </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">开户支行：</td>
+                                        <td><div style="float:left;"><input type="text" class="tytxt" name="cardaddress1" id="cardaddress1" placeholder="开户支行"></div></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">银行卡号：</td>
+                                        <td><input type="text" class="tytxt" id="bankCardNum" placeholder="银行卡号"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">确认卡号：</td>
+                                        <td>
+                                            <input type="text" class="tytxt" id="bankCardNumConfirm" placeholder="确认卡号">
+
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><button class="tybutton" id="buttonsubmit">保存</button></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody></table>
+                        </div>
                     </div>
                 </div>
             </div>

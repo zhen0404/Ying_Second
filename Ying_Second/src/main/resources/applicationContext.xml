@@ -70,7 +70,6 @@
 				/teacher=perms["user:create"]
 				/frontAdd*=authc
 				/backHome=authc
-				/myadd=authc
 <!-- 				/Ying_Second/frontLast=authc -->
 			</value>
 		</property>

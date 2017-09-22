@@ -14,14 +14,20 @@ public class Arcords {
 	private String member_name;
 	private String invitationCode;
 	private String invitedCode;
-	private String amount;
+	private String invest_amount;
 	private String enroll;
 	private String invest;
 	private String identity;
 	private String create_date;
+	private String mid;
 	
 	
-	
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
 	public String getIdentity() {
 		return identity;
 	}
@@ -61,11 +67,11 @@ public class Arcords {
 		this.invitedCode = invitedCode;
 	}
 	
-	public String getAmount() {
-		return amount;
+	public String getInvest_amount() {
+		return invest_amount;
 	}
-	public void setAmount(String amount) {
-		this.amount = amount;
+	public void setInvest_amount(String invest_amount) {
+		this.invest_amount = invest_amount;
 	}
 	public String getEnroll() {
 		return enroll;

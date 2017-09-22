@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,21 +27,25 @@ public class FontLoginController {
 	@Qualifier("fontLoginServiceImpl")
 	private FontLoginService fontloginS;
 	
-	//Ç°Ì¨Ê×Ò³µÇÂ¼
+	//å‰å°ç¡®è®¤ç™»å½•
 	@RequestMapping("login")
-	public String login(String mobilePhone,String password,Model model,String url){
+	public String login(String mobilePhone,String password,HttpSession session){
 		Member member=this.fontloginS.getMember(mobilePhone,CryptographyUtil.md5(password, "javamd"));
-		model.addAttribute("member", member);
+		session.setAttribute("member", member);
+		String url=(String) session.getAttribute("url");
+		System.out.println("url:"+url);
 		if(member!=null){
-			if("buy".equals(url)){
+			if("toBuy".equals(url)){
 				return "/Ying_Second/frontLast";
+			}else if("myadd".equals(url)){
+				return "redirect:/"+url;
 			}
 			return "font_desk/frontHome";
 		}
 		return "font_desk/frontIframeLogin";
 	}
 	
-	//Ç°Ì¨×¢²áÊÖ»úÑéÖ¤
+	//æ‰‹æœºå·éªŒè¯
 	@RequestMapping("fontSignPhone")
 	public void signPhone(String phone,HttpServletResponse response){
 		PrintWriter pw;
@@ -48,7 +53,6 @@ public class FontLoginController {
 		try {
 			pw = response.getWriter();
 			if(member!=null){
-				System.out.println("´æ");
 				pw.print("no");
 				pw.flush();
 				pw.close();
@@ -61,7 +65,7 @@ public class FontLoginController {
 		}
 	}
 	
-	//Ç°Ì¨Ö´ĞĞ×¢²á
+	//å‰å°æ³¨å†Œ
 	@RequestMapping("sureFontSign")
 	public void sureFontSign(Member member,HttpServletResponse response){
 		System.out.println("Sign");

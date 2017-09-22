@@ -192,7 +192,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="item" href="http://pro.ying158.com/">
+						<a class="item" href="/Ying_Second/frontSubject/showsubject">
 							产品中心
 						</a>
 					</li>

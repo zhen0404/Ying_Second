@@ -1,95 +1,111 @@
 package com.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bean.Member;
+import com.bean.Member_profit_record;
+import com.service.MemberAddSerivce;
 
 @Controller
 public class FontDeskController {
 	
-	//Ç°Ì¨Ê×Ò³
+	@Autowired
+	@Qualifier("memberAddServiceImpl")
+	private MemberAddSerivce mas;
+	
+	//å‰å°é¦–é¡µ
 	@RequestMapping("home")
 	public String fontHome(){
 		return "font_desk/frontHome";
 	}
 
-	//Í·²¿ÏÔÊ¾
+	//é¡¶éƒ¨iframe
 	@RequestMapping("top")
 	public String fontTop(){
 		return "font_desk/frontTopIframe";
 	}
 	
-	//ÖĞ¼ä²¿·ÖÏÔÊ¾
+	//ä¸­éƒ¨iframe
 	@RequestMapping("middle")
 	public String fontMiddle(){
 		return "font_desk/frontMiddleIframe";
 	}
 	
-	//ÍøÉÏÌåÑéÖĞĞÄ
+	//ç½‘ä¸Šä½“éªŒä¸­å¿ƒ
 	@RequestMapping("exploration")
 	public String fontExploration(){
 		return "font_desk/fontOnlineExperience";
 	}
 	
-	//²úÆ·
+	//äº§å“ä¸­å¿ƒ
 	@RequestMapping("product")
 	public String fontProduct(){
 		return "font_desk/product/frontProduct";
 	}
 	
-	//ĞÂÎÅÖĞĞÄ
+	//æ–°é—»ä¸­å¿ƒ
 	@RequestMapping("frontJournalism")
 	public String frontJournalism(){
 		return "font_desk/frontJournalism";
 	}
 	
-	//ÏÂÔØÖĞĞÄ
+	//ä¸‹è½½ä¸­å¿ƒ
 	@RequestMapping("frontLoad")
 	public String frontLoad(){
 		return "font_desk/frontLoad";
 	}
 	
-	//ÉÌÑ§Ôº
 	@RequestMapping("frontCollege")
 	public String frontCollege(){
 		return "font_desk/frontCollege";
 	}
 	
-	//Í¶ÑĞÖĞĞÄ
+	//ç›ˆ+å•†å­¦é™¢ 
 	@RequestMapping("frontStudy")
 	public String frontStudy(){
 		return "font_desk/frontStudy";
 	}
 	
-	//È¥¹ºÂò
+	//å»è´­ä¹°
 	@RequestMapping("frontLast")
 	public String frontLast(){
 		return "font_desk/fontAddition";
 	}
 	
-	//µÇÂ¼
+	//ç™»å½•
 	@RequestMapping("frontIframeLogin")
-	public String frontLogin(){
+	public String frontLogin(String url,HttpSession session){
+		session.setAttribute("url", url);
 		return "font_desk/frontIframeLogin";
 	}
 	
-	//×¢²á
+	//æ³¨å†Œ
 	@RequestMapping("toSign")
 	public String toSign(){
 		return "font_desk/fontSign";
 	}
 	
-	//¼Ó·¨¿â
+	//åŠ æ³•åº“
 	@RequestMapping("myadd")
-	public String myselfAdd(){
-		return "font_desk/memberMain/memberDepositsHistory";
+	public String myselfAdd(HttpSession session){
+		//å…ˆåˆ¤æ–­ç”¨æˆ·æ˜¯å¦ç™»å½•æˆåŠŸ  æˆ–  ç™»å½•è¶…æ—¶
+		Member member=(Member) session.getAttribute("member");
+		if(member!=null){
+			//æŸ¥è¯¢æ”¶ç›Šè®°å½•
+			int mid=member.getId();
+			List<Member_profit_record> mpr=this.mas.getMemberProfitRecordByMid(mid);
+			System.out.println(mpr.size());
+			session.setAttribute("mpr", mpr);
+			return "font_desk/memberMain/memberDepositsHistory";
+		}
+		return "redirect:/frontIframeLogin?url=myadd";
 	}
-	
-//	//ÍøÉÏÌåÑéÖĞĞÄ
-//	@RequestMapping("onlineExp")
-//	public String onlineExp(){
-//		return "font_desk/fontOnlineExperience";
-//	}
 	
 }

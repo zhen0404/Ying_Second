@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -96,7 +97,6 @@
             if (1!=null&&1==0){
                 showIn("/account/bbinInfo/getBbinInfo");
             }
-
     });
 
 </script>
@@ -106,66 +106,79 @@
         <span><a style="color:#9d8440;" href="http://pro.ying158.com/subject">其他标的</a></span>
         <h2><em>￥</em>稳盈宝新手标</h2>
     </div>
-    <table class="conTable" width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tbody><tr>
-            <td class="txtInfo">
-                <div class="txt1">
-                    <h2>206</h2>
-                    <p>已购人数(人)</p>
-                </div>
-                <div class="txt2">
-                    <h2>6%</h2>
-                    <p>年化收益</p>
-                </div>
-                <div class="txt1">
-                    <h2>5</h2>
-                    <p>投资期限(天)</p>
-                </div>
-            </td>
-            <td width="360" rowspan="2" align="center" ;="" valign="middle" height="320">
-                <div class="tbBox">
-                    <input type="hidden" id="account" value="0">
-                    <h2>1227489.3</h2>
-                    <p>已投金额(元)</p>
-                    <div class="li4" style=""><span id="checkmoney" style="color: red;"></span></div>
-                    <div class="tit">
-                    	<span class="fr">
-                        0元&nbsp;&nbsp;<a href="http://pro.ying158.com/account/deposit">充值&nbsp;&nbsp;&nbsp;</a>
-						</span>
-                        <h2>账户余额</h2>
-                        <div id="count">预期所得收益<i data-num="0.000822" id="num">0</i>元
-                        </div>
-                    </div>
-                    <input id="mytext" class="txt" name="totalFee" type="text" placeholder="起投金额100元以上">
-                        <span style="float: right;margin-top: -40px;position: relative; line-height: 40px; padding: 0 10px;color: #f00;" id="addMoney"></span>
-                    <p class="preBox">
-                        <input type="checkbox" id="registerRule" class="registerRule" checked="checked"><span class="fl">同意<a href="http://pro.ying158.com/web/syxy" target="_black">《产品协议》</a></span>
-                        <button id="redPacket">使用红包</button>
-                            <button id="bbinAll">体验金全投</button>
-                    </p>
-                    <button class="submit">确认抢购</button>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <ul class="conInfoList">
-                    <li class="info">
-                        <p>计息日期：<font color="#00baff">2017-09-19</font></p>
-                        <p>还款方式：<font color="#00baff">一次性还本付息</font></p>
-                        <p>资金到账日：<font color="#00baff">2017-09-24至2017-09-25</font>
-                        </p>
-                    </li>
-                    <li class="info">
-                        <p>保障方式：<font color="#00baff">企业担保</font></p>
-                        <p>资金安全：<font color="#00baff">中国人保财险承保</font></p>
-                        <p></p>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-    </table>
+    <form action="/Ying_Second/product/afterBuy">
+    <input name="subjectId" value="${subject.id }" type="hidden">
+	    <table class="conTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+	        <tbody><tr>
+	            <td class="txtInfo">
+	                <div class="txt1">
+	                    <h2>${subject.bought }</h2>
+	                    <p>已购人数(人)</p>
+	                </div>
+	                <div class="txt2">
+	                    <h2>${subject.year_rate }%</h2>
+	                    <p>年化率</p>
+	                </div>
+	                <div class="txt1">
+	                    <h2>${subject.period  }</h2>
+	                    <p>投资期限(天)</p>
+	                </div>
+	            </td>
+	            <td width="360" rowspan="2" align="center" valign="middle" height="320">
+	                <div class="tbBox">
+	<!--                     <input type="hidden" id="account" value="0"> -->
+	                    <h2>
+	<%--                     	<shiro:guest>  --%>
+	<!--                     		<a href="/Ying_Second/frontIframeLogin">登录</a>后可见 -->
+	<%-- 						</shiro:guest> --%>
+	<%-- 						<shiro:user>  --%>
+							    
+	<%-- 						</shiro:user> --%>
+							${memberAccount.invest_amount }
+	                    </h2>
+	                    <p>已投金额(元)</p>
+	                    <div class="li4" style=""><span id="checkmoney" style="color: red;"></span></div>
+	                    <div class="tit">
+	<!--                     	<span class="fr"> -->
+	<!--                         0元&nbsp;&nbsp;<a href="http://pro.ying158.com/account/deposit">充值&nbsp;&nbsp;&nbsp;</a> -->
+	<!-- 						</span> -->
+	                        <h2>账户余额</h2>
+	                        <input id="account" name="amountYuE" value="${memberAccount.useable_balance }" style="border: 0px" ></input>
+							
+	                        <div id="count" >预期所得收益<i data-num="0.000822" id="num">0</i>元
+	                        </div>
+	                    </div>
+	                    <input id="mytext" class="txt" name="mytext" type="text" placeholder="起投金额100元以上">
+	                        <span style="float: right;margin-top: -40px;position: relative; line-height: 40px; padding: 0 10px;color: #f00;" id="addMoney"></span>
+	                    <p class="preBox">
+	                        <input type="checkbox" id="registerRule" class="registerRule" checked="checked"><span class="fl">同意<a href="http://pro.ying158.com/web/syxy" target="_black">《产品协议》</a></span>
+	                        <button id="redPacket">使用红包</button>
+	                            <button id="bbinAll">体验金全投</button>
+	                    </p>
+	                    <button class="submit">确认抢购</button>
+	                </div>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	                <ul class="conInfoList">
+	                    <li class="info">
+	                        <p>计息日期：<font color="#00baff">2017-09-19</font></p>
+	                        <p>还款方式：<font color="#00baff">一次性还本付息</font></p>
+	                        <p>资金到账日：<font color="#00baff">2017-09-24至2017-09-25</font>
+	                        </p>
+	                    </li>
+	                    <li class="info">
+	                        <p>保障方式：<font color="#00baff">企业担保</font></p>
+	                        <p>资金安全：<font color="#00baff">中国人保财险承保</font></p>
+	                        <p></p>
+	                    </li>
+	                </ul>
+	            </td>
+	        </tr>
+	    </tbody>
+	    </table>
+    </form>
     <div class="tbConBox">
         <div class="tab">
             <a class="select" href="http://pro.ying158.com/subject/subjectContent/1612#1">产品速览</a>
@@ -460,7 +473,7 @@
             }
         });
 
-        $(":input[name=totalFee]").focus(function () {
+        $(":input[name=mytext]").focus(function () {
             $(".li4").hide();
         });
 
@@ -499,26 +512,25 @@
                  }
              });
 
-             $(".submit").click(function () {
-                 if (exists == false) {
-                     $("#checkmoney").html("请先登陆!");
-                     $(".li4").show(100);
-                     return false;
-                 }
-                 if(authBankCard==false){
-                 	$("#checkmoney").html("请先绑定银行卡，<a href='/account/security/memberBankcardView'>绑卡</a>");
-                     $(".li4").show(100);
-                 	return false;
-                 }
-                 var value = $(":input[name=totalFee]").val();
+             $(".").click(function () {
+//                  if (exists == false) {
+//                      $("#checkmoney").html("请先登陆!");
+//                      $(".li4").show(100);
+//                      return false;
+//                  }
+//                  if(authBankCard==false){
+//                  	$("#checkmoney").html("请先绑定银行卡，<a href='/account/security/memberBankcardView'>绑卡</a>");
+//                      $(".li4").show(100);
+//                  	return false;
+//                  }
+                 var value = $(":input[name=mytext]").val();
                  if (value == null || value == '') {
                      $("#checkmoney").html("金额不能为空");
                      $(".li4").show(100);
                      return false;
                  }
                  value = parseInt(value);
-                 if (value
-                         <100) {
+                 if (value<100) {
                      $("#checkmoney").html("起投金额在100以上");
                      $(".li4").show(100);
                      return false;
@@ -526,7 +538,8 @@
                  var bonusFee = 0;
                  var bbinStatus = 0;
                  if (!(bbinAll.hasClass("active"))) {//未选中体验金
-                     var acountval = $("#account").val();
+                	 var acountval = $("#account").val();
+                 	 alert($("#account").val());
                      if (acountval != -1) {
                          if ((acountval - value) < 0) {
                              $("#checkmoney").html("账号余额不足，请充值");
@@ -540,28 +553,9 @@
                  } else {
                      bbinStatus = 1;
                  }
-
-                 $.ajax({
-                     type: "POST", // 用POST方式传输
-                     dataType: "json", // 数据格式:JSON
-                     async: true,
-                     url: '/subjectPur/order', // 目标地址
-                     data: {
-                         subjectId:1612,
-                         totalFee: value,
-                         bonusFee: bonusFee,
-                         bbinStatus: bbinStatus
-                     },
-                     success: function (msg) {
-                         if (msg.code == 0) {
-                             window.location.href = "/subjectPur/orderView?tradeNo=" + msg.msg + "&bbinStatus=" + bbinStatus;
-                         } else {
-                             $("#checkmoney").html(msg.msg);
-                             $(".li4").show(100);
-                         }
-                     }
-                 });
-
+				 
+//                  window.location.href="/Ying_Second/product/afterBuy";
+				 
              });
     });
 

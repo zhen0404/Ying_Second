@@ -22,6 +22,7 @@ import com.bean.Users;
 @RequestMapping("back")
 public class BackDeskLoginController {
 	
+	//åå°ç™»å½•
 	@RequestMapping("login")
 	public String login(Users users,Model model,HttpServletRequest request){
 		String msg="";
@@ -34,31 +35,31 @@ public class BackDeskLoginController {
 			request.getSession().setAttribute("userPs", users.getPassword());
 			return "backModel/back_desk";
 		} catch (IncorrectCredentialsException e) {
-	        msg = "µÇÂ¼ÃÜÂë´íÎó. Password for account " + token.getPrincipal() + " was incorrect.";  
+	        msg = "ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. Password for account " + token.getPrincipal() + " was incorrect.";  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);
 	    } catch (ExcessiveAttemptsException e) {  
-	        msg = "µÇÂ¼Ê§°Ü´ÎÊı¹ı¶à";  
+	        msg = "ï¿½ï¿½Â¼Ê§ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½";  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
 	    } catch (LockedAccountException e) {  
-	        msg = "ÕÊºÅÒÑ±»Ëø¶¨. The account for username " + token.getPrincipal() + " was locked.";  
+	        msg = "ï¿½Êºï¿½ï¿½Ñ±ï¿½ï¿½ï¿½. The account for username " + token.getPrincipal() + " was locked.";  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
 	    } catch (DisabledAccountException e) {  
-	        msg = "ÕÊºÅÒÑ±»½ûÓÃ. The account for username " + token.getPrincipal() + " was disabled.";  
+	        msg = "ï¿½Êºï¿½ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½. The account for username " + token.getPrincipal() + " was disabled.";  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
 	    } catch (ExpiredCredentialsException e) {  
-	        msg = "ÕÊºÅÒÑ¹ıÆÚ. the account for username " + token.getPrincipal() + "  was expired.";  
+	        msg = "ï¿½Êºï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½. the account for username " + token.getPrincipal() + "  was expired.";  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
 	    } catch (UnknownAccountException e) {  
-	        msg = "ÕÊºÅ²»´æÔÚ. There is no user with username of " + token.getPrincipal();  
+	        msg = "ï¿½ÊºÅ²ï¿½ï¿½ï¿½ï¿½ï¿½. There is no user with username of " + token.getPrincipal();  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
 	    } catch (UnauthorizedException e) {  
-	        msg = "ÄúÃ»ÓĞµÃµ½ÏàÓ¦µÄÊÚÈ¨£¡" + e.getMessage();  
+	        msg = "ï¿½ï¿½Ã»ï¿½ĞµÃµï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½" + e.getMessage();  
 	        model.addAttribute("message", msg);  
 	        System.out.println(msg);  
 	    }

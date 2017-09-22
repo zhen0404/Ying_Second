@@ -25,11 +25,6 @@ import com.bean.Subject;
 import com.bean.Subject_purchase_record;
 import com.service.FrontProductService;
 
-/**
- * ǰ̨��Ʒ���� ������
- * @author Administrator
- *
- */
 @Controller
 @RequestMapping("/product")
 public class FrontProductCenterController {
@@ -38,7 +33,7 @@ public class FrontProductCenterController {
 	@Qualifier("frontProductServiceImpl")
 	private FrontProductService frontProductServiceImpl;
 	
-//	//�����Ʒ���İ�ť  Я����ݹ�ȥ
+//	//去购买前的操作
 //	@RequestMapping("/login")
 //	public String login(Model model){
 //		List<Subject> subjectList=frontProductServiceImpl.listAll(1);
@@ -48,28 +43,43 @@ public class FrontProductCenterController {
 	
 	//点击去购买跳入到购买页面去
 	@RequestMapping("/toBuy")
-	public String goToBuy(String id,Model model,HttpSession session){
+	public String goToBuy(String id,Model model,HttpSession session,String url){
+//		session.setAttribute("url", url);
+		//这一段显示用户金额信息
+		Member member=(Member) session.getAttribute("member");
+		if (member!=null) {
+			int memberId=member.getId();
+			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
+			model.addAttribute("memberAccount", memberAccount);
+			System.out.println("已投金额："+memberAccount.getInvest_amount());
+			System.out.println("账户余额："+memberAccount.getUseable_balance());
+			//这一段判断有没有绑定银行卡
+			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
+			model.addAttribute("memberBankcards", memberBankcards);
+		}else{
+			return "redirect:/frontIframeLogin?url="+url+"";
+		}
 		//这一段显示标的信息
 		Subject subject=(Subject) this.frontProductServiceImpl.getById(Integer.parseInt(id));
 		int datePeriod=subject.getPeriod();
 		Date date=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//存入开始计息时间
 		try {
 			subject.setStart_date(sdf.parse(sdf.format(date)));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//存入开始计息时间
+		}
 		Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.DAY_OF_MONTH, +datePeriod);//今天的时间加标的周期
         date = calendar.getTime();
 		try {
-			subject.setEnd_date(sdf.parse(sdf.format(date)));
+			subject.setEnd_date(sdf.parse(sdf.format(date)));//存入预计到账时间
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}//存入预计到账时间
+		}
 		this.frontProductServiceImpl.saveOrUpdateProduct(subject);
 		subject=(Subject) this.frontProductServiceImpl.getById(Integer.parseInt(id));
 		model.addAttribute("subject", subject);
@@ -78,19 +88,9 @@ public class FrontProductCenterController {
         date = calendar.getTime();
 		model.addAttribute("lastDatePlusOne", sdf.format(date));
 		
-		//这一段显示用户金额信息
-		Object object=session.getAttribute("member");
-		if (object!=null) {
-			Member member=(Member) object;
-			int memberId=member.getId();
-			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
-			model.addAttribute("memberAccount", memberAccount);
-			
-			//这一段判断有没有绑定银行卡
-			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
-			model.addAttribute("memberBankcards", memberBankcards);
-		}
-		return "font_desk/productBuy";
+		
+		return "font_desk/product/productBuy";
+		
 	}
 	
 	/**
@@ -100,7 +100,6 @@ public class FrontProductCenterController {
 	public String afterBuy(String subjectId,String amountYuE,String mytext,Model model,HttpSession session,
 							Member_profit_record memberProfitRecord,Member_trade_record memberTradeRecord,
 							Member_tally member_tally,Subject_purchase_record subjectPurchaseRecord) throws ParseException{
-		System.out.println(subjectId+"--"+amountYuE+"--"+mytext);
 		//从session获取member信息
 		Object object=session.getAttribute("member");
 		if (object!=null) {
@@ -119,14 +118,16 @@ public class FrontProductCenterController {
 			
 			//1、操作成员账户表数据
 			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
-			memberAccount.setUseable_balance(Integer.parseInt(amountYuE)-Integer.parseInt(mytext));
+//			memberAccount.setUseable_balance(Integer.parseInt(amountYuE)-Integer.parseInt(mytext));
+			memberAccount.setUseable_balance(Double.parseDouble(amountYuE)-Double.parseDouble(mytext));
+			System.out.println("剩余可用余额："+memberAccount.getUseable_balance());
 			try {
 				memberAccount.setUpdate_date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sysDate));
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			memberAccount.setInvest_amount(Integer.parseInt(mytext)+memberAccount.getInvest_amount());
+			memberAccount.setInvest_amount(Double.parseDouble(mytext)+memberAccount.getInvest_amount());
 			memberAccount.setMember(member);
 			this.frontProductServiceImpl.updateMemberAccount(memberAccount);
 			
@@ -202,6 +203,8 @@ public class FrontProductCenterController {
 			
 			//5操作标的购买表
 			subjectPurchaseRecord.setSubject(subject);
+			subjectPurchaseRecord.setSubject_id(1638);
+			subjectPurchaseRecord.setMember_id(memberId);
 			subjectPurchaseRecord.setMember(member);
 			subjectPurchaseRecord.setSerial_number(sysDate);
 			subjectPurchaseRecord.setAmount(Integer.parseInt(mytext));
@@ -230,8 +233,8 @@ public class FrontProductCenterController {
 			//这一段判断有没有绑定银行卡
 			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
 			model.addAttribute("memberBankcards", memberBankcards);
-			return "frontMemberCenter";//最后购买成功后跳转到个人中心 显示购买的信息
+			return "";//最后购买成功后跳转到个人中心 显示购买的信息
 		}
-		return "frontUserLogin";
+		return "redirect:/product/toBuy";
 	}
 }

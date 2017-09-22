@@ -22,7 +22,7 @@ public interface FrontProductService {
 
 	Member_bankcards ListCardByMemberId(int memberId);
 
-	Subject getSubjectById(int parseInt);
+	Subject getSubjectById(int parseInt);//无
 
 	void updateSubject(Subject subject);
 

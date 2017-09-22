@@ -5,17 +5,26 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table
+@Table(name="Feedback")
 @Entity
 public class Feedback {
 
 	private int id;
-	private int member_id;
 	private String content;
 	private Date create_date;
-	
+	private Member member;
+	@ManyToOne
+	@JoinColumn(name="member_id",unique=true)
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -23,12 +32,6 @@ public class Feedback {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getContent() {
 		return content;

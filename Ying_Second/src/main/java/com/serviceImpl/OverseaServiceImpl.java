@@ -26,9 +26,9 @@ public class OverseaServiceImpl implements OverseaService<Oversea_config>{
 		   return overseaDaoImpl.listAll();
 	}
 
-	public List<Oversea_config_subscribe> All() {
+	public List<Oversea_config_subscribe> All(int id) {
 	
-		return overseaDaoImpl.All();
+		return overseaDaoImpl.All(id);
 	}
 
 	public void overAdd(Oversea_config oc) {

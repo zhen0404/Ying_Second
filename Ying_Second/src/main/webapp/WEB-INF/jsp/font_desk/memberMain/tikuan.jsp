@@ -105,15 +105,15 @@
 <div class="adminLeft">
     <h2>我的投资</h2>
     <ul>
-        <li><a id="member_center_menu_invests" href="/Ying_Second/memberCenter/list"><em class="iconfont red"></em>投资记录</a></li>
+                <li><a id="member_center_menu_invests" href="/Ying_Second/memberCenter/list"><em class="iconfont red"></em>投资记录</a></li>
         <li><a id="member_center_menu_profit_record" href="/Ying_Second/myadd"><em class="iconfont red"></em>收益记录</a></li>
         <li><a id="member_center_menu_deposit_record" href="/Ying_Second/memberCenter/cz"><em class="iconfont red"></em>充值记录</a></li>
-        <li><a id="member_center_menu_withdraw_record" href="/Ying_Second/memberCenter/tiKuan"><em class="iconfont red"></em>提款记录</a></li>
+        <li><a id="member_center_menu_withdraw_record" href="/Ying_Second/memberCenter/tiKuan" class="select"><em class="iconfont red"></em>提款记录</a></li>
         <li><a id="member_center_menu_bbinInfo_record" href="/Ying_Second/memberCenter/tiyanj"><em class="iconfont red"></em>体验金记录</a></li>
     </ul>
     <h2>我的账户</h2>
     <ul>
-                <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
+         <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
         <li><a id="member_center_menu_security" href="/Ying_Second/fontmember/safe"><em class="iconfont"></em>安全信息</a></li>
         <li><a id="member_center_menu_withdraw" href="/Ying_Second/fontmember/woyaotikuan"><em class="iconfont"></em>我要提款</a></li>
     </ul>
@@ -123,47 +123,60 @@
  $("#"+menu_item).addClass("select");
 </script>
 
-         <div class="admin-right">
+          <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
-                    <a class="select" href="javascript:;">银行卡管理</a>
+                    <a class="select" href="javascript:;">提款记录</a>
                 </div>
                 <div id="conBox">
                     <div class="box" style="display:block">
-                        <div class="myBankCards clearfix">
-                                <div class="card" id="bankcard_392">
-                                    <div class="banklogo"><img src="/Ying_Second/img/NYYH.jpg"></div>
-                                    <div class="cardno"><strong>6228480759744638173</strong></div>
-                                    <div class="cardno"><strong>湖北省-襄樊市-襄城区-襄阳市农业银行</strong></div>
 
-                                </div>
-                                <div style="clear: both;">
-                                    <strong>
-					                                    您可以通过盈+理财APP申请更换安全银行卡，盈+理财会为您进行信息核对，换卡申请通过后，原银行卡自动失效，您可以绑定一张新的银行卡。<br>
-					                                    换卡需要您提供如下资料：<br> </strong>
-                                    1）手持身份证照片：手持身份证正面与本人头部合影，同时需确保本人头部与身份证无遮挡；<br>
-                                    2）原卡注销证明：需前往对应银行开具盖有银行公章的旧银行卡注销或挂失证明。<br><br>
-									发送至邮箱 vip@hzgeway.com 或 vip@ying158.com <br>
-									联系400-999-158电话<br>
-                                   
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
+<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
+<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
 
-    <div class="modal fade errorInfo infoModal" id="withdrawErrorModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content jddModalContnt" style="border-radius: 0px;width:400px;">
-                <div class="modal-header">
-                    <span>通知</span>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                </div>
-                <div class="modal-body">
-                    <div id="withdrawError"></div>
-                    <button class="btn btn-success confirmBtn" data-dismiss="modal">确认</button>
+<div class="ajaxContainer">
+	<!-- 异步内容开始 -->
+	<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
+		<tbody><tr>
+			<th>时间</th>
+			<th>订单号</th>
+			<th>金额</th>
+			<th>状态</th>
+		</tr>
+	</tbody>
+	<c:forEach items="${List}" var="list"> 
+	<tr>
+	<td>${list.create_date}</td>
+	<td>${list.serial_number}</td>
+	<td>${list.amount}</td>
+	<td>
+	<c:if test="${list.status==0}">待审核</c:if>
+	<c:if test="${list.status==1}">已付款</c:if>
+	<c:if test="${list.status==2}">打款中</c:if>
+	<c:if test="${list.status==3}">打款失败</c:if>
+	</td>
+	</tr>
+	</c:forEach>
+	</table>
+</div>
+<script type="text/javascript">
+	function getJsonInfo(url) {
+		$.get(url, 'json', function(data) {
+			$(".ajaxContainer").empty();
+			$(".ajaxContainer").append(data);
+		});
+	}
+</script>          
+                 
+<script type="text/javascript">
+	function getJsonInfo2(url) {
+		$.get(url, 'json', function(data) {
+			$(".ajaxContainer2").empty();
+			$(".ajaxContainer2").append(data);
+		});
+	}
+</script>                    </div>
                 </div>
             </div>
         </div>

@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,11 +22,19 @@ public class Subject_purchase_record {
 	private int delflag;
 	private Date create_date;
 	private Date update_date;
-	private float interset;
+	private float interest;
 	private int ispayment;
 	private int pay_interest_times;
 	private int last_profit_day;
 	private String bonus_info;
+	private int shouyi;
+	public int getShouyi() {
+		return shouyi;
+	}
+	public void setShouyi(int shouyi) {
+		this.shouyi = shouyi;
+	}
+
 	private Subject subject;
 	
 	private Member Member;
@@ -107,12 +114,12 @@ public class Subject_purchase_record {
 		this.update_date = update_date;
 	}
 
-	public float getInterset() {
-		return interset;
+	public float getInterest() {
+		return interest;
 	}
 
-	public void setInterset(float interset) {
-		this.interset = interset;
+	public void setInterest(float interset) {
+		this.interest = interset;
 	}
 
 	public int getIspayment() {

@@ -81,21 +81,21 @@
 									<div class="control-group">
 										<label class="control-label">名称 ：</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="name" />
+											<input class="span6 m-wrap" type="text" name="name" required="required"/>
 										</div>
 									</div>
 
 									<div class="control-group">
 										<label class="control-label">合同编号： </label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="serial_no" />                                
+											<input class="span6 m-wrap" type="text" name="serial_no" required="required"/>                                
 										</div>
 									</div>
 
 									<div class="control-group">
 										<label class="control-label">类型：</label>
 										<div class="controls">
-											<select  tabindex="1" name="type">
+											<select tabindex="1" name="type">
 												<option value="-1">请选择</option>
 												<option value="0">私募标的</option>
                                                 <option value="1">股权标的</option>
@@ -107,14 +107,14 @@
 									<div class="control-group">
 									<label class="control-label">起投金额:</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="floor_amount" />											
+											<input class="span6 m-wrap" type="text" name="floor_amount" required="required"/>											
 										</div>
 									</div>
 		
 									<div class="control-group">
 										<label class="control-label">借款用途：</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="purpose"/>
+											<input class="span6 m-wrap" type="text" name="purpose" required="required"/>
 										</div>
 									</div>
 
@@ -157,21 +157,21 @@
 									<div class="control-group">
 										<label class="control-label">已购人数：</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="bought"/>
+											<input class="span6 m-wrap" type="text" name="bought" required="required"/>
 										</div>
 									</div>
 									
 									<div class="control-group">
 										<label class="control-label">投资期限：</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="period"/>
+											<input class="span6 m-wrap" type="text" name="period" required="required"/>
 										</div>
 									</div>
 									
 									<div class="control-group">
 										<label class="control-label">借款人姓名：</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="borrowername"/>
+											<input class="span6 m-wrap" type="text" name="borrowername" required="required"/>
 										</div>
 									</div>	
 									

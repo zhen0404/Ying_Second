@@ -66,7 +66,7 @@ public class SubjectPurchaseRecordDao implements BaseDao<Subject_purchase_record
 	@Override
 	public List<Subject_purchase_record> listAll(int id) {
 		System.out.println("come in");
-		String hql="from Subject_purchase_record where sid="+id;
+		String hql="from Subject_purchase_record where subject_id="+id;
 		Session session=getSession();
 		List<Subject_purchase_record> list=session.createQuery(hql).list();
 		System.out.println(hql);

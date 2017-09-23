@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -359,13 +360,11 @@ li.active a {
 	<div class="container helpCenter">
 		<div class="row">
 			<div class="left">
+			<c:forEach items="${list }" var="n">
 				<div class="item first active" name="reports" id="reportsTab">
-					平台公告</div>
-				<div class="item" name="lastest" id="lastestTab">市场动态</div>
-				<div class="item" name="strategy" id="strategyTab">趣味理财</div>
-
-				<div class="item" name="topNews" id="topNewsTab">新闻头条</div>
+					</div>
 				<div class="blank" style="height: 532px;"></div>
+			</c:forEach>	
 			</div>
 			<div class="right">
 				<div class="content" id="reports" style="display: block;">

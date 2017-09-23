@@ -1,6 +1,6 @@
 package com.bean;
 /*
- * É¾ÁËtypeId
+ * É¾ï¿½ï¿½typeId
  */
 import java.util.Date;
 
@@ -39,6 +39,7 @@ public class News {
 	private Date updTime;
 	private Date addTime;
 	private int typeId;
+	
 
 	public int getTypeId() {
 		return typeId;
@@ -52,7 +53,7 @@ public class News {
 	
 
 	@ManyToOne
-	@JoinColumn(name="tid")
+	@JoinColumn(name="typeId",insertable=false,updatable=false)
 	public News_type getNews_type() {
 		return news_type;
 	}

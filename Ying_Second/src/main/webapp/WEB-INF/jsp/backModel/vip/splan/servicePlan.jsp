@@ -126,12 +126,13 @@
 											<td>${s.type}</td>
 											<td>${s.name}</td>
 											<td>${s.amount }</td>
-											<td>未算</td>
+											<td>${s.am }</td>
 											<td>${s.bought}</td>
-											<td>${s.period*7 }天</td>
-											<td>未算</td>
+											<td>${s.period }天</td>
+											<td>${s.year_rate }</td>
 											<td>
 											<c:if test="${s.status==1}">正在筹集</c:if>
+											<c:if test="${s.status==0}">筹集结束</c:if>
 											</td>
 											<td>
 											<c:if test="${s.exper_status==0 }">否</c:if>

@@ -17,7 +17,7 @@ public class Subject_purchase_record {
 	private String serial_number;
 	private int amount;
 	private String deal_id;
-//	private int subject_id;
+	private int subject_id;
 	private int member_id;
 	private int delflag;
 	private Date create_date;
@@ -25,6 +25,13 @@ public class Subject_purchase_record {
 	private float interest;
 	private int ispayment;
 	private int pay_interest_times;
+	public int getSubject_id() {
+		return subject_id;
+	}
+	public void setSubject_id(int subject_id) {
+		this.subject_id = subject_id;
+	}
+
 	private int last_profit_day;
 	private String bonus_info;
 	private int shouyi;
@@ -40,7 +47,7 @@ public class Subject_purchase_record {
 	private Member Member;
 	
 	 @ManyToOne
-	    @JoinColumn(name="member_id",insertable=false,updatable=false)
+	    @JoinColumn(name="mid",insertable=false,updatable=false)
 	    public Member getMember() {
 			return Member;
 		}
@@ -154,7 +161,7 @@ public class Subject_purchase_record {
 		this.bonus_info = bonus_info;
 	}
 	@ManyToOne
-	@JoinColumn(name="subject_id")
+	@JoinColumn(name="sid")
 	public Subject getSubject() {
 		return subject;
 	}

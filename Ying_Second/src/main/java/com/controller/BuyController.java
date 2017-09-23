@@ -19,11 +19,11 @@ public class BuyController {
 	private BuyService bs;
 	
 	public String getbalance(HttpServletRequest request){
-		//»ñÈ¡µÇÂ¼ÈËµÄmid
+		//è·å–ç™»å½•äººid
 		Member member=(Member) request.getSession().getAttribute("member");
 		int mid=member.getId();
 		
-		//¸ù¾İµÇÂ¼ÈËµÄmid»ñÈ¡µÇÂ¼ÈËÓà¶î
+		
 		this.bs.getByMemberId(mid);
 		
 		
@@ -31,7 +31,7 @@ public class BuyController {
 		return "";
 	}
 	
-	//¹ºÂò²úÆ·
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
 		@RequestMapping("productBuy")
 		public String productBuy(){
 			return "font_desk/product/productBuy";

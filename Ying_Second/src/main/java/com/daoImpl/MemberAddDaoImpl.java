@@ -21,14 +21,11 @@ public class MemberAddDaoImpl implements MemberAddDao {
 	}
 	
 	@Override
-	public Member_profit_record getMemberProfitRecordByMid(int mid) {
+	public List<Member_profit_record> getMemberProfitRecordByMid(int mid) {
 		// TODO Auto-generated method stub
 		String hql="from Member_profit_record where member_id="+mid+"";
 		List<Member_profit_record> mprList=getSession().createQuery(hql).list();
-		if(mprList.size()>0){
-			return mprList.get(0);
-		}
-		return null;
+		return mprList;
 	}
 
 }

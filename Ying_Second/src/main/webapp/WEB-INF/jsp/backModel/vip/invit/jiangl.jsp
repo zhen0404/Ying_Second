@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8" />
 
-	<title>邀请管理</title>
+	<title>奖励记录</title>
 
 	<meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport" />
 
@@ -75,86 +75,66 @@
 							</div>
 
 							<div class="portlet-body flip-scroll">
-								 	<form action="/Ying_Second/arc/list"
+								<%-- <form action="/Ying_Second/account/list"
 											method="post">
-											姓名：<input type="text" name="member_name" value="${member_name }">
+											用户名：<input type="text" name="member_name" value="${member_name }">
+											姓名：<input type="text" name="name" value="${name }"> <br>
 											手机号：<input type="text" name="mobile_Phone" value="${mobile_Phone }">
+											身份证号：<input type="text" name="identity" value="${identity }"><br>
 											邀请码：<input type="text" name="invitationCode" value="${invitationCode }">
-											被邀请码：<input type="text" name="invitedCode" value="${invitedCode }">
-											是否已注册：<input type="text" name="enroll" value=${enroll }>
-											是否已投资:<input type="text" name="invest" value=${invest }>
+											创建日期：<input type="text" name="create_date" value="${create_date }"> <br>
 											<input type="submit" value="提交"> 
-										</form> 
+										</form> --%>
 								<table class="table-bordered table-striped table-condensed flip-content">
-
-									<thead class="flip-content">
-
+									 <thead>
+									<!-- <tr bgcolor="gray"><font>详情</font></tr> -->
 										<tr>
-
-											
-										<tr>
-
 											<th>序号</th>
-											
-											<th>邀请人id</th>
-
-											<th>手机号</th>
-
-											<th>姓名</th>
-
-											<th>邀请码</th>
-
-											<th>被邀请码</th>
-
-											<th>投资金额</th>
-
-											<th>是否已注册奖励</th>
-											
-											<th>是否已投资奖励</th>
-											
-											<th>注册时间</th>
-											
-											<th>操作</th>
-
+											<th>邀请手机号</th>
+											<th>被邀请手机号</th>
+											<th>奖励类型</th>
+											<th>奖励金额</th>
+											<th>奖励时间</th>
 										</tr>
 									</thead>
+									 <tbody>
+									 <c:forEach items="${list2 }" var="j" varStatus="sta">
+									          <tr>
+									          	<td>${sta.index+1 }</td>
+									          	<td>${j.im }</td>
+									          	<td>${j.bm}</td>
+									          	<td>
+									          	<c:if test="${j.type==0}">注册奖励</c:if>
+									          	<c:if test="${j.type==1}">投资奖励</c:if>
+									          	</td>
+									          	<td>${j.amount}</td>
+									          	<td>${j.addTime}</td>
+									          </tr>
+									  </c:forEach>        
+									 </tbody>
 
-									<tbody>
-										 <c:forEach items="${list }" var="m" varStatus="stat">
+									<%-- <tbody>
+										 <c:forEach items="${listMember }" var="m" varStatus="stat">
 										<tr class="">
 
 											<td>${stat.index+1 }</td>
-											<td>${m.mid }</td>
-											<td>${m.mobile_Phone }</td>
 
 											<td>${m.member_name }</td>
+
+											<td>${m.name }</td>
 											
-											<td>${m.invitationCode}</td>
-											<td>${m.invitedCode }</td>
-											<td>${m.invest_amount }</td>
-											<td>
-											<c:if test="${m.enroll==1 }">是</c:if>
-											<c:if test="${m.enroll==0 }">否</c:if>
-											</td>
-											<td>
-											<c:if test="${m.invest==1 }">是</c:if>
-											<c:if test="${m.invest==0 }">否</c:if>
-											</td>
+											<td>${m.mobile_Phone}</td>
+											<td>${m.identity }</td>
+											<td>${m.invitationCode }</td>
 											<td>${m.create_date }</td>
-											
-											<td>
-											 <c:if test="${m.enroll=='1' }">已注册奖励</c:if>
-									         <c:if test="${m.enroll=='0' }"><butten><a href="">注册奖励</a></butten>|</c:if>
-									         <c:if test="${m.invest=='1' }">已投资奖励</c:if>
-									         <c:if test="${m.invest=='0' }"><butten><a href="">投资奖励</a></butten>|</c:if>
-											 <a href="/Ying_Second/arc/list2/${m.mid }">奖励记录</a>
-											</td>
+											<td><a href="/Ying_Second/">账户详情</a></td>
+
 											
 										</tr>
 									  </c:forEach>
 										
-									</tbody>
-							
+									</tbody> --%>
+									
 								</table>
 
 							</div>

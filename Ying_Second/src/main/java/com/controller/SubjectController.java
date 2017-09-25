@@ -29,13 +29,13 @@ import com.service.SubjectService;
 @Controller
 @RequestMapping("/subject")
 public class SubjectController {
-                 //固收类/p2p   
-	             @Autowired
-	             @Qualifier("subjectServiceImpl")
-	             private SubjectService subjectServiceImpl;
-	  
-	             
-	             //固守类p2p显示
+         //固收类/p2p   
+         @Autowired
+         @Qualifier("subjectServiceImpl")
+         private SubjectService subjectServiceImpl;
+  
+             
+         //固守类p2p显示
 	     @RequestMapping("/list")
          public String menus1(Model model) {
 			List<Subject> list = subjectServiceImpl.listSubject();

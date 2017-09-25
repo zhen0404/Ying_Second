@@ -51,8 +51,6 @@ public class FrontProductCenterController {
 			int memberId=member.getId();
 			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
 			model.addAttribute("memberAccount", memberAccount);
-			System.out.println("已投金额："+memberAccount.getInvest_amount());
-			System.out.println("账户余额："+memberAccount.getUseable_balance());
 			//这一段判断有没有绑定银行卡
 			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
 			model.addAttribute("memberBankcards", memberBankcards);

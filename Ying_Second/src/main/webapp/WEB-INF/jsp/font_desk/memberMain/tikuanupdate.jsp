@@ -122,7 +122,6 @@
   var menu_item="member_center_menu_profit_record";
  $("#"+menu_item).addClass("select");
 </script>
-
          <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
@@ -131,22 +130,16 @@
                 <div id="conBox">
                     <div class="box" style="display:block">
                         <div class="myBankCards clearfix">
-                                <div class="card" id="bankcard_392">
-                                    <div class="banklogo"><img src="/Ying_Second/img/NYYH.jpg"></div>
-                                    <div class="cardno"><strong>6228480759744638173</strong></div>
-                                    <div class="cardno"><strong>湖北省-襄樊市-襄城区-襄阳市农业银行</strong></div>
-
-                                </div>
-                                <div style="clear: both;">
-                                    <strong>
-					                                    您可以通过盈+理财APP申请更换安全银行卡，盈+理财会为您进行信息核对，换卡申请通过后，原银行卡自动失效，您可以绑定一张新的银行卡。<br>
-					                                    换卡需要您提供如下资料：<br> </strong>
-                                    1）手持身份证照片：手持身份证正面与本人头部合影，同时需确保本人头部与身份证无遮挡；<br>
-                                    2）原卡注销证明：需前往对应银行开具盖有银行公章的旧银行卡注销或挂失证明。<br><br>
-									发送至邮箱 vip@hzgeway.com 或 vip@ying158.com <br>
-									联系400-999-158电话<br>
-                                   
-                                </div>
+                            <input type="text" value="${member.withdraw_password }" id="old1">
+                                          原密码：<input type="password" name="old" required="required" id="old2">
+                                          <span class="old2"></span><br><br>
+                                          修改后密码：<input type="password" name="new" required="required" id="new1">
+                                          <br><br>
+                                          请再次输入修改后密码：<input type="password" name="queren" required="required" id="new2">
+                                          <span class="new2"></span><br><br>
+                                           <hr>
+                        <input type="submit" value="提交" onclick="checkps()">　　　　　
+                        <input type="submit" value="取消">
                         </div>
                     </div>
                 </div>
@@ -214,6 +207,22 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+    
+    function checkps(){
+    	var old1=$("#old1").val();
+    	var old2=$("#old2").val();
+    	var new1=$("#new1").val();
+    	var new2=$("#new2").val();
+    	if(old1!=old2){
+    		$(".old2").html("原密码不正确");
+    		return ;
+    	}
+    	if(new1!=new2){
+    		$(".new2").html("两次输入的密码不同");
+    		return ;
+    	}
+    	window.location.href="/Ying_Second/safe/updateMemberTps?ps="+new1+"";
+    }
 </script>
 </body>
 </html>

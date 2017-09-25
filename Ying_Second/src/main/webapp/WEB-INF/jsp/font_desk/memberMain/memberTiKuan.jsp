@@ -9,7 +9,6 @@
 <meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
 <link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
-
 	<meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=yes">
 	<meta name="Keywords" content="股指体验交易，股指单手交易，股指多手交易">
@@ -75,7 +74,7 @@
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
                 <div class="img"><img src="/Ying_Second/img/userPic.jpg"></div>
-                <h2>raokeqiang，<span>您好!</span></h2>
+                <h2>${member.name }<span>您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:50%"></em></span></div>
             <ul class="listIco iconfont">
@@ -93,11 +92,11 @@
 </tbody></table>
 <div class="countBox">
     <ul>
-        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
-        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
+        <li><h2>${memberAccount.useable_balance }</h2><p>账户可用余额(元)</p></li>
+        <li><h2>${money2+memberAccount.useable_balance+invest_amount }</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${money2 }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
     <a href="http://pro.ying158.com/account/deposit" class="cz">充值</a>
     <a href="http://pro.ying158.com/account/withdraw" class="tk">提款</a>
@@ -135,24 +134,24 @@
                         <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tbody><tr>
                             <td width="140" align="right">账户余额：</td>
-                            <td><strong>0</strong>元</td>
+                            <td><strong>${memberAccount.useable_balance }</strong>元</td>
                           </tr>
 							<tr>
 								<td align="right"> 提款银行卡： </td>
-								<td><strong>农业银行-6228480759744638173</strong>
-									<input type="hidden" id="withdrawBankCard" value="6228480759744638173"></td>
+								<td><strong>农业银行-${idCard }</strong>
+									<input type="hidden" id="withdrawBankCard" value="${idCard }"></td>
 							</tr>
                           <tr>
                             <td align="right">提款金额：</td>
                             <td><input class="tytxt" type="text" id="withdrawAmount" style="width:250px"></td>
                           </tr>
-
                           <tr>
                             <td align="right"> 提款密码：</td>
                             <td>
- &nbsp;
-								<a href="javascript:;" onclick="$(&#39;#setWithdrawPWModel&#39;).modal(); return false;">设置提款密码</a>
-							&nbsp;
+<!--  							&nbsp; -->
+<!-- 								<a href="javascript:;" onclick="$(&#39;#setWithdrawPWModel&#39;).modal(); return false;">设置提款密码</a> -->
+<!-- 							&nbsp; -->
+								<c:if test="${member. }"></c:if>
                             </td>
                           </tr>
                           <tr>

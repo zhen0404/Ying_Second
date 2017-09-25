@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,6 +25,7 @@
     <script src="/Ying_Second/js/hm.js"></script>
     <script src="/Ying_Second/js/jquery.js"></script>
     <script src="/Ying_Second/js/echarts.js"></script>
+    <script type="text/javascript" src="/Ying_Second/js/location.js"></script>
 </head>
 <body>
 
@@ -75,7 +77,7 @@
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
                 <div class="img"><img src="/Ying_Second/img/userPic.jpg"></div>
-                <h2>raokeqiang，<span>您好!</span></h2>
+                <h2>${member.name }<span>您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:50%"></em></span></div>
             <ul class="listIco iconfont">
@@ -93,11 +95,11 @@
 </tbody></table>
 <div class="countBox">
     <ul>
-        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
-        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
+        <li><h2>${memberAccount.useable_balance }</h2><p>账户可用余额(元)</p></li>
+        <li><h2>${money2+memberAccount.useable_balance+invest_amount }</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${money2 }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
     <a href="http://pro.ying158.com/account/deposit" class="cz">充值</a>
     <a href="http://pro.ying158.com/account/withdraw" class="tk">提款</a>
@@ -131,46 +133,63 @@
                 <div id="conBox">
                     <div class="box" style="display:block">
                         <div class="myBankCards clearfix">
+                        	<form action="/Ying_Second/memberCenter/boundCard">
                                 <div class="title">绑定银行卡</div>
+                                <input type="hidden" value="${member.name }" id="user_name" >
+                                <input type="hidden" value="${member.id }" name="member_id" >
                                 <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tbody><tr>
                                         <td align="right">姓名：</td>
-                                        <td><input type="text" class="tytxt" id="username" name="username" placeholder="姓名"></td>
-                                        <td style="color:#ff6a00">实名信息提交后不可修改，请务必认真填写真实资料</td>
+                                        <td>
+                                        	<input type="text" class="tytxt" id="username" name="username" placeholder="姓名">
+                                        	<span class="errorInfoName"></span>
+                                        </td>
+                                        
+                                        <td style="color:#ff6a00"><span id="errorInfoName"　>实名信息提交后不可修改，请务必认真填写真实资料 </span >  </td>
                                     </tr>
                                     <tr>
                                         <td width="140" align="right">身份证：</td>
-                                        <td><input type="text" class="tytxt" id="identity" name="identity" placeholder="身份证"></td>
-                                        <td style="color:#ff6a00">一个身份证只能绑定一个帐号</td>
+                                        <td>
+                                        	<input type="text" class="tytxt" id="identity" name="identity" placeholder="身份证">
+                                        	<span class="errorInfoIdCard"></span>
+                                        </td>
+                                        <td style="color:#ff6a00"><span id="errorInfoIdCard">一个身份证只能绑定一个帐号</span></td>
                                     </tr>
-
+									
                                     <tr>
                                         <td align="right">开户银行：</td>
-                                        <td colspan="2"><select class="form-control" id="type">
-                                            <option value="GSYH">工商银行</option>
-                                            <option value="GDYH">光大银行</option>
-                                            <option value="GFYH">广发银行</option>
-                                            <option value="HXYH">华夏银行</option>
-                                            <option value="JSYH">建设银行</option>
-                                            <option value="JTYH">交通银行</option>
-                                            <option value="MSYH">民生银行</option>
-                                            <option value="NYYH">农业银行</option>
-                                            <option value="PFYH">浦发银行</option>
-                                            <option value="XYYH">兴业银行</option>
-                                            <option value="YZCX">邮政储蓄</option>
-                                            <option value="ZSYH">招商银行</option>
-                                            <option value="ZGYH">中国银行</option>
-                                            <option value="ZXYH">中信银行</option>
-                                        </select></td>
+                                        <td colspan="2">
+                                        	<select class="form-control" id="type">
+	                                            <option value="GSYH">工商银行</option>
+	                                            <option value="GDYH">光大银行</option>
+	                                            <option value="GFYH">广发银行</option>
+	                                            <option value="HXYH">华夏银行</option>
+	                                            <option value="JSYH">建设银行</option>
+	                                            <option value="JTYH">交通银行</option>
+	                                            <option value="MSYH">民生银行</option>
+	                                            <option value="NYYH">农业银行</option>
+	                                            <option value="PFYH">浦发银行</option>
+	                                            <option value="XYYH">兴业银行</option>
+	                                            <option value="YZCX">邮政储蓄</option>
+	                                            <option value="ZSYH">招商银行</option>
+	                                            <option value="ZGYH">中国银行</option>
+	                                            <option value="ZXYH">中信银行</option>
+	                                        </select>
+	                                    </td>
                                     </tr>
 
                                     <tr>
                                         <td align="right">开户地：</td>
                                         <td colspan="2"><div style="float:left;">
-                                            <select id="loc_province" style="width:80px;" selectedindex="0"><option value="">省份</option><option value="1">北京市</option><option value="22">天津市</option><option value="44">上海市</option><option value="66">重庆市</option><option value="108">河北省</option><option value="406">山西省</option><option value="622">内蒙古</option><option value="804">辽宁省</option><option value="945">吉林省</option><option value="1036">黑龙江省</option><option value="1226">江苏省</option><option value="1371">浙江省</option><option value="1500">安徽省</option><option value="1679">福建省</option><option value="1812">江西省</option><option value="1992">山东省</option><option value="2197">河南省</option><option value="2456">湖北省</option><option value="2613">湖南省</option><option value="2822">广东省</option><option value="3015">广西</option><option value="3201">海南省</option><option value="3235">四川省</option><option value="3561">贵州省</option><option value="3728">云南省</option><option value="3983">西藏</option><option value="4136">陕西省</option><option value="4334">甘肃省</option><option value="4499">青海省</option><option value="4588">宁夏</option><option value="4624">新疆</option><option value="4802">香港</option><option value="4822">澳门</option><option value="4825">台湾省</option></select>
-                                            <select id="loc_city" style="width:100px;"><option value="">
-</option></select>
-                                            <select id="loc_town" style="width:120px;"><option value="">市、县、区</option></select>
+                                            <select name="province" id="loc_province" style="width:80px;" selectedindex="0"><option value="">省份</option>
+                                            	<c:forEach items="${shengList }" var="s">
+                                            		<option value="${s.id }">${s.name }</option>
+                                            	</c:forEach>
+                                            </select>
+                                            <select name="shi" id="loc_city" style="width:100px;">
+                                            	<option value="">地级市</option>
+                                            </select>
+                                            <select name="xiang" id="loc_town" style="width:120px;"><option value="">市、县、区</option></select>
                                             <input type="hidden" name="location_id" id="cardaddress">
                                         </div>
                                         </td>
@@ -183,22 +202,26 @@
                                     </tr>
                                     <tr>
                                         <td align="right">银行卡号：</td>
-                                        <td><input type="text" class="tytxt" id="bankCardNum" placeholder="银行卡号"></td>
+                                        <td><input type="text" class="tytxt" id="bankCardNum" name="card_no" placeholder="银行卡号">
+                                        	<span class="bankCardNum"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td align="right">确认卡号：</td>
                                         <td>
-                                            <input type="text" class="tytxt" id="bankCardNumConfirm" placeholder="确认卡号">
-
+                                            <input type="text" class="tytxt" id="rebankCardNum" placeholder="确认卡号">
+											<span class="rebankCardNum"></span>
                                         </td>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><button class="tybutton" id="buttonsubmit">保存</button></td>
+                                        <td><button class="tybutton" type="submit" id="buttonsubmit">保存</button></td>
                                         <td></td>
                                     </tr>
-                                </tbody></table>
+                                </tbody>
+                              </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -251,6 +274,94 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+    
+    $(function(){
+    	
+        $("#loc_province").change(function(){
+              var provinceId=$("#loc_province").val();
+              $.post("/Ying_Second/memberCenter/boundShi",{sid:provinceId},function(data){
+                   $("#loc_city").empty();
+                     for(var i=0;i<data.length;i++){
+                           $("#loc_city").append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
+                   }
+              });
+        });
+        
+        $("#loc_city").change(function(){
+            var provinceId=$("#loc_city").val();
+            $.post("/Ying_Second/memberCenter/boundXiang",{shid:provinceId},function(data){
+                 $("#loc_town").empty();
+                   for(var i=0;i<data.length;i++){
+                         $("#loc_town").append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
+                 }
+            });
+        });
+        
+        $("#username").change(function(){
+        	var username=$("#username").val();
+        	var user_name=$("#user_name").val();
+        	if(username==user_name){
+        		$(".errorInfoName").html("").hide();
+        		$("#errorInfoName").html("").hide();
+        	}else{
+        		$(".errorInfoName").html("请填写实名信息").show();
+        		$("#errorInfoName").html("").hide();
+        		return ;
+        	}
+      	});
+        
+        $("#identity").change(function(){
+        	var idcard=$("#identity").val();
+        	if(idcard.length!=18){
+        		$(".errorInfoIdCard").html("请输入正确的身份证号").show();
+        		$("#errorInfoIdCard").html("").hide();
+        		return ;
+        	}else{
+        		$(".errorInfoIdCard").html("").hide();
+        	}
+        	$.post("/Ying_Second/memberCenter/idcardcheck",{idcard:idcard},function(msg){
+        		alert(msg);
+        		if(msg=='no'){
+        			$(".errorInfoIdCard").html("此证件已被绑定,请更换").show();
+        			$("#errorInfoIdCard").html("").hide();
+        		}else{
+        			$(".errorInfoIdCard").html("").hide();
+        			$("#errorInfoIdCard").html("").hide();
+        		}
+        	})
+      	});
+        
+        $("#bankCardNum").change(function(){
+        	alert("come in");
+        	var bankCard=$("#bankCardNum").val();
+        	if(bankCard.length!=19){
+        		$(".bankCardNum").html("请输入正确的银行卡号").show();
+        		return ;
+        	}else{
+        		$(".bankCardNum").html("").hide();
+        	}
+        	$.post("/Ying_Second/memberCenter/bankCardCheck",{bankCard:bankCard},function(msg){
+        		if(msg=='no'){
+        			$(".bankCardNum").html("此证件已被绑定,请更换").show();
+        		}else{
+        			$(".bankCardNum").html("").hide();
+        		}
+        	})
+      	});
+        
+        $("#rebankCardNum").change(function(){
+        	var bankCard=$("#bankCardNum").val();
+        	var rebankCard=$("#rebankCardNum").val();
+        	if(rebankCard!=bankCard){
+        		$(".rebankCardNum").html("请输入正确的银行卡号").show();
+        		return ;
+        	}else{
+        		$(".rebankCardNum").html("").hide();
+        	}
+      	});
+        
+    });
+    
 </script>
 </body>
 </html>

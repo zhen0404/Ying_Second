@@ -380,7 +380,7 @@ li.active a {
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -392,7 +392,7 @@ li.active a {
 						href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
 					<li><a class="item last"
-						href="/Ying_Second/myadd">
+						href="/Ying_Second/fontmember/zhu">
 							我的加法库 </a></li>
 				</ul>
 			</div>

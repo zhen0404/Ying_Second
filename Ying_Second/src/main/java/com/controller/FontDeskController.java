@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +62,6 @@ public class FontDeskController {
 		return "font_desk/frontLoad";
 	}
 	
-	//��ѧԺ
 	@RequestMapping("frontCollege")
 	public String frontCollege(){
 		return "font_desk/frontCollege";
@@ -80,7 +81,8 @@ public class FontDeskController {
 	
 	//登录
 	@RequestMapping("frontIframeLogin")
-	public String frontLogin(){
+	public String frontLogin(String url,HttpSession session){
+		session.setAttribute("url", url);
 		return "font_desk/frontIframeLogin";
 	}
 	
@@ -98,13 +100,12 @@ public class FontDeskController {
 		if(member!=null){
 			//查询收益记录
 			int mid=member.getId();
-			Member_profit_record mpr=this.mas.getMemberProfitRecordByMid(mid);
+			List<Member_profit_record> mpr=this.mas.getMemberProfitRecordByMid(mid);
+			System.out.println(mpr.size());
 			session.setAttribute("mpr", mpr);
 			return "font_desk/memberMain/memberDepositsHistory";
 		}
-		return "font_desk/frontIframeLogin";
+		return "redirect:/frontIframeLogin?url=myadd";
 	}
-	
-	
 	
 }

@@ -104,27 +104,24 @@
 									<tbody>
                                    <c:forEach items="${osList}" var="list" varStatus="stat">
 										<tr>
-
 											<td class="numeric" align="center">${stat.index+1}</td>
 
 											<td class="numeric" align="center">${list.title}</td>
-
 											<td class="numeric" align="center">${list.child_title}</td>
                                              <td align="center">
 											<c:if test="${list.status==0}">未募集</c:if>
 											<c:if test="${list.status==1}">募集中</c:if>
 											<c:if test="${list.status==2}">已结束</c:if>
 											</td>
-
 											<td class="numeric" align="center">${list.sortColum}</td>
                   
-											<td class="numeric" align="center">${list.oversea_icon }</td>
+											<td class="numeric" align="center"><img src="${list.oversea_icon }" width="100px" height="20px"></img></td>
 											
 											<td class="numeric" align="center">${list.start_date }</td>
 											
 											<td class="numeric" align="center">
 											<a href="/Ying_Second/oversea/queryId?id=${list.id}" class="btn yellow"><i class="icon-plus"></i> 编辑/查看</a>
-											<a href="/Ying_Second/oversea/listding" class="btn blue"><i class="icon-plus"></i> 查看投资</a>
+											<a href="/Ying_Second/oversea/listding?id=${list.id}" class="btn blue"><i class="icon-plus"></i> 查看投资</a>
 											</td>
 
 										</tr>

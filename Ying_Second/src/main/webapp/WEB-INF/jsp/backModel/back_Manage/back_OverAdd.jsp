@@ -81,14 +81,14 @@
 									<div class="control-group">
 										<label class="control-label">标题 ：</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="title" />
+											<input class="span6 m-wrap" type="text" name="title" required="required"/>
 										</div>
 									</div>
 
 									<div class="control-group">
 										<label class="control-label">子标题： </label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="child_title" />                                
+											<input class="span6 m-wrap" type="text" name="child_title" required="required"/>                                
 										</div>
 									</div>
 
@@ -106,14 +106,14 @@
 									<div class="control-group">
 									<label class="control-label">图标:</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="oversea_icon" />											
+											<input class="span6 m-wrap" type="text" name="oversea_icon" required="required"/>											
 										</div>
 									</div>
 									
 									<div class="control-group">
 									<label class="control-label">排序值:</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="sortColum" />											
+											<input class="span6 m-wrap" type="text" name="sortColum" required="required"/>											
 										</div>
 									</div>
 						     <div class="form-actions" align="center">

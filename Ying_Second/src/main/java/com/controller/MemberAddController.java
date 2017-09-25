@@ -15,9 +15,46 @@ public class MemberAddController {
 	@Qualifier("memberAddServiceImpl")
 	private MemberAddSerivce mas;
 	
-	@RequestMapping("touzi")
+	@RequestMapping("zhu")
 	public String touzi(){
-		return "";
+		return "font_desk/memberMain/memberDepositsHistory";
+	}
+	@RequestMapping("bbinrecord")
+	public String bbin(){
+		return "font_desk/memberMain/memberBbinRecord";
+	}
+	@RequestMapping("bound")
+	public String bound(){
+		return "font_desk/memberMain/memberBound";
+	}
+	@RequestMapping("czjl")
+	public String czjl(){
+		return "font_desk/memberMain/memberAccountCz";
+	}
+	@RequestMapping("woyaotikuan")
+	public String woyaotikuan(){
+		return "font_desk/memberMain/memberTiKuan";
+	}
+	
+	@RequestMapping("safe")
+	public String licaishi(){
+		return "font_desk/memberMain/memberSafe";
+	}
+	
+	@RequestMapping("bangkaRen")
+	public String bangkaRen(){
+		return "font_desk/memberMain/memberBoundRen";
+	}
+	
+	@RequestMapping("updatepas")
+	public String updatepas(){
+		return "font_desk/memberMain/Updatepas";
+	}
+	
+
+	@RequestMapping("tikuan")
+	public String tikuan(){
+		return "font_desk/memberMain/tikuanPas";
 	}
 	
 	

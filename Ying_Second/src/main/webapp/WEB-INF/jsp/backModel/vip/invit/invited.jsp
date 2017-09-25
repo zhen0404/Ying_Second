@@ -95,6 +95,8 @@
 										<tr>
 
 											<th>序号</th>
+											
+											<th>邀请人id</th>
 
 											<th>手机号</th>
 
@@ -111,6 +113,8 @@
 											<th>是否已投资奖励</th>
 											
 											<th>注册时间</th>
+											
+											<th>操作</th>
 
 										</tr>
 									</thead>
@@ -120,18 +124,31 @@
 										<tr class="">
 
 											<td>${stat.index+1 }</td>
-
+											<td>${m.mid }</td>
 											<td>${m.mobile_Phone }</td>
 
 											<td>${m.member_name }</td>
 											
 											<td>${m.invitationCode}</td>
 											<td>${m.invitedCode }</td>
-											<td>${m.amount }</td>
-											<td>${m.enroll }</td>
-											<td>${m.invest }</td>
+											<td>${m.invest_amount }</td>
+											<td>
+											<c:if test="${m.enroll==1 }">是</c:if>
+											<c:if test="${m.enroll==0 }">否</c:if>
+											</td>
+											<td>
+											<c:if test="${m.invest==1 }">是</c:if>
+											<c:if test="${m.invest==0 }">否</c:if>
+											</td>
 											<td>${m.create_date }</td>
-
+											
+											<td>
+											 <c:if test="${m.enroll=='1' }">已注册奖励</c:if>
+									         <c:if test="${m.enroll=='0' }"><butten><a href="">注册奖励</a></butten>|</c:if>
+									         <c:if test="${m.invest=='1' }">已投资奖励</c:if>
+									         <c:if test="${m.invest=='0' }"><butten><a href="">投资奖励</a></butten>|</c:if>
+											 <a href="/Ying_Second/arc/list2/${m.mid }">奖励记录</a>
+											</td>
 											
 										</tr>
 									  </c:forEach>

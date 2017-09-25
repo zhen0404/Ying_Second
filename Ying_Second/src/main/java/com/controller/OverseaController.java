@@ -15,7 +15,7 @@ import com.bean.Oversea_config;
 import com.bean.Oversea_config_subscribe;
 import com.service.OverseaService;
 
-//º£ÍâÀí²Æ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 @Controller
 @RequestMapping("/oversea")
 public class OverseaController {
@@ -23,7 +23,7 @@ public class OverseaController {
 	 @Autowired
      @Qualifier("overseaServiceImpl")
      private OverseaService<Oversea_config> overseaServiceImpl;
-	 //º£ÍâÏÔÊ¾
+	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
       @RequestMapping("/overList")
       public String overList(Model model){
      	List<Oversea_config> list=overseaServiceImpl.listAll();
@@ -31,10 +31,11 @@ public class OverseaController {
      	return "backModel/back_Manage/back_Oversea";
      }
       
-	     //²é¿´Í¶×Ê
+	     //ï¿½é¿´Í¶ï¿½ï¿½
         @RequestMapping("/listding")
-     	public String list(Model model){
-         	List<Oversea_config_subscribe> list2 =overseaServiceImpl.All();
+     	public String list(int id,Model model){
+        	System.out.println(id);
+         	List<Oversea_config_subscribe> list2 =overseaServiceImpl.All(id);
          	model.addAttribute("list2", list2);
      		return "backModel/back_Manage/back_OverseaYu";
      	}
@@ -44,7 +45,7 @@ public class OverseaController {
         return "backModel/back_Manage/back_OverAdd";
         }
         
-      //Ìí¼Ó
+      //ï¿½ï¿½ï¿½
         @RequestMapping("/add")
      	public String add(Oversea_config oc){
         	Date now =new Date();
@@ -77,7 +78,7 @@ public class OverseaController {
         		return "backModel/back_Manage/back_OverEdit";
         	    	
         	    }
-        //ÐÞ¸Ä
+        //ï¿½Þ¸ï¿½
         @RequestMapping("/update")
      	public String update(Oversea_config oc){
         	Date now =new Date();

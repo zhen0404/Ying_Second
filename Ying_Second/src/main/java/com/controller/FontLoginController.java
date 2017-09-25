@@ -27,14 +27,18 @@ public class FontLoginController {
 	@Qualifier("fontLoginServiceImpl")
 	private FontLoginService fontloginS;
 	
-	//前台登录
+	//前台确认登录
 	@RequestMapping("login")
-	public String login(String mobilePhone,String password,HttpSession session,String url){
+	public String login(String mobilePhone,String password,HttpSession session){
 		Member member=this.fontloginS.getMember(mobilePhone,CryptographyUtil.md5(password, "javamd"));
 		session.setAttribute("member", member);
+		String url=(String) session.getAttribute("url");
+		System.out.println("url:"+url);
 		if(member!=null){
-			if("buy".equals(url)){
+			if("toBuy".equals(url)){
 				return "/Ying_Second/frontLast";
+			}else if("myadd".equals(url)){
+				return "redirect:/"+url;
 			}
 			return "font_desk/frontHome";
 		}

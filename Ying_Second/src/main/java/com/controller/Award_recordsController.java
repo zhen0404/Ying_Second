@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bean.Arcords;
 import com.bean.Award_records;
+import com.bean.Awr;
 import com.service.BaseService;
 
 @Controller
@@ -41,5 +43,11 @@ public class Award_recordsController {
 		model.addAttribute("enroll", enroll);
 		model.addAttribute("invest", invest);
 		return "backModel/vip/invit/invited";
+	}
+	@RequestMapping("/list2/{id}")
+	public String list2(@PathVariable("id")int id,Model model){
+		List list2=baseService.listAll(id);
+		model.addAttribute("list2",list2);
+		return "backModel/vip/invit/jiangl";
 	}
 }

@@ -210,7 +210,7 @@ public class FrontProductCenterController {
 			subjectPurchaseRecord.setDelflag(0);
 			subjectPurchaseRecord.setCreate_date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sysDate));
 			subjectPurchaseRecord.setUpdate_date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sysDate));
-			subjectPurchaseRecord.setInterset(interest);
+			subjectPurchaseRecord.setInterest(interest);
 			subjectPurchaseRecord.setIspayment(1);
 			subjectPurchaseRecord.setPay_interest_times(1);
 			subjectPurchaseRecord.setLast_profit_day(Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(new Date())));

@@ -107,18 +107,17 @@
 <div class="adminLeft">
     <h2>我的投资</h2>
     <ul>
-        <li><a id="member_center_menu_invests" href="http://pro.ying158.com/account/touZiList"><em class="iconfont red"></em>投资记录</a></li>
-        <li><a id="member_center_menu_profit_record" href="http://pro.ying158.com/account/trades/profit/records" class="select"><em class="iconfont red"></em>收益记录</a></li>
-        <li><a id="member_center_menu_deposit_record" href="http://pro.ying158.com/account/deposit/records"><em class="iconfont red"></em>充值记录</a></li>
-        <li><a id="member_center_menu_withdraw_record" href="http://pro.ying158.com/account/withdraw/records"><em class="iconfont red"></em>提款记录</a></li>
-        <li><a id="member_center_menu_bbinInfo_record" href="http://pro.ying158.com/account/bbinInfo/records"><em class="iconfont red"></em>体验金记录</a></li>
+                <li><a id="member_center_menu_invests" href="/Ying_Second/memberCenter/list"><em class="iconfont red"></em>投资记录</a></li>
+        <li><a id="member_center_menu_profit_record" href="/Ying_Second/myadd"><em class="iconfont red"></em>收益记录</a></li>
+        <li><a id="member_center_menu_deposit_record" href="/Ying_Second/memberCenter/cz"><em class="iconfont red"></em>充值记录</a></li>
+        <li><a id="member_center_menu_withdraw_record" href="/Ying_Second/memberCenter/tiKuan"><em class="iconfont red"></em>提款记录</a></li>
+        <li><a id="member_center_menu_bbinInfo_record" href="/Ying_Second/memberCenter/tiyanj"><em class="iconfont red"></em>体验金记录</a></li>
     </ul>
     <h2>我的账户</h2>
     <ul>
-        <li><a id="member_center_menu_deposit" href="http://pro.ying158.com/account/deposit"><em class="iconfont"></em>账户充值</a></li>
-        <li><a id="member_center_menu_security" href="http://pro.ying158.com/account/security"><em class="iconfont"></em>安全信息</a></li>
-        <li><a id="member_center_menu_withdraw" href="http://pro.ying158.com/account/withdraw"><em class="iconfont"></em>我要提款</a></li>
-        <li><a id="member_center_menu_financial" href="http://pro.ying158.com/account/financial"><em class="iconfont"></em>我是理财师</a></li>
+        <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
+        <li><a id="member_center_menu_security" href="/Ying_Second/fontmember/safe"><em class="iconfont"></em>安全信息</a></li>
+        <li><a id="member_center_menu_withdraw" href="/Ying_Second/fontmember/woyaotikuan"><em class="iconfont"></em>我要提款</a></li>
     </ul>
 </div>
 <script>
@@ -134,7 +133,7 @@
                 <div id="conBox">
                     <div class="box" style="display:block">
                         <div class="myBankCards clearfix">
-                        	<form action="/Ying_Second/safe/boundCard">
+                        	<form action="/Ying_Second/memberCenter/boundCard">
                                 <div class="title">绑定银行卡</div>
                                 <input type="hidden" value="${member.name }" id="user_name" >
                                 <input type="hidden" value="${member.id }" name="member_id" >
@@ -280,7 +279,7 @@
     	
         $("#loc_province").change(function(){
               var provinceId=$("#loc_province").val();
-              $.post("/Ying_Second/safe/boundShi",{sid:provinceId},function(data){
+              $.post("/Ying_Second/memberCenter/boundShi",{sid:provinceId},function(data){
                    $("#loc_city").empty();
                      for(var i=0;i<data.length;i++){
                            $("#loc_city").append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
@@ -290,7 +289,7 @@
         
         $("#loc_city").change(function(){
             var provinceId=$("#loc_city").val();
-            $.post("/Ying_Second/safe/boundXiang",{shid:provinceId},function(data){
+            $.post("/Ying_Second/memberCenter/boundXiang",{shid:provinceId},function(data){
                  $("#loc_town").empty();
                    for(var i=0;i<data.length;i++){
                          $("#loc_town").append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
@@ -320,7 +319,7 @@
         	}else{
         		$(".errorInfoIdCard").html("").hide();
         	}
-        	$.post("/Ying_Second/safe/idcardcheck",{idcard:idcard},function(msg){
+        	$.post("/Ying_Second/memberCenter/idcardcheck",{idcard:idcard},function(msg){
         		alert(msg);
         		if(msg=='no'){
         			$(".errorInfoIdCard").html("此证件已被绑定,请更换").show();
@@ -341,7 +340,7 @@
         	}else{
         		$(".bankCardNum").html("").hide();
         	}
-        	$.post("/Ying_Second/safe/bankCardCheck",{bankCard:bankCard},function(msg){
+        	$.post("/Ying_Second/memberCenter/bankCardCheck",{bankCard:bankCard},function(msg){
         		if(msg=='no'){
         			$(".bankCardNum").html("此证件已被绑定,请更换").show();
         		}else{

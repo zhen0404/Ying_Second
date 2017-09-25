@@ -159,7 +159,7 @@
 											<td class="numeric">${list.create_date }</td>
 											<td class="numeric">
 											<a href="/Ying_Second/subject/selectSub?id=${list.id}" class="btn yellow"><i class="icon-plus"></i> 编辑/查看</a>
-											<a href="/Ying_Second/subject/queryinvest" class="btn blue"><i class="icon-plus"></i> 查看投资</a>
+											<a href="/Ying_Second/subject/queryinvest?id=${list.id}" class="btn blue"><i class="icon-plus"></i> 查看投资</a>
 											</td>
 
 										</tr>

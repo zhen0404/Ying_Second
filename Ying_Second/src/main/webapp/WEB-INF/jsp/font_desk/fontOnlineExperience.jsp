@@ -236,7 +236,7 @@
             <a href="http://pro.ying158.com/account/trades/profit/records" style="color: transparent">我的加法库</a>
         </div>
         <div style="position:absolute;right:50px;top:220px;font-size:18px;">
-            <a href="http://www.ying158.com/home/kcenter#" onclick="$(&#39;#feedbackModal&#39;).modal(); return false;" style="color: transparent">投诉与建议</a>
+          <a href="http://www.ying158.com/home/kcenter#" style="color: transparent">投诉与建议</a>
         </div>
         <div style="position:absolute;left:835px;top:490px;font-size:18px;">
             <a href="http://www.ying158.com/UserGuide/TradingSoftware" style="color: transparent">投研中心</a>

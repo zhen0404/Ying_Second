@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bean.Member;
 import com.bean.Member_bankcards;
+import com.bean.Member_deposit_record;
 import com.bean.Sys_region;
 
 public interface MemberCenterService {
@@ -31,5 +32,7 @@ public interface MemberCenterService {
 	List<Member_bankcards> bankCark(int memberID);
 	
 	void updateps(Member member);
+	
+	void saveMoneyRecord(Member_deposit_record mdr);
 
 }

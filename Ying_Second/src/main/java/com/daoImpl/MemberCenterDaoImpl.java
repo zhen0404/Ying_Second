@@ -11,6 +11,7 @@ import com.bean.Award_records;
 import com.bean.Member;
 import com.bean.Member_account;
 import com.bean.Member_bankcards;
+import com.bean.Member_deposit_record;
 import com.bean.Member_profit_record;
 import com.bean.Sys_region;
 import com.dao.MemberCenterDao;
@@ -111,6 +112,12 @@ public class MemberCenterDaoImpl implements MemberCenterDao {
 	public void updateps(Member member) {
 		// TODO Auto-generated method stub
 		getSession().update(member);
+	}
+
+	@Override
+	public void saveMoneyRecord(Member_deposit_record mdr) {
+		// TODO Auto-generated method stub
+		getSession().save(mdr);
 	}
 
 	

@@ -75,7 +75,7 @@
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
                 <div class="img"><img src="/Ying_Second/img/userPic.jpg"></div>
-                <h2>${member.name }<span>您好!</span></h2>
+                <h2>raokeqiang，<span>您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:50%"></em></span></div>
             <ul class="listIco iconfont">
@@ -93,20 +93,19 @@
 </tbody></table>
 <div class="countBox">
     <ul>
-        <li><h2>${memberAccount.useable_balance }</h2><p>账户可用余额(元)</p></li>
-        <li><h2>${money2+memberAccount.useable_balance+invest_amount }</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">${memberAccount.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">${money2 }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">${memberAccount.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
+        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
+        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
-    <a href="/Ying_Second/money/index" class="cz">充值</a>
-    <a href="" class="/Ying_Second/fontmember/woyaotikuan">提款</a>
-</div>    
-<div class="proMain clearfix">
+    <a href="http://pro.ying158.com/account/deposit" class="cz">充值</a>
+    <a href="http://pro.ying158.com/account/withdraw" class="tk">提款</a>
+</div>    <div class="proMain clearfix">
 <div class="adminLeft">
     <h2>我的投资</h2>
     <ul>
-        <li><a id="member_center_menu_invests" href="/Ying_Second/memberCenter/list"><em class="iconfont red"></em>投资记录</a></li>
+        <li><a id="member_center_menu_invests" href="/Ying_Second/memberCenter/list" class="select"><em class="iconfont red"></em>投资记录</a></li>
         <li><a id="member_center_menu_profit_record" href="/Ying_Second/myadd"><em class="iconfont red"></em>收益记录</a></li>
         <li><a id="member_center_menu_deposit_record" href="/Ying_Second/memberCenter/cz"><em class="iconfont red"></em>充值记录</a></li>
         <li><a id="member_center_menu_withdraw_record" href="/Ying_Second/memberCenter/tiKuan"><em class="iconfont red"></em>提款记录</a></li>
@@ -114,7 +113,7 @@
     </ul>
     <h2>我的账户</h2>
     <ul>
-        <li><a id="member_center_menu_deposit" href="/Ying_Second/money/index"><em class="iconfont"></em>账户充值</a></li>
+         <li><a id="member_center_menu_deposit" href="/Ying_Second/fontmember/czjl"><em class="iconfont"></em>账户充值</a></li>
         <li><a id="member_center_menu_security" href="/Ying_Second/fontmember/safe"><em class="iconfont"></em>安全信息</a></li>
         <li><a id="member_center_menu_withdraw" href="/Ying_Second/fontmember/woyaotikuan"><em class="iconfont"></em>我要提款</a></li>
     </ul>
@@ -124,10 +123,10 @@
  $("#"+menu_item).addClass("select");
 </script>
 
-        <div class="admin-right">
+          <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
-                    <a class="select" href="javascript:;">收益记录</a>
+                    <a class="select" href="javascript:;">投资记录</a>
                 </div>
                 <div id="conBox">
                     <div class="box" style="display:block">
@@ -137,25 +136,34 @@
 <link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
 
 <div class="ajaxContainer">
-		<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
-			<tbody>
-			<tr>
-				<th width="20%">时间</th>
-				<th width="30%">订单号</th>
-				<th width="20%">金额</th>
-				<th width="20%">备注</th>
-			</tr>
-			</tbody>
-			<c:forEach items="${mpr }" var="m">
-				<tr>
-				<th width="20%">${m.create_date }</th>
-				<th width="30%">${m.serial_number }</th>
-				<th width="20%">${m.amount }</th>
-				<th width="20%">${m.comment }</th>
-			</tr>
-			</c:forEach>
-		</table>
-</div>                       
+	<!-- 异步内容开始 -->
+	<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
+		<tbody><tr>
+			<th>订单编号</th>
+			<th>标的名称</th>
+			<th>金额</th>
+			<th>预期收益</th>
+			<th>状态</th>
+			<th>购买时间</th>
+		</tr>
+	</tbody>
+	<c:forEach items="${List}" var="list"> 
+	<tr>
+	<td>${list.serial_number}</td>
+	<td>${list.subject.name}</td>
+	<td>${list.amount}</td>
+	<td>${list.interest}%</td>
+	<td>
+	<c:if test="${list.subject.status==0}">未发布</c:if>
+	<c:if test="${list.subject.status==1}">募集中</c:if>
+	<c:if test="${list.subject.status==2}">已结束</c:if>
+	</td>
+	<td>${list.create_date}</td>
+	</tr>
+	</c:forEach>
+	</table>
+	<div class="listCount">总计<font color="#ff503f">${size}</font>笔</div>
+</div>
 <script type="text/javascript">
 	function getJsonInfo(url) {
 		$.get(url, 'json', function(data) {
@@ -163,8 +171,53 @@
 			$(".ajaxContainer").append(data);
 		});
 	}
-</script>      
-                    </div>
+</script>                    </div>
+                </div>
+                 <div class="tab">
+                    <a class="select" href="javascript:;">预约记录</a>
+                </div>
+                <div id="conBox">
+                    <div class="box" style="display:block">
+
+<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
+<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
+<link href="http://pro.ying158.com/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
+
+<div class="ajaxContainer2">
+	<!-- 异步内容开始 -->
+	<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
+		<tbody><tr>
+			<th>标的名称</th>
+			<th>金额</th>
+			<th>预期收益</th>
+			<th>状态</th>
+			<th>预约时间</th>
+		</tr>
+		</tbody>
+		<c:forEach items="${List2}" var="ll"> 
+	<tr>
+	<td>${ll.name}</td>
+	<td>${ll.amount}</td>
+	<td>${ll.interest}%</td>
+	<td>
+	<c:if test="${ll.status==0}">未发布</c:if>
+	<c:if test="${ll.status==1}">募集中</c:if>
+	<c:if test="${ll.status==2}">已结束</c:if>
+	</td>
+	<td>${ll.start_date}</td>
+	</tr>
+	</c:forEach>
+	</table>
+	<div class="listCount">总计<font color="#ff503f">${size2}</font>笔</div>
+</div>
+<script type="text/javascript">
+	function getJsonInfo2(url) {
+		$.get(url, 'json', function(data) {
+			$(".ajaxContainer2").empty();
+			$(".ajaxContainer2").append(data);
+		});
+	}
+</script>                    </div>
                 </div>
             </div>
         </div>

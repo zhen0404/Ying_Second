@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Member;
 import com.bean.Member_bankcards;
+import com.bean.Member_deposit_record;
 import com.bean.Sys_region;
 import com.dao.MemberCenterDao;
 import com.service.MemberCenterService;
@@ -97,6 +98,12 @@ public class MemberCenterServiceImpl implements MemberCenterService  {
 	public void updateps(Member member) {
 		// TODO Auto-generated method stub
 		this.mcd.updateps(member);
+	}
+
+	@Override
+	public void saveMoneyRecord(Member_deposit_record mdr) {
+		// TODO Auto-generated method stub
+		this.mcd.saveMoneyRecord(mdr);
 	}
 
 }

@@ -377,8 +377,8 @@ li.active a {
     <div class="proMain">
     	<div class="hwpzNav">
     		<ul>
-    			<li class="first"><a class="active" href="/Ying_Second/frontSubject/showsubject">固收类理财</a></li>
-    			<li class="second"><a href="/Ying_Second/frontsimu/list">私募/股权基金</a></li>
+    			<li class="first"><a href="/Ying_Second/frontSubject/showsubject">固收类理财</a></li>
+    			<li class="second"><a class="active" href="/Ying_Second/frontsimu/list">私募/股权基金</a></li>
     			<li class="three"><a href="/Ying_Second/frontSea/list">海外配置</a></li>
     		</ul>
     	</div>

@@ -63,8 +63,7 @@ public class Award_recordsService implements BaseService<Award_records>{
 
 	@Override
 	public List<Award_records> listAll(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return baseDao.listAll(id);
 	}
 
 }

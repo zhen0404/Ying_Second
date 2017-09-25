@@ -11,7 +11,7 @@ public interface OverseaDao<Oversea_config> {
 
 	List<Oversea_config> listAll();
 	
-	List<Oversea_config_subscribe> All();
+	List<Oversea_config_subscribe> All(int id);
 	
 	 void overAdd(Oversea_config oc);
 	 

@@ -105,11 +105,11 @@
 <div class="adminLeft">
     <h2>我的投资</h2>
     <ul>
-        <li><a id="member_center_menu_invests" href="http://pro.ying158.com/account/touZiList"><em class="iconfont red"></em>投资记录</a></li>
-        <li><a id="member_center_menu_profit_record" href="http://pro.ying158.com/account/trades/profit/records" class="select"><em class="iconfont red"></em>收益记录</a></li>
-        <li><a id="member_center_menu_deposit_record" href="http://pro.ying158.com/account/deposit/records"><em class="iconfont red"></em>充值记录</a></li>
-        <li><a id="member_center_menu_withdraw_record" href="http://pro.ying158.com/account/withdraw/records"><em class="iconfont red"></em>提款记录</a></li>
-        <li><a id="member_center_menu_bbinInfo_record" href="/Ying_Second/fontmember/bbinrecord"><em class="iconfont red"></em>体验金记录</a></li>
+        <li><a id="member_center_menu_invests" href="/Ying_Second/memberCenter/list"><em class="iconfont red"></em>投资记录</a></li>
+        <li><a id="member_center_menu_profit_record" href="/Ying_Second/myadd" class="select"><em class="iconfont red"></em>收益记录</a></li>
+        <li><a id="member_center_menu_deposit_record" href="/Ying_Second/memberCenter/cz"><em class="iconfont red"></em>充值记录</a></li>
+        <li><a id="member_center_menu_withdraw_record" href="/Ying_Second/memberCenter/tiKuan"><em class="iconfont red"></em>提款记录</a></li>
+        <li><a id="member_center_menu_bbinInfo_record" href="/Ying_Second/memberCenter/tiyanj"><em class="iconfont red"></em>体验金记录</a></li>
     </ul>
     <h2>我的账户</h2>
     <ul>

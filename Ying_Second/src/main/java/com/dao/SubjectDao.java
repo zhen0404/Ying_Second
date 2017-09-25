@@ -16,6 +16,6 @@ public interface SubjectDao {
 		  Subject getById(int id);
 		  void updateSub(Subject sub);
 		  void p2pAdd(Subject sub);
-		List<Subject_bbin_purchase_record> listp2pton();//²éÑ¯Í¶×Ê±í
+		List<Subject_bbin_purchase_record> listp2pton();//ï¿½ï¿½Ñ¯Í¶ï¿½Ê±ï¿½
 		
 }

@@ -15,6 +15,7 @@ import com.bean.Member;
 import com.bean.Member_account;
 import com.bean.Member_deposit_record;
 import com.service.FrontProductService;
+import com.service.MemberCenterService;
 
 @Controller
 @RequestMapping("money")
@@ -24,6 +25,10 @@ public class MoneyController {
 	@Qualifier("frontProductServiceImpl")
 	private FrontProductService frontProductServiceImpl;
 	
+	@Autowired
+    @Qualifier("memberCenterServiceImpl")
+    private MemberCenterService mcs;
+	
 	@RequestMapping("index")
 	public String index(){
 		return "font_desk/money_deal/index";
@@ -32,7 +37,7 @@ public class MoneyController {
 	@RequestMapping("notify_url")
 	public String notify_url(HttpSession session,Member_deposit_record mdr){
 		return_url(session, mdr);
-		return "font_desk/fontmember/";
+		return "redirect:/Ying_Second/memberCenter/cz";
 	}
 	
 	@RequestMapping("return_url")
@@ -47,7 +52,7 @@ public class MoneyController {
 			if(memberAccount==null){
 				memberAccount=this.frontProductServiceImpl.ListAllByMemberId(member.getId());
 			}
-			//修改用余额
+			//修改用户余额
 			memberAccount.setUseable_balance(memberAccount.getUseable_balance()+Integer.parseInt((String)session.getAttribute("chongMoney")));
 			this.frontProductServiceImpl.updateMemberAccount(memberAccount);
 			//修改充值信息的状态
@@ -62,7 +67,7 @@ public class MoneyController {
 				e.printStackTrace();
 			}
 		}
-		return "font_desk/money_deal/return_url";
+		return "redirect:/Ying_Second/memberCenter/cz";
 	}
 	
 	/**
@@ -97,7 +102,7 @@ public class MoneyController {
 			}
 			session.setAttribute("mdr", mdr);
 			//添加充值信息
-			
+			this.mcs.saveMoneyRecord(mdr);
 		}
 		return "font_desk/money_deal/alipay";
 	}

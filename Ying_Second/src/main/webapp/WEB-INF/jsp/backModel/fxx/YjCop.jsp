@@ -111,9 +111,9 @@
 							<div class="portlet-body flip-scroll">
 							<div class="tools">
 							
-                                            <form action="/Ying_Second/GongGao/serTop" method="post" >
-											开始时间：<input type="date" name="startDate" style="color: blue;width: 200px;height: 20px" id="t1">
-											结束时间：<input type="date" name="endDate" style="color: blue;width: 200px;height: 20px" id="t2" >
+                                            <form action="/Ying_Second/GongGao/serCop" method="post" >
+											开始时间：<input type="date" name="creatTime" style="color: blue;width: 200px;height: 20px" id="t1">
+											结束时间：<input type="date" name="endTime" style="color: blue;width: 200px;height: 20px" id="t2" >
 											  &nbsp&nbsp&nbsp
 											 <button type="submit">查询</button>
 											  &nbsp&nbsp
@@ -129,7 +129,26 @@
                                              </div>
      
 								<table border="0">
-
+                           <c:forEach items="${list8 }" var="y" varStatus="stat">
+                           <c:forEach items="${list9 }" var="u" varStatus="stat">
+                           <c:forEach items="${list10 }" var="i" varStatus="stat">
+                           <c:forEach items="${list11 }" var="o" varStatus="stat">
+                           <c:forEach items="${list12 }" var="p" varStatus="stat">
+                           <c:forEach items="${list13 }" var="s" varStatus="stat">
+                           <c:forEach items="${list14 }" var="d" varStatus="stat">
+                           <c:forEach items="${list15 }" var="f" varStatus="stat">
+                           
+                           <c:forEach items="${list }" var="m" varStatus="stat">
+                           <c:forEach items="${list2 }" var="a" varStatus="stat">
+                           <c:forEach items="${list3 }" var="q" varStatus="stat">
+                           <c:forEach items="${list4 }" var="w" varStatus="stat">
+                           <c:forEach items="${list5 }" var="e" varStatus="stat">
+                           <c:forEach items="${list6 }" var="r" varStatus="stat">
+                           <c:forEach items="${list7 }" var="t" varStatus="stat">
+                          
+                           
+                           
+                        
 									<thead class="flip-content" >
 
 										<tr>
@@ -137,9 +156,8 @@
 											<th >
 											<div  id="left">
         	<div class="in">
-            	<p class="first" style="font-size:30px;"><img src="../img/ico1.jpg">812.28<span>元</span></p>
+            	<p class="first" style="font-size:30px;"><img src="../img/ico1.jpg">${r+t+a+q+w+e+m}<span>元</span></p>
                 <p class="txt">平台总资产</p>
-                <p class="txt">(用户历史充值总额+用户总收益)</p>
             </div>
         </div>
         <br><br><br>
@@ -148,18 +166,16 @@
 											<th>   
 											<div  id="mid">
         	<div class="in">
-            	<p class="first" style="font-size:30px;"><img src="../img/ico2.jpg" >-8081.72<span>元</span></p>
+            	<p class="first" style="font-size:30px;"><img src="../img/ico2.jpg" >${r+t+a+q+w+e+m-y-u-i-o-p-s-d-f}<span>元</span></p>
                 <p class="txt">平台余额</p>
-                <p class="txt">(总资产-总支出)</p>
             </div>
         </div></th>
 
 											<th>
 											<div  id="right">
         	<div class="in">
-            	<p class="first" style="font-size:30px;"><img src="../img/ico2.jpg">173<span>元</span></p>
+            	<p class="first" style="font-size:30px;"><img src="../img/ico2.jpg">${r+t-y-u}<span>元</span></p>
                 <p class="txt">平台总净值/第三方账户总余额</p>
-                <p class="txt">(历史充值-总提现)</p>
             </div>
         </div>
         <br><br><br>
@@ -172,12 +188,13 @@
                    
                            <div class="portlet-body flip-scroll">
                            <table border="0">
+                           
                           <tr>
-                          <td><h4 style="text-align:left;">用户充值总额<br>(富友充值+贝付充值)</h4></td>
-                          <td><h3 style="text-align:right;">803<span>元</span></h3></td>
+                          <td><h4 style="text-align:left;">用户充值总额</h4></td>
+                          <td><h3 style="text-align:right;">${r+t}<span>元</span></h3></td>
                           <td>&nbsp&nbsp&nbsp</td>
-                          <td><h4 style="text-align:left;">用户总收益<br>(投资总收益+用户总红包)</h4></td>
-                          <td><h3 style="text-align:right;">9.28<span>元</span></h3></td>
+                          <td><h4 style="text-align:left;">用户总收益</h4></td>
+                          <td><h3 style="text-align:right;">${a+q+w+e+m}<span>元</span></h3></td>
                           </tr> 
                            
                           </table>
@@ -195,82 +212,85 @@
               </tr>
               <tr>
                 <td>富友</td>
-                <td>603</td>
-                <td>250</td>
-                <td>353</td>
+                <td>${r}</td>
+                <td>${y}</td>
+                <td>${r-y}</td>
               </tr>
               <tr>
                 <td>贝付</td>
-                <td>200</td>
-                <td>380</td>
-                <td>-180</td>
+                <td>${t}</td>
+                <td>${u}</td>
+                <td>${t-u}</td>
               </tr>
               <tr>
                 <td>合计</td>
-                <td>803</td>
-                <td>630</td>
-                <td>173</td>
+                <td>${r+t}</td>
+                <td>${y+u}</td>
+                <td>${r+t-y-u}</td>
               </tr>
+              
+              
             </table>
                     </td>
                     <td>&nbsp&nbsp&nbsp</td>
                     <td>
                     <h3 class="h3Tit">1.投资总收益</h3>
                     <table class="table table-bordered listTab" >
+                    
                       <tr>
                         <th>项目</th>
                         <th>金额</th>
                       </tr>
                       <tr>
                         <td>固收理财</td>
-                        <td>9.28</td>
+                        <td>${e}</td>
                       </tr>
                        <tr>
                         <td>私募基金</td>
-                        <td>0</td>
+                        <td>${q}</td>
                       </tr>
                        <tr>
                         <td>海外配资</td>
-                        <td>0</td>
+                        <td>${w}</td>
                       </tr>
                        <tr>
                         <td>合计</td>
-                        <td>9.28</td>
+                        <td>${q+w+e}</td>
                       </tr>
+                    
                     </table>
                     </td>
                     <td>&nbsp&nbsp&nbsp</td>
                     <td>
                     <h3 class="h3Tit">2.用户总红包</h3>
                     <table class="table table-bordered listTab"  >
+                     
                       <tr>
                         <th>项目</th>
                         <th>金额</th>
                       </tr>
                       <tr>
                         <td>邀请注册红包</td>
-                        <td>0</td>
+                        <td>${m}</td>
                       </tr>
                       <tr>
                         <td>投资奖励红包</td>
-                        <td>0</td>
+                        <td>${a}</td>
                       </tr>
-                      <tr>
-                        <td>给我发个红包</td>
-                        <td>0</td>
-                      </tr>
+                     
                       <tr>
                         <td>合计</td>
-                        <td>0</td>
+                        <td>${m+a}</td>
                       </tr>
+                     
                     </table>
                     </td>
                     </table>
                      <div class="portlet-body flip-scroll">
                            <table border="0">
                           <tr>
-                          <td><h4 style="text-align:left;">平台总支出<br>(总投资+总消费+总提现)</h4></td>
-                          <td><h3 style="text-align:right;">8803<span>元</span></h3></td>
+                          <td><h4 style="text-align:left;">平台总支出</h4></td>
+                          <td><h3 style="text-align:right;">${y+u+i+o+p+s+d+f}<span>元</span></h3></td>
                           </table>
                           </div>
                       <br> 
@@ -285,46 +305,48 @@
               </tr>
               <tr>
                 <td>固收理财</td>
-                <td>8224</td>
+                <td>${i}</td>
               </tr>
                <tr>
                 <td>私募基金</td>
-                <td>0</td>
+                <td>${o}</td>
               </tr>
                <tr>
                 <td>海外配资</td>
-                <td>0</td>
+                <td>${p}</td>
               </tr>
                <tr>
                 <td>合计</td>
-                <td>8224</td>
+                <td>${i+o+p}</td>
               </tr>
+               
             </table>
                       </td>
                       <td>&nbsp&nbsp&nbsp</td>
                       <td>
                       <h3 class="h3Tit">2.平台总消费</h3>
-            <table class="table table-bordered listTab" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <table class="table table-bordered listTab" width="100%" border="0">
               <tr>
                 <th>项目</th>
                 <th>金额</th>
               </tr>
               <tr>
                 <td>手机充值</td>
-                <td>40</td>
+                <td>${s}</td>
               </tr>
               <tr>
                 <td>加油卡充值</td>
-                <td>0</td>
+                <td>${d}</td>
               </tr>
               <tr>
                 <td>生活缴费</td>
-                <td>0</td>
+                <td>${f}</td>
               </tr>
               <tr>
                 <td>合计</td>
-                <td>40</td>
+                <td>${s+d+f}</td>
               </tr>
+              
             </table>
                       </td>
                       <td>&nbsp&nbsp&nbsp</td>
@@ -337,20 +359,31 @@
               </tr>
               <tr>
                 <td>富友账户</td>
-                <td>250</td>
+                <td>${y}</td>
               </tr>
                <tr>
                 <td>贝付账户</td>
-                <td>380</td>
-              </tr>
-              <tr>
-                <td>我的账户</td>
-                <td>380</td>
+                <td>${u}</td>
               </tr>
                <tr>
                 <td>合计</td>
-                <td>630</td>
+                <td>${y+u}</td>
               </tr>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
+              </c:forEach>
             </table>
                       </td>
                       </tr>

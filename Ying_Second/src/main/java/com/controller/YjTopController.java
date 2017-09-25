@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,7 @@ public class YjTopController {
 		model.addAttribute("pushNotice",push_notice);
 		return "backModel/fxx/YjToo";
 	}
+	
 	//修改内容,標題
 	@RequestMapping("/serTor")
 	public String serTor(Push_notice push,int id,String title,String content){
@@ -78,6 +81,42 @@ public class YjTopController {
 	    	model.addAttribute("list", list);
 			return "backModel/fxx/YjTop";
 		}
+		//红包统计
+		@RequestMapping("/serCop")
+		public String serCop(Model model,HttpServletRequest re,String creatTime,String endTime){
+			System.out.println(creatTime);
+			List list =this.ggManagerService.ListCop(creatTime);
+			List list2=this.ggManagerService.ListCop1(creatTime);
+			List list3=this.ggManagerService.ListCop2(creatTime,endTime);
+			List list4=this.ggManagerService.ListCop3(creatTime,endTime);
+			List list5=this.ggManagerService.ListCop4(creatTime,endTime);
+			List list6=this.ggManagerService.ListCop5(creatTime);
+			List list7=this.ggManagerService.ListCop6(creatTime);
+			List list8=this.ggManagerService.ListCop7(creatTime);
+			List list9=this.ggManagerService.ListCop8(creatTime);
+			List list10=this.ggManagerService.ListCop9(creatTime,endTime);
+			List list11=this.ggManagerService.ListCop10(creatTime,endTime);
+			List list12=this.ggManagerService.ListCop11(creatTime,endTime);
+			List list13=this.ggManagerService.ListCop12(creatTime);
+			List list14=this.ggManagerService.ListCop13(creatTime);
+			List list15=this.ggManagerService.ListCop14(creatTime);
+			model.addAttribute("list", list);
+			model.addAttribute("list2", list2);
+			model.addAttribute("list3", list3);
+			model.addAttribute("list4", list4);
+			model.addAttribute("list5", list5);
+			model.addAttribute("list6", list6);
+			model.addAttribute("list7", list7);
+			model.addAttribute("list8", list8);
+			model.addAttribute("list9", list9);
+			model.addAttribute("list10", list10);
+			model.addAttribute("list11", list11);
+			model.addAttribute("list12", list12);
+			model.addAttribute("list13", list13);
+			model.addAttribute("list14", list14);
+			model.addAttribute("list15", list15);
+			return "backModel/fxx/YjCop";
+		}
 		//查询所有反馈意见表
 		@RequestMapping("/YjFom")
 		public String YjFom(Model model){
@@ -101,14 +140,45 @@ public class YjTopController {
 	public String serTou(){
 		return "backModel/fxx/YjTow";
 	}
-	//跳转财务统计
-	@RequestMapping("/serCop")
-	public String serCop(){
-		return "backModel/fxx/YjCop";
-	}
+	
 	//跳转用户综合统计
+//		@RequestMapping("/serHow")
+//		public String serHow(){
+//			return "backModel/fxx/YjHow";
+//		}
 		@RequestMapping("/serHow")
-		public String serHow(){
+		public String serHow(Model model,HttpServletRequest re,String creatTime,String endTime){
+			System.out.println(creatTime);
+			List list =this.ggManagerService.ListCop(creatTime);
+			List list2=this.ggManagerService.ListCop1(creatTime);
+			List list3=this.ggManagerService.ListCop2(creatTime,endTime);
+			List list4=this.ggManagerService.ListCop3(creatTime,endTime);
+			List list5=this.ggManagerService.ListCop4(creatTime,endTime);
+			List list6=this.ggManagerService.ListCop5(creatTime);
+			List list7=this.ggManagerService.ListCop6(creatTime);
+			List list8=this.ggManagerService.ListCop7(creatTime);
+			List list9=this.ggManagerService.ListCop8(creatTime);
+			List list10=this.ggManagerService.ListCop9(creatTime,endTime);
+			List list11=this.ggManagerService.ListCop10(creatTime,endTime);
+			List list12=this.ggManagerService.ListCop11(creatTime,endTime);
+			List list13=this.ggManagerService.ListCop12(creatTime);
+			List list14=this.ggManagerService.ListCop13(creatTime);
+			List list15=this.ggManagerService.ListCop14(creatTime);
+			model.addAttribute("list", list);
+			model.addAttribute("list2", list2);
+			model.addAttribute("list3", list3);
+			model.addAttribute("list4", list4);
+			model.addAttribute("list5", list5);
+			model.addAttribute("list6", list6);
+			model.addAttribute("list7", list7);
+			model.addAttribute("list8", list8);
+			model.addAttribute("list9", list9);
+			model.addAttribute("list10", list10);
+			model.addAttribute("list11", list11);
+			model.addAttribute("list12", list12);
+			model.addAttribute("list13", list13);
+			model.addAttribute("list14", list14);
+			model.addAttribute("list15", list15);
 			return "backModel/fxx/YjHow";
 		}
 	

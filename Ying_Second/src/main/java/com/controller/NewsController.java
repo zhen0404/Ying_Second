@@ -28,8 +28,8 @@ public class NewsController {
 	}
 	@RequestMapping("/listTi/{id}")
 	public String listTi(@PathVariable("id")int id,Model model){
-		List<News> listTi=newService.listAll(id);
-		model.addAttribute("listTi", listTi);
+		List<News> listT=newService.listAll(id);
+		model.addAttribute("listT", listT);
 		return "font_desk/frontJournalism";
 	}
 	@RequestMapping("/listTe/{id}")

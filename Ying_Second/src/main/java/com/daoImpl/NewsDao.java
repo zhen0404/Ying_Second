@@ -74,9 +74,9 @@ public class NewsDao implements NDao<News>{
 
 	@Override
 	public List<News> listAll(int id) {
-		String sql="select n2.* from news_type n1,news n2 where n1.id=n2.typeId and n2.typeId="+id;
+		String hql="from News where typeId="+id;
 		Session session=getSession();
-		List<News> list=session.createSQLQuery(sql).list();
+		List<News> list=session.createQuery(hql).list();
 		return list;
 	}
 

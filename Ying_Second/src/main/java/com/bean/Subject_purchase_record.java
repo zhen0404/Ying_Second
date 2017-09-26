@@ -40,7 +40,7 @@ public class Subject_purchase_record {
 	private Member Member;
 	
 	 @ManyToOne
-	    @JoinColumn(name="mid",insertable=false,updatable=false)
+	    @JoinColumn(name="member_id",insertable=false,updatable=false)
 	    public Member getMember() {
 			return Member;
 		}

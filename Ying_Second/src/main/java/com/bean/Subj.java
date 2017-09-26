@@ -20,8 +20,17 @@ public class Subj {
 	 private int year_rate;
 	 private int status;
 	 private int exper_status;
+	 private int subject_id;
 	 
-	 @Id
+	 
+	 
+	 public int getSubject_id() {
+		return subject_id;
+	}
+	public void setSubject_id(int subject_id) {
+		this.subject_id = subject_id;
+	}
+	@Id
 	 @GeneratedValue
 	public int getId() {
 		return id;

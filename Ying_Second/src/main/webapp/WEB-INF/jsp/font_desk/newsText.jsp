@@ -336,7 +336,7 @@ li.active a {
 					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
 					</li>
 					<li><a class="item"
-						href="/Ying_Second/nt/list"> 新闻中心 </a></li>
+						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
 						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
@@ -359,18 +359,19 @@ li.active a {
 <div class="main">
 	<div class="container helpCenter">
 		<div class="row">
-			<div class="left">
+			<%-- <div class="left">
 			<c:forEach items="${listTi }" var="n">
 				<div class="item first active" name="reports" id="reportsTab">
 					<a href="/Ying_Second/new/listTi/${n.id}">${n.name }</a></div>
 					</c:forEach>
 				<div class="blank" style="height: 532px;"></div>
 				
-			</div>
+			</div> --%>
 			<div class="right">
 				<div class="content" id="reports" style="display: block;">
 				<div class="title">${news.news_type.name }</div>
-				<c:forEach items="${listT }" var="nt" varStatus="stat">
+				<div>${news.text }</div>
+				<%-- <c:forEach items="${listT }" var="nt" varStatus="stat">
 					
 					<ul class="newsList">
 
@@ -379,10 +380,10 @@ li.active a {
 							target="_blank">${nt.title }</a><span class="time">${nt.addTime }</span>
 						</li>
 					</ul>
-					
-						</c:forEach>
-						<li><a onclick="pagation(0)">上一页</a> | <a
+					<li><a onclick="pagation(0)">上一页</a> | <a
 							onclick="pagation(2)">下一页</a></li>
+						</c:forEach> --%>
+						
 						<!-- <li><a
 							href="http://www.ying158.com/news/e0d2276e-a35f-4b0a-aea7-3473cd800533"
 							target="_blank">重磅推出阳光私募基金-吉威量化套利稳健1号</a><span class="time">2016-04-14</span>

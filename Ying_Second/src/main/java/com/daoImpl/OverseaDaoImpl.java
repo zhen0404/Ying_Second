@@ -29,9 +29,9 @@ public class OverseaDaoImpl implements OverseaDao<Oversea_config>{
 				return list;
 			}
 
-			public List<Oversea_config_subscribe> All() {
+			public List<Oversea_config_subscribe> All(int id) {
 				Session session=getSession();
-				String hql ="from Oversea_config_subscribe";
+				String hql ="from Oversea_config_subscribe where id="+id;
 				List list=session.createQuery(hql).list();
 				return list;
 			}

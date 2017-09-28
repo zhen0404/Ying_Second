@@ -33,13 +33,13 @@ public class Subject_purchase_record {
 
 	private int ispayment;
 	private int pay_interest_times;
-	private int interset;
-	public int getInterset() {
-		return interset;
-	}
-	public void setInterset(int interset) {
-		this.interset = interset;
-	}
+//	private int interset;
+//	public int getInterset() {
+//		return interset;
+//	}
+//	public void setInterset(int interset) {
+//		this.interset = interset;
+//	}
 	public int getSubject_id() {
 		return subject_id;
 	}

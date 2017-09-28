@@ -332,37 +332,12 @@ li.active a {
 </head>
 <body>
 	<div id="floatTools" class="rides-cs" style="height: 408px;">
-<!-- 		<div class="floatL"> -->
-<!-- 			<a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" -->
-<!-- 				style="top: 90px; display: block" href="javascript:void(0);">展开</a> -->
-<!-- 			<a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" -->
-<!-- 				style="top: 90px; display: none" href="javascript:void(0);">收缩</a> -->
-<!-- 		</div> -->
 		<div id="divFloatToolsView" class="floatR"
 			style="display: none; height: 408px; width: 140px;">
 			<div class="cn">
 				<img src="/Ying_Second/img/kefun.png"
 					style="width: 100px; display: block; margin: 0 auto; padding-top: 10px;">
 				<h3 class="titZx">盈+金融在线客服</h3>
-<!-- 				<ul> -->
-<!-- 					<li><span>客服1</span> <a target="_blank" -->
-<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=508886246&amp;site=qq&amp;menu=yes"><img -->
-<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
-<!-- 							border="0"></a></li> -->
-<!-- 					<li><span>客服2</span> <a target="_blank" -->
-<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=3276064217&amp;site=qq&amp;menu=yes"><img -->
-<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
-<!-- 							border="0"></a></li> -->
-<!-- 					<li><span>客服3</span> <a target="_blank" -->
-<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=2717994963&amp;site=qq&amp;menu=yes"><img -->
-<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
-<!-- 							border="0"></a></li> -->
-<!-- 					<li><span>技术A</span> <a target="_blank" -->
-<!-- 						href="http://wpa.qq.com/msgrd?v=3&amp;uin=2088636909&amp;site=qq&amp;menu=yes"><img -->
-<!-- 							src="/Ying_Second/img/littleQQ.png" alt="点击这里给我发消息" title="点击这里给我发消息" -->
-<!-- 							border="0"></a></li> -->
-<!-- 					<li style="border: none;"><span>电话：4000-999-158</span></li> -->
-<!-- 				</ul> -->
 			</div>
 		</div>
 	</div>
@@ -381,17 +356,13 @@ li.active a {
 							网上体验中心 </a></li>
 					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
-					<li><a class="item"
-						href="/Ying_Second/nt/list"> 新闻中心 </a></li>
-					<li><a class="item"
-						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
+					<li><a class="item" href="/Ying_Second/nt/list"> 新闻中心 </a></li>
+					<li><a class="item" href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
 							盈+商学院 </a></li>
-					<li><a class="item"
-						href="/Ying_Second/frontStudy"> 投研中心
+					<li><a class="item" href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item last"
-						href="/Ying_Second/fontmember/zhu">
+					<li><a class="item last" href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -418,14 +389,12 @@ li.active a {
 						<img src="/Ying_Second/img/banner2.jpg" alt="[]">
 					</div>
 				</div>
-
 				
 			</div>
 			<div class="login-box">
 				<div class="block backdrop"></div>
 				<div class="block" style="height: 280px;">
-					<p
-						style="margin-top: 20px; line-height: 50px; font-size: 20px; text-align: center; color: #fff;">
+					<p style="margin-top: 20px; line-height: 50px; font-size: 20px; text-align: center; color: #fff;">
 						<span style="color: #917739;">欢迎</span>盈主到来
 					</p>
 					<p
@@ -470,18 +439,13 @@ li.active a {
 							class="hidden" style="cursor: pointer">盈+全球首映 [07-13]</span>
 						</span>
 					</div>
-					<a href="http://www.ying158.com/home/newscenter">
+					<a href="/Ying_Second/nt/list">
 						查看更多&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; </a>
 				</div>
 				
-<!-- 				中部的iframe -->
-<!-- 				<iframe scrolling="no" src="/Ying_Second/middle" width="972"  height="500" frameborder="0"></iframe> -->
-					
 				<div class="gjList clearfix">
 					<ul>
 						<li>
-			<!-- 			<a class="all" target="_blank" -->
-			<!-- 				href="http://pro.ying158.com/finance/financeView/28"> -->
 								<h2 class="tit">
 									<span>募</span>凯丰对冲10号
 								</h2> <span class="fenl">股权</span>
@@ -499,7 +463,6 @@ li.active a {
 								</p>
 						</li>
 						<li>
-<!-- 						<a class="all" target="_blank" href="http://pro.ying158.com/finance/financeView/27"> -->
 								<h2 class="tit">
 									<span>募</span>凯丰对冲9号
 								</h2> <span class="fenl">股权</span>

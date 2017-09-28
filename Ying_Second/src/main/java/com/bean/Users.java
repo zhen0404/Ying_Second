@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,18 @@ public class Users {
               private int identity;
               private Date create_date;
 	          private Date update_date;
+	          
+	          private User_role userrole;
+	          
+	       	@ManyToOne
+	       	@JoinColumn(name = "rid")
+	       	public User_role getUserrole() {
+	       		return userrole;
+	       	}
+
+	       	public void setUserrole(User_role userrole) {
+	       		this.userrole = userrole;
+	       	}
 	        @Id
 	        @GeneratedValue
 			public int getId() {

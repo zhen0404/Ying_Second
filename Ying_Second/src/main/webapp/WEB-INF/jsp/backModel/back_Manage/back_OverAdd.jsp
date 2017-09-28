@@ -112,7 +112,6 @@
 <img src="/Ying_Second/img/baoxian/shishang.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/shishang.jpg">
 <img src="/Ying_Second/img/baoxian/youyuan.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/youyuan.jpg">								
 										</div>
-								
 									</div>
 									
 									<div class="control-group">

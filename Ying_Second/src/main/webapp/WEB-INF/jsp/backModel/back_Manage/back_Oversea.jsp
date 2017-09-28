@@ -43,37 +43,18 @@
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
 </head>
 <body class="page-header-fixed">
-
-<div class="page-container row-fluid">
-
-		<div class="page-content">
-
-			<div class="container-fluid">
-
 				<div class="row-fluid">
-
 					<div class="span12">
-
 						<div class="portlet box green">
-
 							<div class="portlet-title">
-
 								<div class="caption"><i class="icon-cogs"></i>海外配置</div>
-
 								<div class="tools">
-
 									<a href="javascript:;" class="collapse"></a>
-
-									<a href="#portlet-config" data-toggle="modal" class="config"></a>
-
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
 									<a href="javascript:;" class="reload"></a>
-
 									<a href="javascript:;" class="remove"></a>
-
 								</div>
-
 							</div>
-
 							<div class="portlet-body flip-scroll">
 							　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 							<a href="/Ying_Second/oversea/toAdd" class="btn green"><i class="icon-plus"></i> 添加</a>
@@ -138,16 +119,6 @@
 					</div>
 
 				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- END CONTAINER -->
-
-	<!-- BEGIN FOOTER -->
 
 	<div class="footer">
 

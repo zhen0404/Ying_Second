@@ -41,7 +41,12 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
-
+<style type="text/css">
+.fin{
+	color:white;
+	background-color: limegreen;
+}
+</style>
 </head>
 <body class="page-header-fixed">
 
@@ -78,16 +83,16 @@
 							<div class="portlet-body flip-scroll">
 							<form action="" method="post" id="BusinessForm">
 							<input type="hidden" name="id" id="id">
-									标题： <input type="text" name="qname" value="${qname }"> 
-									所属类别：<select name="tid" id="tid">
+									标题：	 <input type="text" name="qname" value="${qname }"> 
+									所属类别：<select name="typeId" id="typeId">
 												<option value="-1">全选</option>
 												<c:forEach items="${typeList }" var="t">
 													<option value="${t.id }">${t.name }</option>
 												</c:forEach>
-											</select>
-<input type="submit" value="查找" id="find">
-<input type="reset" value="重置" id="reset">
-										<input type="button" value="新增" id="addBusiness" />
+											</select>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+											<input type="submit" value="查找" id="find" class="fin">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+											<input type="reset" value="重置" id="reset" class="fin">&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+										<input type="button" value="新增" id="addBusiness"class="fin" /><br><br>
 										
 								<table class="table-bordered table-striped table-condensed flip-content">
 
@@ -127,8 +132,8 @@
 											<td>${n.addTime }</td>
 
 											<td>
-											<a href="/Ying_Second/business/initData/${n.id}"><input type="button" value="编辑"></a>
-											<a href="/Ying_Second/business/deleteBusiness?id=${n.id}"><input type="button" value="删除"></a>
+											<a href="/Ying_Second/business/initData/${n.id}"><input type="button" value="编辑"class="fin"></a>
+											<a href="/Ying_Second/business/deleteBusiness?id=${n.id}"><input type="button" value="删除"class="fin"></a>
 											</td>
 
 

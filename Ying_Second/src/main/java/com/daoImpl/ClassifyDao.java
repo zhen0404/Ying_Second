@@ -15,6 +15,7 @@ import com.dao.CollegeDao;
 @Component
 public class ClassifyDao  implements CollegeDao<News_type> {
 
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -22,10 +23,7 @@ public class ClassifyDao  implements CollegeDao<News_type> {
 		return sessionFactory.getCurrentSession();
 	}
 	public List<News_type> listAll() {
-		Session session=getSession();
-		String hql="from News_type";
-		List<News_type> list=session.createQuery(hql).list();
-		return list;	
+		return null;	
 	}
 
 	public void save(News_type news_type) {
@@ -40,11 +38,8 @@ public class ClassifyDao  implements CollegeDao<News_type> {
 		
 	}
 
-	public News_type getById(int id) {
-		Session session=getSession();
-		News_type news_type=(News_type)session.get(News_type.class,id);
-		return news_type;
-	}
+	
+	
 
 	public void update(News_type news_type) {
 		Session session=getSession();
@@ -107,9 +102,24 @@ public class ClassifyDao  implements CollegeDao<News_type> {
 	}
 
 	public List<News_type> typeList() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session=getSession();
+		String hql="from News_type";
+		List<News_type> list=session.createQuery(hql).list();
+		return list;
 	}
+	public News_type getTypeId(int id) {
+		Session session=getSession();
+		News_type news_type=(News_type)session.get(News_type.class,id);
+		return news_type;
+	}
+	public News_type getById(int id) {
+		Session session=getSession();
+		News_type news_type=(News_type)session.get(News_type.class, id);
+		return news_type;
+	}
+	
+
+
 	
 	
 }

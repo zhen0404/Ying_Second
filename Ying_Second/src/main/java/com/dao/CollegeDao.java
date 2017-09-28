@@ -20,6 +20,10 @@ public interface CollegeDao<T> {
 	List<T> listAll(Map map);
 
 	List<News_type> typeList();
+
+	News_type getTypeId(int id);
+	
+
 	
 	
 }

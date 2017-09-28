@@ -39,7 +39,7 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -129,8 +129,9 @@
                     <a href="javascript:;" class="">提款记录</a>                    
                 </div>
                 <div id="conBox">
+                <form action="/Ying_Second/memberCenter/sureTikuan">
                     <div class="box" style="display: block;">
-													
+						<input type="text" value="${member.withdraw_password }" id="tikuan">				
                         <table class="txTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tbody><tr>
                             <td width="140" align="right">账户余额：</td>
@@ -138,29 +139,31 @@
                           </tr>
 							<tr>
 								<td align="right"> 提款银行卡： </td>
-								<td><strong>农业银行-${idCard }</strong>
+								<td><strong>农业银行-${idCard.card_no }</strong>
 									<input type="hidden" id="withdrawBankCard" value="${idCard }"></td>
 							</tr>
                           <tr>
                             <td align="right">提款金额：</td>
-                            <td><input class="tytxt" type="text" id="withdrawAmount" style="width:250px"></td>
+                            <td><input class="tytxt" name="money" type="text" id="withdrawAmount" style="width:250px"></td>
                           </tr>
                           <tr>
                             <td align="right"> 提款密码：</td>
                             <td>
-<!--  							&nbsp; -->
-<!-- 								<a href="javascript:;" onclick="$(&#39;#setWithdrawPWModel&#39;).modal(); return false;">设置提款密码</a> -->
-<!-- 							&nbsp; -->
-								<c:if test="${member. }"></c:if>
+								<c:if test="${member.withdraw_password=='' }"><a href="/Ying_Second/fontmember/tikuan">去设置</a></c:if>
+								<c:if test="${member.withdraw_password!='' }">
+									<input id="tikuanps" type="password" onkeyup="checkPs()">
+									<span class="ps" ></span>
+								</c:if>
                             </td>
                           </tr>
                           <tr>
                             <td>&nbsp;</td>
-                            <td><button class="tybutton" id="withdrawConfirm">提交</button></td>
+                            <td><button class="tybutton" id="tijiao">提交</button></td>
                           </tr>
-                        </tbody></table> 
+                        </tbody></table>
                     </div>
-                    <div class="box" style="display: none;">                    	
+                   </form>
+                    <div class="box" style="display: none;">
 
 <meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
@@ -236,6 +239,28 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+    
+    function checkPs(){
+    	var tikuanps=$("#tikuanps").val();
+    	var tikuan=$("#tikuan").val();
+    	if(tikuanps!=tikuan){
+			$(".ps").html("密码不正确").show();
+			$("#tijiao").attr("disabled", true);
+		}else{
+			$(".ps").html("");
+			$("#tijiao").attr("disabled", false);
+		}
+//     	$.post("/Ying_Second/memberCenter/chekTikuanPs",{tikuanps:tikuanps},function(msg){
+//     		alert(msg);
+//     		if(msg=='no'){
+//     			$(".ps").html("");
+//     			$("#withdrawConfirm").attr("disabled", false);
+//     		}else{
+//     			$(".ps").html("密码不正确").show();
+//     			$("#withdrawConfirm").attr("disabled", true);
+//     		}
+//     	})
+    }
 </script>
 </body>
 </html>

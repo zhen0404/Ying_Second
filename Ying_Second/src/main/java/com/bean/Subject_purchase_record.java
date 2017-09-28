@@ -23,15 +23,23 @@ public class Subject_purchase_record {
 	private Date create_date;
 	private Date update_date;
 	private float interest;
-	private int ispayment;
-	private int pay_interest_times;
-	private int interset;
-	public int getInterset() {
+	private float interset;
+	public float getInterset() {
 		return interset;
 	}
-	public void setInterset(int interset) {
+	public void setInterset(float interset) {
 		this.interset = interset;
 	}
+
+	private int ispayment;
+	private int pay_interest_times;
+//	private int interset;
+//	public int getInterset() {
+//		return interset;
+//	}
+//	public void setInterset(int interset) {
+//		this.interset = interset;
+//	}
 	public int getSubject_id() {
 		return subject_id;
 	}

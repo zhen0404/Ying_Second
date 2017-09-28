@@ -1,10 +1,17 @@
 package com.bean;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +29,29 @@ public class User_role {
 	         private int source_type;
 	         private int source_id;
 	         private int del_flag;
+	         private Set<Resources> resour=new HashSet<Resources>();
+	         private Set<Users> users=new HashSet<Users>();
+             //关联用户表
+	     	@OneToMany(cascade=CascadeType.ALL,mappedBy="userrole")
+	         public Set<Users> getUsers() {
+				return users;
+			}
+			public void setUsers(Set<Users> users) {
+				this.users = users;
+			}
 	        
+			 //多对多权限
+	     	@ManyToMany(cascade=CascadeType.ALL)
+	     	//中间表名称
+	    	@JoinTable(name="role_Res",joinColumns=@JoinColumn(name="rid"),
+	    		inverseJoinColumns=@JoinColumn(name="pid"))
+	     	public Set<Resources> getResour() {
+				return resour;
+			}
+			public void setResour(Set<Resources> resour) {
+				this.resour = resour;
+			}
+			
 	         @Id
 	         @GeneratedValue
 			public int getId() {

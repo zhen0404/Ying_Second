@@ -22,7 +22,6 @@ public class Role_PermissionController {
 	@ResponseBody
 	public List listR_P(int rid){
 		System.out.println("rid:"+rid);
-		
 		return this.r_p.r_plist(rid);
 	}
 	

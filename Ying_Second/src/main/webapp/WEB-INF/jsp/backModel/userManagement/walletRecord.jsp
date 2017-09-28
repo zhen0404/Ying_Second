@@ -54,7 +54,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-cogs"></i>固收类/P2P</div>
+								<div class="caption"><i class="icon-cogs"></i>钱包管理</div>
 
 								<div class="tools">
 

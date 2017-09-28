@@ -216,6 +216,7 @@ public class FrontProductCenterController {
 			subjectPurchaseRecord.setLast_profit_day(Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(new Date())));
 			subjectPurchaseRecord.setBonus_info("无");
 			this.frontProductServiceImpl.saveSubjectPurchaseRecord(subjectPurchaseRecord);
+			subjectPurchaseRecord.setInterset(0);
 			int cnt=this.frontProductServiceImpl.getCntBySubjectIdAndMemberId(Integer.parseInt(subjectId), memberId);
 			List<Subject_purchase_record> sList=this.frontProductServiceImpl.listSubjectPurchaseRecordAll(Integer.parseInt(subjectId), memberId);
 			if(sList!=null&&sList.size()>0){

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,7 +43,10 @@
 	
 </head>
 <body class="page-header-fixed">
-
+				<shiro:hasPermission name="添加角色">
+				<a class="btn green" data-toggle="modal" data-target="#myModal1"><i class="icon-plus"></i> 添加</a>
+<!-- 					<li class="click"><a class="tablelink"	>添加</a></li> -->
+				</shiro:hasPermission>
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="portlet box green">
@@ -70,10 +74,12 @@
 										<c:forEach items="${rlist }" var="r" varStatus="stat">
 											<tr>
 												<td>${stat.index+1 }</td>
-												<td class="numeric">${r.rname }</td>
-												<td class="numeric">${r.rname }</td>
-												<td class="numeric">${r.createTime }</td>
-												<td class="numeric" align="center"><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="show(${r.id})">菜单配置</td>
+												<td class="numeric">${r.cname }</td>
+												<td class="numeric">${r.remark }</td>
+												<td class="numeric">${r.create_date }</td>
+												<td class="numeric" align="center">
+													<input type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="cc(${r.id })" value="菜单配置" />
+												</td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -94,29 +100,64 @@
 					</div>
 				</div>
 				
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	   <div >
-	      <div class="modal-content">
-		         <div class="modal-header">
-		            <button type="button" class="close"  data-dismiss="modal" aria-hidden="true">
-		            </button>
-		            <h4 class="modal-title" id="myModalLabel">
-		               	权限设置
-		            </h4>
-		         </div>
-	         <div class="modal-body">
-	         	<input type="hidden" id="rid">
-				<ul id="tree" class="ztree" style="width:560px; overflow:auto;"></ul>
-	         </div>
-	         <div class="modal-footer">
-	            <button type="button" class="btn btn-default" data-dismiss="modal">关闭 </button>
-	            <button type="button" class="btn btn-primary" onclick='updatePermission()' >
-	               	提交更改           
-	            </button>
-	         </div>
-	      </div>
-	   </div>
-   </div>
+				<!-- 添加-->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">添加角色</h4>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon">角色名</span> <input type="text"
+							class="form-control" placeholder="请输入角色名称" id="roleName" required="required"><br>
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon">备 &nbsp 注</span> <input
+							type="text" class="form-control" placeholder="备注信息" id="text" ><br>
+					</div>
+					<br>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveRole()">提交更改</button>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+	<!-- 树插件 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">角色权限管理</h4>
+				</div>
+				<div class="modal-body">
+					<ul id="treeDemo" class="ztree"></ul>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal"
+							onclick="GetCheckedAll()">提交更改</button>
+					</div>
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
    
    
 	<div class="footer">
@@ -155,201 +196,93 @@
 	
     <script type="text/javascript" src="/Ying_Second/js/jquery.easyui.min.js"></script>
     
-<!--     tree2模板 -->
-<!-- 	 <script type="text/javascript" src="/Ying_Second/js/jquery-1.4.4.min.js"></script> -->
     <script src="/Ying_Second/js/jquery.ztree.all-3.5.min.js"></script>
-<!--     end tree2模板 -->
 
-	<script>
-		jQuery(document).ready(function() {   
-		   App.init();
-// 		   UITree.init(); //tree模板1
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$(".click").click(function() {
+			$(".tip1").show();
 		});
-		// begin  tree模板2
-		
-		function show(rid){
-			alert(rid)
-			$("#rid").val(rid);
-			var zTree;
-		    var demoIframe;
 
-		    function addHoverDom(treeId, treeNode) {
-		        var sObj = $("#" + treeNode.tId + "_span");
-		        if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
-		        var addStr = "<span class='button remove' id='removeBtn_" + treeNode.tId
-		                + "' title='add node' onfocus='this.blur();'></span>";
+		$(".tiptop a").click(function() {
+			$(".tip").fadeOut(200);
+		});
 
-		        addStr += "<span class='button add' id='addBtn_" + treeNode.tId + "'></span>";
-		        addStr += "<span class='button edit' id='editBtn_" + treeNode.tId + "'></span>";
-		        sObj.after(addStr);
-		        var btn = $("#addBtn_"+treeNode.tId);
-		        if (btn) btn.bind("click", function(){
-		            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-		            zTree.addNodes(treeNode, {id:(1000 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
-		            return false;
-		        });
-		    };
+		$(".sure").click(function() {
+			$(".tip").fadeOut(100);
+		});
 
-		    function removeHoverDom(treeId, treeNode) {
-		        $("#addBtn_"+treeNode.tId).unbind().remove();
-		        $("#removeBtn_"+treeNode.tId).unbind().remove();
-		        $("#editBtn_"+treeNode.tId).unbind().remove();
-		    };
+		$(".cancel").click(function() {
+			$(".tip").fadeOut(100);
+		});
 
-		    var setting = {
-		        check: {
-		            enable: true
-		        },
-		        view: {
-		            addHoverDom: addHoverDom,
-		            removeHoverDom: removeHoverDom,
-		            dblClickExpand: false,
-		            showLine: true,
-		            selectedMulti: false
-		        },
-		        data: {
-		            simpleData: {
-		                enable:true,
-		                idKey: "id",
-		                pIdKey: "pId",
-		                rootPId: ""
-		            }
-		        },
-		        callback: {
-		            beforeClick: function(treeId, treeNode) {
-		                var zTree = $.fn.zTree.getZTreeObj("tree");
-		                if (treeNode.isParent) {
-		                    zTree.expandNode(treeNode);
-		                    return false;
-		                } else {
-		                    demoIframe.attr("src",treeNode.file + ".html");
-		                    return true;
-		                }
-		            }
-		        }
-		    };
-
-		    var zNodes =[
-		        {id:1, pId:0, name:"理财产品", open:true},
-		        {id:101, pId:1, name:"固收类", file:"core/standardData"},
-		        {id:102, pId:1, name:"私募/股权类", file:"core/simpleData"},
-		        {id:103, pId:1, name:"海外配置", file:"core/noline"},
-
-		        {id:2, pId:0, name:"钱包管理", open:false},
-		        {id:201, pId:2, name:"钱包缴费记录", file:"excheck/checkbox"},
-
-		        {id:3, pId:0, name:"学院管理", open:false},
-		        {id:301, pId:3, name:"资讯分类", file:"exedit/drag"},
-		        {id:302, pId:3, name:"资讯管理", file:"exedit/drag_super"},
-
-		        {id:4, pId:0, name:"会员管理", open:false},
-		        {id:401, pId:4, name:"账号管理", file:"bigdata/common"},
-		        {id:402, pId:4, name:"理财师审核", file:"bigdata/diy_async"},
-		        {id:403, pId:4, name:"绑卡管理", file:"bigdata/page"},
-		        {id:404, pId:4, name:"付息计划", file:"bigdata/page"},
-		        {id:405, pId:4, name:"充值管理", file:"bigdata/page"},
-		        {id:406, pId:4, name:"体现管理", file:"bigdata/page"},
-		        {id:407, pId:4, name:"邀请奖励", file:"bigdata/page"},
-
-		        {id:5, pId:0, name:"盈+ 统计", open:false},
-		        {id:501, pId:5, name:"财务统计", file:"super/oneroot"},
-		        {id:502, pId:5, name:"用户综合统计", file:"super/oneclick"},
-
-		        {id:6, pId:0, name:"盈+ 设置", open:false},
-		        {id:601, pId:6, name:"公告管理", file:"exhide/common"},
-		        {id:602, pId:6, name:"意见反馈", file:"exhide/checkbox"},
-		        
-		        {id:7, pId:0, name:"系统设置", open:false},
-		        {id:701, pId:7, name:"用户管理", open:false},
-		        	{id:70101,pId:701 ,name:"用户新增",file:"exhide/checkbox"},
-		        	{id:70102,pId:701 ,name:"查看用户详情",file:"exhide/checkbox"},
-		        {id:702, pId:7, name:"权限设置", file:"exhide/checkbox"},
-		        	{id:70201,pId:702 ,name:"用户新增",file:"exhide/checkbox"},
-		        {id:702, pId:7, name:"密码设置", file:"exhide/checkbox"}
-		        
-		    ];
-
-		    $(document).ready(function(){
-		        var t = $("#tree");
-		        t = $.fn.zTree.init(t, setting, zNodes);
-		        demoIframe = $("#testIframe");
-		        demoIframe.bind("load", loadReady);
-		        var zTree = $.fn.zTree.getZTreeObj("tree");
-		        zTree.selectNode(zTree.getNodeByParam("id", 101));
-
-		    });
-
-		    function loadReady() {
-		        var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
-		                htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
-		                maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
-		                h = demoIframe.height() >= maxH ? minH:maxH ;
-		        if (h < 530) h = 530;
-		        demoIframe.height(h);
-		    }
-		    
-		}
-		
-		
-	    //end tree模板2
-	    
-	    
-	    function updatePermission(){
-		    	var rid=$("#rid").val();
-		    	var treeObj=$.fn.zTree.getZTreeObj("tree");
-		    	var nodes=treeObj.getCheckedNodes(true);
-		    	var msg="";
-		    	for(var i=0;i<nodes.length;i++){
-		    		alert(nodes[i].id);
-		    		msg+=nodes[i].id+",";
-		    	}
-		    	$.ajax({
-		    		async : false,
-		    		cache:false,
-		    		timeout:1000,
-		    		url:"/Ying_Second/roleper/updaterp?rid="+rid,
-		    		type:"post",
-		    		data:{"msg":msg,"rid":rid}
-		    	});
-		    	window.close();
-		    }
-// 	    function roles(rid){
-// 	    	var setting={
-// 	    			check:{
-// 	    				enable:true,
-// 	    				chStyle:"checkbox",
-// 	    				chkboxType:{"Y":"ps","N":"ps"}
-// 	    			},
-// 	    			async:{
-// 	    				enable:true,
-// 	    				url:"/Ying_Second/roleper/listrp",
-// 	    				autoParam:["id", "name"],
-// 	    				otherParam:{"rid":rid}
-// 	    			},
-// 	    			data:{
-// 	    				simpleData:{
-// 	    					enable:true,
-// 	    					idKey:"id",
-// 	    					pIdKey:"pId",
-// 	    					rootId:0
-// 	    				}
-// 	    			},
-// 	    			callback:{
-// 	    				onClick:function(event, treeId, treeNode,clickFlag){
-// 	    				},
-// 	    				asyncSuccess: zTreeOnAsyncSuccess,
-// 	    			}
-// 	    	};
-// 	    	$.fn.zTree.init($("#tree"), setting);
-// 	    };
-	    
-// 	    $(document).ready(function(){
-// 	    	alert("come in");
-           
-//         }); 
-	    
-// 	    function zTreeOnAsyncSuccess(event, treeId, treeNode, msg){};
-	    
-	</script>
+	});
+</script>
+<SCRIPT type="text/javascript">
+		 var cid=0;
+		 function cc(id) {  
+			 cid=id;
+		     var setting = {  
+		        check: {  
+		            enable: true,  
+		            chkStyle: "checkbox",  
+		            chkboxType : { "Y" : "ps", "N" : "ps" }  
+		        },  
+		        //获取json数据  
+		        async : {    
+		            enable : true,   
+		            url : "rolesztree", // Ajax 获取数据的 URL 地址    
+		            autoParam : [ "id", "name" ], //ajax提交的时候，传的是id值  
+		            otherParam: { "id":id}
+		        },    
+		        data:{ // 必须使用data    
+		            simpleData : {
+		                enable : true,    
+		                idKey : "id", // id编号命名     
+		                pIdKey : "pId", // 父id编号命名      
+		                rootId : 0  
+		            }    
+		            }, 
+		            
+		            
+		        // 回调函数    
+		        callback : {    
+		            onClick : function(event, treeId, treeNode, clickFlag) { 
+		            },    
+		            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数    
+		            onAsyncSuccess : function(event, treeId, treeNode, msg){    
+		            },  
+		        }   
+		            
+		    };  
+		 $.fn.zTree.init($("#treeDemo"), setting); 
+		 }
+		 //获取所有选中节点的值
+		 function GetCheckedAll() {
+		     var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+		     var nodes = treeObj.getCheckedNodes(true);
+		     var msg = "";
+		     for (var i = 0; i < nodes.length; i++) {
+		         msg += nodes[i].id+",";
+		     }
+		     $.ajax({
+		         async : false,
+		         cache : false,
+		         timeout: 1000,
+		         url: '/Ying_Second/role/PM_RolesAdd?id='+cid,
+		         type: "post",
+		         data:{"msg":msg,"id":cid}
+		     });
+		     window.close();
+		      
+		 }    
+		 
+		 function saveRole(){
+			 var role=$("#roleName").val();
+			 var text=$("#text").val();
+			 alert(role+":"+text);
+			 window.location.href="/Ying_Second/role/saveRole?role="+role+"&text="+text+"";
+		 }
+</SCRIPT>
 </body>
 </html>

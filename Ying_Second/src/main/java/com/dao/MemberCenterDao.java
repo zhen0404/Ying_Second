@@ -34,5 +34,7 @@ public interface MemberCenterDao {
 	void updateps(Member member);
 	
 	void saveMoneyRecord(Member_deposit_record mdr);
+
+	List<Member> tikuanPscheck(String name,String ps);
 	
 }

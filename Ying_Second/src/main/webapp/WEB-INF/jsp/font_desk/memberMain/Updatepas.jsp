@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
 <meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
@@ -16,7 +15,7 @@
 	<meta name="description" content="申请实盘交易账户，直接进行实盘交易。">
 	<title>收益记录-会员中心-盈+</title>
 	
-	<link href="http://www.ying158.com/images/icon.ico" type="image/x-icon" rel="shortcut icon">
+	<link type="image/x-icon" rel="shortcut icon">
 	<link href="/Ying_Second/css/iconfont.css" rel="stylesheet" type="text/css">
 	<link href="/Ying_Second/css/common.css" rel="stylesheet">
 	<link href="/Ying_Second/css/jw2.css" rel="stylesheet">
@@ -40,19 +39,16 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
-					<li><a class="item"
-						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
+					<li><a class="item" href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
 						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
 							盈+商学院 </a></li>
-					<li><a class="item"
-						href="/Ying_Second/frontStudy"> 投研中心
+					<li><a class="item" href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item last"
-						href="/Ying_Second/frontLast">
+					<li><a class="item last" href="/Ying_Second/frontLast">
 							我的加法库 </a></li>
 				</ul>
 			</div>

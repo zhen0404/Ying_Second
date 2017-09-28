@@ -1090,7 +1090,7 @@
 						</li>
 						
 						<li>
-							<a href="#">
+							<a href="/Ying_Second/role/listRole">
 							<i class="icon-folder-open"></i>
 							权限设置
 							</a>

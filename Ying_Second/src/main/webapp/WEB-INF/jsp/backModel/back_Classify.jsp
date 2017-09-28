@@ -41,7 +41,12 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
-
+<style type="text/css">
+.fin{
+	color:white;
+	background-color: limegreen;
+}
+</style>
 </head>
 <body class="page-header-fixed">
 
@@ -77,8 +82,8 @@
 
 							<div class="portlet-body flip-scroll">
 							<form action="" method="post" id="ClassifyForm">
-							
-								<input type="button" value="新增" id="addClassify" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								 <input type="button" value="新增" id="addClassify" class="fin"/><br><br>
 										
 								<table class="table-bordered table-striped table-condensed flip-content">
 
@@ -114,8 +119,25 @@
 											<td>${t.name }</td>
 
 											<td>
-											<c:if test="${t.supType==0 }">根目录</c:if>
-											<c:if test="${t.supType==1 }">子目录</c:if>
+												<c:if test="${t.id==2 }">根类别</c:if>
+												<c:if test="${t.id==1 }">股权基金</c:if>
+												<c:if test="${t.id==3 }">资讯类别</c:if>
+												<c:if test="${t.id==4 }">理财私语</c:if>
+												<c:if test="${t.id==5 }">趋势名谈</c:if>
+												<c:if test="${t.id==6 }">APP广告图</c:if>
+												<c:if test="${t.id==7 }">财富前沿</c:if>
+												<c:if test="${t.id==8 }">支付相关</c:if>
+												<c:if test="${t.id==9 }">我的客服</c:if>
+												<c:if test="${t.id==10}">邀请返利</c:if>
+												<c:if test="${t.id==11 }">咨询咨询</c:if>
+												<c:if test="${t.id==12 }">Benner图片</c:if>
+												<c:if test="${t.id==13}">关于盈+理财</c:if>
+												<c:if test="${t.id==14}">私募基金</c:if>
+												<c:if test="${t.id==15}">操作帮助</c:if>
+												<c:if test="${t.id==16}">资金安全</c:if>
+												<c:if test="${t.id==17}">理财介绍</c:if>
+												<c:if test="${t.id==18}">常见问题</c:if>
+												<c:if test="${t.id==19}">视频类别</c:if>
 											</td>
 											
 											
@@ -126,9 +148,8 @@
 											<td>${t.addTime }</td>
 
 											<td>
-											<a href="/Ying_Second/classify/initData/${t.id}"><input type="button" value="编辑" ></a>
+											<a href="/Ying_Second/classify/initData/${t.id}"><input type="button" value="编辑" class="fin" ></a>
 											</td>
-
 
 										</tr>
 									  </c:forEach>

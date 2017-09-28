@@ -42,6 +42,12 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
+	<style type="text/css">
+.fin{
+	color:white;
+	background-color: limegreen;
+}
+</style>
 </head>
 <body class="page-header-fixed">
 
@@ -79,19 +85,17 @@
 
 								
 								<form action="/Ying_Second/classify/saveNews_type" method="post">
-									上级类别<font color="red">*</font>：<select name="typeId" id="typeId">
-												<option value="-1">全选</option>
-												<c:forEach items="${ListNews_type }" var="t">
-												<option value="${t.id }">${t.name }</option>
+								<input type="hidden" id="id" value="${news_type.id }">
+								
+									上级类别<font color="red">*</font>：<select name="id" id="id"  placeholder="必填" required >
+												<c:forEach items="${listNews_type }" var="t">
+												<option value="${t.id }"  >${t.name }</option>
 												</c:forEach>
 											</select><br><br>
-									类别名称<font color="red">*</font>：<input type="text" id="name"><br><br>
-									排序<font color="red">*</font>：<input type="text" id="sort"><br><br>
-									简介：<input type="text" id="info"><br><br>
-								
-									
-									
-									<input type="submit" value="保存">
+									类别名称<font color="red">*</font>：<input type="text" id="name"  name="name" required placeholder="必填"><br><br>
+									排序<font color="red">*</font>：<input type="number"  name="sort" required placeholder="必填"><br><br>
+									简介：<input type="text" name="info"><br><br>
+									<input type="submit" value="保存" class="fin">
 								
 								</form>
 								

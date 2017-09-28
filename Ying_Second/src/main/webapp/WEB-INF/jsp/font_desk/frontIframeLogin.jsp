@@ -334,7 +334,7 @@ li.active a {
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>

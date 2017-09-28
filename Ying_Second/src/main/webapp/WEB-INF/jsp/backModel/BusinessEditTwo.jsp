@@ -41,6 +41,12 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
+	<style type="text/css">
+.fin{
+	color:white;
+	background-color: limegreen;
+}
+</style>
 </head>
 <body class="page-header-fixed">
 
@@ -78,20 +84,19 @@
 
 								<form action="/Ying_Second/business/updateBusiness" method="post">
 									<input type="hidden" name="id" value="${news.id }">
-									所属类别<font color="red">*</font>：<select name="typeId" id="typeId">
-												<option value="-1">全选</option>
-												<c:forEach items="${typeList }" var="t">
+									所属类别<font color="red">*</font>：<select name="typeId" id="typeId" placeholder="必填" required>
+												<c:forEach items="${typeList }" var="t"> 
 													<option value="${t.id }">${t.name }</option>
 												</c:forEach>
 											</select><br><br>
-									标题<font color="red">*</font>：<input type="text" id="title" value="${ news.title}"><br><br>
-									排序<font color="red">*</font>：<input type="text" id="sort" value="${news.sort }"><br><br>
+									标题<font color="red">*</font>：<input type="text" name="title"id="title" value="${ news.title}" required placeholder="必填"><br><br>
+									排序<font color="red">*</font>：<input type="number" name="sort"id="sort" value="${news.sort }" required placeholder="必填"><br><br>
 								
-									显示属性：<input type="checkbox" id="top">是否置顶<br><br>
-									简介：<input type="text" id="info" value="${news.info }"><br><br>
+									显示属性：<input type="checkbox" name="top"id="top">是否置顶<br><br>
+									简介：<input type="text" name="info" id="info" value="${news.info }"><br><br>
 								
 									
-									<input type="submit" value="保存">
+									<input type="submit" value="保存" class="fin">
 								
 								</form>
 							</div>

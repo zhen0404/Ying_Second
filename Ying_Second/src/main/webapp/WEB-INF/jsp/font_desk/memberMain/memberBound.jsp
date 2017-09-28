@@ -42,7 +42,7 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -323,10 +323,12 @@
         		alert(msg);
         		if(msg=='no'){
         			$(".errorInfoIdCard").html("此证件已被绑定,请更换").show();
+        			$("#buttonsubmit").attr("disabled", true);
         			$("#errorInfoIdCard").html("").hide();
-        		}else{
+        		}else{s
         			$(".errorInfoIdCard").html("").hide();
         			$("#errorInfoIdCard").html("").hide();
+        			$("#buttonsubmit").attr("disabled", false);
         		}
         	})
       	});
@@ -336,15 +338,19 @@
         	var bankCard=$("#bankCardNum").val();
         	if(bankCard.length!=19){
         		$(".bankCardNum").html("请输入正确的银行卡号").show();
+        		$("#buttonsubmit").attr("disabled", true);
         		return ;
         	}else{
         		$(".bankCardNum").html("").hide();
+        		$("#buttonsubmit").attr("disabled", false);
         	}
         	$.post("/Ying_Second/memberCenter/bankCardCheck",{bankCard:bankCard},function(msg){
         		if(msg=='no'){
         			$(".bankCardNum").html("此证件已被绑定,请更换").show();
+        			$("#buttonsubmit").attr("disabled", true); 
         		}else{
         			$(".bankCardNum").html("").hide();
+        			$("#buttonsubmit").attr("disabled", false);
         		}
         	})
       	});
@@ -354,9 +360,11 @@
         	var rebankCard=$("#rebankCardNum").val();
         	if(rebankCard!=bankCard){
         		$(".rebankCardNum").html("请输入正确的银行卡号").show();
+        		$("#buttonsubmit").attr("disabled", true);
         		return ;
         	}else{
         		$(".rebankCardNum").html("").hide();
+        		$("#buttonsubmit").attr("disabled", false);
         	}
       	});
         

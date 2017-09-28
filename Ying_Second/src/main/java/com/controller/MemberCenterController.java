@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,19 +15,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bean.Member;
+import com.bean.Member_account;
 import com.bean.Member_bankcards;
+import com.bean.Member_trade_record;
+import com.bean.Member_withdraw_record;
 import com.bean.Sys_region;
+import com.service.FrontProductService;
 import com.service.MemberCenterService;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
-
 import com.service.TouziService;
 
 @Component
@@ -40,6 +41,10 @@ public class MemberCenterController {
 		  @Autowired
 		  @Qualifier("memberCenterServiceImpl")
 		  private MemberCenterService mcs;
+		  
+		  @Autowired
+		  @Qualifier("frontProductServiceImpl")
+		  private FrontProductService frontProductServiceImpl;
 		  
 		  @RequestMapping("list")
 		  public String listTouziAll(HttpSession se,Model model,HttpServletRequest he){
@@ -194,6 +199,79 @@ public class MemberCenterController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
+			
+			//校验提款密码
+			@RequestMapping("sureTikuan")
+			public String passwordCheck(Member_trade_record memberTradeRecord,Member_withdraw_record mwr,String ps,HttpServletResponse res,HttpSession session,String money){
+				Member member=(Member) session.getAttribute("member");
+				if(member!=null){
+					Member_account memberAccount=(Member_account) session.getAttribute("memberAccount");
+					if(memberAccount==null){
+						memberAccount=this.frontProductServiceImpl.ListAllByMemberId(member.getId());
+					}
+					//修改用户余额
+					memberAccount.setUseable_balance(memberAccount.getUseable_balance()-Integer.parseInt(money));
+					this.frontProductServiceImpl.updateMemberAccount(memberAccount);
+					
+					Date date=new Date();
+					SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					
+					//添加提现记录
+//					18
+					SimpleDateFormat sdf1=new SimpleDateFormat("yyyyMMddHHmmss");
+					String serial_number=sdf1.format(date)+(Math.random()*9999+10000);
+					mwr.setSerial_number(serial_number);
+					mwr.setMember_id(member.getId());
+					mwr.setAmount(Integer.parseInt(money));
+					
+					//查询绑卡信息
+					List sList=this.mcs.bankCark(member.getId());
+					Member_bankcards mb=(Member_bankcards) sList.get(0);
+					
+					mwr.setBank_name(mb.getType());
+					mwr.setBank_card(mb.getCard_no());
+					mwr.setDelFlag(0);
+					mwr.setCardaddress(mb.getCardaddress());
+					try {
+						mwr.setCreate_date(sdf.parse(sdf.format(date)));
+						mwr.setUpdate_date(sdf.parse(sdf.format(date)));
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					//添加交易记录
+					memberTradeRecord.setMember(member);
+					memberTradeRecord.setTrade_no(serial_number);
+					memberTradeRecord.setTrade_name("提现");
+					memberTradeRecord.setCounterpart("");
+					memberTradeRecord.setAmount(Integer.parseInt(money));
+					memberTradeRecord.setTrade_type("MOBILE_RECHARGE");
+					memberTradeRecord.setFund_flow(0);
+					memberTradeRecord.setTrade_status(0);
+					memberTradeRecord.setExt_field_1("扩展1");
+					memberTradeRecord.setExt_field_2("扩展2");
+					memberTradeRecord.setExt_field_3("扩展3");
+					try {
+						memberTradeRecord.setCreate_date(sdf.parse(sdf.format(date)));
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						memberTradeRecord.setUpdate_date(sdf.parse(sdf.format(date)));
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					this.frontProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
+					
+				}else{
+					//跳转到登录页面
+					return "redirect:/frontIframeLogin";
+				}
+				return "redirect:/Ying_Second/memberCenter/tiKuan";
 			}
                
 }

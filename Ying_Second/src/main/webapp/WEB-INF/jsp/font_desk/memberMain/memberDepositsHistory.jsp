@@ -40,7 +40,7 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -100,8 +100,8 @@
         <li><h2 style="color:#9d8440">${memberAccount.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
     <a href="/Ying_Second/money/index" class="cz">充值</a>
-    <a href="" class="/Ying_Second/fontmember/woyaotikuan">提款</a>
-</div>    
+    <a href="/Ying_Second/fontmember/woyaotikuan" class="cz">提款</a>
+</div>
 <div class="proMain clearfix">
 <div class="adminLeft">
     <h2>我的投资</h2>

@@ -382,17 +382,13 @@ li.active a {
 							网上体验中心 </a></li>
 					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
-					<li><a class="item"
-						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
-					<li><a class="item"
-						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
+					<li><a class="item" href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
+					<li><a class="item" href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
 							盈+商学院 </a></li>
-					<li><a class="item"
-						href="/Ying_Second/frontStudy"> 投研中心
+					<li><a class="item" href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item last"
-						href="/Ying_Second/fontmember/zhu">
+					<li><a class="item last" href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>

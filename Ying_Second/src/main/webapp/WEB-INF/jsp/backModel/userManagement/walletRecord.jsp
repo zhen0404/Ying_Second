@@ -73,23 +73,22 @@
 							<div class="portlet-body flip-scroll">
 				 <form method="post" action="/Ying_Second/wallet/query">
                  <font size="4">交易号:</font><input type="text" placeholder="交易号" name="jyh">
-               　　<font size="4">手机号:</font> <input type="text" placeholder="手机号" name="sjh">
-               　　<font size="4">交易类型:</font>
+         <font size="4">手机号:</font> <input type="text" placeholder="手机号" name="sjh">
+         <font size="4">交易类型:</font>
                <select name="type" id="zz">               
                       <option value="-1">请选择</option>
                    <option value="SINOPEC_RECHARGE">石化充值</option>
                    <option value="MOBILE_RECHARGE">手机充值</option>
                    <option value="FINANCE">经费充值</option> 
                    </select>
-         　　<font size="4">交易状态:</font>
+     <font size="4">交易状态:</font>
              <select name="stat" id="zz">
              <option value="-1">请选择</option>
              <option value="0">等待付款</option>
 			 <option value="2">处理中</option>                    
                    </select>
-              　　<font size="4">交易时间:</font> 　　<input type="date" placeholder="交易时间" name="time">     
-               　　　　　    <input type="submit" value="🔍查询" class="btn yellow">　　
-       <a href="/Ying_Second/wallet/list" class="btn blue"><i class="icon-plus"></i> 重置</a>　　　
+        <font size="4">交易时间:</font><input type="date" placeholder="交易时间" name="time"> 
+               　<input type="submit" value="🔍查询" class="btn yellow">　　　　
           </form>
 								<table class="table-bordered table-striped table-condensed flip-content">
 

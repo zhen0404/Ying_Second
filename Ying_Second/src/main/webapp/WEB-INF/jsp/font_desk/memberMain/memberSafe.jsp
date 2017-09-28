@@ -40,7 +40,7 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -185,7 +185,7 @@
                             <td>绑定完成</td>
                             <!--<td><a onclick="$('#changeTelModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>-->
                           </tr>
-<!--                           <tr>
+<!--                        <tr>
                             <td class="first"><span class="iconfont active"><a href="#1">&#xe61f;</a><em>&#xe61b;</em></span></td>
                             <td><p style="color:#ff503f">绑定邮箱</p></td>
                             <td>未设置</td>

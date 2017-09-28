@@ -28,7 +28,8 @@ public class BackDeskLoginDaoImpl implements BackDaskLoginDao {
 	
 	public Set<String> getRolesByName(String username) {
 		Set<String> roles=new HashSet();
-		String sql = "select rname from roles where id = (select identity from users where user_name='"+username+"')";
+		String sql = "select r.cname from users u,user_role r where u.rid=r.id "
+					+ " and u.user_name= '"+username+"'";
 		List rlist=getsession().createSQLQuery(sql).list();
 		for(int i=0;i<rlist.size();i++){
 			roles.add((String) rlist.get(i));
@@ -38,7 +39,8 @@ public class BackDeskLoginDaoImpl implements BackDaskLoginDao {
 
 	public Set<String> getPermissions(String userName) {
 		Set<String> permission=new HashSet();
-		String sql = "select pname from permission where id in (SELECT pid from role_per where rid = (select id from roles where id = (select identity from users where user_name='"+userName+"')))";
+		String sql = "select res.resources_name from role_res re,user_role r,users u,resources res where u.rid=r.id and r.id=re.rid and res.resources_id=re.pid "
+				+ " and u.user_name='"+userName+"'";
 		List plist=getsession().createSQLQuery(sql).list();
 		for(int i=0;i<plist.size();i++){
 			permission.add((String) plist.get(i));

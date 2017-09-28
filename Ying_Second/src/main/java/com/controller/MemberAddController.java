@@ -72,16 +72,16 @@ public class MemberAddController {
 		if(member==null){
 			return "redirect:/frontIframeLogin";
 		}else{
-			if(memberAccount==null){
-				memberAccount=this.frontProductServiceImpl.ListAllByMemberId(member.getId());
-				session.setAttribute("memberAccount", memberAccount);
-			}
 			List sList=this.mcs.bankCark(member.getId());
 			if(sList.size()>1){
 				session.setAttribute("idCard", sList.get(0));
 			}else{
 				//跳转到绑卡页面
 				return "redirect:/fontmember/bound";
+			}
+			if(memberAccount==null){
+				memberAccount=this.frontProductServiceImpl.ListAllByMemberId(member.getId());
+				session.setAttribute("memberAccount", memberAccount);
 			}
 		}
 		return "font_desk/memberMain/memberTiKuan";

@@ -106,4 +106,12 @@ public class MemberCenterServiceImpl implements MemberCenterService  {
 		this.mcd.saveMoneyRecord(mdr);
 	}
 
+	@Override
+	public List tikuanPscheck(String name,String ps) {
+		// TODO Auto-generated method stub
+		List mList=this.mcd.tikuanPscheck(name,ps);
+		mList.add(0);
+		return mList;
+	}
+
 }

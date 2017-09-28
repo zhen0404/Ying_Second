@@ -23,31 +23,37 @@ public class FinancialServiceImpl implements FinancialService{
 	@Qualifier("financialDaoImpl")
 	private FinancialDao financialDaoImpl;
 
-	public List<Award_records> lsa(String iphone,String start) {
-		return financialDaoImpl.lsa(iphone, start);
+	public List<Award_records> lsa(String iphone,String start, String zhifu) {
+		return financialDaoImpl.lsa(iphone, start,zhifu);
 	}
 
 	public List<Member> lsm(String iphone) {
 		return financialDaoImpl.lsm(iphone);
 	}
 //
-	public List<Member_deposit_record> lsmdr(String iphone,String start) {
-		return financialDaoImpl.lsmdr(iphone, start);
+	public List<Member_deposit_record> lsmdr(String iphone,String start, String zhifu) {
+		return financialDaoImpl.lsmdr(iphone, start,zhifu);
 	}
 
-	public List<Member_tally> lsmt(String iphone,String start) {
-		return financialDaoImpl.lsmt(iphone, start );
+	public List<Member_tally> lsmt(String iphone,String start, String zhifu) {
+		return financialDaoImpl.lsmt(iphone, start ,zhifu);
 	}
 
-	public List<Member_withdraw_record> lsmw(String iphone,String start) {
-		return financialDaoImpl.lsmw(iphone, start);
+	public List<Member_withdraw_record> lsmw(String iphone,String start, String zhifu) {
+		return financialDaoImpl.lsmw(iphone, start,zhifu);
 	}
 
 	public List<Member_trade_record> lst(String iphone,String start,String type,String zhifu) {
 		return financialDaoImpl.lst(iphone, start,type,zhifu);
 	}
 
-	public List<Member_account> lsma(String iphone,String start) {
-		return financialDaoImpl.lsma(iphone, start);
+	public List<Member_account> lsma(String iphone,String start, String zhifu) {
+		return financialDaoImpl.lsma(iphone, start,zhifu);
+	}
+
+	@Override
+	public Boolean list1(String iphone) {
+		// TODO Auto-generated method stub
+		return financialDaoImpl.list1(iphone);
 	}
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
   <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -113,17 +113,18 @@
 							
                                             <form action="/Ying_Second/GongGao/serCop" method="post" >
 											开始时间：<input type="date" name="creatTime" style="color: blue;width: 200px;height: 20px" id="t1">
-											结束时间：<input type="date" name="endTime" style="color: blue;width: 200px;height: 20px" id="t2" >
+											结束时间：<input type="date" name="endTime" style="color: blue;width: 200px;height: 20px" id="t2" onblur="fun9()">
+											 <input type="hidden" id="time" name="time" value="0">
 											  &nbsp&nbsp&nbsp
-											 <button type="submit">查询</button>
+											 <button type="submit" >查询</button>
 											  &nbsp&nbsp
                                              <button type="button"  onclick="finan()">重置</button>
                                              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-									         <button type="submit"  >当月</button>
+									         <input type="submit"  onclick="text()" value="当月">
 									          &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-									         <button type="submit"  >上一个月</button>
+									          <input type="submit"  onclick="text1()" value="上一个月">
 									         &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-									         <button type="submit"  >最近三个月</button>
+									         <input type="submit"  onclick="text2()" value="本季度">
 									</form>
         
                                              </div>
@@ -212,14 +213,14 @@
               </tr>
               <tr>
                 <td>富友</td>
-                <td>${r}</td>
-                <td>${y}</td>
+                <td><c:if test="${r==null}">0</c:if><c:if test="${r!=''}">${r}</c:if></td>
+                <td><c:if test="${y==null}">0</c:if><c:if test="${y!=''}">${y}</c:if></td>
                 <td>${r-y}</td>
               </tr>
               <tr>
                 <td>贝付</td>
-                <td>${t}</td>
-                <td>${u}</td>
+                <td><c:if test="${t==null}">0</c:if><c:if test="${t!=''}">${t}</c:if></td>
+                <td><c:if test="${u==null}">0</c:if><c:if test="${u!=''}">${u}</c:if></td>
                 <td>${t-u}</td>
               </tr>
               <tr>
@@ -243,15 +244,15 @@
                       </tr>
                       <tr>
                         <td>固收理财</td>
-                        <td>${e}</td>
+                        <td><c:if test="${e==null}">0</c:if><c:if test="${e!=''}">${e}</c:if></td>
                       </tr>
                        <tr>
                         <td>私募基金</td>
-                        <td>${q}</td>
+                        <td><c:if test="${q==null}">0</c:if><c:if test="${q!=''}">${q}</c:if></td>
                       </tr>
                        <tr>
                         <td>海外配资</td>
-                        <td>${w}</td>
+                        <td><c:if test="${w==null}">0</c:if><c:if test="${w!=''}">${w}</c:if></td>
                       </tr>
                        <tr>
                         <td>合计</td>
@@ -271,11 +272,11 @@
                       </tr>
                       <tr>
                         <td>邀请注册红包</td>
-                        <td>${m}</td>
+                        <td><c:if test="${m==null}">0</c:if><c:if test="${m!=''}">${m}</c:if></td>
                       </tr>
                       <tr>
                         <td>投资奖励红包</td>
-                        <td>${a}</td>
+                        <td><c:if test="${a==null}">0</c:if><c:if test="${a!=''}">${a}</c:if></td>
                       </tr>
                      
                       <tr>
@@ -305,15 +306,15 @@
               </tr>
               <tr>
                 <td>固收理财</td>
-                <td>${i}</td>
+                <td><c:if test="${i==null}">0</c:if><c:if test="${i!=''}">${i}</c:if></td>
               </tr>
                <tr>
                 <td>私募基金</td>
-                <td>${o}</td>
+                <td><c:if test="${o==null}">0</c:if><c:if test="${o!=''}">${o}</c:if></td>
               </tr>
                <tr>
                 <td>海外配资</td>
-                <td>${p}</td>
+                <td><c:if test="${p==null}">0</c:if><c:if test="${p!=''}">${p}</c:if></td>
               </tr>
                <tr>
                 <td>合计</td>
@@ -332,15 +333,15 @@
               </tr>
               <tr>
                 <td>手机充值</td>
-                <td>${s}</td>
+                <td><c:if test="${s==null}">0</c:if><c:if test="${s!=''}">${s}</c:if></td>
               </tr>
               <tr>
                 <td>加油卡充值</td>
-                <td>${d}</td>
+                <td><c:if test="${d==null}">0</c:if><c:if test="${d!=''}">${d}</c:if></td>
               </tr>
               <tr>
                 <td>生活缴费</td>
-                <td>${f}</td>
+                <td><c:if test="${f==null}">0</c:if><c:if test="${f!=''}">${f}</c:if></td>
               </tr>
               <tr>
                 <td>合计</td>
@@ -359,11 +360,11 @@
               </tr>
               <tr>
                 <td>富友账户</td>
-                <td>${y}</td>
+                <td><c:if test="${y==null}">0</c:if><c:if test="${y!=''}">${y}</c:if></td>
               </tr>
                <tr>
                 <td>贝付账户</td>
-                <td>${u}</td>
+                <td><c:if test="${u==null}">0</c:if><c:if test="${u!=''}">${u}</c:if></td>
               </tr>
                <tr>
                 <td>合计</td>
@@ -450,14 +451,35 @@
 	<script src="/Ying_Second/back_desk/media/js/app.js"></script>      
 
 	<script>
-
+	function fun9(){
+		var a=$('#t1').val()
+		var b=$('#t2').val()
+		if(b<a){
+			alert("结束时间不能小于开始时间！")
+			var b=$('#t2').val("")
+		}
+ 		 
+	 }
+	
 	 function fun(){
 		 window.location.href="/Ying_Second/GongGao/YjTow";
 		 
 	 }
+	 function text(){
+		 $('#time').val("1");
+		 
+	 }
+	 function text1(){
+		 $('#time').val("2");
+		 
+	 }
+	 function text2(){
+		 $('#time').val("3");
+		 
+	 }
 	 function finan(){
-			$("input[name='startDate']").val("");
-			$("input[name='endDate']").val("");
+			$("input[name='creatTime']").val("");
+			$("input[name='endTime']").val("");
 		}
 		jQuery(document).ready(function() {       
 		   App.init();

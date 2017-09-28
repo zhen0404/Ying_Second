@@ -51,8 +51,6 @@ public class FrontProductCenterController {
 			int memberId=member.getId();
 			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(memberId);
 			model.addAttribute("memberAccount", memberAccount);
-			System.out.println("已投金额："+memberAccount.getInvest_amount());
-			System.out.println("账户余额："+memberAccount.getUseable_balance());
 			//这一段判断有没有绑定银行卡
 			Member_bankcards memberBankcards=this.frontProductServiceImpl.ListCardByMemberId(memberId);
 			model.addAttribute("memberBankcards", memberBankcards);
@@ -218,6 +216,7 @@ public class FrontProductCenterController {
 			subjectPurchaseRecord.setLast_profit_day(Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(new Date())));
 			subjectPurchaseRecord.setBonus_info("无");
 			this.frontProductServiceImpl.saveSubjectPurchaseRecord(subjectPurchaseRecord);
+			subjectPurchaseRecord.setInterset(0);
 			int cnt=this.frontProductServiceImpl.getCntBySubjectIdAndMemberId(Integer.parseInt(subjectId), memberId);
 			List<Subject_purchase_record> sList=this.frontProductServiceImpl.listSubjectPurchaseRecordAll(Integer.parseInt(subjectId), memberId);
 			if(sList!=null&&sList.size()>0){

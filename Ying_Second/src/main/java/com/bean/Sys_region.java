@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table
 public class Sys_region {
  
-	         private int ID;
+	         private int id;
 	         private String gb2260;
 	         private String name;
 	         private int region_level;
@@ -22,17 +22,19 @@ public class Sys_region {
 	         private Date create_date;
 	         private Date last_modified;
 	        
-	         @Id
-	         @GeneratedValue
-			public int getID() {
-				return ID;
-			}
-			public void setID(int iD) {
-				ID = iD;
-			}
 			public String getGb2260() {
 				return gb2260;
 			}
+			
+			@Id
+	        @GeneratedValue
+			public int getId() {
+				return id;
+			}
+			public void setId(int id) {
+				this.id = id;
+			}
+			
 			public void setGb2260(String gb2260) {
 				this.gb2260 = gb2260;
 			}

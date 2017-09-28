@@ -204,9 +204,9 @@
 									            <td>
 									            <c:if test="${spr.delflag==0 }">待付款</c:if>
 									            <c:if test="${spr.delflag==1 }">已付款</c:if>
-									            ${spr.delflag }</td>
+									            </td>
 									            <td>${spr.subject.name }</td>
-									            <td>未算</td>
+									            <td>${spr.amount*(interest/365)*30 }</td>
 									            <td>${spr.create_date }</td>
 									          	<!-- <td><a href="/Ying_Second/account/list">返回</a></td> -->
 									          </tr>
@@ -235,7 +235,7 @@
 									            <c:if test="${mwr.status==0 }">待审核</c:if>
 									            <c:if test="${mwr.status==1 }">已打款</c:if>
 									            <c:if test="${mwr.status==2 }">打款中</c:if>
-									            <c:if test="${mwr.status==3 }">打款失败</c:if>
+									            <c:if test="${mwr.status==4 }">打款失败</c:if>
 									            </td>
 									            <td>${mwr.bank_name }</td>
 									            <td>${mwr.bank_card }</td>

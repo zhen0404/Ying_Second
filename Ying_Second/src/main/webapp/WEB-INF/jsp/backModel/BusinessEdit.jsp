@@ -41,6 +41,12 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
+	<style type="text/css">
+.fin{
+	color:white;
+	background-color: limegreen;
+}
+</style>
 </head>
 <body class="page-header-fixed">
 
@@ -77,25 +83,49 @@
 							<div class="portlet-body flip-scroll">
 
 								<form action="/Ying_Second/business/updateBusiness" method="post">
+				
 									<input type="hidden" name="id" value="${news.id }">
-									所属类别<font color="red">*</font>：<select name="typeId" id="typeId">
-												<option value="-1">全选</option>
+									所属类别<font color="red">*</font>：<select name="typeId" id="typeId" required placeholder="必填">
 												<c:forEach items="${typeList }" var="t">
-													<option value="${t.id }">${t.name }</option>
+													<option value="${t.id }" <c:if test="${news.typeId==t.id}"> selected="selected"</c:if>>${t.name }</option>
 												</c:forEach>
-											</select><br><br>
-									标题<font color="red">*</font>：<input type="text" id="title" value="${ news.title}"><br><br>
-									排序<font color="red">*</font>：<input type="text" id="sort" value="${news.sort }"><br><br>
+											</select><br><br>	
+									标题<font color="red">*</font>：<input type="text" name="title" value="${ news.title}" required placeholder="必填"><br><br>
+									排序<font color="red">*</font>：<input type="number" name="sort" value="${news.sort }" required placeholder="必填"><br><br>
 								
 									显示属性：<input type="checkbox" id="top">是否置顶<br><br>
-									简介：<input type="text" id="info" value="${news.info }"><br><br>
-									内容：<input type="text" value="${news.text }"><br><br>
-										封面图片：<input type="file" id="photo" value="${news.cPhoto }">
-									视频/音频：<input type="file" id="video" value="${ news.text}">
 									
+									<div class="row-fluid">
+					          <div class="span12">
+								<div class="tools">
+									<a href="javascript:;" class="reload"></a>
+								</div>
+								<div class="control-group">
+										<label class="control-label">简介：</label>
+										<div class="controls" >
+											<textarea class="span12 wysihtml5 m-wrap" rows="6" name="info" value="${news.info }" ></textarea>
+										</div>
+									</div>
+							 </div>
+						</div><br><br>
+
 									
-									<input type="submit" value="保存">
-								
+												<div class="row-fluid">
+					          <div class="span12">
+								<div class="tools">
+									<a href="javascript:;" class="reload"></a>
+								</div>
+								<div class="control-group">
+										<label class="control-label">内容：</label>
+										<div class="controls" >
+											<textarea class="span12 wysihtml5 m-wrap" rows="6" name="text" value="${news.text }"></textarea>
+										</div>
+									</div>
+							 </div>
+						</div><br><br>
+						
+									<input type="submit" value="保存" class="fin">
+							
 								</form>
 							</div>
 

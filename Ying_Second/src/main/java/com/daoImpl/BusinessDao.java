@@ -1,7 +1,7 @@
 package com.daoImpl;
 
 /**
- * ��ѧԺ����
+ * 锟斤拷学院锟斤拷锟斤拷
  */
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,6 @@ public class BusinessDao  implements CollegeDao<News> {
 	public Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
-
 
 	public List<News_type> typeList() {
 		Session session=getSession();
@@ -98,18 +97,34 @@ public class BusinessDao  implements CollegeDao<News> {
 		News news=(News)session.get(News.class,id);
 		return news;
 	}
+	public News_type getTypeId(int id){
+		Session session=getSession();
+		News_type news_type=(News_type)session.get(News_type.class,id);
+		return news_type;
+	}
 
 	public void update(News news) {
 		Session session=getSession();
 		session.update(news);
 		
 	}
-
 	public String listDataHql(Map map,String hql){
 		String qname=(String)map.get("qname");
+		System.out.println(qname+"DAo页面");
+		Integer typeId=(Integer)map.get("typeId");
+		if(typeId!=null&&!"".equals(typeId)&&typeId!=-1){
+			hql+=" and typeId= " +typeId;
+			System.out.println(typeId+"Dao页面");
+		}
+		
+		
+//		if(typeId!=0&&typeId!=-1){
+//			hql+=" and typeId= " +typeId;
+//		}
 		if(qname!=null&&!qname.equals("")){
 			hql+=" and title like '%"+qname+"%'" ;
 		}
+		
 		return hql;
 	}
 	
@@ -120,9 +135,4 @@ public class BusinessDao  implements CollegeDao<News> {
 		int count=Integer.valueOf(session.createSQLQuery(sql).uniqueResult().toString());
 		return count;
 	}
-
-	
-
-
-	
 }

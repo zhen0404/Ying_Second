@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -332,10 +333,10 @@ li.active a {
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
-						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
+						href="/Ying_Second/nt/list"> 新闻中心 </a></li>
 					<li><a class="item"
 						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
@@ -359,24 +360,30 @@ li.active a {
 	<div class="container helpCenter">
 		<div class="row">
 			<div class="left">
+			<c:forEach items="${listTi }" var="n">
 				<div class="item first active" name="reports" id="reportsTab">
-					平台公告</div>
-				<div class="item" name="lastest" id="lastestTab">市场动态</div>
-				<div class="item" name="strategy" id="strategyTab">趣味理财</div>
-
-				<div class="item" name="topNews" id="topNewsTab">新闻头条</div>
+					<a href="/Ying_Second/new/listTi/${n.id}">${n.name }</a></div>
+					</c:forEach>
 				<div class="blank" style="height: 532px;"></div>
+				
 			</div>
 			<div class="right">
 				<div class="content" id="reports" style="display: block;">
-					<div class="title">平台公告</div>
+				<div class="title">${news.news_type.name }</div>
+				<c:forEach items="${listT }" var="nt" varStatus="stat">
+					
 					<ul class="newsList">
 
 						<li><a
-							href="http://www.ying158.com/news/19dc50b5-0284-4bed-bbe3-a363739f9e15"
-							target="_blank">2017年春节放假安排</a><span class="time">2017-01-23</span>
+							href="/Ying_Second/new/listTe/${nt.id }"
+							target="_blank">${nt.title }</a><span class="time">${nt.addTime }</span>
 						</li>
-						<li><a
+					</ul>
+					
+						</c:forEach>
+						<li><a onclick="pagation(0)">上一页</a> | <a
+							onclick="pagation(2)">下一页</a></li>
+						<!-- <li><a
 							href="http://www.ying158.com/news/e0d2276e-a35f-4b0a-aea7-3473cd800533"
 							target="_blank">重磅推出阳光私募基金-吉威量化套利稳健1号</a><span class="time">2016-04-14</span>
 						</li>
@@ -386,7 +393,7 @@ li.active a {
 						</li>
 						<li><a
 							href="http://www.ying158.com/news/a140c288-f3ed-40b5-8ae1-73c131f87dfa"
-							target="_blank">盈+全球首映</a><span class="time">2015-07-13</span></li>
+							target="_blank">盈+全球首映</a><span class="time">2015-07-13</span></li> -->
 
 						<li>&nbsp;</li>
 						<li>&nbsp;</li>
@@ -395,12 +402,9 @@ li.active a {
 						<li>&nbsp;</li>
 						<li>&nbsp;</li>
 
-						<li><a onclick="pagation(0)">上一页</a> | <a
-							onclick="pagation(2)">下一页</a></li>
-
-					</ul>
+						
 				</div>
-				<div id="strategy" class="content" style="display: none;">
+				<!-- <div id="strategy" class="content" style="display: none;">
 					<div class="title">趣味理财</div>
 					<ul class="newsList">
 
@@ -450,7 +454,7 @@ li.active a {
 							onclick="pagation(2)">下一页</a></li>
 
 					</ul>
-				</div>
+				</div>-->
 				<div id="lastest" class="content" style="display: none;">
 					<div class="title">市场动态</div>
 					<ul class="newsList">
@@ -558,7 +562,7 @@ li.active a {
 							onclick="pagation(2)">下一页</a></li>
 
 					</ul>
-				</div>
+				</div> 
 			</div>
 		</div>
 	</div>

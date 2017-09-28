@@ -121,7 +121,7 @@
 											<td>${p.member.identity }</td>
 											<td>${p.serial_number }</td>
 											<td>${p.amount}</td>
-											<td>${p.interset }</td>
+											<td>${p.interest }</td>
 											<td>${p.create_date }</td>
 											<td>${p.update_date }</td>
 											<td>

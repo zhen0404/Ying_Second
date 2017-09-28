@@ -106,7 +106,11 @@
 									<div class="control-group">
 									<label class="control-label">图标:</label>
 										<div class="controls">
-											<input class="span6 m-wrap" type="text" name="oversea_icon" required="required"/>											
+<img src="/Ying_Second/img/baoxian/yiliao.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/yiliao.jpg">
+<img src="/Ying_Second/img/baoxian/yanglao.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/yanglao.jpg">
+<img src="/Ying_Second/img/baoxian/zinv.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/zinv.jpg">
+<img src="/Ying_Second/img/baoxian/shishang.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/shishang.jpg">
+<img src="/Ying_Second/img/baoxian/youyuan.jpg" width="70px" height="50px"></img><input type="radio" name="oversea_icon" value="/Ying_Second/img/baoxian/youyuan.jpg">								
 										</div>
 									</div>
 									

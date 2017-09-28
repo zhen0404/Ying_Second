@@ -63,7 +63,7 @@ public class ServicePlanDao implements BaseDao<Subject_purchase_record>{
 	@Override
 	public List listAll(Map map) {
 		String sql="select * from(select s1.serial_no,s1.type,s1.name,s1.amount,"
-				+ "SUM(s2.amount*s2.pay_interest_times) sumamount,s1.bought,s1.period,s1.year_rate,s1.status,s1.exper_status "
+				+ "SUM(s2.amount*s2.pay_interest_times) sumamount,s1.bought,s1.period,s1.year_rate,s1.status,s1.exper_status,s1.id "
 				+ "from subject s1 left join subject_purchase_record s2 on s1.id=s2.subject_id group by "
 				+ "s1.serial_no,s1.type,s1.name,s1.amount,s1.bought,s1.period,s1.year_rate,s1.status,s1.exper_status)t where 0=0";
 		sql=hqlData(sql, map);
@@ -87,6 +87,7 @@ public class ServicePlanDao implements BaseDao<Subject_purchase_record>{
 			subj.setYear_rate((int)Float.parseFloat(obj[7].toString()));
 			subj.setStatus(Integer.parseInt(obj[8].toString()));
 			subj.setExper_status(Integer.parseInt(obj[9].toString()));
+			subj.setSubject_id(Integer.parseInt(obj[10].toString()));
      	   listSpr.add(subj);
 		}
 		return listSpr;

@@ -40,7 +40,7 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
 						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
@@ -75,7 +75,7 @@
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
                 <div class="img"><img src="/Ying_Second/img/userPic.jpg"></div>
-                <h2>raokeqiang，<span>您好!</span></h2>
+                <h2>${member.name }<span>您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:50%"></em></span></div>
             <ul class="listIco iconfont">
@@ -93,11 +93,11 @@
 </tbody></table>
 <div class="countBox">
     <ul>
-        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
-        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
+        <li><h2>${memberAccount.useable_balance }</h2><p>账户可用余额(元)</p></li>
+        <li><h2>${money2+memberAccount.useable_balance+invest_amount }</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${money2 }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
     <a href="http://pro.ying158.com/account/deposit" class="cz">充值</a>
     <a href="http://pro.ying158.com/account/withdraw" class="tk">提款</a>
@@ -143,23 +143,49 @@
 	                            <table class="safeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tbody><tr><td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
 	                            <td><p style="color:#ff503f">实名认证</p></td>
-	                            <td>420***222</td>
+	                            <td>
+	                            	<c:if test="${str1!='' }">
+	                            		${str1 }***${str2 }
+	                            	</c:if>
+	                            </td>
+	                            
 	                            <td><p style="color:#888">保障账户安全，只有完成实名认证才能充值提款</p></td>
-	                            <td>认证完成</td></tr>
-							<tr><td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
+	                            <td>
+	                            	<c:if test="${str1!='' }">
+	                            		认证完成
+	                            	</c:if>
+	                            	<c:if test="${str1=='' }">
+	                            		<a href="/Ying_Second/fontmember/bound">认证</a>
+	                            	</c:if>
+	                            </td>
+	                            </tr>
+							<tr>
+								<td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
 									<td><p style="color:#ff503f">绑卡认证</p></td>
-									<td>已绑定</td>
-									<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
-									<td><a href="/Ying_Second/fontmember/bangkaRen" class="renzheng">查看</a></td></tr>
+									<td>
+										<c:if test="${idCard!='' }">
+											已绑定
+										</c:if>
+								</td>
+								<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
+								<td>
+									<c:if test="${idCard!='' }">
+										<a href="/Ying_Second/fontmember/bangkaRen" class="renzheng">查看</a>
+									</c:if>
+									<c:if test="${idCard=='' }">
+										<a href="/Ying_Second/fontmember/bound">认证</a>
+									</c:if>
+								</td>
+							</tr>
                           <tr>
                             <td class="first"><span class="iconfont active"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
                             <td><p style="color:#ff503f">绑定手机</p></td>
-                            <td>1517260****</td>
+                            <td>${phone }****</td>
                             <td><p style="color:#888">手机号码是您在盈+金融的重要身份凭证</p></td>
                             <td>绑定完成</td>
                             <!--<td><a onclick="$('#changeTelModal').modal(); return false;" href="javascript:;" class="renzheng">修改</a></td>-->
                           </tr>
-<!--                           <tr>
+<!--                        <tr>
                             <td class="first"><span class="iconfont active"><a href="#1">&#xe61f;</a><em>&#xe61b;</em></span></td>
                             <td><p style="color:#ff503f">绑定邮箱</p></td>
                             <td>未设置</td>
@@ -175,9 +201,15 @@
                           </tr>
                           <tr><td class="first"><span class="iconfont"><a href="http://pro.ying158.com/account/security#1"></a><em></em></span></td>
 	                            <td><p style="color:#ff503f">提款密码</p></td>
-	                            <td>未设置</td>
+	                            <td>
+	                            	<c:if test="${member.withdraw_password=='' }">未设置</c:if>
+	                            	<c:if test="${member.withdraw_password!='' }">已设置</c:if>
+	                            </td>
 	                            <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
-	                            <td><a href="/Ying_Second/fontmember/tikuan" class="renzheng">设置</a></td>								
+	                            <td>
+	                            	<c:if test="${member.withdraw_password=='' }"><a href="/Ying_Second/fontmember/tikuan" class="renzheng">设置</a></c:if>
+	                            	<c:if test="${member.withdraw_password!='' }"><a href="/Ying_Second/fontmember/updateMemberTps" class="renzheng">修改</a></c:if>
+	                            </td>								
                           </tr>
                         </tbody></table>
                     </div>

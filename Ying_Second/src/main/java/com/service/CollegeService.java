@@ -21,4 +21,6 @@ public interface CollegeService<T>{
 	List<T> listAll(Map map);
 
 	List<News_type> typeList();
+
+	News_type getTypeId(int tid);
 }

@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
 <meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
@@ -16,7 +15,7 @@
 	<meta name="description" content="申请实盘交易账户，直接进行实盘交易。">
 	<title>收益记录-会员中心-盈+</title>
 	
-	<link href="http://www.ying158.com/images/icon.ico" type="image/x-icon" rel="shortcut icon">
+	<link type="image/x-icon" rel="shortcut icon">
 	<link href="/Ying_Second/css/iconfont.css" rel="stylesheet" type="text/css">
 	<link href="/Ying_Second/css/common.css" rel="stylesheet">
 	<link href="/Ying_Second/css/jw2.css" rel="stylesheet">
@@ -40,19 +39,16 @@
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
-					<li><a class="item"
-						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
+					<li><a class="item" href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
 					<li><a class="item"
 						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
 							盈+商学院 </a></li>
-					<li><a class="item"
-						href="/Ying_Second/frontStudy"> 投研中心
+					<li><a class="item" href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item last"
-						href="/Ying_Second/frontLast">
+					<li><a class="item last" href="/Ying_Second/frontLast">
 							我的加法库 </a></li>
 				</ul>
 			</div>
@@ -75,7 +71,7 @@
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
                 <div class="img"><img src="/Ying_Second/img/userPic.jpg"></div>
-                <h2>raokeqiang，<span>您好!</span></h2>
+                <h2>${member.name }<span>您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:50%"></em></span></div>
             <ul class="listIco iconfont">
@@ -93,11 +89,11 @@
 </tbody></table>
 <div class="countBox">
     <ul>
-        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
-        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
+        <li><h2>${memberAccount.useable_balance }</h2><p>账户可用余额(元)</p></li>
+        <li><h2>${money2+memberAccount.useable_balance+invest_amount }</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资中资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${money2 }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">${memberAccount.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
     <a href="http://pro.ying158.com/account/deposit" class="cz">充值</a>
     <a href="http://pro.ying158.com/account/withdraw" class="tk">提款</a>
@@ -122,7 +118,6 @@
   var menu_item="member_center_menu_profit_record";
  $("#"+menu_item).addClass("select");
 </script>
-
          <div class="admin-right">
         	<div class="tbConBox">
                 <div class="tab">
@@ -132,11 +127,15 @@
                     <div class="box" style="display:block">
                         <div class="myBankCards clearfix">
                             <form action="" method="post">
-                                          原登陆密码：<input type="password" name="old"><br><br>
-                                          修改后密码：<input type="password" name="now"><br><br>
-                                           修改后密码：<input type="password" name="queren"><br><br>
+                            <input type="hidden" value="${member.password }" id="old1">
+                                          原密码：<input type="password" name="old" required="required" id="old2">
+                                          <span class="old2"></span><br><br>
+                                          修改后密码：<input type="password" name="new" required="required" id="new1">
+                                          <br><br>
+                                          请再次输入修改后密码：<input type="password" name="queren" required="required" id="new2">
+                                          <span class="new2"></span><br><br>
                                            <hr>
-                        <input type="submit" value="提交">　　　　　
+                        <input type="submit" value="提交" onclick="checkps()">　　　　　
                         <input type="submit" value="取消">
                             </form>
                         </div>
@@ -206,6 +205,22 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+    
+    function checkps(){
+    	var old1=$("#old1").val();
+    	var old2=$("#old2").val();
+    	var new1=$("#new1").val();
+    	var new2=$("#new2").val();
+    	if(old1!=old2){
+    		$(".old2").html("原密码不正确");
+    		return ;
+    	}
+    	if(new1!=new2){
+    		$(".new2").html("两次输入的密码不同");
+    		return ;
+    	}
+    	window.location.href="/Ying_Second/safe/updateMemberps?ps="+new1+"";
+    }
 </script>
 </body>
 </html>

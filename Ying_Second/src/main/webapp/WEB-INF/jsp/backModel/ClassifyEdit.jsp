@@ -42,6 +42,12 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
+	<style type="text/css">
+.fin{
+	color:white;
+	background-color: limegreen;
+}
+</style>
 </head>
 <body class="page-header-fixed">
 
@@ -76,24 +82,20 @@
 							</div>
 
 							<div class="portlet-body flip-scroll">
-
-								
 								<form action="/Ying_Second/classify/updateNews_type" method="post">
-									上级类别<font color="red">*</font>：<select name="typeId" id="typeId">
-												<option value="-1">全选</option>
-												<c:forEach items="${ListNews_type }" var="y">
-												<option value="${y.id }">${y.name }</option>3
-												 
+								<input type="hidden" name="id" value="${news_type.id }" >
+								上级类别<font color="red">*</font>：<select name="tid" id="tid" required placeholder="必填">
+												<c:forEach items="${listNews_type }" var="y">
+												<option value="${y.id }">${y.name }</option>
 												</c:forEach>
 											</select><br><br>
-									类别名称<font color="red">*</font>：<input type="text" id="name" value="${news_type.name }"><br><br>
-									排序<font color="red">*</font>：<input type="text" id="sort" value="${news_type.sort }"><br><br>
-									简介：<input type="text" id="info" value="${news_type.info }"><br><br>
+									类别名称<font color="red">*</font>：<input type="text" name="name" value="${news_type.name }" required placeholder="必填"><br><br>
+									排序<font color="red">*</font>：<input type="number" name="sort" value="${news_type.sort }" required placeholder="必填"><br><br>
+									简介：<input type="text" name="info" value="${news_type.info }">
 								
+									<br><br>
 									
-									
-									<input type="submit" value="保存">
-								
+									<input type="submit" value="保存" class="fin">
 								
 								</form>
 							</div>
@@ -133,7 +135,7 @@
 		</div>
 
 	</div>
-
+ 
 	<script src="/Ying_Second/back_desk/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
 
 	<script src="/Ying_Second/back_desk/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>

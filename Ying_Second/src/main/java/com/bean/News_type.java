@@ -125,13 +125,13 @@ public class News_type {
 	public void setUpdTime(Date updTime) {
 		this.updTime = updTime;
 	}
-	public String getAddTime() {
+	public Date getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(String addTime) {
+	public void setAddTime(Date addTime) {
 		this.addTime = addTime;
 	}
-	private String addTime;
+	private Date addTime;
 	
 	
 

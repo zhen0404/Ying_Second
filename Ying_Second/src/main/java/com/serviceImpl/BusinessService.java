@@ -50,6 +50,9 @@ public class BusinessService implements CollegeService<News> {
 		return  this.collegeDao.getById(id);
 		
 	}
+	public News_type getTypeId(int id){
+		return this.collegeDao.getTypeId(id);
+	}
 
 	public void update(News news) {
 		this.collegeDao.update(news);

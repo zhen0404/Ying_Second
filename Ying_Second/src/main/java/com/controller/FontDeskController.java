@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bean.Member;
+import com.bean.Member_account;
 import com.bean.Member_profit_record;
+import com.service.FrontProductService;
 import com.service.MemberAddSerivce;
+import com.service.MemberCenterService;
 
 @Controller
 public class FontDeskController {
@@ -19,6 +22,15 @@ public class FontDeskController {
 	@Autowired
 	@Qualifier("memberAddServiceImpl")
 	private MemberAddSerivce mas;
+	
+	@Autowired
+	@Qualifier("memberCenterServiceImpl")
+	private MemberCenterService mcs;
+	
+	@Autowired
+	@Qualifier("frontProductServiceImpl")
+	private FrontProductService frontProductServiceImpl;
+	
 	
 	//前台首页
 	@RequestMapping("home")
@@ -98,11 +110,39 @@ public class FontDeskController {
 		//先判断用户是否登录成功  或  登录超时
 		Member member=(Member) session.getAttribute("member");
 		if(member!=null){
+			//查询用户关于钱的基本信息
+//			double money1=this.mcs.getarAmount(member.getId());
+//			double money2=this.mcs.getmaAmount(member.getId());
+//			double money3=this.mcs.getmprAmount(member.getId());
+			
+			//账户余额
+			Member_account memberAccount=this.frontProductServiceImpl.ListAllByMemberId(member.getId());
+			
+//			session.setAttribute("allMoney", memberAccount.getUseable_balance()+memberAccount.getInvest_amount()+money2+money1);
+//			
+//			session.setAttribute("leiMoney", money2+money1);
+//			
+			session.setAttribute("memberAccount", memberAccount);
+			
+			List money1=this.mcs.getarAmount(member.getId());
+			if(money1.size()>1){
+				session.setAttribute("money1", money1.get(0));
+			}else {
+				session.setAttribute("money1", 0);
+			}
+			
+			List money2=this.mcs.getmaAmount(member.getId());
+			if(money2.size()>1){
+				session.setAttribute("money2", money2.get(0));
+			}else {
+				session.setAttribute("money2", 0);
+			}
+			
 			//查询收益记录
 			int mid=member.getId();
 			List<Member_profit_record> mpr=this.mas.getMemberProfitRecordByMid(mid);
-			System.out.println(mpr.size());
 			session.setAttribute("mpr", mpr);
+			System.out.println("add");
 			return "font_desk/memberMain/memberDepositsHistory";
 		}
 		return "redirect:/frontIframeLogin?url=myadd";

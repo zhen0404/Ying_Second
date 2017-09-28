@@ -350,7 +350,6 @@ li.active a {
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
-				
 					<li class="active"><a class="item first"
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
@@ -371,7 +370,6 @@ li.active a {
 	</div>
 
 	<div class="main">
-
 		<script src="/Ying_Second/js/video.js"></script>
 		<!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
 		<script>

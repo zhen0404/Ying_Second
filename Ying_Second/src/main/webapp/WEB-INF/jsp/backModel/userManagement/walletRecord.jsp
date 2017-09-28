@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8" />
 
-	<title>付息列表</title>
+	<title>Metronic | Data Tables - Responsive Tables</title>
 
 	<meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport" />
 
@@ -41,14 +41,10 @@
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/Ying_Second/back_desk/media/image/favicon.ico" />
+	
+	<script src="/Ying_Second/back_desk/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
 </head>
 <body class="page-header-fixed">
-
-<div class="page-container row-fluid">
-
-		<div class="page-content">
-
-			<div class="container-fluid">
 
 				<div class="row-fluid">
 
@@ -58,7 +54,7 @@
 
 							<div class="portlet-title">
 
-								<div class="caption"><i class="icon-cogs"></i>Flip Scroll</div>
+								<div class="caption"><i class="icon-cogs"></i>钱包管理</div>
 
 								<div class="tools">
 
@@ -75,69 +71,65 @@
 							</div>
 
 							<div class="portlet-body flip-scroll">
+				 <form method="post" action="/Ying_Second/wallet/query">
+                 <font size="4">交易号:</font><input type="text" placeholder="交易号" name="jyh">
+               　　<font size="4">手机号:</font> <input type="text" placeholder="手机号" name="sjh">
+               　　<font size="4">交易类型:</font>
+               <select name="type" id="zz">               
+                      <option value="-1">请选择</option>
+                   <option value="SINOPEC_RECHARGE">石化充值</option>
+                   <option value="MOBILE_RECHARGE">手机充值</option>
+                   <option value="FINANCE">经费充值</option> 
+                   </select>
+         　　<font size="4">交易状态:</font>
+             <select name="stat" id="zz">
+             <option value="-1">请选择</option>
+             <option value="0">等待付款</option>
+			 <option value="2">处理中</option>                    
+                   </select>
+              　　<font size="4">交易时间:</font> 　　<input type="date" placeholder="交易时间" name="time">     
+               　　　　　    <input type="submit" value="🔍查询" class="btn yellow">　　
+       <a href="/Ying_Second/wallet/list" class="btn blue"><i class="icon-plus"></i> 重置</a>　　　
+          </form>
 								<table class="table-bordered table-striped table-condensed flip-content">
 
 									<thead class="flip-content">
-
 										<tr>
-
-											
-										<tr>
-
-											<th>序号</th>
-											
-											<th>编号</th>
-											
-											<th>投资人手机号</th>
-
-											<th>投资人姓名</th>
-
-											<th>投资人身份证</th>
-
-											<th>流水号</th>
-
-											<th>投资金额</th>
-
-											<th>还款利息</th>
-											
-											<th>投资时间</th>
-
-											<th>还款时间</th>
-
-											<th>还款状态</th>
-
-											<th>操作</th>
-
+											<th><font size="4">序号</font></th>
+											<th><font size="4">交易号</font></th>
+											<th><font size="4">交易人手机号</font></th>
+											<th><font size="4">交易类型</font></th>
+											<th><font size="4">交易名称</font></th>
+											<th><font size="4">交易金额</font></th>
+											<th><font size="4">交易状态</font></th>
+											<th><font size="4">起投时间</font></th>
 										</tr>
 									</thead>
 
 									<tbody>
-										 <c:forEach items="${list }" var="p" varStatus="stat">
-										<tr class="">
-											<td>${stat.index+1 }</td>
-											<td>${p.id }</td>
-											<td>${p.member.member_name}</td>
-											<td>${p.member.mobile_Phone}</td>
-											<td>${p.member.identity }</td>
-											<td>${p.serial_number }</td>
-											<td>${p.amount}</td>
-											<td>${p.interest }</td>
-											<td>${p.create_date }</td>
-											<td>${p.update_date }</td>
-											<td>
-											<c:if test="${p.ispayment==0 }"><font color="red">待还款</font></c:if>
-											<c:if test="${p.ispayment==1 }"><font color="green">已还款</font></c:if>
+                                   <c:forEach items="${List}" var="list"  varStatus="stat">
+										<tr>
+											<td class="numeric" align="center">${stat.index+1}</td>
+											<td class="numeric" align="center">${list.trade_no}</td>
+											<td class="numeric" align="center">${list.member.mobile_Phone}</td>
+											<td class="numeric" align="center">
+											<c:if test="${list.trade_type=='SINOPEC_RECHARGE'}">石化充值</c:if>
+											<c:if test="${list.trade_type=='MOBILE_RECHARGE'}">手机充值</c:if>
+											<c:if test="${list.trade_type=='FINANCE'}">经费充值</c:if>
 											</td>
-											<td>
-											<c:if test="${p.ispayment==0 }"><a href="/Ying_Second/pur/update/${p.id }">还款</a></c:if>
-											<c:if test="${p.ispayment==1 }"><font color="green">已还款</font></c:if>
+											<td class="numeric" align="center">${list.trade_name}</td>
+											<td class="numeric" align="center" >Y${list.amount}</td>
+											<td class="numeric" align="center" >
+											<c:if test="${list.trade_status==0}">等待付款</c:if>
+											 <c:if test="${list.trade_status==2}">处理中</c:if>
 											</td>
+											<td class="numeric" align="center" >${list.create_date}</td>
 										</tr>
-									  </c:forEach>
-										
+                                       </c:forEach>
 									</tbody>
-							
+
 								</table>
+								<br><br><br><br><br><br><br><br><br><br><br>
 
 							</div>
 
@@ -146,13 +138,6 @@
 					</div>
 
 				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
 	<!-- END CONTAINER -->
 
 	<!-- BEGIN FOOTER -->
@@ -177,7 +162,7 @@
 
 	</div>
 
-	<script src="/Ying_Second/back_desk/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	
 
 	<script src="/Ying_Second/back_desk/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 

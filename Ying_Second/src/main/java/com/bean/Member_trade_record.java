@@ -27,7 +27,6 @@ public class Member_trade_record {
 	private String ext_field_3;
 	private Date create_date;
 	private Date update_date;
-	
 	private Member member;
 	
 	@OneToOne

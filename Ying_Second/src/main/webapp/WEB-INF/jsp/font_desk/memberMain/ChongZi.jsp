@@ -20,7 +20,8 @@
 	<link href="/Ying_Second/css/iconfont.css" rel="stylesheet" type="text/css">
 	<link href="/Ying_Second/css/common.css" rel="stylesheet">
 	<link href="/Ying_Second/css/jw2.css" rel="stylesheet">
-	
+	<link href="/Ying_Second/css/pager.css" rel="stylesheet">
+	<script src="/Ying_Second/js/pager.js"></script>
     <script src="/Ying_Second/js/hm.js"></script>
     <script src="/Ying_Second/js/jquery.js"></script>
     <script src="/Ying_Second/js/echarts.js"></script>
@@ -157,7 +158,29 @@
 	</tr>
 	</c:forEach>
 	</table>
+	<div>
+	<ul class="pagination" id="page1">
+    </ul>
+	<div class="pageJump">
+		<span>跳转到</span>
+		<input type="text"/>
+		<span>页</span>
+		<button type="button" class="button">确定</button>
+	</div>
+	</div>
 </div>
+
+<script>
+		Page({
+			num:6,					//页码数
+			startnum:3,				//指定页码
+			elem:$('#page1'),		//指定的元素
+			callback:function(n){	//回调函数
+				console.log(n);
+			}
+		});
+	</script>
+	
 <script type="text/javascript">
 	function getJsonInfo(url) {
 		$.get(url, 'json', function(data) {

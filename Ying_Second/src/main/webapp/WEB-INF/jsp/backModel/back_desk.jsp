@@ -569,7 +569,7 @@
 
 						<li >
 
-							<a href="layout_horizontal_sidebar_menu.html">
+							<a href="/Ying_Second/subject/list" target="showTable">
 
 							固收类</a>
 
@@ -577,7 +577,7 @@
 
 						<li >
 
-							<a href="layout_horizontal_menu1.html">
+							<a href="/Ying_Second/simu/list" target="showTable">
 
 							私募/股权类</a>
 
@@ -585,7 +585,7 @@
 
 						<li >
 
-							<a href="layout_horizontal_menu2.html">
+							<a href="/Ying_Second/oversea/overList" target="showTable">
 
 							海外配置</a>
 
@@ -611,81 +611,9 @@
 
 						<li >
 
-							<a href="ui_general.html">
+							<a href="/Ying_Second/wallet/list" target="showTable">
 
-							General</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_buttons.html">
-
-							Buttons</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_modals.html">
-
-							Enhanced Modals</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_tabs_accordions.html">
-
-							Tabs & Accordions</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_jqueryui.html">
-
-							jQuery UI Components</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_sliders.html">
-
-							Sliders</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_tiles.html">
-
-							Tiles</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_typography.html">
-
-							Typography</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_tree.html">
-
-							Tree View</a>
-
-						</li>
-
-						<li >
-
-							<a href="ui_nestable.html">
-
-							Nestable List</a>
+							钱包缴费记录</a>
 
 						</li>
 
@@ -709,57 +637,17 @@
 
 						<li >
 
-							<a href="form_layout.html">
+							<a href="/Ying_Second/"> 
 
-							Form Layouts</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_samples.html">
-
-							Advance Form Samples</a>
+							资讯分类</a>
 
 						</li>
 
 						<li >
 
-							<a href="form_component.html">
+							<a href="/Ying_Second/">
 
-							Form Components</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_wizard.html">
-
-							Form Wizard</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_validation.html">
-
-							Form Validation</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_fileupload.html">
-
-							Multiple File Upload</a>
-
-						</li>
-
-						<li >
-
-							<a href="form_dropzone.html">
-
-							Dropzone File Upload</a>
+							资讯管理</a>
 
 						</li>
 
@@ -787,7 +675,7 @@
 
 							<i class="icon-time"></i>
 
-							Timeline</a>
+							账号管理</a>
 
 						</li>
 
@@ -797,7 +685,7 @@
 
 							<i class="icon-cogs"></i>
 
-							Coming Soon</a>
+							理财师审核</a>
 
 						</li>
 
@@ -807,7 +695,7 @@
 
 							<i class="icon-comments"></i>
 
-							Blog</a>
+							绑卡管理</a>
 
 						</li>
 
@@ -817,7 +705,7 @@
 
 							<i class="icon-font"></i>
 
-							Blog Post</a>
+							付息计划</a>
 
 						</li>
 
@@ -827,7 +715,7 @@
 
 							<i class="icon-coffee"></i>
 
-							News</a>
+							充值管理</a>
 
 						</li>
 
@@ -837,7 +725,7 @@
 
 							<i class="icon-bell"></i>
 
-							News View</a>
+							体现管理</a>
 
 						</li>
 
@@ -847,27 +735,7 @@
 
 							<i class="icon-group"></i>
 
-							About Us</a>
-
-						</li>
-
-						<li >
-
-							<a href="page_contact.html">
-
-							<i class="icon-envelope-alt"></i>
-
-							Contact Us</a>
-
-						</li>
-
-						<li >
-
-							<a href="page_calendar.html">
-
-							<i class="icon-calendar"></i>
-
-							Calendar</a>
+							 邀请奖励</a>
 
 						</li>
 
@@ -891,9 +759,9 @@
 
 						<li >
 
-							<a href="extra_profile.html">
+							<a href="Ying_Second/GongGao">
 
-							User Profile</a>
+							财务统计</a>
 
 						</li>
 
@@ -901,95 +769,7 @@
 
 							<a href="extra_lock.html">
 
-							Lock Screen</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_faq.html">
-
-							FAQ</a>
-
-						</li>
-
-						<li >
-
-							<a href="inbox.html">
-
-							Inbox</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_search.html">
-
-							Search Results</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_invoice.html">
-
-							Invoice</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_pricing_table.html">
-
-							Pricing Tables</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_image_manager.html">
-
-							Image Manager</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_404_option1.html">
-
-							404 Page Option 1</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_404_option2.html">
-
-							404 Page Option 2</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_404_option3.html">
-
-							404 Page Option 3</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_500_option1.html">
-
-							500 Page Option 1</a>
-
-						</li>
-
-						<li >
-
-							<a href="extra_500_option2.html">
-
-							500 Page Option 2</a>
+							用户综合统计</a>
 
 						</li>
 
@@ -1015,55 +795,24 @@
 
 							<a href="javascript:;">
 
-							Item 1
+							公告管理
 
 							<span class="arrow"></span>
 
 							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">Sample Link 1</a></li>
-
-								<li><a href="#">Sample Link 2</a></li>
-
-								<li><a href="#">Sample Link 3</a></li>
-
-							</ul>
-
 						</li>
-
+						
 						<li>
 
 							<a href="javascript:;">
 
-							Item 1
+							意见反馈
 
 							<span class="arrow"></span>
 
 							</a>
-
-							<ul class="sub-menu">
-
-								<li><a href="#">Sample Link 1</a></li>
-
-								<li><a href="#">Sample Link 1</a></li>
-
-								<li><a href="#">Sample Link 1</a></li>
-
-							</ul>
-
 						</li>
 
-						<li>
-
-							<a href="#">
-
-							Item 3
-
-							</a>
-
-						</li>
 
 					</ul>
 
@@ -1083,14 +832,14 @@
 
 					<ul class="sub-menu">
 						<li>
-							<a href="/Ying_Second/usersManager/listMember"  >
+							<a href="/Ying_Second/usersManager/listMember"  target="showTable">
 							<i class="icon-cogs"></i>
 							用户管理
 							</a>
 						</li>
 						
 						<li>
-							<a href="/Ying_Second/role/listRole">
+							<a href="/Ying_Second/role/listRole" target="showTable">
 							<i class="icon-folder-open"></i>
 							权限设置
 							</a>
@@ -1266,7 +1015,7 @@
 					</div>
 					
 					<div class="row-fluid" style="height: 800px; height: 1800px">
-						<iframe name="showTable" height="800px" width="1800px">iframe</iframe>
+						<iframe name="showTable" height="800px" width="1650px">iframe</iframe>
 					</div>
 					
 					</div>

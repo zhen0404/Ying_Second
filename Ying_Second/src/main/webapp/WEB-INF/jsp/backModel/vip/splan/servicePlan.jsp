@@ -112,6 +112,8 @@
 											<th>标的状态</th>
 											
 											<th>可否体验金购买</th>
+											
+											<th>付息Id</th>
 
 											<th>操作</th>
 
@@ -138,9 +140,10 @@
 											<c:if test="${s.exper_status==0 }">否</c:if>
 											<c:if test="${s.exper_status==1 }">是</c:if>
 											</td>
+											<td>${s.subject_id }</td>
 											<td>
-											<c:if test="${s.exper_status==0 }">体验金付息||<a href="/Ying_Second/pur/list/${s.id }">付息列表</a></c:if>
-											<c:if test="${s.exper_status==1 }"><a href="/Ying_Second/pay/list/${s.id }">体验金付息<a></a>||<a href="/Ying_Second/pur/list/${s.id }">付息列表</a></c:if>
+											<c:if test="${s.exper_status==0 }">体验金付息||<a href="/Ying_Second/pur/list/${s.subject_id }">付息列表</a></c:if>
+											<c:if test="${s.exper_status==1 }"><a href="/Ying_Second/pay/list/${s.subject_id }">体验金付息<a></a>||<a href="/Ying_Second/pur/list/${s.subject_id }">付息列表</a></c:if>
 											</td>
 										</tr>
 									  </c:forEach>

@@ -335,7 +335,7 @@ li.active a {
 					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
 					</li>
 					<li><a class="item"
-						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
+						href="/Ying_Second/nt/list"> 新闻中心 </a></li>
 					<li><a class="item"
 						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">

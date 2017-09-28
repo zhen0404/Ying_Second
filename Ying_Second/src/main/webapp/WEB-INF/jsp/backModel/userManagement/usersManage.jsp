@@ -49,38 +49,83 @@
 								</div>
 							</div>
 							<div class="portlet-body flip-scroll">
-								<form action="/Ying_Second/usersManager/listMember">
-									用户名：<input name="name" type="text">　　手机号：<input name="mobile_Phone" type="text" >　　
-									姓名：<input name="member_name" type="text">　　邀请码：<input name="invitationCode" type="text">　　
-									注册时间：<input name="create_date" type="date">　
-									<input type="submit" value="查询">
-								</form>
+							<a class="btn green" data-toggle="modal" data-target="#myModal1"><i class="icon-plus"></i> 添加用户</a>
 								<table class="table-bordered table-striped table-condensed flip-content">
 									<thead class="flip-content">
 										<tr>
-											<th>序号</th>
-											<th class="numeric">手机号</th>
-											<th class="numeric">用户名</th>
-											<th class="numeric">姓名</th>
-											<th class="numeric">身份证</th>
-											<th class="numeric">邀请码</th>
-											<th class="numeric">注册时间</th>
-											<th class="numeric">操作</th>
-										</tr>
+								        <th>用户名</th>
+								         <th>昵称</th>
+								          <th>密码</th>
+								           <th>密码盐</th>
+								           <th>电话</th>
+								           <th>状态</th>
+								        <th>是否删除</th>
+								        <th>身份</th>
+								        <th>创建时间</th>
+								         <th>修改时间</th>
+								          <th>角色</th>
+								        </tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${mlist }" var="m" varStatus="stat">
-											<tr>
-												<td>${stat.index+1 }</td>
-												<td class="numeric">${m.mobile_Phone }</td>
-												<td class="numeric">${m.member_name }</td>
-												<td class="numeric">${m.name }</td>
-												<td class="numeric">${m.identity }</td>
-												<td class="numeric">${m.invitationCode }</td>
-												<td class="numeric">${m.create_date }</td>
-												<td class="numeric">账号详情</td>
-											</tr>
-										</c:forEach>
+										<c:forEach items="${userList}" var="e" varStatus="state" >
+									        <tr>
+									        <td>${e.user_name }</td>
+									        <td>${e.name}</td>
+									        <td>${e.password }</td>
+									        <td>${e.salt }</td>
+									        <td>${e.mobile_Phone}</td>
+									        <td>${e.status }</td>
+									        <td>${e.del_flag}</td>
+									        <td>${e.identity}</td>
+									        <td>${e.create_date}</td>
+									        <td>${e.update_date}</td>
+									        <td>${e.userrole.cname}</td>
+									          <td>
+									          	<a class="btn yellow" href="/Ying_Second/usersManager/delete?id=${e.id }">删除</a>
+									          </td>
+									          <td>
+									          	<a class="btn green" data-toggle="modal" data-target="#myModal2"><i class="icon-plus"></i> 修改用户</a>
+									          	<a href="/Ying_Second/usersManager/initData?id=${e.id }"></a>
+									          	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+													aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal"
+																	aria-hidden="true">&times;</button>
+																<h4 class="modal-title" id="myModalLabel">修改用户</h4>
+															</div>
+															<div class="modal-body">
+															<input type="hidden" value="${e.id }" id="uid${state.index+1}">
+																<div class="input-group">
+																	<span class="input-group-addon">角色</span>
+																	<select id="role${state.index+1}" >
+																		<c:forEach items="${rlist }" var="r">
+																			<option value="${r.id }">${r.cname }</option>
+																		</c:forEach>
+																	</select>
+																</div>
+																<br>
+<!-- 																<div class="input-group"> -->
+<!-- 																	<span class="input-group-addon">备 &nbsp 注</span> <input -->
+<!-- 																		type="text" class="form-control" placeholder="备注信息" id="text" ><br> -->
+<!-- 																</div> -->
+																<br>
+											
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+																	</button>
+																	<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="updateRole(${state.index+1})">提交更改</button>
+																</div>
+															</div>
+														</div>
+														<!-- /.modal-content -->
+													</div>
+													<!-- /.modal -->
+												</div>
+									          </td>
+									        </tr> 
+								        </c:forEach>
 									</tbody>
 								</table>
 								<div class="pagination pagination-centered">
@@ -98,7 +143,52 @@
 						</div>
 					</div>
 				</div>
-
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">添加用户</h4>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon">用户名：</span> <input type="text"
+							class="form-control" placeholder="请输入用户名" id="userName" required="required"><br>
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon">密码：</span> <input type="text"
+							class="form-control" placeholder="请输入密码" id="ps" required="required"><br>
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon">手机号：</span> 
+						<input type="text" class="form-control" placeholder="请输入手机号" id="phone" required="required" ><br>
+					</div>
+					<br>
+					<div class="input-group">
+						<select id="rid" >
+							<c:forEach items="${rlist }" var="r">
+								<option value="${r.id }">${r.cname }</option>
+							</c:forEach>
+						</select>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveUsers()">提交更改</button>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+	
+	
 	<div class="footer">
 
 		<div class="footer-inner">
@@ -142,9 +232,25 @@
 	<script src="/Ying_Second/back_desk/media/js/app.js"></script>      
 
 	<script>
-		jQuery(document).ready(function() {       
+		jQuery(document).ready(function() {
 		   App.init();
 		});
+	</script>
+	<script type="text/javascript">
+		function updateRole(rid){
+			var rid=$("#role"+rid+"").val();
+			var uid=$("#uid"+rid+"").val();
+			alert(rid+":"+uid);
+			window.location.href="/Ying_Second/usersManager/updateRole?uid="+uid+"&rid="+rid+"";
+		}
+		
+		function saveUsers(){
+			var rid=$("#rid").val();
+			var userName=$("#userName").val();
+			var phone=$("#phone").val();
+			var ps=$("#ps").val();
+			window.location.href="/Ying_Second/usersManager/saveUsers?rid="+rid+"&user_name="+userName+"&mobile_Phone="+phone+"&password="+ps+"";
+		}
 	</script>
 </body>
 </html>

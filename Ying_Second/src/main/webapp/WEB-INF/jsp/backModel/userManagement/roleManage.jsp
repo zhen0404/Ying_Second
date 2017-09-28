@@ -45,7 +45,6 @@
 <body class="page-header-fixed">
 				<shiro:hasPermission name="添加角色">
 				<a class="btn green" data-toggle="modal" data-target="#myModal1"><i class="icon-plus"></i> 添加</a>
-<!-- 					<li class="click"><a class="tablelink"	>添加</a></li> -->
 				</shiro:hasPermission>
 				<div class="row-fluid">
 					<div class="span12">

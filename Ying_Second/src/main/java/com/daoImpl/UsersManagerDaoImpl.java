@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.bean.Member;
+import com.bean.User_role;
+import com.bean.Users;
 import com.dao.UsersManagerDao;
 
 @Component
@@ -26,9 +28,17 @@ public class UsersManagerDaoImpl implements UsersManagerDao {
 		getSession().save(m);
 	}
 
-	public void deleteMember(int id) {
-		// TODO Auto-generated method stub
-		getSession().delete(getMember(id));
+	public void deleteUser(int uid){
+		Session session=getSession();
+		Users users=getByUid(uid);
+		users.setUserrole(null);
+		session.delete(users);
+	}
+	
+	public Users getByUid(int uid){
+		Session session=getSession();
+		Users users=(Users) session.get(Users.class, uid);
+		return users;
 	}
 
 	public void updateMember(Member m) {
@@ -41,12 +51,12 @@ public class UsersManagerDaoImpl implements UsersManagerDao {
 		return (Member) getSession().get(Member.class, id);
 	}
 
-	public List<Member> listMember(Map m,int currentPage) {
+	public List<Users> listMember(Map m,int currentPage) {
 		// TODO Auto-generated method stub
-		String hql="from Member where 0=0 ";
+		String hql="from Users where 0=0 ";
 		hql=getHql(hql,m);
 		System.out.println("hql:"+hql);
-		List<Member> mlist=getSession().createQuery(hql).setFirstResult((currentPage-1)*5).setMaxResults(5).list();
+		List<Users> mlist=getSession().createQuery(hql).setFirstResult((currentPage-1)*5).setMaxResults(5).list();
 		return mlist;
 	}
 	
@@ -86,6 +96,29 @@ public class UsersManagerDaoImpl implements UsersManagerDao {
 	public String listDataHql(String hql, Map map) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void updateUserRole(int uid, int rid) {
+		// TODO Auto-generated method stub
+		Users users=getUsers(uid);
+		User_role userrole=getUR(rid);
+		users.setUserrole(userrole);
+		getSession().update(users);
+	}
+	
+	public Users getUsers(int uid){
+		return (Users) getSession().get(Users.class, uid);
+	}
+	
+	public User_role getUR(int rid){
+		return (User_role) getSession().get(User_role.class, rid);
+	}
+
+	@Override
+	public void saveUsers(Users users) {
+		// TODO Auto-generated method stub
+		getSession().save(users);
 	}
 	
 }

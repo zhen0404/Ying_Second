@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,28 +12,16 @@
 <meta name="Keywords"
 	content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
 <meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。">
-<title>盈+理财首页</title>
-<link href="http://www.ying158.com/Content/images/jw/icon.ico"
-	type="image/x-icon" rel="shortcut icon">
+<title>盈+理财新闻中心</title>
+<!-- <link href="http://www.ying158.com/Content/images/jw/icon.ico" -->
+<!-- 	type="image/x-icon" rel="shortcut icon"> -->
 <script src="/Ying_Second/js/hm.js"></script>
 <script src="/Ying_Second/js/hm_002.js"></script>
-<link href="/Ying_Second/css/video-js.css" rel="stylesheet" type="text/css">
+<link href="/Ying_Second/css/video-js.css" rel="stylesheet"
+	type="text/css">
 <link href="/Ying_Second/css/common.css" rel="stylesheet">
 
 <link href="/Ying_Second/css/jw.css" rel="stylesheet">
-<link href="/Ying_Second/css/iframeindex_data/iconfont.css" rel="stylesheet"
-	type="text/css">
-<link href="/Ying_Second/css/iframeindex_data/common.css" rel="stylesheet">
-<link href="/Ying_Second/css/iframeindex_data/jw.css" rel="stylesheet">
-
-<script src="/Ying_Second/css/iframeindex_data/jquery.js"></script>
-
-<script type="text/javascript" src="/Ying_Second/css/iframeindex_data/layer.js"></script>
-
-<link rel="stylesheet" href="/Ying_Second/css/iframeindex_data/layer.css" id="layui_layer_skinlayercss" >
-	
-<script src="/Ying_Second/css/iframeindex_data/echarts.js"></script>
-
 
 <script src="/Ying_Second/js/jquery.js"></script>
 
@@ -111,7 +100,7 @@
 	width: 62px;
 	height: 62px;
 	margin: 0 auto;
-	background: url() no-repeat;
+	background: url(/Ying_Second/img/ft_sns.png) no-repeat;
 }
 
 .ft_sns_list .ico_weixin {
@@ -331,17 +320,7 @@ li.active a {
 
 </head>
 <body>
-	<div id="floatTools" class="rides-cs" style="height: 408px;">
-		<div id="divFloatToolsView" class="floatR"
-			style="display: none; height: 408px; width: 140px;">
-			<div class="cn">
-				<img src="/Ying_Second/img/kefun.png"
-					style="width: 100px; display: block; margin: 0 auto; padding-top: 10px;">
-				<h3 class="titZx">盈+金融在线客服</h3>
-			</div>
-		</div>
-	</div>
-<!-- 顶部的显示Iframe -->
+
 	<div style="width: 1002px; height: 94px; margin: 0 auto;">
 		<iframe src="/Ying_Second/top" scrolling="nox`" width="1002"
 			height="94" frameborder="0"></iframe>
@@ -350,498 +329,366 @@ li.active a {
 		<div class="container">
 			<div class="row">
 				<ul class="topNav">
-				
 					<li class="active"><a class="item first"
 						href="/Ying_Second/home"> 首页 </a></li>
 					<li><a class="item" href="/Ying_Second/exploration">
 							网上体验中心 </a></li>
-					<li><a class="item" href="/Ying_Second/frontSubject/showsubject"> 产品中心 </a>
+					<li><a class="item" href="/Ying_Second/product"> 产品中心 </a>
 					</li>
-					<li><a class="item" href="/Ying_Second/nt/list"> 新闻中心 </a></li>
-					<li><a class="item" href="/Ying_Second/frontLoad"> 下载中心 </a></li>
+					<li><a class="item"
+						href="/Ying_Second/frontJournalism"> 新闻中心 </a></li>
+					<li><a class="item"
+						href="/Ying_Second/frontLoad"> 下载中心 </a></li>
 					<li><a class="item " href="/Ying_Second/frontCollege">
 							盈+商学院 </a></li>
-					<li><a class="item" href="/Ying_Second/frontStudy"> 投研中心
+					<li><a class="item"
+						href="/Ying_Second/frontStudy"> 投研中心
 					</a></li>
-					<li><a class="item last" href="/Ying_Second/myadd">
+					<li><a class="item last"
+						href="/Ying_Second/myadd">
 							我的加法库 </a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
+	<!-- -----------------------------------------分割线---------------------------------- -->
+	<!-- -----------------------------------------分割线---------------------------------- -->
+	<!-- -----------------------------------------分割线---------------------------------- -->
+	<!-- -----------------------------------------分割线---------------------------------- -->
 
-	<div class="main">
-
-		<script src="/Ying_Second/js/video.js"></script>
-		<!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
-		<script>
-			videojs.options.flash.swf = "/Ying_Second/js/video-js.swf";
-		</script>
-
-		<div class="indexBanner">
-
-			<div id="homebanner" class="carousel slide" data-ride="carousel">
-
-				<ol class="carousel-indicators">
-					<li data-target="#homebanner" data-slide-to="0" class=" active"></li>
-				</ol>
-
-				<div class="carousel-inner" role="listbox">
-					<div class=" item active">
-						<img src="/Ying_Second/img/banner2.jpg" alt="[]">
-					</div>
-				</div>
+<div class="main">
+	<div class="container helpCenter">
+		<div class="row">
+			<%-- <div class="left">
+			<c:forEach items="${listTi }" var="n">
+				<div class="item first active" name="reports" id="reportsTab">
+					<a href="/Ying_Second/new/listTi/${n.id}">${n.name }</a></div>
+					</c:forEach>
+				<div class="blank" style="height: 532px;"></div>
 				
-			</div>
-			<div class="login-box">
-				<div class="block backdrop"></div>
-				<div class="block" style="height: 280px;">
-					<p style="margin-top: 20px; line-height: 50px; font-size: 20px; text-align: center; color: #fff;">
-						<span style="color: #917739;">欢迎</span>盈主到来
-					</p>
-					<p
-						style="margin-bottom: 15px; line-height: 50px; font-size: 20px; text-align: center; color: #fff;">
-						现在开始<span style="color: #917739;">您的财富</span> 之旅吧
-					</p>
-					<a style="float: none; margin: 0 auto; margin-left: 15px; display: inline-block; margin-bottom: 10px;"
-						href="/Ying_Second/frontIframeLogin">
-						<img src="/Ying_Second/img/ying_index_login_btn.png">
-					</a>
-						 <a style="float: none; margin: 0 auto; margin-left: 15px; margin-top: 10px;"
-						href="/Ying_Second/toSign">
-						<img src="/Ying_Second/img/ying_index_reg_btn.png"></a>
-				</div>
-			</div>
-		</div>
-		
-		<div class="container index">
-			<div class="row">
-				<div class="report">
-					<div class="title">
-						<i class="glyphicon glyphicon-bell"></i>最新公告
-					</div>
-					<div class="content" id="announcements">
-						<span id="spanAnnouncements" data-bind="foreach:$data"> 
-						<input data-bind="value:id" value="19dc50b5-0284-4bed-bbe3-a363739f9e15"
-							type="hidden"> <span
-							data-bind="text:title+' '+strDate, click: showannouncement"
-							class="hidden" style="cursor: pointer">2017年春节放假安排 [01-23]</span>
+			</div> --%>
+			<div class="right">
+				<div class="content" id="reports" style="display: block;">
+				<div class="title">${news.news_type.name }</div>
+				<div>${news.text }</div>
+				<%-- <c:forEach items="${listT }" var="nt" varStatus="stat">
+					
+					<ul class="newsList">
 
-							<input data-bind="value:id"
-							value="e0d2276e-a35f-4b0a-aea7-3473cd800533" type="hidden">
-							<span data-bind="text:title+' '+strDate, click: showannouncement"
-							class="" style="cursor: pointer">重磅推出阳光私募基金-吉威量化套利稳健1号
-								[04-14]</span> <input data-bind="value:id"
-							value="48aefff0-bcdb-45c2-b247-9910896603d2" type="hidden">
-							<span data-bind="text:title+' '+strDate, click: showannouncement"
-							class="hidden" style="cursor: pointer">关于盈+理财平台安全卡管理通告
-								[01-13]</span> <input data-bind="value:id"
-							value="a140c288-f3ed-40b5-8ae1-73c131f87dfa" type="hidden">
-							<span data-bind="text:title+' '+strDate, click: showannouncement"
-							class="hidden" style="cursor: pointer">盈+全球首映 [07-13]</span>
-						</span>
-					</div>
-					<a href="/Ying_Second/nt/list">
-						查看更多&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; </a>
-				</div>
-				
-				<div class="gjList clearfix">
-					<ul>
-						<li>
-								<h2 class="tit">
-									<span>募</span>凯丰对冲10号
-								</h2> <span class="fenl">股权</span>
-								<div class="count">
-									<span class="s1"><b>45.0</b>%</span> <span class="s2"><b>31</b>人</span>
-									<span class="s3">年化收益</span> <span class="s4">已购人数</span> <span
-										class="s5">/</span>
-								</div>
-								<p class="safe">
-									起购金额：￥1,000,000.00元<br>
-								</p>
-								<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
-								<p class="abox">
-									<span class="abtn" onclick="toBuy()">立即购买</span>
-								</p>
-						</li>
-						<li>
-								<h2 class="tit">
-									<span>募</span>凯丰对冲9号
-								</h2> <span class="fenl">股权</span>
-								<div class="count">
-									<span class="s1"><b>45.0</b>%</span> <span class="s2"><b>36</b>人</span>
-									<span class="s3">年化收益</span> <span class="s4">已购人数</span> <span
-										class="s5">/</span>
-								</div>
-								<p class="safe">
-									起购金额：￥1,000,000.00元<br>
-								</p>
-								<p class="txt" style="height: 72px;">管理人：深圳市凯丰投资管理有限公司</p>
-								<p class="abox">
-									<span class="abtn" onclick="toBuy()" >立即购买</span>
-								</p>
-<!-- 						</a> -->
-						</li>
-						<li>
-<!-- 						<a class="all" target="_blank" href="http://pro.ying158.com/finance/financeView/24"> -->
-								<h2 class="tit">
-									<span>募</span>和聚友道专享1号
-								</h2> <span class="fenl">私募</span>
-								<div class="count">
-									<span class="s1"><b>35.0</b>%</span> <span class="s2"><b>360</b>天</span>
-									<span class="s3">年化收益</span> <span class="s4">投资期限</span> <span
-										class="s5">/</span>
-								</div>
-								<p class="safe">
-									起购金额：￥1,000,000.00元<br>
-								</p>
-								<p class="txt" style="height: 72px;">精品私募</p>
-								<p class="abox">
-									<span class="abtn" onclick="toBuy()" >立即购买</span>
-								</p>
-<!-- 						</a> -->
+						<li><a
+							href="/Ying_Second/new/listTe/${nt.id }"
+							target="_blank">${nt.title }</a><span class="time">${nt.addTime }</span>
 						</li>
 					</ul>
+					<li><a onclick="pagation(0)">上一页</a> | <a
+							onclick="pagation(2)">下一页</a></li>
+						</c:forEach> --%>
+						
+						<!-- <li><a
+							href="http://www.ying158.com/news/e0d2276e-a35f-4b0a-aea7-3473cd800533"
+							target="_blank">重磅推出阳光私募基金-吉威量化套利稳健1号</a><span class="time">2016-04-14</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/48aefff0-bcdb-45c2-b247-9910896603d2"
+							target="_blank">关于盈+理财平台安全卡管理通告</a><span class="time">2016-01-13</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/a140c288-f3ed-40b5-8ae1-73c131f87dfa"
+							target="_blank">盈+全球首映</a><span class="time">2015-07-13</span></li> -->
+
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+
+						
 				</div>
-					
-				<div class=" download apply">
-					<div class="title">
-						<img src="/Ying_Second/img/applyLeft.png">合作商风采<img
-							src="/Ying_Second/img/applyRight.png">
-					</div>
-					<div id="introMarquee">
-						<div id="marqueeContainer">
-							<ul id="articleImgs" class="unstyled"
-								style="background-color: #917739; padding-top: 10px;">
-								<li><img src="/Ying_Second/img/hezuo1.jpg" name="hezuo1.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo2.jpg" name="hezuo2.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo3.jpg" name="hezuo3.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo4.jpg" name="hezuo4.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo5.jpg" name="hezuo5.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo6.jpg" name="hezuo6.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo7.jpg" name="hezuo7.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo8.jpg" name="hezuo8.jpg">
-								</li>
-							</ul>
-							<ul id="articleImgs2" class="unstyled"
-								style="background-color: #917739; padding-top: 10px; margin-left: -5px;">
-								<li><img src="/Ying_Second/img/hezuo1.jpg" name="hezuo1.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo2.jpg" name="hezuo2.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo3.jpg" name="hezuo3.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo4.jpg" name="hezuo4.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo5.jpg" name="hezuo5.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo6.jpg" name="hezuo6.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo7.jpg" name="hezuo7.jpg">
-								</li>
-								<li><img src="/Ying_Second/img/hezuo8.jpg" name="hezuo8.jpg">
-								</li>
-							</ul>
-						</div>
-					</div>
+				<!-- <div id="strategy" class="content" style="display: none;">
+					<div class="title">趣味理财</div>
+					<ul class="newsList">
+
+						<li><a
+							href="http://www.ying158.com/news/5a70857e-2b2a-4ba6-aa25-a2e53fd0de23"
+							target="_blank">【私募知识】私募基金的五大误区</a><span class="time">2016-04-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/da3ea339-3ae6-4080-9aec-2e73f5264f55"
+							target="_blank">秒杀盖茨和巴老 这哥们财富增长了14658%</a><span class="time">2015-09-17</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/35696d49-9724-4072-a292-073d4bb3c3e0"
+							target="_blank">会买衣服怎么可能不会投资？教你从买衣服中学投资！</a><span class="time">2015-09-17</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/04b29d8b-fd00-4669-b9e6-2515d0e89bf0"
+							target="_blank">他赚了75亿美金, 却要在2016年之前散尽家产</a><span class="time">2015-09-16</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/4fd91292-554c-49d6-9c62-f1185de438d6"
+							target="_blank">美团估值为何骤降了？“烧钱模式”惹的祸!</a><span class="time">2015-09-16</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/fe845eec-4b78-456b-bdd1-0cbe8d8334e9"
+							target="_blank">滴滴投资人王刚：滴滴发展过程跌宕起伏堪比韩剧</a><span class="time">2015-09-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/2f11b8b1-edd2-4841-862d-17cf09953d93"
+							target="_blank">张泉灵离职央视：生命的后半段，我想重来一次！</a><span class="time">2015-09-14</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/606b9a91-ade1-43b8-9a03-7252861f37f9"
+							target="_blank">美国“9.11”事件3700余名救援人员确诊患癌</a><span class="time">2015-09-14</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/bda161cd-1333-4c0b-8c6f-f8405c34f16d"
+							target="_blank">触控笔、微软站台还有爱马仕，苹果简直能把乔帮主气活了！</a><span class="time">2015-09-11</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/ae6966b2-b791-42c8-a2c4-9f820c3ac341"
+							target="_blank">股权众筹第一案焦点：平台是受托人还是居间人</a><span class="time">2015-09-07</span>
+						</li>
+
+
+						<li><a onclick="pagation(0)">上一页</a> | <a
+							onclick="pagation(2)">下一页</a></li>
+
+					</ul>
+				</div>-->
+				<div id="lastest" class="content" style="display: none;">
+					<div class="title">市场动态</div>
+					<ul class="newsList">
+
+						<li><a
+							href="http://www.ying158.com/news/35cdf9bc-76d9-4cfc-8647-7568a3e5e515"
+							target="_blank">私募巨头贝莱德掌门人：负利率或导致“危险”后果</a><span class="time">2016-04-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/2584681c-5077-4fa1-b41c-9dfbe843f6fd"
+							target="_blank">美联储告诉全世界：紧盯中国！</a><span class="time">2015-09-21</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/532d1896-aceb-4184-9a31-d485ffe519a6"
+							target="_blank">央行马骏：中国经济前景将明显好于那些悲观的市场预</a><span class="time">2015-09-17</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/5c61a9ad-24b9-458b-92b1-71cd3114269f"
+							target="_blank">股权众筹第一案判决 平台人人投胜出</a><span class="time">2015-09-17</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/402f48d8-5aff-4833-a023-bd5288adf1bb"
+							target="_blank">海通证券姜超：三理由告诉你不要那么悲观 市场已经不算贵</a><span class="time">2015-09-16</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/ddbdbc69-de21-4951-a07d-43d6dbe836a8"
+							target="_blank">告别“钱荒” 步入“资产配置荒”时代</a><span class="time">2015-09-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/0b5d5cf0-ffd9-42a8-a167-d1571ddbf577"
+							target="_blank">美元，别人的货币，我们的问题</a><span class="time">2015-09-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/3634906c-e0c6-4363-809c-c7bee7bd04f8"
+							target="_blank">经济下行压力明显增大 继高盛之后中金下调中国GDP预期</a><span class="time">2015-09-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/72ca7cee-ae96-45e0-8ffd-b4c540c5d173"
+							target="_blank">你真的理解什么是O2O吗？它的三大特点和两大难题</a><span class="time">2015-09-14</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/92090fd6-c3d3-4338-8bf1-64c56328dffb"
+							target="_blank">李曙军欲开“一人公募” 首现自然人公募基金</a><span class="time">2015-09-14</span>
+						</li>
+
+
+						<li><a onclick="pagation(0)">上一页</a> | <a
+							onclick="pagation(2)">下一页</a></li>
+
+					</ul>
 				</div>
+				<div id="topNews" class="content" style="display: none;">
+					<div class="title">新闻头条</div>
+					<ul class="newsList">
 
-			</div>
-		</div>
+						<li><a
+							href="http://www.ying158.com/news/d8dfb77a-0de1-451e-8480-9ec6ab84f0a9"
+							target="_blank">【投资策略】一文看懂量化对冲</a><span class="time">2016-04-15</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/c91088fc-0a15-4f82-a09d-8990fd43aec0"
+							target="_blank">十年后的中国远超你想象（深度！）</a><span class="time">2016-02-02</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/265cbb92-479a-4748-b0e3-953f11a99044"
+							target="_blank">唐彬：互联网金融的哲学思考</a><span class="time">2016-02-02</span>
+						</li>
+						<li><a
+							href="http://www.ying158.com/news/df020c67-be05-43ba-afa9-de8687b5345d"
+							target="_blank">哈佛76年研究结果：只要遇到真爱，人生繁盛的几率就会显著提升</a><span
+							class="time">2016-02-02</span></li>
+						<li><a
+							href="http://www.ying158.com/news/0e3982a3-adff-4aaa-a98e-2ad3e64969b8"
+							target="_blank">私人财富重配 波澜壮阔的大牛市或在路上</a><span class="time">2016-02-02</span>
+						</li>
 
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
 
+						<li><a onclick="pagation(0)">上一页</a> | <a
+							onclick="pagation(2)">下一页</a></li>
 
-
-		<div id="announcementModal" class="modal fade infoModal">
-			<div class="modal-dialog">
-				<div class="modal-content" data-bind="if: $data"></div>
-			</div>
-		</div>
-
-		<div class="modal fade myModal" id="bigImg" role="dialog">
-			<div class="modal-dialog modal-sm" style="width: 1200px;">
-				<div class="modal-content">
-					<div class="modal-header"
-						style="padding-top: 10px; padding-bottom: 10px;">
-						<span>合作商风采</span>
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body" style="text-align: center;">
-						<img id="theBigImg" src="">
-					</div>
+					</ul>
 				</div>
-			</div>
-		</div>
-		<div class="modal fade errorInfo infoModal" id="closePositionDialog"
-			role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content" style="border-radius: 0px; width: 400px;">
-					<div class="modal-header">
-						<span>温馨提示</span>
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div id="errorMsg"></div>
-						<br>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="bottomAd"
-			style="position: fixed; bottom: 0px; margin: 0 auto;">
-			<script type="text/javascript">
-				function hide() {
-					$(".bottomAd").hide();
-				}
-			</script>
-			<img src="/Ying_Second/img/yingjia.png" usemap="#Map" border="0">
-			<map name="Map" id="Map">
-				<area shape="rect" coords="1420,23,1445,48"
-					href="javascript:hide();">
-			</map>
-		</div>
-
-		<script src="/Ying_Second/js/knockout-3.js"></script>
-		<script>
-			$("#marqueeContainer img").click(function() {
-				var bigImg = $(this).attr("name");
-				var url = "/Ying_Second/img/" + bigImg;
-				$("#bigImg #theBigImg").attr("src", url);
-				$("#bigImg").modal();
-			});
-
-			(function() {
-				var raf = window.requestAnimationFrame || function _raf(f) {
-					return setTimeout(f, 16.6);
-				}
-				var caf = window.cancelAnimationFrame || function _caf(f) {
-					return clearTimeout(f);
-				}
-				var tick = function() {
-					var ticks = {};
-					var _tick = function _tick(name, newTick) {
-						if (!ticks[name] || !newTick) {
-							ticks[name] = newTick;
-						}
-						lastTick = ticks[name];
-						ticks[name] = newTick;
-						return newTick - lastTick;
-					};
-					return _tick;
-				}();
-
-				var speed = 33.333333;
-				var tab = document.getElementById("introMarquee");
-				var tab1 = document.getElementById("articleImgs");
-				var tab2 = document.getElementById("articleImgs2");
-				tab2.innerHTML = tab1.innerHTML;
-				$("#articleImgs2 img").click(function() {
-					var bigImg = $(this).attr("name");
-					var url = "/Ying_Second/img/" + bigImg;
-					$("#bigImg #theBigImg").attr("src", url);
-					$("#bigImg").modal();
-				});
-				var offsetWidth1 = tab1.offsetWidth;
-				var offsetLeft2 = tab2.offsetLeft;
-				var scrollLeft = 0;
-				var MyMar;
-				function Marquee(time) {
-					t = tick("introMarquee", time || new Date());
-					MyMar = raf(Marquee);
-
-					if (scrollLeft >= offsetLeft2) {
-						scrollLeft = scrollLeft % offsetLeft2;
-					}
-					scrollLeft += (1 / speed) * t;
-					tab.scrollLeft = scrollLeft;
-				}
-				var MyMar = raf(Marquee, speed);
-				tab.onmouseover = function() {
-					caf(MyMar);
-					tick("introMarquee", null);
-				};
-				tab.onmouseout = function() {
-					MyMar = raf(Marquee, speed);
-				};
-				var currentLeft = 0;
-
-			})();
-
-			var loginFromPage = function() {
-				var phone = $("#phone").val();
-				var password = $("#password").val();
-				if ($.trim(phone) == "") {
-					$("#phone").focus();
-					return;
-				}
-				if ($.trim(password) == "") {
-					$("#password").focus();
-					return;
-				}
-				$(".loginBtn").addClass("disabled");
-				$.post("/api/authentication/signIn", {
-					login : phone,
-					password : password
-				}, function(data) {
-					if (data.isAuthenticated) {
-						window.location.href = '/account/UserCenter';
-					} else {
-						$(".loginInfo #loginFail").html(data.errorMessage);
-						$(".loginInfo").modal();
-						$(".loginBtn").removeClass("disabled");
-					}
-				});
-			}
-
-			function login() {
-
-				var phone = $.trim($("#phoneNum").val());
-				if (phone == "") {
-					$("#infosResult").html("请输入您的手机号码");
-					$("#infoUser").modal();
-					$("#phoneNum").focus();
-					return false;
-				}
-
-				var pwd = $.trim($("#pwd").val());
-
-				if (pwd == "") {
-					$("#infosResult").html("请输入登录密码");
-					$("#infoUser").modal();
-					$("#pwd").focus();
-					return false;
-				}
-
-				$(".loginBtn").addClass("disabled");
-				$.post("/api/authentication/signIn", {
-					login : phone,
-					password : pwd
-				}, function(data) {
-					if (data.isAuthenticated) {
-						if (data.returnUrl) {
-							window.location.href = data.returnUrl;
-						} else {
-							window.location.href = '/account/UserCenter';
-						}
-					} else {
-						$("#loginError").html(data.errorMessage);
-						$("#loginError").show();
-						$(".loginBtn").removeClass("disabled");
-					}
-				});
-			}
-			var counter = 1;
-			var announceTimer = function() {
-				return setInterval(function() {
-					var length = $("#spanAnnouncements > span").length;
-					if (length) {
-
-						$("#spanAnnouncements > span").each(function(i, e) {
-							if (i == counter % length) {
-								$(this).removeClass("hidden");
-							} else {
-								$(this).addClass("hidden");
-
-							}
-						});
-						counter++;
-						if (counter == length)
-							counter = 0;
-					}
-
-				}, 2000);
-			};
-
-			var timerId = announceTimer();
-			var announcements = ko.observableArray();
-			var announcement = ko.observable();
-			var showannouncement = function(an) {
-				announcement(an);
-				$('#announcementModal').modal('show');
-			}
-			$(function() {
-
-				ko.applyBindings(announcements, document
-						.getElementById("announcements"));
-				ko.applyBindings(announcement, document
-						.getElementById("announcementModal"));
-
-				$.get(
-								"/api/article/articleByCategory/b8c8dd38-0805-4ef4-bff6-17b835fca8aa/5",
-								"", function(rel) {
-
-									$.each(rel, function(i, v) {
-										if (v.title.length > 32) {
-											v.title = v.title.substring(0, 30)
-													+ '...';
-										}
-									});
-									announcements(rel);
-								});
-
-			});
-
-			var notReady = function() {
-				$("#closePositionDialog #errorMsg").html("<h4>即将推出，敬请期待！</h4>");
-				$("#closePositionDialog").modal();
-			}
-		</script>
-		<script>
-			var _hmt = _hmt || [];
-			(function() {
-				var hm = document.createElement("script");
-				hm.src = "//hm.baidu.com/hm.js?3a07c2531807d298ad88175fa22f9413";
-				var s = document.getElementsByTagName("script")[0];
-				s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
+				<div id="zuixins" class="content" style="display: none;">
+					<div class="title">最新动态</div>
+					<ul class="newsList">
 
 
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
+						<li>&nbsp;</li>
 
-		<div class="container index">
-			<div class="row">
-				<div class="security">
-					<div class="item">
-						<img src="/Ying_Second/img/indexSecurity1.png">
-						<div class="detail">
-							资金银行监管
-							<div class="desc">平台资金由第三方银行监管</div>
-						</div>
-					</div>
-					<div class="item">
-						<img src="/Ying_Second/img/indexSecurity2.png">
-						<div class="detail">
-							交易证监会监管
-							<div class="desc">投资交易由证监会监管</div>
-						</div>
-					</div>
-					<div class="item">
-						<img src="/Ying_Second/img/indexSecurity3.png">
-						<div class="detail">
-							风控盈+监管
-							<div class="desc">盈+全自动风控系统为您保驾护航</div>
-						</div>
-					</div>
-				</div>
+						<li><a onclick="pagation(0)">上一页</a> | <a
+							onclick="pagation(2)">下一页</a></li>
 
-
+					</ul>
+				</div> 
 			</div>
 		</div>
 	</div>
 
-	
+	<script>
+		var cid = "B8C8DD38-0805-4EF4-BFF6-17B835FCA8AA";
+		var container = "#reports";
+
+		$(document).ready(function() {
+			var url = window.location.href.toLowerCase();
+			if (url.indexOf("strategy") >= 0) {
+
+				$("#strategyTab").click();
+			} else if (url.indexOf("reports") >= 0) {
+
+				$("#reportsTab").click();
+			} else if (url.indexOf("lastest") >= 0) {
+
+				$("#lastestTab").click();
+			} else if (url.indexOf("zuixin") >= 0) {
+
+				$("#zuixinsTab").click();
+			} else if (url.indexOf("topNews") >= 0) {
+
+				$("#topNewsTab").click();
+			}
+		});
+
+		function pagation(pageIndex) {
+			$.get("/allnews/" + cid + "/10/" + pageIndex, function(rel) {
+				$(container).find("ul.newsList").html(rel);
+			});
+		}
+
+		$(".helpCenter .left").on("click", ".item", function() {
+
+			var className = $(this).attr("class");
+			if (className.indexOf("active") >= 0) {
+				return;
+			} else {
+				var idName = $(this).attr("name");
+				$(".helpCenter .left .item").removeClass("active");
+				$(this).addClass("active");
+				$(".content").hide();
+				var height = "";
+				switch (idName) {
+				case "strategy":
+					$("#strategy").show();
+					cid = "60573482-BDDC-445B-8557-3EF264552977";
+					container = "#strategy";
+					height = $("#strategy").css("height");
+					break;
+				case "reports":
+					$("#reports").show();
+					cid = "B8C8DD38-0805-4EF4-BFF6-17B835FCA8AA";
+					container = "#reports";
+					height = $("#reports").css("height");
+					break;
+				case "lastest":
+					$("#lastest").show();
+					cid = "DEF1B712-29AE-42E5-9A35-A5D163D6F384";
+					container = "#lastest";
+					height = $("#lastest").css("height");
+					break;
+				case "topNews":
+					$("#topNews").show();
+					cid = "C121BC77-2E19-4419-8B47-F4D568A3B34C";
+					container = "#topNews";
+					height = $("#topNews").css("height");
+					break;
+				case "zuixins":
+					$("#zuixins").show();
+					cid = "EE2E7057-881C-46B5-92AC-E9CE5D2E0FF8";
+					container = "#zuixins";
+					height = $("#zuixins").css("height");
+					break;
+				default:
+					break;
+				}
+
+				height = height.split("px")[0];
+				var blankHeight = (height - 120) + "px";
+				$(".blank").css("height", blankHeight);
+
+			}
+		});
+	</script>
+
+	<!-- -----------------------------------------分割线---------------------------------- -->
+	<!-- -----------------------------------------分割线---------------------------------- -->
+	<!-- -----------------------------------------分割线---------------------------------- -->
+	<!-- -----------------------------------------分割线---------------------------------- -->
+
+	<div class="container index">
+		<div class="row">
+			<div class="security">
+				<div class="item">
+					<img src="/Ying_Second/img/indexSecurity1.png">
+					<div class="detail">
+						资金银行监管
+						<div class="desc">平台资金由第三方银行监管</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="/Ying_Second/img/indexSecurity2.png">
+					<div class="detail">
+						交易证监会监管
+						<div class="desc">投资交易由证监会监管</div>
+					</div>
+				</div>
+				<div class="item">
+					<img src="/Ying_Second/img/indexSecurity3.png">
+					<div class="detail">
+						风控盈+监管
+						<div class="desc">盈+全自动风控系统为您保驾护航</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	</div>
+
+
 
 	<div class="foot">
 		<div class="container">
@@ -852,55 +699,67 @@ li.active a {
 						主要合作机构</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.picc.com/"><img
+							onmouseout="this.src = '/Ying_Second/img/1.jpg'"
 							src="/Ying_Second/img/1.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.fuioupay.com/"><img
+							onmouseout="    this.src = '/Ying_Second/img/2.jpg'"
 							src="/Ying_Second/img/2.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.nanhua.net/"><img
+							onmouseout="    this.src = '/Ying_Second/img/3.jpg'"
 							src="/Ying_Second/img/3.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://www.zttrust.com.cn/stations/526623d20a/index.php/5268e6b50a"><img
+							onmouseout="    this.src = '/Ying_Second/img/4.jpg'"
 							src="/Ying_Second/img/4.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://sc.hkex.com.hk/TuniS/www.hkex.com.hk/eng/index.htm/"><img
+							onmouseout="    this.src = '/Ying_Second/img/5.jpg'"
 							src="/Ying_Second/img/5.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.cmegroup.com/cn-s/"><img
+							onmouseout="    this.src = '/Ying_Second/img/6.jpg'"
 							src="/Ying_Second/img/6.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://www.sgx.com/wps/portal/sgxweb_ch/home/%21ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOKNHB1NPAycDSz9wwzMDTxD_Z2Cg8PCDANdjYEKIoEKDHAARwNC-sP1o8BK8JhQkBthkO6oqAgAzDYPQQ%21%21/dl5/d5/L2dBISEvZ0FBIS9nQSEh/"><img
+							onmouseout="    this.src = '/Ying_Second/img/7.jpg'"
 							src="/Ying_Second/img/7.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.neeq.com.cn/index/"><img
+							onmouseout="    this.src = '/Ying_Second/img/8.jpg'"
 							src="/Ying_Second/img/8.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.cmbchina.com/"><img
+							onmouseout="    this.src = '/Ying_Second/img/9.jpg'"
 							src="/Ying_Second/img/9.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank"
 							href="http://www.bankcomm.com/BankCommSite/default.shtml"><img
+							onmouseout="this.src = '/Ying_Second/img/10.jpg'"
 							src="/Ying_Second/img/10.jpg"></a>
 					</div>
 
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.ccb.com/cn/home/index.html"><img
+							onmouseout="    this.src = '/Ying_Second/img/11.jpg'"
 							src="/Ying_Second/img/11.jpg"></a>
 					</div>
 					<div class="hzhb_item">
 						<a target="_blank" href="http://www.icbc.com.cn/icbc/"><img
+							onmouseout="    this.src = '/Ying_Second/img/12.jpg'"
 							src="/Ying_Second/img/12.jpg"></a>
 					</div>
 				</div>
@@ -962,7 +821,7 @@ li.active a {
 			<div class="modal-content" style="width: 400px;">
 				<div class="modal-header">
 					<span>用户登录</span>
-					<button type="button" class="close" data-dismiss="modal">s
+					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 					</button>
 				</div>
@@ -973,10 +832,10 @@ li.active a {
 							placeholder="密码" id="modalPw" type="password">
 					</div>
 					<div>
-						<button class="btn btn-primary" onclick="loginFromModal()" style="padding-left: 20px; padding-right: 20px;">
-							登录
-						</button>
-						<a class="btn btn-info" href="http://www.ying158.com/Account/Regist" target="blank"
+						<button class="btn btn-primary" onclick="loginFromModal()"
+							style="padding-left: 20px; padding-right: 20px;">登录</button>
+						<a class="btn btn-info"
+							href="http://www.ying158.com/Account/Regist" target="blank"
 							style="padding-left: 20px; padding-right: 20px; margin-left: 20px;">注册</a>
 					</div>
 				</div>
@@ -1047,8 +906,8 @@ li.active a {
 					<form class="form-horizontal" id="feedbackForm">
 						<div class="form-group">
 							<div class="col-sm-12">
-			
-			
+
+
 								<select name="MsgType" class="form-control" id="MsgType"
 									data-val-required="留言类型 字段是必需的。" data-val="true">
 									<option selected="selected" value="0">请选择反馈类型</option>
@@ -1059,7 +918,6 @@ li.active a {
 									<option value="4">大额预约</option>
 									<option value="50">其他问题</option>
 								</select>
-								
 							</div>
 						</div>
 						<div class="form-group">
@@ -1267,11 +1125,8 @@ li.active a {
 			var s = document.getElementsByTagName("script")[0];
 			s.parentNode.insertBefore(hm, s);
 		})();
-		
-		function toBuy(){
-			window.location.href="/Ying_Second/frontLast";
-		}
 	</script>
+
 
 
 </body>

@@ -671,7 +671,7 @@
 
 						<li >
 
-							<a href="page_timeline.html">
+							<a href="/Ying_Second/account/list" target="showTable">
 
 							<i class="icon-time"></i>
 
@@ -691,7 +691,7 @@
 
 						<li >
 
-							<a href="page_blog.html">
+							<a href="/Ying_Second/cards/list" target="showTable">
 
 							<i class="icon-comments"></i>
 
@@ -701,7 +701,7 @@
 
 						<li >
 
-							<a href="page_blog_item.html">
+							<a href="/Ying_Second/plan/list" target="showTable">
 
 							<i class="icon-font"></i>
 
@@ -711,7 +711,7 @@
 
 						<li >
 
-							<a href="page_news.html">
+							<a href="/Ying_Second/dep/list" target="showTable">
 
 							<i class="icon-coffee"></i>
 
@@ -721,7 +721,7 @@
 
 						<li >
 
-							<a href="page_news_item.html">
+							<a href="/Ying_Second/with/list" target="showTable">
 
 							<i class="icon-bell"></i>
 
@@ -731,7 +731,7 @@
 
 						<li >
 
-							<a href="page_about.html">
+							<a href="/Ying_Second/arc/list" target="showTable">
 
 							<i class="icon-group"></i>
 

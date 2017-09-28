@@ -44,12 +44,6 @@
 </head>
 <body class="page-header-fixed">
 
-<div class="page-container row-fluid">
-
-		<div class="page-content">
-
-			<div class="container-fluid">
-
 				<div class="row-fluid">
 
 					<div class="span12">
@@ -160,11 +154,7 @@
 
 				</div>
 
-			</div>
 
-		</div>
-
-	</div>
 
 	<!-- END CONTAINER -->
 

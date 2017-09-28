@@ -26,20 +26,21 @@ public class FinancialController {
 	@Autowired
 	@Qualifier("financialServiceImpl")
 	private FinancialService financialServiceImpl;
-	
-	
+	@RequestMapping("/list")
+	public String list(Model model){
+		model.addAttribute("a10",1 );
+		return "backModel/fxx/YjHow";
+	}
 	@RequestMapping("/listall")
 	public String listall(Model model,String iphone,String start,String type,String endDate,HttpSession re){
 		model.addAttribute("phone", iphone);
 		Boolean a9=financialServiceImpl.list1(iphone);
 //		model.addAttribute("a8",a8);
-		if(a9){
-			
-		}else{
+		if(!a9){
+			model.addAttribute("a10",0 );
 			return "backModel/fxx/YjHow";
 		}
-		System.out.println(start+"时间");
-		System.out.println(a9);
+		model.addAttribute("a10",1 );
 		List<Award_records>       a1=financialServiceImpl.lsa(iphone, start,endDate);
 		List<Member>              a2=financialServiceImpl.lsm(iphone);
 		List a3=financialServiceImpl.lsma(iphone, start,endDate);
@@ -47,6 +48,8 @@ public class FinancialController {
 		List<Member_tally> a5=financialServiceImpl.lsmt(iphone, start,endDate);
 		List<Member_withdraw_record> a6=financialServiceImpl.lsmw(iphone, start,endDate);
 		List<Member_trade_record> a7=financialServiceImpl.lst(iphone, start,type,endDate);
+		
+	
 		model.addAttribute("a1",a1 );//奖励记录表
 		System.out.println("a1:"+a1);
 		model.addAttribute("a2",a2 );//个人信息表

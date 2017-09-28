@@ -84,9 +84,6 @@
 									反馈人：<input type="text" name="title" >
 										&nbsp&nbsp&nbsp&nbsp&nbsp
 									<button type="submit"  ><img  src="../img/2.png"></button>
-									&nbsp&nbsp&nbsp
-									   <a href="/Ying_Second/GongGao/serTou"  >  <button type="button" ><img src="../img/3.png" >
-										      </button></a>
 										</form>
 						
 										</div>

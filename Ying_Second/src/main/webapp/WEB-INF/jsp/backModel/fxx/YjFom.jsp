@@ -78,6 +78,19 @@
 							</div>
 
 							<div class="portlet-body flip-scroll">
+							<div class="tools">
+							
+                                            <form action="/Ying_Second/GongGao/serFom" method="post" >
+									反馈人：<input type="text" name="title" >
+										&nbsp&nbsp&nbsp&nbsp&nbsp
+									<button type="submit"  ><img  src="../img/2.png"></button>
+									&nbsp&nbsp&nbsp
+									   <a href="/Ying_Second/GongGao/serTou"  >  <button type="button" ><img src="../img/3.png" >
+										      </button></a>
+										</form>
+						
+										</div>
+							
 								<table class="table-bordered table-striped table-condensed flip-content">
 
 									<thead class="flip-content">
@@ -102,7 +115,7 @@
 
 											<td style="text-align: center">${m.id}</td>
 
-											<td style="text-align: center">${m.member.mobile_Phone}</td>
+											<td style="text-align: center">${m.member.member_name}</td>
 
 											<td style="text-align: center">${m.content}</td>
 								

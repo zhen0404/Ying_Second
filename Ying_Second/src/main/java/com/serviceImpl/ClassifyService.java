@@ -26,8 +26,7 @@ public class ClassifyService implements CollegeService<News_type> {
 	private CollegeDao<News_type> collegeDao;
 
 	public List<News_type> listAll() {
-		List list=this.collegeDao.listAll();
-		return list;
+		return null;
 	}
 
 	public void save(News_type news_type) {
@@ -41,7 +40,6 @@ public class ClassifyService implements CollegeService<News_type> {
 	}
 
 	public News_type getById(int id) {
-	
 		return this.collegeDao.getById(id);
 	}
 
@@ -55,6 +53,11 @@ public class ClassifyService implements CollegeService<News_type> {
 	}
 
 	public List<News_type> typeList() {
+		
+		return this.collegeDao.typeList();
+	}
+
+	public News_type getTypeId(int tid) {
 		// TODO Auto-generated method stub
 		return null;
 	}

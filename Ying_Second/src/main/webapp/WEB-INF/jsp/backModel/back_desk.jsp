@@ -586,9 +586,7 @@
 						<li >
 
 							<a href="/Ying_Second/oversea/overList" target="showTable">
-
 							海外配置</a>
-
 						</li>
 
 					</ul>
@@ -839,7 +837,7 @@
 						</li>
 						
 						<li>
-							<a href="#" target="showTable">
+							<a href="/Ying_Second/role/listRole" target="showTable">
 							<i class="icon-folder-open"></i>
 							权限设置
 							</a>

@@ -34,5 +34,7 @@ public interface MemberCenterService {
 	void updateps(Member member);
 	
 	void saveMoneyRecord(Member_deposit_record mdr);
+	
+	List tikuanPscheck(String name,String ps);
 
 }

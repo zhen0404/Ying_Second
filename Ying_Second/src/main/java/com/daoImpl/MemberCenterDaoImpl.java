@@ -120,6 +120,13 @@ public class MemberCenterDaoImpl implements MemberCenterDao {
 		getSession().save(mdr);
 	}
 
+	@Override
+	public List<Member> tikuanPscheck(String name,String ps) {
+		// TODO Auto-generated method stub
+		String sql="from Member where member_name='"+name+"' withdraw_password = '"+ps+"' ";
+		return getSession().createQuery(sql).list();
+	}
+
 	
 	
 }

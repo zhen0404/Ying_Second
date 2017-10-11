@@ -757,7 +757,7 @@
 
 						<li >
 
-							<a href="Ying_Second/GongGao">
+							<a href="Ying_Second/GongGao/serCop">
 
 							财务统计</a>
 
@@ -765,7 +765,7 @@
 
 						<li >
 
-							<a href="extra_lock.html">
+							<a href="Ying_Second/Fin/list">
 
 							用户综合统计</a>
 
@@ -791,7 +791,7 @@
 
 						<li>
 
-							<a href="javascript:;">
+							<a href="Ying_Second/GongGao/manager">
 
 							公告管理
 
@@ -802,7 +802,7 @@
 						
 						<li>
 
-							<a href="javascript:;">
+							<a href="Ying_Second/GongGao/YjFom">
 
 							意见反馈
 

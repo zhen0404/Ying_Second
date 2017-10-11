@@ -57,10 +57,6 @@ public class FinancialDaoImpl implements FinancialDao{
 		}
 		System.out.println(hql);
 		List<Member> list=session.createQuery(hql).list();
-		if(list.size()<1){
-			System.out.println("123");
-			return null;
-		}
 		return list;
 	}
 

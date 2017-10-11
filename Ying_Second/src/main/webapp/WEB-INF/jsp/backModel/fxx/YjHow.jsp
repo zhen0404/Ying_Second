@@ -83,7 +83,7 @@
 							<table  border="0">
 							<thead class="flip-content" >
 							<tr >
-							<td  style="text-align: center">手机号码：<input class="form-control" type="text" name="iphone" value="${phone }"></td>
+							<td  style="text-align: center">手机号码：<input class="form-control" type="text" name="iphone" value="${phone }" ></td>
 							<td  style="text-align:left;">
 						交易类型：<select class="form-control" name="type" id="type">
 	            	              <option value="">全部</option>
@@ -289,6 +289,7 @@
 		</div>
 
 	</div>
+	   <input type="hidden" id="a10" value="${a10 } ">
 	  <c:forEach items="${a2}" var="a2" varStatus="stat">
              <input type="hidden" id="b1" value="${a2.member_name } ">
               <input type="hidden" id="b2" value=" ${a2.identity } ">
@@ -359,6 +360,11 @@
 		document.getElementById("c2").innerHTML=c1.value;}
 	}
 	function fun(){
+		var aa=document.getElementById("a10").value;
+		if(aa==0){
+			alert("没有该用户！")
+		}
+		
 		var b1=document.getElementById("b1").value;
 		var b2=document.getElementById("b2").value;
 		var b3=document.getElementById("b3").value;
@@ -367,6 +373,7 @@
 		var b6=document.getElementById("b6").value;
 		var b7=document.getElementById("b7").value;
 		var b8=document.getElementById("b8").value;
+		
 		document.getElementById("z1").innerHTML=b1;
 		document.getElementById("z2").innerHTML=b2;
 		document.getElementById("z3").innerHTML=b3;
